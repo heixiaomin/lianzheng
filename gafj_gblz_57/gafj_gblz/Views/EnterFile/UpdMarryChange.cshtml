@@ -1,0 +1,206 @@
+﻿@{
+    ViewBag.Title = "UpdMarryChange";
+    Layout = "~/Views/_LayoutPage1.cshtml";
+}
+
+@*<div class="wrapper">*@
+
+<div class="row">
+    <div class="col-md-12">
+        <!--breadcrumbs start -->
+        <ul class="breadcrumb panel">
+            <li><a href="/EnterFile/Index"><i class="fa fa-home"></i>首页</a></li>
+            <li class="active">科级干部婚姻变化情况报告表</li>
+        </ul>
+        <!--breadcrumbs end -->
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12">
+        <section class="panel">
+            <header class="panel-heading">
+                 【@Session["realname"]】科级干部婚姻变化情况报告表
+            </header>
+            <div class="panel-body">
+                <div class="alert alert-block alert-danger fade in">
+                    <button type="button" class="close close-sm" data-dismiss="alert"><i class="fa fa-times"></i></button>
+                    <strong>说明：</strong>填写2000年1月以后发生变化的情况。
+                </div>
+                <form class="form-horizontal" role="form" action="index.html">
+                    @{foreach (var m in (ViewBag.mlist as List<Yisaa.DAL.DT_MarryChange>))
+                      {                       
+                         <div class="form-group" hidden="hidden">
+                            <label for="inputEmail1" class="col-lg-3 col-sm-2 control-label">序号</label>
+                            <div class="col-lg-4">
+                                <input type="" class="form-control" id="mid" placeholder="" value="@m.Id">
+                                <!--<p class="help-block">Example block-level help text here.</p>-->
+                            </div>
+                        </div>
+                          <div class="form-group">
+                            <label for="inputEmail1" class="col-lg-3 col-sm-2 control-label">本人是否有婚姻变化情况</label>
+                            <div class="col-lg-4">
+                                <input type="" class="form-control" id="ischange" placeholder="" value="@m.IsMarryChange">
+                                <!--<p class="help-block">Example block-level help text here.</p>-->
+                            </div>
+                        </div>
+                        <hr>
+                        <h5 style="background: #eff2f7; font-weight: bold; color: #65cea7; line-height: 30px; padding-left: 20px; border-radius: 4px;">原配偶</h5>
+                        <div class="form-group">
+                            <label for="input1" class="col-lg-3 col-sm-2 control-label">姓名</label>
+                            <div class="col-lg-4">
+                                <input type="" class="form-control" id="lastname" placeholder="" value="@m.LastPartner">
+                                <!--<p class="help-block">Example block-level help text here.</p>-->
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="input1" class="col-lg-3 col-sm-2 control-label">婚姻登记时间</label>
+                            <div class="col-lg-4">
+                                <input type="" class="form-control" id="lastregtime" placeholder="" value="@m.LastRegisterTime">
+                                <!--<p class="help-block">Example block-level help text here.</p>-->
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="input1" class="col-lg-3 col-sm-2 control-label">婚姻结束时间</label>
+                            <div class="col-lg-4">
+                                <input type="" class="form-control" id="lastendtime" placeholder="" value="@m.LastEndTime">
+                                <!--<p class="help-block">Example block-level help text here.</p>-->
+                            </div>
+
+                        </div>
+                        <hr>
+                        <h5 style="background: #eff2f7; font-weight: bold; color: #65cea7; line-height: 30px; padding-left: 20px; border-radius: 4px;">现配偶</h5>
+                        <div class="form-group">
+                            <label for="input1" class="col-lg-3 col-sm-2 control-label">姓名</label>
+                            <div class="col-lg-4">
+                                <input type="" class="form-control" id="nowname" placeholder="" value="@m.NowPartner">
+                                <!--<p class="help-block">Example block-level help text here.</p>-->
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="input1" class="col-lg-3 col-sm-2 control-label">政治面貌</label>
+                            <div class="col-lg-4">
+                                <input type="" class="form-control" id="nowpolitical" placeholder="" value="@m.NowPolitical">
+                                <!--<p class="help-block">Example block-level help text here.</p>-->
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="input1" class="col-lg-3 col-sm-2 control-label">婚姻登记时间</label>
+                            <div class="col-lg-4">
+                                <input type="" class="form-control" id="nowregtime" placeholder="" value="@m.NowRegisterTime">
+                                <!--<p class="help-block">Example block-level help text here.</p>-->
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="input1" class="col-lg-3 col-sm-2 control-label">单位</label>
+                            <div class="col-lg-4">
+                                <input type="" class="form-control" id="nowunit" placeholder="" value="@m.NowUnit">
+                                <!--<p class="help-block">Example block-level help text here.</p>-->
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="input1" class="col-lg-3 col-sm-2 control-label">职务</label>
+                            <div class="col-lg-4">
+                                <input type="" class="form-control" id="nowpost" placeholder="" value="@m.NowPost">
+                                <!--<p class="help-block">Example block-level help text here.</p>-->
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="input1" class="col-lg-3 col-sm-2 control-label">其他需要说明情况</label>
+                            <div class="col-lg-4">
+                                <textarea rows="6" class="form-control" id="other">@m.Other</textarea>
+                                <!--<p class="help-block">Example block-level help text here.</p>-->
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-lg-offset-3 col-lg-10">
+                                 @if (ViewBag.status == "被退回")
+                                {
+                                    <button type="button" class="btn btn-primary" id="updbtn_back">确认修改</button>
+                                }
+                                else
+                                {
+                                <button type="button" class="btn btn-primary" id="updbtn">确认修改</button>
+                                 }
+                                <button class="btn btn-default" type="button" onclick="window.history.go(-1);">返回</button>
+                            </div>
+                        </div>
+                      }
+                    }
+                </form>
+            </div>
+        </section>
+    </div>
+</div>
+
+@*</div>*@
+
+<script src="~/Content/js/jquery-1.10.2.min.js"></script>
+<script>
+
+    $(function () {
+        //修改
+        $("#updbtn").click(function () {
+
+            $.post("/EnterFile/_UpdMarry", {
+
+                //"m.Id": $("#ischange").val(),
+                "m.IsMarryChange": $("#ischange").val(),
+                "m.LastPartner": $("#lastname").val(),
+                "m.LastRegisterTime": $("#lastregtime").val(),
+                "m.LastEndTime": $("#lastendtime").val(),
+                "m.NowPartner": $("#nowname").val(),
+                "m.NowPolitical": $("#nowpolitical").val(),
+                "m.NowRegisterTime": $("#nowregtime").val(),
+                "m.NowUnit": $("#nowunit").val(),
+                "m.NowPost": $("#nowpost").val(),
+                "m.Other": $("#other").val(),
+
+            }, function (data) {
+
+                if (data == "1") {
+                    alert("修改成功！");
+                    location.href = "/EnterFile/Index";
+                }
+                else {
+                    alert("修改失败,请重试！");
+                    location.reload();//刷新
+                }
+            });
+        });
+
+
+        //退回修改
+        
+        $("#updbtn_back").click(function () {
+
+            $.post("/EnterFile/_UpdMarry_Back", {
+
+                //"m.Id": $("#ischange").val(),
+                "m.IsMarryChange": $("#ischange").val(),
+                "m.LastPartner": $("#lastname").val(),
+                "m.LastRegisterTime": $("#lastregtime").val(),
+                "m.LastEndTime": $("#lastendtime").val(),
+                "m.NowPartner": $("#nowname").val(),
+                "m.NowPolitical": $("#nowpolitical").val(),
+                "m.NowRegisterTime": $("#nowregtime").val(),
+                "m.NowUnit": $("#nowunit").val(),
+                "m.NowPost": $("#nowpost").val(),
+                "m.Other": $("#other").val(),
+
+            }, function (data) {
+
+                if (data == "1") {
+                    alert("修改成功！");
+                    location.href = "/EnterFile/Index";
+                }
+                else {
+                    alert("修改失败,请重试！");
+                    location.reload();//刷新
+                }
+            });
+        });
+
+    });
+
+</script>
+

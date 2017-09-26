@@ -1,0 +1,182 @@
+﻿@{
+    ViewBag.Title = "HighUserChkCrime";
+    Layout = "~/Views/_PartialPage2.cshtml";
+}
+
+
+<style>
+    #row1
+    {
+        margin-top: -2px;
+    }
+
+    #row2
+    {
+        margin-top: -2px;
+    }
+</style>
+
+
+<div class="row" id="row1">
+    <div class="col-md-12">
+        <!--breadcrumbs start -->
+        <ul class="breadcrumb panel">
+             <li><a href="/Main/Index"><i class="fa fa-home"></i>首页</a></li>
+            <li><a href="/CheckFile/Index">档案审核</a></li>           
+            <li class="active">廉政档案登记表</li>
+        </ul>
+        <!--breadcrumbs end -->
+    </div>
+</div>
+
+
+<div class="row" id="row2">
+    <div class="col-sm-12">
+        @{ 
+            var userinfolist = ViewBag.userinfolist as List<Yisaa.DAL.DT_UserInfo>;
+            var crime = ViewBag.crimelist as List<Yisaa.DAL.DT_CrimeReport>;
+            foreach (var total in (ViewBag.tlist as List<Yisaa.DAL.DT_Total>))
+            {
+              
+                foreach (var user in userinfolist.Where(a => a.Id == total.UserInfoId))
+                {
+
+                    foreach (var c in crime.Where(a => a.Id == total.CrimeId))
+                    {     
+      
+            <section class="panel">
+                <input type="text" value="@total.Id" hidden="hidden" id="myid"/>
+                <input type="text" value="@total.UserId" hidden="hidden" id="myuserid"/>
+                <header class="panel-heading">【@user.RealName】配偶、子女及其配偶受到查处或涉嫌犯罪情况报告表</header>
+                <div class="panel-body">
+
+                    <table class="table table-bordered">
+
+                        <tr>
+                            <td class="t01" width="15%">姓  名 </td>
+                            <td width="18%">@user.RealName</td>
+                            <td class="t01" width="15%">单  位 </td>
+                            <td width="22%">@user.WorkUnit</td>
+                            <td class="t01" width="15%">职 务 </td>
+                            <td width="15%">@user.Post</td>
+                        </tr>
+                        <tr>
+                            <td class="t01" rowspan="5">配偶、子女及其配偶受到执纪执法机关查处或涉嫌犯罪情况 </td>
+                            <td class="t01">姓  名 </td>
+                            <td colspan="4">@c.CrimerName</td>
+                        </tr>
+                        <tr>
+                            <td class="t01">与本人关系 </td>
+                            <td colspan="4">@c.Relation</td>
+                        </tr>
+                        <tr>
+                            <td class="t01">（原）工作
+                                <br />
+                                单位及职务 </td>
+                            <td colspan="4">@c.CrimerUnit</td>
+                        </tr>
+                        <tr>
+                            <td class="t01">执纪执法
+                                <br />
+                                机关 </td>
+                            <td colspan="4">@c.LawAgency</td>
+                        </tr>
+                        <tr>
+                            <td class="t01" height="150">涉案基本
+                                <br />
+                                情况及处
+                                <br />
+                                理结果 </td>
+                            <td colspan="4">@c.Result</td>
+                        </tr>
+                        <tr>
+                            <td class="t01">备  注 </td>
+                            <td colspan="5">@c.Remark</td>
+                        </tr>
+
+
+                    </table>
+
+                    <table class="table table-striped table-hover table-bordered">
+                        <thead>
+                            <tr>
+                                <th>退回意见<span style="color: red">（审核通过不必填写）</span></th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="">
+                                <td>
+                                    <textarea rows="6" class="form-control" id="backadvice"></textarea></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p class="t_center">
+                        <button class="btn btn-success btn-lg" type="button" id="check_yesbtn">审核通过</button>
+                        <button class="btn btn-danger btn-lg" type="button" id="check_nobtn">审核不通过</button>
+                        <button class="btn btn-default btn-lg" type="button" onclick="window.history.go(-1);">返回</button>
+                    </p>
+                </div>
+            </section>  
+                
+                    }
+                }
+            }
+        }
+    </div>
+</div>
+<script src="~/Content/js/jquery-1.10.2.min.js"></script>
+
+
+<script>
+    $(function () {       
+        //审核通过
+        $("#check_yesbtn").click(function () {
+
+            $.post("/CheckFile/_UpdTotalCrime_High?id=" + $("#myid").val(),
+              {
+                  "id": $("#myid").val(),   
+                  "advice": $("#backadvice").val(),
+                
+              },
+              function (data) {
+                  if (data=="1") {
+                      alert("审核通过！");
+
+                      location.href = "/CheckFile/HighUserChkOne?tid=" + $("#myuserid").val();
+ 
+                  } else {
+
+                      alert("审核不通过！");
+                      window.history.go(-1);
+                     
+                  }
+            });
+
+        });
+        //审核不通过
+        $("#check_nobtn").click(function () {
+
+            if ($("#backadvice").val() == "" || $("#backadvice").val() == null) {
+                alert("请填写不通过原由！");
+                return;
+            } else {
+                $.post("/CheckFile/_UpdTotalCrime_No_High?id=" + $("#myid").val(),
+                  {
+                      "id": $("#myid").val(),
+                      "advice": $("#backadvice").val(),
+
+                  },
+                  function (data) {
+                      if (data == "1") {
+                          alert("审核不通过！");
+                          location.href = "/CheckFile/HighUserChkOne?tid=" + $("#myuserid").val();
+
+                      }
+                  });
+            }
+        });
+    });
+    
+
+</script>

@@ -1,0 +1,788 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="db_gblzModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="db_gblzModelStoreContainer">
+    <EntitySet Name="DT_AdmonishingTalk" EntityType="db_gblzModel.Store.DT_AdmonishingTalk" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DT_ApplyByLetter" EntityType="db_gblzModel.Store.DT_ApplyByLetter" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DT_BeShared" EntityType="db_gblzModel.Store.DT_BeShared" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DT_BuildTime" EntityType="db_gblzModel.Store.DT_BuildTime" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DT_CrimeReport" EntityType="db_gblzModel.Store.DT_CrimeReport" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DT_Family" EntityType="db_gblzModel.Store.DT_Family" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DT_FamilyTotal" EntityType="db_gblzModel.Store.DT_FamilyTotal" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DT_GoAbroadCompany" EntityType="db_gblzModel.Store.DT_GoAbroadCompany" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DT_GoAbroadSettler" EntityType="db_gblzModel.Store.DT_GoAbroadSettler" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DT_GoAbroadStudy" EntityType="db_gblzModel.Store.DT_GoAbroadStudy" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DT_GoAbroadTotal" EntityType="db_gblzModel.Store.DT_GoAbroadTotal" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DT_HousingBuild" EntityType="db_gblzModel.Store.DT_HousingBuild" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DT_HousingBuy" EntityType="db_gblzModel.Store.DT_HousingBuy" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DT_HousingHouse" EntityType="db_gblzModel.Store.DT_HousingHouse" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DT_HousingRentout" EntityType="db_gblzModel.Store.DT_HousingRentout" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DT_HousingSell" EntityType="db_gblzModel.Store.DT_HousingSell" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DT_HousingTotal" EntityType="db_gblzModel.Store.DT_HousingTotal" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DT_Important" EntityType="db_gblzModel.Store.DT_Important" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DT_IncorruptTalk" EntityType="db_gblzModel.Store.DT_IncorruptTalk" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DT_IndustryChanges" EntityType="db_gblzModel.Store.DT_IndustryChanges" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DT_MarryChange" EntityType="db_gblzModel.Store.DT_MarryChange" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DT_PetitionLetter" EntityType="db_gblzModel.Store.DT_PetitionLetter" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DT_ProfitReport" EntityType="db_gblzModel.Store.DT_ProfitReport" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DT_Punish" EntityType="db_gblzModel.Store.DT_Punish" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DT_RefuseGift" EntityType="db_gblzModel.Store.DT_RefuseGift" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DT_RefuseGiftTotal" EntityType="db_gblzModel.Store.DT_RefuseGiftTotal" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DT_Responsibility" EntityType="db_gblzModel.Store.DT_Responsibility" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DT_Reward" EntityType="db_gblzModel.Store.DT_Reward" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DT_RewardPunishTotal" EntityType="db_gblzModel.Store.DT_RewardPunishTotal" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DT_Role" EntityType="db_gblzModel.Store.DT_Role" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DT_Share" EntityType="db_gblzModel.Store.DT_Share" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DT_SharePeople" EntityType="db_gblzModel.Store.DT_SharePeople" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DT_Total" EntityType="db_gblzModel.Store.DT_Total" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DT_UnitDeptChange" EntityType="db_gblzModel.Store.DT_UnitDeptChange" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DT_UserInfo" EntityType="db_gblzModel.Store.DT_UserInfo" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DT_UserLoginRecord" EntityType="db_gblzModel.Store.DT_UserLoginRecord" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DT_WeddingandDie" EntityType="db_gblzModel.Store.DT_WeddingandDie" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DT_WorkUnit" EntityType="db_gblzModel.Store.DT_WorkUnit" store:Type="Tables" Schema="dbo" />
+  </EntityContainer>
+  <EntityType Name="DT_AdmonishingTalk">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="YearTable" Type="int" />
+    <Property Name="BeLordTalk" Type="nvarchar" MaxLength="50" />
+    <Property Name="BePost" Type="nvarchar" MaxLength="50" />
+    <Property Name="BeUnit" Type="nvarchar" MaxLength="50" />
+    <Property Name="TalkReason" Type="nvarchar" MaxLength="255" />
+    <Property Name="LordTalk" Type="nvarchar" MaxLength="50" />
+    <Property Name="Post" Type="nvarchar" MaxLength="50" />
+    <Property Name="TalkTime" Type="nvarchar" MaxLength="50" />
+    <Property Name="TalkAddress" Type="nvarchar" MaxLength="50" />
+    <Property Name="Content" Type="nvarchar" MaxLength="255" />
+    <Property Name="ObjectAdvice" Type="nvarchar" MaxLength="100" />
+    <Property Name="LordTalkAdvice" Type="nvarchar" MaxLength="100" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="100" />
+    <Property Name="FillTime" Type="datetime" />
+    <Property Name="UpdateTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="DT_ApplyByLetter">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="YearTable" Type="int" />
+    <Property Name="ApplyTime" Type="nvarchar" MaxLength="50" />
+    <Property Name="Reason" Type="nvarchar" MaxLength="255" />
+    <Property Name="Answer" Type="nvarchar" MaxLength="255" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="100" />
+    <Property Name="FillTime" Type="datetime" />
+    <Property Name="UpdateTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="DT_BeShared">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="BeSharedId" Type="int" />
+  </EntityType>
+  <EntityType Name="DT_BuildTime">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="BuildStartTime" Type="datetime" />
+    <Property Name="BuildEndTime" Type="datetime" />
+    <Property Name="AddTime" Type="datetime" />
+    <Property Name="UpdateTime" Type="datetime" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="DT_CrimeReport">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="YearTable" Type="int" />
+    <Property Name="CrimerName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Relation" Type="nvarchar" MaxLength="50" />
+    <Property Name="CrimerUnit" Type="nvarchar" MaxLength="100" />
+    <Property Name="CrimerPost" Type="nvarchar" MaxLength="50" />
+    <Property Name="LawAgency" Type="nvarchar" MaxLength="50" />
+    <Property Name="Result" Type="nvarchar" MaxLength="100" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="100" />
+    <Property Name="FillTime" Type="datetime" />
+    <Property Name="UpdateTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="DT_Family">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="YearTable" Type="int" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Relation" Type="nvarchar" MaxLength="50" />
+    <Property Name="Outlook" Type="nvarchar" MaxLength="50" />
+    <Property Name="WorkUnit" Type="nvarchar" MaxLength="100" />
+    <Property Name="Post" Type="nvarchar" MaxLength="50" />
+    <Property Name="FamilyTotalId" Type="int" />
+  </EntityType>
+  <EntityType Name="DT_FamilyTotal">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="YearTable" Type="int" />
+    <Property Name="other" Type="text" />
+    <Property Name="FillTime" Type="datetime" />
+    <Property Name="UpdateTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="DT_GoAbroadCompany">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="YearTable" Type="int" />
+    <Property Name="BuildCompanyName" Type="nvarchar" MaxLength="50" />
+    <Property Name="BuildCompanyTitle" Type="nvarchar" MaxLength="50" />
+    <Property Name="BuildCompanyAddress" Type="nvarchar" MaxLength="100" />
+    <Property Name="CompanyName" Type="nvarchar" MaxLength="50" />
+    <Property Name="AbroadTotalId" Type="int" />
+  </EntityType>
+  <EntityType Name="DT_GoAbroadSettler">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="YearTable" Type="int" />
+    <Property Name="Settler" Type="nvarchar" MaxLength="50" />
+    <Property Name="SettlerTitle" Type="nvarchar" MaxLength="50" />
+    <Property Name="SettleTime" Type="nvarchar" MaxLength="50" />
+    <Property Name="SettleAddress" Type="nvarchar" MaxLength="100" />
+    <Property Name="SettlerWork" Type="nvarchar" MaxLength="50" />
+    <Property Name="AbroadTotalId" Type="int" />
+  </EntityType>
+  <EntityType Name="DT_GoAbroadStudy">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="YearTable" Type="int" />
+    <Property Name="StudyName" Type="nvarchar" MaxLength="50" />
+    <Property Name="StudyTitle" Type="nvarchar" MaxLength="50" />
+    <Property Name="StudyTime" Type="nvarchar" MaxLength="50" />
+    <Property Name="StudyAddress" Type="nvarchar" MaxLength="100" />
+    <Property Name="StudyMoney" Type="nvarchar" MaxLength="80" />
+    <Property Name="AbroadTotalId" Type="int" />
+  </EntityType>
+  <EntityType Name="DT_GoAbroadTotal">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="YearTable" Type="int" />
+    <Property Name="LandingPaper" Type="nvarchar" MaxLength="100" />
+    <Property Name="HKCertificate" Type="nvarchar" MaxLength="100" />
+    <Property Name="FillTime" Type="datetime" />
+    <Property Name="UpdateTime" Type="datetime" />
+    <Property Name="MarryName" Type="nvarchar" MaxLength="50" />
+    <Property Name="MarryUnit" Type="nvarchar" MaxLength="100" />
+    <Property Name="RegisterTime" Type="nvarchar" MaxLength="50" />
+    <Property Name="MarryPartner" Type="nvarchar" MaxLength="50" />
+    <Property Name="PartnerNational" Type="nvarchar" MaxLength="50" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="DT_HousingBuild">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="YearTable" Type="int" />
+    <Property Name="BuildHousesAddress" Type="nvarchar" MaxLength="100" />
+    <Property Name="BuildHousesArea" Type="nvarchar" MaxLength="80" />
+    <Property Name="BuildHousesUnit" Type="nvarchar" MaxLength="50" />
+    <Property Name="BuildHousesTotal" Type="nvarchar" MaxLength="80" />
+    <Property Name="Payment" Type="nvarchar" MaxLength="80" />
+    <Property Name="HousingTotalId" Type="int" />
+  </EntityType>
+  <EntityType Name="DT_HousingBuy">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="YearTable" Type="int" />
+    <Property Name="BuyHouseAddress" Type="nvarchar" MaxLength="100" />
+    <Property Name="BuyHouseArea" Type="nvarchar" MaxLength="80" />
+    <Property Name="BuyHouseMoney" Type="nvarchar" MaxLength="80" />
+    <Property Name="BuyHouseIncome" Type="nvarchar" MaxLength="50" />
+    <Property Name="BuyHouseTime" Type="datetime" />
+    <Property Name="HousingTotalId" Type="int" />
+  </EntityType>
+  <EntityType Name="DT_HousingHouse">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="YearTable" Type="int" />
+    <Property Name="HouseAddress" Type="nvarchar" MaxLength="100" />
+    <Property Name="Area" Type="nvarchar" MaxLength="80" />
+    <Property Name="HouseNature" Type="nvarchar" MaxLength="50" />
+    <Property Name="HouseFrom" Type="nvarchar" MaxLength="50" />
+    <Property Name="PropertyOwner" Type="nvarchar" MaxLength="50" />
+    <Property Name="HousingTotalId" Type="int" />
+  </EntityType>
+  <EntityType Name="DT_HousingRentout">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="YearTable" Type="int" />
+    <Property Name="RentoutAddress" Type="nvarchar" MaxLength="100" />
+    <Property Name="RentoutArea" Type="nvarchar" MaxLength="80" />
+    <Property Name="RentoutNature" Type="nvarchar" MaxLength="50" />
+    <Property Name="RentoutTime" Type="datetime" />
+    <Property Name="RentoutMoney" Type="nvarchar" MaxLength="80" />
+    <Property Name="HousingTotalId" Type="int" />
+  </EntityType>
+  <EntityType Name="DT_HousingSell">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="YearTable" Type="int" />
+    <Property Name="SellHouseAddress" Type="nvarchar" MaxLength="100" />
+    <Property Name="SellHouseArea" Type="nvarchar" MaxLength="80" />
+    <Property Name="SellHouseNature" Type="nvarchar" MaxLength="50" />
+    <Property Name="SellHouseTime" Type="datetime" />
+    <Property Name="SellHouseMoney" Type="nvarchar" MaxLength="80" />
+    <Property Name="HousingTotalId" Type="int" />
+  </EntityType>
+  <EntityType Name="DT_HousingTotal">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="YearTable" Type="int" />
+    <Property Name="PartnerName" Type="nvarchar" MaxLength="50" />
+    <Property Name="PartnerUnit" Type="nvarchar" MaxLength="50" />
+    <Property Name="PartnerPost" Type="nvarchar" MaxLength="50" />
+    <Property Name="Other" Type="nvarchar" MaxLength="100" />
+    <Property Name="FillTime" Type="datetime" />
+    <Property Name="UpdateTime" Type="datetime" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="DT_Important">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="YearTable" Type="int" />
+    <Property Name="Report" Type="nvarchar" MaxLength="255" />
+    <Property Name="CheckIn" Type="nvarchar" MaxLength="100" />
+    <Property Name="CheckInTime" Type="datetime" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="255" />
+    <Property Name="FillTime" Type="datetime" />
+    <Property Name="UpdateTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="DT_IncorruptTalk">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="YearTable" Type="int" />
+    <Property Name="TalkReason" Type="nvarchar" MaxLength="255" />
+    <Property Name="TalkTime" Type="nvarchar" MaxLength="50" />
+    <Property Name="TalkAddress" Type="nvarchar" MaxLength="50" />
+    <Property Name="LordTalk" Type="nvarchar" MaxLength="50" />
+    <Property Name="RecordPerson" Type="nvarchar" MaxLength="50" />
+    <Property Name="Content" Type="nvarchar" MaxLength="255" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="100" />
+    <Property Name="FillTime" Type="datetime" />
+    <Property Name="UpdateTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="DT_IndustryChanges">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="YearTable" Type="int" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Relation" Type="nvarchar" MaxLength="50" />
+    <Property Name="ChangeTime" Type="nvarchar" MaxLength="50" />
+    <Property Name="LastUnit" Type="nvarchar" MaxLength="100" />
+    <Property Name="LastPost" Type="nvarchar" MaxLength="50" />
+    <Property Name="NowUnit" Type="nvarchar" MaxLength="100" />
+    <Property Name="NowPost" Type="nvarchar" MaxLength="50" />
+    <Property Name="Reason" Type="nvarchar" MaxLength="100" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="100" />
+    <Property Name="FillTime" Type="datetime" />
+    <Property Name="UpdateTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="DT_MarryChange">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="YearTable" Type="int" />
+    <Property Name="IsMarryChange" Type="nvarchar" MaxLength="5" />
+    <Property Name="LastPartner" Type="nvarchar" MaxLength="50" />
+    <Property Name="LastRegisterTime" Type="datetime" />
+    <Property Name="LastEndTime" Type="datetime" />
+    <Property Name="NowPartner" Type="nvarchar" MaxLength="50" />
+    <Property Name="NowPolitical" Type="nvarchar" MaxLength="50" />
+    <Property Name="NowUnit" Type="nvarchar" MaxLength="50" />
+    <Property Name="NowPost" Type="nvarchar" MaxLength="50" />
+    <Property Name="NowRegisterTime" Type="datetime" />
+    <Property Name="Other" Type="nvarchar" MaxLength="255" />
+    <Property Name="FillTime" Type="datetime" />
+    <Property Name="UpdateTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="DT_PetitionLetter">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="YearTable" Type="int" />
+    <Property Name="RecordNum" Type="nvarchar" MaxLength="50" />
+    <Property Name="LetterTime" Type="nvarchar" MaxLength="50" />
+    <Property Name="FromUnit" Type="nvarchar" MaxLength="50" />
+    <Property Name="ByManName" Type="nvarchar" MaxLength="50" />
+    <Property Name="ByManPost" Type="nvarchar" MaxLength="50" />
+    <Property Name="ByManUnit" Type="nvarchar" MaxLength="50" />
+    <Property Name="ManName" Type="nvarchar" MaxLength="50" />
+    <Property Name="ManTel" Type="nvarchar" MaxLength="50" />
+    <Property Name="ManUnit" Type="nvarchar" MaxLength="50" />
+    <Property Name="ManPost" Type="nvarchar" MaxLength="50" />
+    <Property Name="Content" Type="nvarchar" MaxLength="255" />
+    <Property Name="SurveyResult" Type="nvarchar" MaxLength="255" />
+    <Property Name="HandleResult" Type="nvarchar" MaxLength="255" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="255" />
+    <Property Name="FillTime" Type="datetime" />
+    <Property Name="UpdateTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="DT_ProfitReport">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="YearTable" Type="int" />
+    <Property Name="CompanyName" Type="nvarchar" MaxLength="50" />
+    <Property Name="BusinessScope" Type="nvarchar" MaxLength="100" />
+    <Property Name="RegisterMoney" Type="nvarchar" MaxLength="80" />
+    <Property Name="InvestmentRate" Type="nvarchar" MaxLength="80" />
+    <Property Name="YearProfit" Type="nvarchar" MaxLength="80" />
+    <Property Name="ParttimeUnit" Type="nvarchar" MaxLength="50" />
+    <Property Name="ParttimeUnitNature" Type="nvarchar" MaxLength="50" />
+    <Property Name="ParttimePost" Type="nvarchar" MaxLength="50" />
+    <Property Name="YearMoney" Type="nvarchar" MaxLength="80" />
+    <Property Name="InvestUnit" Type="nvarchar" MaxLength="50" />
+    <Property Name="InvestUnitNature" Type="nvarchar" MaxLength="50" />
+    <Property Name="InvestWay" Type="nvarchar" MaxLength="50" />
+    <Property Name="InvestMoney" Type="nvarchar" MaxLength="80" />
+    <Property Name="YearIncome" Type="nvarchar" MaxLength="80" />
+    <Property Name="Other" Type="nvarchar" MaxLength="255" />
+    <Property Name="FillTime" Type="datetime" />
+    <Property Name="UpdateTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="DT_Punish">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="YearTable" Type="int" />
+    <Property Name="PunishTime" Type="nvarchar" MaxLength="50" />
+    <Property Name="PunishName" Type="nvarchar" MaxLength="50" />
+    <Property Name="PunishReason" Type="nvarchar" MaxLength="255" />
+    <Property Name="PunishDpt" Type="nvarchar" MaxLength="50" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="255" />
+    <Property Name="RewardTotalId" Type="int" />
+  </EntityType>
+  <EntityType Name="DT_RefuseGift">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="YearTable" Type="int" />
+    <Property Name="HandInMoney" Type="nvarchar" MaxLength="80" />
+    <Property Name="HandInName" Type="nvarchar" MaxLength="50" />
+    <Property Name="HandInCount" Type="int" />
+    <Property Name="HandInTime" Type="nvarchar" MaxLength="50" />
+    <Property Name="HandInDpt" Type="nvarchar" MaxLength="50" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="255" />
+    <Property Name="RefuseTotalId" Type="int" />
+  </EntityType>
+  <EntityType Name="DT_RefuseGiftTotal">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="YearTable" Type="int" />
+    <Property Name="CheckAdvice" Type="nvarchar" MaxLength="255" />
+    <Property Name="FillTime" Type="datetime" />
+    <Property Name="UpdateTime" Type="datetime" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="DT_Responsibility">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="YearTable" Type="int" />
+    <Property Name="Nature" Type="nvarchar" MaxLength="50" />
+    <Property Name="ResTime" Type="nvarchar" MaxLength="50" />
+    <Property Name="HandleOffice" Type="nvarchar" MaxLength="50" />
+    <Property Name="Fact" Type="nvarchar" MaxLength="100" />
+    <Property Name="HandleStatus" Type="nvarchar" MaxLength="255" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="100" />
+    <Property Name="FillTime" Type="datetime" />
+    <Property Name="UpdateTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="DT_Reward">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="YearTable" Type="int" />
+    <Property Name="RewardsTime" Type="nvarchar" MaxLength="50" />
+    <Property Name="RewardsDptandName" Type="nvarchar" MaxLength="60" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="255" />
+    <Property Name="RewardTotalId" Type="int" />
+  </EntityType>
+  <EntityType Name="DT_RewardPunishTotal">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="YearTable" Type="int" />
+    <Property Name="CheckAdvice" Type="nvarchar" MaxLength="255" />
+    <Property Name="FillTime" Type="datetime" />
+    <Property Name="UpdateTime" Type="datetime" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="DT_Role">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="DT_Share">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="BeSharedPeople" Type="nvarchar" MaxLength="50" />
+    <Property Name="SharedYear" Type="int" />
+    <Property Name="ShareBeginTime" Type="datetime" />
+    <Property Name="ShareEndTime" Type="datetime" />
+    <Property Name="SharePeople" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="BeSharedId" Type="int" />
+    <Property Name="ShareId" Type="int" />
+  </EntityType>
+  <EntityType Name="DT_SharePeople">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ShareId" Type="int" />
+    <Property Name="TotalId" Type="int" />
+  </EntityType>
+  <EntityType Name="DT_Total">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="YearTable" Type="int" />
+    <Property Name="AddTime" Type="datetime" />
+    <Property Name="UpdTime" Type="datetime" />
+    <Property Name="Status" Type="nvarchar" MaxLength="15" />
+    <Property Name="CheckStatus" Type="nvarchar" MaxLength="15" />
+    <Property Name="FileStatus" Type="nvarchar" MaxLength="15" />
+    <Property Name="BackTime" Type="datetime" />
+    <Property Name="ChkSubmitTime" Type="datetime" />
+    <Property Name="HighBackTime" Type="datetime" />
+    <Property Name="HighFileTime" Type="datetime" />
+    <Property Name="UserInfoId" Type="int" />
+    <Property Name="FamilyId" Type="int" />
+    <Property Name="RewardId" Type="int" />
+    <Property Name="RefuseGiftId" Type="int" />
+    <Property Name="ProfitId" Type="int" />
+    <Property Name="HousingId" Type="int" />
+    <Property Name="MarryChangeId" Type="int" />
+    <Property Name="WeddingandDieId" Type="int" />
+    <Property Name="GoAbroadId" Type="int" />
+    <Property Name="CrimeId" Type="int" />
+    <Property Name="IndustryChangesId" Type="int" />
+    <Property Name="ImportantId" Type="int" />
+    <Property Name="ResponsibilityId" Type="int" />
+    <Property Name="PetitionLetterId" Type="int" />
+    <Property Name="AdmonishingTalkId" Type="int" />
+    <Property Name="IncorruptTalkId" Type="int" />
+    <Property Name="ApplyByLetterId" Type="int" />
+    <Property Name="UserInfoAdvice1" Type="nvarchar" MaxLength="100" />
+    <Property Name="FamilyAdvice1" Type="nvarchar" MaxLength="100" />
+    <Property Name="RewardAdvice1" Type="nvarchar" MaxLength="100" />
+    <Property Name="RefuseAdvice1" Type="nvarchar" MaxLength="100" />
+    <Property Name="ProfitAdvice1" Type="nvarchar" MaxLength="100" />
+    <Property Name="HousingAdvice1" Type="nvarchar" MaxLength="100" />
+    <Property Name="MarryChgAdvice1" Type="nvarchar" MaxLength="100" />
+    <Property Name="WeddDieAdvice1" Type="nvarchar" MaxLength="100" />
+    <Property Name="AbroadAdvice1" Type="nvarchar" MaxLength="100" />
+    <Property Name="CrimeAdvice1" Type="nvarchar" MaxLength="100" />
+    <Property Name="IndustryAdvice1" Type="nvarchar" MaxLength="100" />
+    <Property Name="ImportantAdvice1" Type="nvarchar" MaxLength="100" />
+    <Property Name="ResponsAdvice1" Type="nvarchar" MaxLength="100" />
+    <Property Name="LetterAdvice1" Type="nvarchar" MaxLength="100" />
+    <Property Name="AdmTalkAdvice1" Type="nvarchar" MaxLength="100" />
+    <Property Name="IncTalkAdvice1" Type="nvarchar" MaxLength="100" />
+    <Property Name="ApplyAdvice1" Type="nvarchar" MaxLength="100" />
+    <Property Name="UserInfoAdvice2" Type="nvarchar" MaxLength="100" />
+    <Property Name="FamilyAdvice2" Type="nvarchar" MaxLength="100" />
+    <Property Name="RewardAdvice2" Type="nvarchar" MaxLength="100" />
+    <Property Name="RefuseAdvice2" Type="nvarchar" MaxLength="50" />
+    <Property Name="ProfitAdvice2" Type="nvarchar" MaxLength="100" />
+    <Property Name="HousingAdvice2" Type="nvarchar" MaxLength="100" />
+    <Property Name="MarryChgAdvice2" Type="nvarchar" MaxLength="100" />
+    <Property Name="WeddDieAdvice2" Type="nvarchar" MaxLength="100" />
+    <Property Name="AbroadAdvice2" Type="nvarchar" MaxLength="100" />
+    <Property Name="CrimeAdvice2" Type="nvarchar" MaxLength="100" />
+    <Property Name="IndustryAdvice2" Type="nvarchar" MaxLength="100" />
+    <Property Name="ImportantAdvice2" Type="nvarchar" MaxLength="100" />
+    <Property Name="ResponsAdvice2" Type="nvarchar" MaxLength="100" />
+    <Property Name="LetterAdvice2" Type="nvarchar" MaxLength="100" />
+    <Property Name="AdmTalkAdvice2" Type="nvarchar" MaxLength="100" />
+    <Property Name="IncTalkAdvice2" Type="nvarchar" MaxLength="100" />
+    <Property Name="ApplyAdvice2" Type="nvarchar" MaxLength="100" />
+    <Property Name="UserInfoTime1" Type="datetime" />
+    <Property Name="FamilyTime1" Type="datetime" />
+    <Property Name="RewardTime1" Type="datetime" />
+    <Property Name="RefuseTime1" Type="datetime" />
+    <Property Name="ProfitTime1" Type="datetime" />
+    <Property Name="HousingTime1" Type="datetime" />
+    <Property Name="MarryChgTime1" Type="datetime" />
+    <Property Name="WeddDieTime1" Type="datetime" />
+    <Property Name="AbroadTime1" Type="datetime" />
+    <Property Name="CrimeTime1" Type="datetime" />
+    <Property Name="IndustryTime1" Type="datetime" />
+    <Property Name="ImportantTime1" Type="datetime" />
+    <Property Name="ResponsTime1" Type="datetime" />
+    <Property Name="LetterTime1" Type="datetime" />
+    <Property Name="AdmTalkTime1" Type="datetime" />
+    <Property Name="IncTalkTime1" Type="datetime" />
+    <Property Name="ApplyTime1" Type="datetime" />
+    <Property Name="UserInfoTime2" Type="datetime" />
+    <Property Name="FamilyTime2" Type="datetime" />
+    <Property Name="RewardTime2" Type="datetime" />
+    <Property Name="RefuseTime2" Type="datetime" />
+    <Property Name="ProfitTime2" Type="datetime" />
+    <Property Name="HousingTime2" Type="datetime" />
+    <Property Name="MarryChgTime2" Type="datetime" />
+    <Property Name="WeddDieTime2" Type="datetime" />
+    <Property Name="AbroadTime2" Type="datetime" />
+    <Property Name="CrimeTime2" Type="datetime" />
+    <Property Name="IndustryTime2" Type="datetime" />
+    <Property Name="ImportantTime2" Type="datetime" />
+    <Property Name="ResponsTime2" Type="datetime" />
+    <Property Name="LetterTime2" Type="datetime" />
+    <Property Name="AdmTalkTime2" Type="datetime" />
+    <Property Name="IncTalkTime2" Type="datetime" />
+    <Property Name="ApplyTime2" Type="datetime" />
+    <Property Name="UserInfoPeople1" Type="nvarchar" MaxLength="50" />
+    <Property Name="FamilyPeople1" Type="nvarchar" MaxLength="50" />
+    <Property Name="RewardPeople1" Type="nvarchar" MaxLength="50" />
+    <Property Name="RefusePeople1" Type="nvarchar" MaxLength="50" />
+    <Property Name="ProfitPeople1" Type="nvarchar" MaxLength="50" />
+    <Property Name="HousingPeople1" Type="nvarchar" MaxLength="50" />
+    <Property Name="MarryChgPeople1" Type="nvarchar" MaxLength="50" />
+    <Property Name="WeddDiePeople1" Type="nvarchar" MaxLength="50" />
+    <Property Name="AbroadPeople1" Type="nvarchar" MaxLength="50" />
+    <Property Name="CrimePeople1" Type="nvarchar" MaxLength="50" />
+    <Property Name="IndustryPeople1" Type="nvarchar" MaxLength="50" />
+    <Property Name="ImportantPeople1" Type="nvarchar" MaxLength="50" />
+    <Property Name="ResponsPeople1" Type="nvarchar" MaxLength="50" />
+    <Property Name="LetterPeople1" Type="nvarchar" MaxLength="50" />
+    <Property Name="AdmTalkPeople1" Type="nvarchar" MaxLength="50" />
+    <Property Name="IncTalkPeople1" Type="nvarchar" MaxLength="50" />
+    <Property Name="ApplyPeople1" Type="nvarchar" MaxLength="50" />
+    <Property Name="UserInfoPeople2" Type="nvarchar" MaxLength="50" />
+    <Property Name="FamilyPeople2" Type="nvarchar" MaxLength="50" />
+    <Property Name="RewardPeople2" Type="nvarchar" MaxLength="50" />
+    <Property Name="RefusePeople2" Type="nvarchar" MaxLength="50" />
+    <Property Name="ProfitPeople2" Type="nvarchar" MaxLength="50" />
+    <Property Name="HousingPeople2" Type="nvarchar" MaxLength="50" />
+    <Property Name="MarryChgPeople2" Type="nvarchar" MaxLength="50" />
+    <Property Name="WeddDiePeople2" Type="nvarchar" MaxLength="50" />
+    <Property Name="AbroadPeople2" Type="nvarchar" MaxLength="50" />
+    <Property Name="CrimePeople2" Type="nvarchar" MaxLength="50" />
+    <Property Name="IndustryPeople2" Type="nvarchar" MaxLength="50" />
+    <Property Name="ImportantPeople2" Type="nvarchar" MaxLength="50" />
+    <Property Name="ResponsPeople2" Type="nvarchar" MaxLength="50" />
+    <Property Name="LetterPeople2" Type="nvarchar" MaxLength="50" />
+    <Property Name="AdmTalkPeople2" Type="nvarchar" MaxLength="50" />
+    <Property Name="IncTalkPeople2" Type="nvarchar" MaxLength="50" />
+    <Property Name="ApplyPeople2" Type="nvarchar" MaxLength="50" />
+    <Property Name="UserInfoStatus1" Type="int" />
+    <Property Name="FamilyStatus1" Type="int" />
+    <Property Name="RewardStatus1" Type="int" />
+    <Property Name="RefuseStatus1" Type="int" />
+    <Property Name="ProfitStatus1" Type="int" />
+    <Property Name="HousingStatus1" Type="int" />
+    <Property Name="MarryChgStatus1" Type="int" />
+    <Property Name="WeddDieStatus1" Type="int" />
+    <Property Name="AbroadStatus1" Type="int" />
+    <Property Name="CrimeStatus1" Type="int" />
+    <Property Name="IndustryStatus1" Type="int" />
+    <Property Name="ImportantStatus1" Type="int" />
+    <Property Name="ResponsStatus1" Type="int" />
+    <Property Name="LetterStatus1" Type="int" />
+    <Property Name="AdmTalkStatus1" Type="int" />
+    <Property Name="IncTalkStatus1" Type="int" />
+    <Property Name="ApplyStatus1" Type="int" />
+    <Property Name="UserInfoStatus2" Type="int" />
+    <Property Name="FamilyStatus2" Type="int" />
+    <Property Name="RewardStatus2" Type="int" />
+    <Property Name="RefuseStatus2" Type="int" />
+    <Property Name="ProfitStatus2" Type="int" />
+    <Property Name="HousingStatus2" Type="int" />
+    <Property Name="MarryChgStatus2" Type="int" />
+    <Property Name="WeddDieStatus2" Type="int" />
+    <Property Name="AbroadStatus2" Type="int" />
+    <Property Name="CrimeStatus2" Type="int" />
+    <Property Name="IndustryStatus2" Type="int" />
+    <Property Name="ImportantStatus2" Type="int" />
+    <Property Name="ResponsStatus2" Type="int" />
+    <Property Name="LetterStatus2" Type="int" />
+    <Property Name="AdmTalkStatus2" Type="int" />
+    <Property Name="IncTalkStatus2" Type="int" />
+    <Property Name="ApplyStatus2" Type="int" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="DT_UnitDeptChange">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="UnitName" Type="nvarchar" MaxLength="50" />
+    <Property Name="DeptName" Type="nvarchar" MaxLength="50" />
+    <Property Name="AddTime" Type="datetime" />
+    <Property Name="Remarks" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="DT_UserInfo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="YearTable" Type="int" />
+    <Property Name="Photo" Type="nvarchar" MaxLength="200" />
+    <Property Name="RealName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Sex" Type="nvarchar" MaxLength="20" />
+    <Property Name="NativePlace" Type="nvarchar" MaxLength="255" />
+    <Property Name="Birthday" Type="datetime" />
+    <Property Name="IdCardNum" Type="nvarchar" MaxLength="50" />
+    <Property Name="Outlook" Type="nvarchar" MaxLength="50" />
+    <Property Name="PartyTime" Type="datetime" />
+    <Property Name="Nation" Type="nvarchar" MaxLength="50" />
+    <Property Name="Property" Type="nvarchar" MaxLength="50" />
+    <Property Name="JobTime" Type="datetime" />
+    <Property Name="Education" Type="nvarchar" MaxLength="50" />
+    <Property Name="WorkUnit" Type="nvarchar" MaxLength="50" />
+    <Property Name="Post" Type="nvarchar" MaxLength="50" />
+    <Property Name="PostStatus" Type="nvarchar" MaxLength="50" />
+    <Property Name="PostTime" Type="datetime" />
+    <Property Name="DoWork" Type="nvarchar" MaxLength="50" />
+    <Property Name="UserAddress" Type="nvarchar" MaxLength="255" />
+    <Property Name="Introduction" Type="text" />
+    <Property Name="FillTime" Type="datetime" />
+    <Property Name="UpdateTime" Type="datetime" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="DT_UserLoginRecord">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Telphone" Type="nvarchar" MaxLength="20" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" />
+    <Property Name="LoginTime" Type="datetime" />
+    <Property Name="LoginIp" Type="varchar" MaxLength="20" />
+    <Property Name="LoginNum" Type="int" />
+    <Property Name="Remark" Type="varchar" MaxLength="40" />
+    <Property Name="RoleId" Type="int" />
+    <Property Name="IsInner" Type="bit" />
+    <Property Name="IsCadre" Type="bit" />
+    <Property Name="WorkUnitId" Type="int" />
+    <Property Name="DeptId" Type="int" />
+    <Property Name="Effectivedate" Type="datetime" />
+    <Property Name="Status" Type="bit" />
+    <Property Name="RealName" Type="nvarchar" MaxLength="50" />
+    <Property Name="WorkUnit" Type="nvarchar" MaxLength="50" />
+    <Property Name="Department" Type="nvarchar" MaxLength="50" />
+    <Property Name="Upost" Type="nvarchar" MaxLength="50" />
+    <Property Name="FillStatus" Type="nvarchar" MaxLength="50" />
+    <Property Name="ShareStatus" Type="nvarchar" MaxLength="50" />
+    <Property Name="AddTime" Type="datetime" />
+    <Property Name="UpdateTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="DT_WeddingandDie">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="YearTable" Type="int" />
+    <Property Name="Arrange" Type="nvarchar" MaxLength="200" />
+    <Property Name="ManageTime" Type="nvarchar" MaxLength="50" />
+    <Property Name="ManageAddress" Type="nvarchar" MaxLength="50" />
+    <Property Name="PartyObject" Type="nvarchar" MaxLength="50" />
+    <Property Name="PartyNum" Type="nvarchar" MaxLength="50" />
+    <Property Name="AcceptingMoney" Type="nvarchar" MaxLength="80" />
+    <Property Name="AcceptingCount" Type="nvarchar" MaxLength="50" />
+    <Property Name="AcceptingValue" Type="nvarchar" MaxLength="80" />
+    <Property Name="HandleStatus" Type="nvarchar" MaxLength="200" />
+    <Property Name="Adivce" Type="nvarchar" MaxLength="200" />
+    <Property Name="AdivceTime" Type="datetime" />
+    <Property Name="FillTime" Type="datetime" />
+    <Property Name="UpdateTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="DT_WorkUnit">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="UnitName" Type="nvarchar" MaxLength="50" />
+    <Property Name="ParentId" Type="int" />
+    <Property Name="CreateUnit" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreateDept" Type="nvarchar" MaxLength="50" />
+    <Property Name="AddUnitTime" Type="datetime" />
+    <Property Name="AddDeptTime" Type="datetime" />
+    <Property Name="UpdUnitTime" Type="datetime" />
+    <Property Name="UpdDeptTime" Type="datetime" />
+    <Property Name="Remarks" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+</Schema>

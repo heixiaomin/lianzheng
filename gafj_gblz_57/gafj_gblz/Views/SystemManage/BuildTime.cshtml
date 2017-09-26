@@ -1,0 +1,366 @@
+﻿@{
+    ViewBag.Title = "BuildTime";
+    Layout = "~/Views/_PartialPage1.cshtml";
+
+}
+
+
+<style>
+    .row
+    {
+        margin-top: 50px;
+    }
+</style>
+
+ 
+
+
+
+@*<div class="row">*@
+<div class="col-sm-12">
+    <section class="panel">
+        <header class="panel-heading">建档时间设置</header>
+        <div class="panel-body">
+            <div class="clearfix">
+                <div class="btn-group"><a class="btn btn-primary" href="#myModal-1" data-toggle="modal">新增建档时间 <i class="fa fa-plus"></i></a></div>
+                <!--新增建档时间弹出框开始-->
+                <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal-1" class="modal fade">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+                                <h4 class="modal-title">添加建档时间</h4>
+                            </div>
+                            <div class="modal-body">
+                                <form class="form-horizontal  " action="#">
+
+                                    <div class="form-group" hidden="hidden">
+                                        <label class="control-label col-md-3">序号</label>
+                                        <div class="col-md-7">
+                                            <input type="text" readonly="" size="16" class="form-control" id="bid">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">起始时间</label>
+                                        <div class="col-md-7">
+                                            <input type="text" size="16" class="form-control laydate-icon" id="starttime">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">结束时间</label>
+                                        <div class="col-md-7">
+                                            <input type="text" size="16" class="form-control laydate-icon" id="endtime">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="control-label col-md-4">
+                                            <button class="btn btn-primary" type="button" id="addbtn">确认添加</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--新增用户弹出框结束-->
+
+                 <!--修改用户弹出框开始-->
+                 <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal-2" class="modal fade">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+                                                    <h4 class="modal-title">修改建档时间</h4>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <form class="form-horizontal  " action="#">
+                                                        <div class="form-group" hidden="hidden">
+                                                            <label class="control-label col-md-3">序号</label>
+                                                            <div class="col-md-7">
+                                                                <input type="text" readonly="" size="16" class="form-control" id="updid">
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="control-label col-md-3">起始时间</label>
+                                                            <div class="col-md-7">
+                                                                <input type="text" size="16" class="form-control laydate-icon" id="updstarttime" readonly="">
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label class="control-label col-md-3">结束时间</label>
+                                                            <div class="col-md-7">
+                                                                <input type="text" size="16" class="form-control laydate-icon" id="updendtime" readonly="">
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <div class="control-label col-md-4">
+                                                                <button class="btn btn-primary" type="button" id="updbtn">确认修改</button>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                 <!--修改用户弹出框结束-->
+
+                <div class="clear"></div>
+            </div>
+            <div class="space15" style="height: 15px;"></div>
+            <section id="no-more-tables">
+                <div class="clear"></div>
+                <table class="table table-bordered table-striped table-condensed cf">
+                    <thead class="cf">
+                        <tr>
+                            <th>序号</th>
+                            <th>建档起始时间</th>
+                            <th>建档结束时间</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="mycontent">
+
+                        @{foreach (var item in ViewBag.times as List<Yisaa.DAL.DT_BuildTime>)
+                          {                                                
+                            <tr>
+                                <td data-title="序号">@item.Id</td>
+                                <td data-title="建档起始时间">
+                                    @if (item.BuildStartTime == null)
+                                    {
+                                        @item.BuildStartTime
+                                    }
+                                    else
+                                    {
+                                        @Convert.ToDateTime(item.BuildStartTime).ToString("yyyy-MM-dd")
+                                                                    
+                                    }
+                               
+                                </td>
+                                <td data-title="建档结束时间">
+                                     @if (item.BuildEndTime == null)
+                                    {
+                                        @item.BuildEndTime
+                                    }
+                                    else
+                                    {
+                                        @Convert.ToDateTime(item.BuildEndTime).ToString("yyyy-MM-dd")
+                                                                    
+                                    }
+                                </td>
+                                <td data-title="操作">
+                                    <a href="#myModal-2" class="upd"><i class="fa fa-edit"></i>修改</a>
+                                    <a href="/SystemManage/_DelTime?id=@item.Id"><i class="fa fa-trash-o"></i>删除</a>
+                                   
+                                </td>
+                            </tr>
+                          }                          
+                        }
+                    </tbody>
+
+
+                </table>
+                <div class="dataTables_paginate paging_bootstrap">
+                    <ul id="pagination2">
+                        
+                       @* <li class="prev disabled"><a href="#">← 上一页</a></li>
+                        <li class="active"><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li class="next"><a href="#">下一页 → </a></li>*@
+                    </ul>
+                </div>
+            </section>
+        </div>
+    </section>
+</div>
+@*</div>*@
+
+<script src="~/Content/js/jquery-1.10.2.min.js"></script>
+<script src="~/Content/laydate/laydate.js"></script>
+<script src="~/Content/myjs/jqPaginator.js"></script>
+<link href="~/Content/myjs/page.css" rel="stylesheet" />
+<script>
+
+    function getData(_page, _row) {
+        $.ajax({
+            url: "/SystemManage/SelectTime",
+            type: "get",
+            data: { page: _page, row: _row},
+            success: function (result) {
+                var jsonobj = JSON.parse(result);
+                parsetDate(jsonobj);
+                parsePage(jsonobj.allcount, _page, _row);
+            }
+        });
+    }
+
+    //时间的反序列化
+    function ChangeDateFormat(jsondate) {
+        jsondate = jsondate.replace("/Date(", "").replace(")/", "");
+        if (jsondate.indexOf("+") > 0) {
+            jsondate = jsondate.substring(0, jsondate.indexOf("+"));
+        }
+        else if (jsondate.indexOf("-") > 0) {
+            jsondate = jsondate.substring(0, jsondate.indexOf("-"));
+        }
+
+        var date = new Date(parseInt(jsondate, 10));
+        var month = date.getMonth() + 1 < 10 ? "0" + (date.getMonth() + 1) : date.getMonth() + 1;
+        var currentDate = date.getDate() < 10 ? "0" + date.getDate() : date.getDate();
+        return date.getFullYear() + "-" + month + "-" + currentDate;
+    }
+
+
+
+    function parsetDate(jsonobj) {
+        var str = "";
+        $.each(jsonobj.timelist, function (index, item) {
+            var needtr = $("<tr></tr>");          
+            needtr.append("<td>" + item.Id + "</td>");
+            needtr.append("<td>" + ChangeDateFormat(item.BuildStartTime) + "</td>");
+            needtr.append("<td>" + ChangeDateFormat(item.BuildEndTime) + "</td>");
+           
+            needtr.append("<td><a href=\"#myModal-2\" class=\"upd\" data-toggle=\"modal\"><i class=\"fa fa-edit\"></i>修改</a> <a href=\"/SystemManage/_DelTime?id=" + item.Id+"\"><i class=\"fa fa-trash-o\"></i>删除</a></td>");
+             
+
+            str += needtr.prop("outerHTML");
+
+        });
+
+        $("#mycontent2").html(str);
+    }
+
+    function parsePage(allcount, _cpage, _row) {
+
+        //通过总条数来计算总页数
+        var allpage = parseInt(allcount / _row);
+        if (allcount % _row != 0)
+            allpage++;
+
+        $.jqPaginator('#pagination2', {
+            totalPages: allpage,
+            visiblePages: _row,
+            currentPage: _cpage,
+            first: '<li class="prev"><a href="javascript:;">首页</a></li>',
+            prev: '<li class="next"><a href="javascript:;">上一页</a></li>',
+            next: '<li class="next"><a href="javascript:;">下一页</a></li>',
+            last: '<li class="next"><a href="javascript:;">尾页</a></li>',
+            page: '<li class="page"><a href="javascript:;">{{page}}</a></li>',
+            onPageChange: function (num, type) {
+                if (type != "init") {
+                    getData(num, _row);
+                }
+            }
+        });
+    }
+
+
+
+    $(function () {
+
+        getData(1, 5);
+
+        //添加
+        $("#addbtn").click(function () {
+
+            if (($("#starttime").val() == null || $("#starttime").val() == "") ||
+               ($("#endtime").val() == null || $("#endtime").val() == "")) {
+
+                alert("请将信息填写完整~ ~");
+                return;
+            }
+            else {
+                $.post("/SystemManage/_AddTime",
+         {
+             "b.BuildStartTime": $("#starttime").val(),
+             "b.BuildEndTime": $("#endtime").val(),
+         }, function (data) {
+             if (data == "1") {
+
+                 alert("添加成功！");
+
+                 location.href = "/SystemManage/BuildTime";
+
+             } else {
+
+                 alert("添加失败，请重试！");
+
+                 location.reload();
+             }
+
+         });
+
+            }
+
+
+            ("#myModal-1").hide();
+        });
+
+        //修改弹跳框
+        $(".upd").click(function () {
+
+            $(this).attr("data-toggle", "modal");
+
+            $("#updid").val($(this).parent().parent().find("td").eq(0).html().trim());
+            $("#updstarttime").val($(this).parent().parent().find("td").eq(1).html().trim());
+            $("#updendtime").val($(this).parent().parent().find("td").eq(2).html().trim());
+
+
+        });
+
+        //修改
+        $("#updbtn").click(function () {
+
+            if (($("#updstarttime").val() == null || $("#updstarttime").val() == "") ||
+             ($("#updendtime").val() == null || $("#updendtime").val() == "")) {
+
+                alert("请将信息填写完整~ ~");
+                return;
+            }
+            else {
+                $.post("/SystemManage/_UpdTime",
+                    {
+                        "b.Id": $("#updid").val(),
+                        "b.BuildStartTime": $("#updstarttime").val(),
+                        "b.BuildEndTime": $("#updendtime").val(),
+                    }, function (data) {
+                        if (data == "1") {
+
+                            alert("修改成功！");
+
+                            location.href = "/SystemManage/BuildTime";
+
+                        } else {
+
+                            alert("修改失败，请重试！");
+
+                            location.reload();
+                        }
+
+                    });
+            }
+        });
+
+    })
+
+    laydate({
+        elem: '#starttime',
+        event: 'focus'
+    });
+        
+    laydate({
+        elem: '#endtime',
+        event: 'focus'
+    });
+    laydate({
+        elem: '#updstarttime',
+        event: 'focus'
+    });
+    laydate({
+        elem: '#updendtime',
+        event: 'focus'
+    });
+</script>

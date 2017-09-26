@@ -1,0 +1,123 @@
+﻿@{
+    ViewBag.Title = "SelWaits";
+    Layout = "~/Views/_PartialPage2.cshtml";
+}
+
+
+<style>
+    .directory-info-row
+    {
+        margin-top: -50px;
+    }
+
+    .page-heading
+    {
+        margin-top: -20px;
+    }
+</style>
+
+
+<!-- page heading start-->
+<div class="page-heading">
+    <h3>科级干部廉政档案
+                <!--<small>综合科</small>-->
+    </h3>
+    <ul class="breadcrumb">
+        <li>
+            <a href="/Main/Index">首页</a>
+        </li>
+        <li class="active">档案审核</li>
+    </ul>
+</div>
+<!-- page heading end-->
+
+<ul id="filters" class="media-filter">
+    @{if (ViewBag.role == 3 || ViewBag.role == 4)
+      {  
+        <li><a href="#" class="cur">全部</a></li>
+        <li><a href="#">待归档</a></li>
+        <li><a href="#">已退回</a></li>
+        <li><a href="#">已归档</a></li>
+      }
+      else if (ViewBag.role == 2)
+      {      
+        <li><a href="/CheckFile/CheckUserIndex" class="cur">全部</a></li>
+        <li><a href="/CheckFile/SelWaits">待审核</a></li>
+        <li><a href="#">已退回</a></li>
+        <li><a href="#">已提交</a></li>
+        <li><a href="#">被退回</a></li>                
+      }
+    }
+</ul>
+<div class="directory-info-row">
+    <div class="row">
+        @{ 
+            var userlog = ViewBag.allusers as List<Yisaa.DAL.DT_UserLoginRecord>;
+            var units = ViewBag.units as List<Yisaa.DAL.DT_WorkUnit>;
+            var depts = ViewBag.depts as List<Yisaa.DAL.DT_WorkUnit>;
+            var userinfolist1 = ViewBag.userinfolist1 as List<Yisaa.DAL.DT_UserInfo>;
+            foreach (var total in (ViewBag.Waits as List<Yisaa.DAL.DT_Total>))
+            {
+                foreach (var ulogin in userlog.Where(a => a.Id == total.UserId))
+                {
+                    foreach (var unit in units.Where(a => a.Id == ulogin.WorkUnitId))
+                    {
+                        foreach (var dept in depts.Where(a => a.Id == ulogin.DeptId))
+                        {
+                            foreach (var user in userinfolist1.Where(a => a.UserId == total.UserId))
+                            {
+
+                                if (total.CheckStatus == "待审核") // total.CheckStatus == null
+                                {
+                                   
+            <div class="col-md-6 col-sm-6">
+                <div class="panel">
+                    <a class="inv_link" href="/CheckFile/CheckUserCheckOne?tid=@total.UserId">
+                        <div class="panel-body">
+                            <h4>@ulogin.RealName<span class="text-muted small"> -@user.Post</span>
+                                <div class="fr btn btn-warning btn-xs">待审核</div>
+                            </h4>
+                            <div class="media">
+                                <div class="pull-left">
+                                    <img class="thumb media-object" src="@user.Photo" alt="">
+                                </div>
+                                <div class="media-body">
+                                    <address>
+                                        单位：@unit.UnitName
+                                        <br>
+                                        科室：@dept.UnitName
+                                        <br>
+                                        <abbr title="Phone">联系电话:</abbr>
+                                        @ulogin.Telphone
+                                    </address>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+                                }
+
+                            }
+                        }
+
+                    }
+                }
+            }
+        }
+    </div>
+</div>
+
+
+<script src="~/Content/js/jquery-1.10.2.min.js"></script>
+<script>
+    $(function () {
+        $(".media-filter li").click(function () {
+            //alert();
+            $(this).find("a").eq(0).addClass("cur").siblings().find("a").eq(0).removeClass("cur");
+
+        });
+
+    });
+</script>
+

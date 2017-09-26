@@ -1,0 +1,114 @@
+﻿@{
+    ViewBag.Title = "UpdatePwd";
+    Layout = "~/Views/_LayoutPage1.cshtml";
+    
+}
+
+
+<style>
+    .col-lg-4
+    {
+        width: 650px;
+       
+    }
+    .col-sm-12
+    {
+         margin-top:30px;
+    }
+    
+</style>
+
+
+<div class="col-sm-12">
+    <section class="panel" style="height: 500px">
+        <header class="panel-heading">修改密码</header>
+        <div class="panel-body">
+            <br />
+            <form class="form-horizontal" role="form" action="#">
+
+                <div class="form-group">
+                    <label for="input1" class="col-lg-3 col-sm-2 control-label">旧密码</label>
+                    <div class="col-lg-4">
+                        <input type="text" class="form-control" name="from" id="oldpwd">
+                    </div>
+                </div>
+                <br />
+                <div class="form-group">
+                    <label for="input1" class="col-lg-3 col-sm-2 control-label">新密码</label>
+                    <div class="col-lg-4">
+                        <input type="text" class="form-control" name="from" id="newpwd">
+                    </div>
+                </div>
+                <br />
+                <div class="form-group">
+                    <label for="input1" class="col-lg-3 col-sm-2 control-label">确认密码</label>
+                    <div class="col-lg-4">
+                        <input type="text" class="form-control" name="from" id="surepwd">
+                    </div>
+                </div>
+                <br />
+
+                <div class="form-group">
+                    <div class="col-lg-offset-3 col-lg-10">
+                        <button type="button" class="btn btn-primary btn-lg" id="updbtn">确认修改</button>
+                        <button class="btn btn-default btn-lg" type="button" onclick="window.history.go(-1);">返回</button>
+                       
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+</div>
+<script src="~/Content/js/jquery-1.10.2.min.js"></script>
+
+
+<script>
+    $(function () {
+        $("#updbtn").click(function () {
+
+            var _oldpwd = $("#oldpwd").val();
+            var _newpwd = $("#newpwd").val();
+            var _surepwd = $("#surepwd").val();
+            if ((_oldpwd == "" || _oldpwd == null) || (_newpwd == "" || _newpwd == null) || (_surepwd == "" || _surepwd == null)) {
+                alert("密码不能为空！");
+                return;
+            }
+            else {
+                if (_newpwd == _surepwd) {
+                    $.post("/SystemManage/UpdPwd", { "oldpwd": _oldpwd, "newpwd": _newpwd }, function (data) {
+
+                        if (data == "ok") {
+                            alert("修改成功！");
+
+                        }
+                        else if (data == "fail") {
+                            alert("修改失败！");
+                        }
+                        else if (data == "error") {
+                            alert("旧密码输入不正确！");
+
+                        }
+                        else {
+                            alert("网络出现错误，请稍后再试！");
+                        }
+                    });
+                }
+                else {
+                    alert("两次输入新密码不一致！");
+                }
+            }
+        });
+
+        //返回
+        $("#backbtn").click(function () {
+
+            location.href = "/SystemManage/UserManage";
+
+        });
+
+    });
+
+
+</script>
+
+

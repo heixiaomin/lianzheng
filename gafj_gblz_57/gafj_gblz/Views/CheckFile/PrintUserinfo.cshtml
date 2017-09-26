@@ -1,0 +1,123 @@
+﻿@{
+    ViewBag.Title = "PrintUserinfo";
+}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="~/Content/css/global.css" type="text/css"/>
+<link rel="stylesheet" href="~/Content/css/print.css" type="text/css"/>
+<title>基本情况打印页面</title>
+
+
+</head>
+<body>
+<div class="menu">@* onclick="preview()" onclick="myprint();" onclick="javascript: window.close();"*@
+    <input type="button" value="打印" id="print_btn" onclick="javascript: window.print();"/>
+    <input type="button" value="关闭" onclick="window.history.go(-1);" />
+</div>
+<div class="print_bd lin_h45">
+  <h1 class="font_2 t_center padd_t40" >科级干部基本情况登记表</h1>
+  <div class="font_4"><span class="font_4sm fr">表一－1</span>填表单位（章）：</div>
+      
+                @{ 
+         
+            var uilist = ViewBag.uilist as List<Yisaa.DAL.DT_UserInfo>;
+            foreach (var total in (ViewBag.tlist as List<Yisaa.DAL.DT_Total>))
+            {
+
+                foreach (var item in uilist.Where(a => a.Id == total.UserInfoId))
+                            {   
+    <table class="tab_b01 font_4sm lin_h24 tb_h48" id="userinfo">
+    <tr >
+      <td class="t01" width="13%">姓    名 </td>
+      <td width="14%">@item.RealName</td>
+      <td class="t01" width="13%">性    别 </td>
+      <td width="14%">@item.Sex</td>
+      <td class="t01" width="13%">籍   贯 </td>
+      <td width="14%">@item.NativePlace</td>
+      <td rowspan="4" > 
+         <img src="~/Content/Upload/Images/@item.Photo" width="126" height="190"> 
+
+      </td>
+    </tr>
+    <tr >
+      <td class="t01" >出生日期 </td>
+      <td>
+              
+             @if (item.Birthday == null)
+              {
+                 @item.Birthday 
+              }
+              else
+              {
+                 @Convert.ToDateTime(item.Birthday).ToString("yyyy-MM-dd")
+                                                                    
+              }
+      </td>
+      <td class="t01" >身份证号 </td>
+      <td colspan="3" >@item.IdCardNum</td>
+    </tr>
+    <tr >
+      <td class="t01" >政治面貌 </td>
+      <td  >@item.Outlook</td>
+      <td class="t01" >入党时间 </td>
+      <td >@item.PartyTime</td>
+      <td class="t01" >民   族 </td>
+      <td >@item.Nation</td>
+    </tr>
+    <tr >
+      <td class="t01" >本人编制性质 </td>
+      <td  >@item.Property</td>
+      <td class="t01" >参加工作时间 </td>
+      <td >@item.JobTime</td>
+      <td class="t01" >学   历 </td>
+      <td >@item.Education</td>
+    </tr>
+    <tr >
+      <td class="t01" >工作单位 </td>
+      <td colspan="6" ><p>@item.WorkUnit</p></td>
+    </tr>
+    <tr >
+      <td class="t01" >现任职务 </td>
+      <td colspan="2" >@item.Post</td>
+      <td class="t01" >职   级 </td>
+      <td >@item.PostStatus</td>
+      <td class="t01" >任现职 <br />
+        务时间 </td>
+      <td >@item.PostTime</td>
+    </tr>
+    <tr >
+      <td class="t01" >分管工作 </td>
+      <td colspan="6" >@item.DoWork</td>
+    </tr>
+    <tr >
+      <td class="t01" >家庭住址 </td>
+      <td colspan="6" >@item.UserAddress</td>
+    </tr>
+    <tr >
+      <td class="t01 h320">个<br />人<br />简<br />历 </td>
+      <td colspan="6" >@item.Introduction</td>
+    </tr>
+  </table>
+          
+          
+              }
+          }
+      }
+</div>
+</body>
+</html>
+
+
+<script src="~/Content/js/jquery-1.10.2.min.js"></script>
+<script src="~/Content/myjs/jquery.jqprint-0.3.js"></script>
+
+
+<script type="text/javascript">
+    function myprint() {
+
+        //window.print();
+    }
+</script>

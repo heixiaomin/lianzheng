@@ -1,0 +1,101 @@
+﻿@{
+    ViewBag.Title = "登录";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="ThemeBucket">
+    <link rel="shortcut icon" href="#" type="~/Content/image/png">
+
+
+
+    <title>登录</title>
+     <link href="~/Content/css/validator.css" rel="stylesheet" />
+
+    <link href="~/Content/css/style.css" rel="stylesheet">
+    <link href="~/Content/css/style-responsive.css" rel="stylesheet">
+
+   
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body class="login-body">
+
+    <div class="container">
+
+        <form class="form-signin" method="post" action="/Home/ExcLogin" id="loginform">
+            <div class="form-signin-heading text-center">
+                <h1 class="sign-title">用户登录</h1>
+                <img src="~/Content/images/login-logo.png" alt="" />
+            </div>
+            <div class="login-wrap">  @*value="YisaaAdmin" value="123456" autofocus*@
+                <input type="text" name="telphone" class="form-control" placeholder="手机号" id="tel" style="width:193px;float:left" value="YisaaAdmin."><span id="telTip" style="float:right"></span> 
+              
+                  <input type="password" name="password" class="form-control" placeholder="密码" id="pwd" style="width:193px;float:left" value="123456"><span id="pwdTip" style="float:right"></span>
+                <p>
+                    <span>
+                        <input type="text" name="yzm"  id="codename" class="form-control" placeholder="手机验证码" style="width:195px;float:left"> <span id="codeTip"></span>
+
+                        <br />
+                        <button class="btn btn-info  btn-sm" type="button" style="float:right;height:37px" id="getcode">
+                            获取验证码
+                        </button>
+                    </span>
+                </p>
+                <button class="btn btn-lg btn-login btn-block" type="submit" id="submitbtn" onclick="login()">
+                    <i class="fa fa-check"></i>
+                </button>
+            </div>
+        </form>
+    </div>
+    <!-- Placed js at the end of the document so the pages load faster -->
+    <!-- Placed js at the end of the document so the pages load faster -->
+    <script src="~/Content/js/jquery-1.10.2.min.js"></script>
+    <script src="~/Content/js/bootstrap.min.js"></script>
+    <script src="~/Content/js/modernizr.min.js"></script>
+
+    <script src="~/Content/myjs/formValidator-4.0.1.js"></script>
+    <script src="~/Content/myjs/formValidatorRegex.js"></script>
+
+    <script src="~/Content/myjs/CheckCode.js"></script>
+
+</body>
+</html>
+
+<script>
+    $(function login() {
+     
+        $.formValidator.initConfig({
+            submitButtonID: "submitbtn", onSuccess: function () {
+                $.get("/Home/ExcLogin", $("#loginform").serialize(),
+                    function ()
+                    {                    
+                  
+                });
+            }
+        });
+
+        $("#pwd").formValidator({ onShow: "请输入密码", onFocus: "长度6到20", onCorrect: "输入正确" })
+            .inputValidator({ min: 6, max: 20, onSuccess: "输入正确", onError: "输入错误" });
+
+        $("#tel").formValidator({ onShow: "请输入号码", onFocus: "长度为11位", onCorrect: "输入正确" })
+            .inputValidator({ min: 11, max: 11, onSuccess: "输入正确", onError: "输入错误" });
+
+        $("#codename").formValidator({ onShow: "请输入验证码", onFocus: "长度为6位", onCorrect: "输入正确" })
+          .inputValidator({ min: 6, max: 6, onSuccess: "输入正确", onError: "输入错误" });
+
+        
+    
+    });
+    
+
+
+</script>

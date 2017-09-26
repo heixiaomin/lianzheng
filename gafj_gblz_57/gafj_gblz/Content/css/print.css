@@ -1,0 +1,67 @@
+@charset "utf-8";
+/* CSS Document */
+
+.menu{position:absolute; left:48%; top:96px;}
+.menu02{position:absolute; left:48%; top:112px;}
+.menu02 input,.menu input{ padding:3px 6px;}
+.print_bd{margin:0 auto; display:block; width:649px; height:978px;}
+.print_bd p{display:block;}
+.fr{ float:right;}
+
+.t_left{ text-align:left!important;}
+.t_right{ text-align:right!important;}
+.t_center{ text-align:center!important;}
+.font_1{ font-size:34px;}
+.font_1sm{ font-size:32px;}
+.font_2{ font-size:29px;}
+.font_2sm{ font-size:24px;}
+.font_3{ font-size:21px;}
+.font_3sm{ font-size:20px;}
+.font_4{ font-size:18px;}
+.font_4sm{ font-size:16px;}
+.font_5{ font-size:14px;}
+.font_5sm{ font-size:12px;}
+.lin_h18{ line-height:18px;}
+.lin_h20{ line-height:20px;}
+.lin_h22{ line-height:22px;}
+.lin_h24{ line-height:24px;}
+.lin_h30{ line-height:30px;}
+.lin_h36{ line-height:36px;}
+.lin_h40{ line-height:40px;}
+.lin_h45{ line-height:45px;}
+.lin_h50{ line-height:50px;}
+.lin_h60{ line-height:60px;}
+
+.tab_b01{ width:100%;}
+.tab_b01 tr td{border:1px solid #000; padding:5px; text-align:left;}
+.tab_b02{ width:100%;border:1px solid #000; margin:0 auto}
+.tab_b02 tr td{ text-align:center; border:1px solid #000; border-left:none; border-bottom:none;}
+.tb_h48 tr td{height:48px;}
+.tb_h40 tr td{height:40px;}
+.tb_h60 tr td{height:60px;}
+.t_r_t{ border-right:none!important; border-top:none!important;}
+.tab_b02 tr td table tr td{padding:3px 5px;}
+.padd20{ padding:20px;}
+.padd_t10{ padding-top:10px;}
+.padd_t20{ padding-top:20px;}
+.padd_t30{ padding-top:30px;}
+.padd_t40{ padding-top:40px;}
+.mt10{ margin-top:10px;}
+.mt15{ margin-top:15px;}
+.mt20{ margin-top:20px;}
+.mt25{ margin-top:25px;}
+.mt30{ margin-top:30px;}
+.mt35{ margin-top:35px;}
+.mt40{ margin-top:40px;}
+
+.lin_w{ display:inline-block; width:200px;}
+.t01{ text-align:center!important; vertical-align:middle;}
+.h90{ height:90px!important;}
+.h120{ height:120px!important;}
+.h160{ height:160px!important;}
+.h180{ height:180px!important;}
+.h220{ height:220px!important;}
+.h320{ height:320px!important;}
+.h400{ height:400px!important;}
+.h480{ height:480px!important;}
+.br_date{ text-align:right; margin-right:10px;}

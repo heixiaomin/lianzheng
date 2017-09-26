@@ -1,0 +1,328 @@
+﻿@{
+    ViewBag.Title = "UpdBaseInfo2";
+    Layout = "~/Views/_LayoutPage1.cshtml";
+}
+
+@*<div class="wrapper">*@
+
+
+<div class="row">
+    <div class="col-md-12">
+        <!--breadcrumbs start -->
+        <ul class="breadcrumb panel">
+            <li><a href="/EnterFile/Index"><i class="fa fa-home"></i>首页</a></li>
+            <li class="active">科级干部基本情况登记表2</li>
+        </ul>
+        <!--breadcrumbs end -->
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-12">
+        <section class="panel">
+            <header class="panel-heading">
+                【@Session["realname"]】基本情况登记表2
+            </header>
+            <div class="panel-body">
+                <div class="alert alert-block alert-danger fade in">
+                    <button type="button" class="close close-sm" data-dismiss="alert"><i class="fa fa-times"></i></button>
+                    <strong>说明：</strong>填现状
+                </div>
+
+                <table class="table table-striped table-hover table-bordered" id="editable-sample">
+                    <thead>
+                        <tr>
+                            <th colspan="6">家庭主要成员及主要社会关系
+                                <div style="float: right">
+                                    <button id="editable-sample_new" class="btn btn-primary">
+                                        新增 <i class="fa fa-plus"></i>
+                                    </button>
+                                </div>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th hidden="hidden">序号</th>
+                            <th>称谓</th>
+                            <th>姓名</th>
+                            <th>政治面貌</th>
+                            <th>工作单位</th>
+                            <th>职务</th>
+                            <th hidden="hidden">家庭总Id</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody id="mytbody">
+                        @{
+                            //foreach (var fato in (ViewBag.fatotal as List<Yisaa.DAL.DT_FamilyTotal>).Where(a => a.UserId == ViewBag.id))
+                            //{
+                            // <td hidden="hidden"><input type="text" value="@fato.Id==null?0:@fato.Id" id="fatoid"/></td>
+                            // }
+                            //.Where(a => a.FamilyTotalId == (fato.Id == null ? 1 : fato.Id))   
+                            foreach (var item in (ViewBag.flist as List<Yisaa.DAL.DT_Family>).Where(a => a.UserId == ViewBag.id))
+                            {                                
+                            <tr>
+                                <td hidden="hidden">@item.Id</td>
+                                <td>@item.Relation</td>
+                                <td>@item.Name</td>
+                                <td>@item.Outlook</td>
+                                <td>@item.WorkUnit</td> 
+                                <td>@item.Post</td> 
+                             
+                                <td hidden="hidden" id="fatoid">@ViewBag.SelFamilyIds</td>
+                                 @*<input type="text" value="@ViewBag.SelFamilyIds==""||null?0:@ViewBag.SelFamilyIds" id="fatoid"/> ==(""||null)?0:@ViewBag.SelFamilyIds*@
+                                <td>
+                                    <a href="#" style="cursor: pointer" class="update">修改</a> | <a href="/EnterFile/_DelFamily?f.Id=@item.Id" style="cursor:pointer" class="delete">删除</a>
+                                </td>
+                            </tr>
+                            }
+                           
+                            }
+                    </tbody>
+                </table>
+                <table class="table table-striped table-hover table-bordered">
+                    <thead>
+                        <tr>
+                            <th>其他需要说明的情况</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{foreach (var ft in (ViewBag.FamilyTotal as List<Yisaa.DAL.DT_FamilyTotal>))
+                          {
+                              
+                          
+                        <tr class="">
+                            
+                            <td>
+                                <textarea rows="6" class="form-control" id="other">
+                                   @ft.other.Trim()
+                                </textarea>
+                            </td>
+                        </tr>
+                          }}
+
+                    </tbody>
+                </table>
+
+                <div class="form-group">
+                    <div class="col-lg-offset-5 col-lg-10">
+                           @if (ViewBag.status == "被退回")
+                           {
+                                    <button type="button" class="btn btn-primary" id="updbtn_back">确认修改</button>
+                           }
+                           else
+                           {
+                        
+                        <button type="button" class="btn btn-primary" id="suresave_btn">确认修改</button>
+                           }
+                        <button class="btn btn-default" type="button" onclick="window.history.go(-1);">返回</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+</div>
+@*</div>*@
+
+<script src="~/Content/js/jquery-1.10.2.min.js"></script>
+
+<script>
+    $(function () {
+        //添加
+        $("#editable-sample_new").click(function () {
+            var needtr = $("<tr></tr>");
+            needtr.append(
+            "<td><input type=\"text\" id='relation' class=\"form-control\"></td>" +
+            "<td><input type=\"text\" id='name' class=\"form-control\"></td>" +
+            "<td><input type=\"text\" id='outlook' class=\"form-control\"></td>" +
+            "<td><input type=\"text\" id='unit' class=\"form-control\"></td>" +
+            "<td><input type=\"text\" id='post' class=\"form-control\"></td>" +
+           // "<td><input type=\"text\" id='familyid'></td>" +
+            "<td><a class='save' style=\"cursor:pointer\" href=''>保存</a> | <a class='cancel' style=\"cursor:pointer\" href=''>取消</a></td>");
+
+            $("#editable-sample").append(needtr);
+        });
+        //保存 
+        $("#mytbody a.save").live("click", function () {
+
+            $.post("/EnterFile/_AddFamily",
+                {
+                    "f.Relation": $(this).parent().parent().find("td").eq(0).find("input").val().trim(),
+                    "f.Name": $(this).parent().parent().find("td").eq(1).find("input").val().trim(),
+                    "f.Outlook": $(this).parent().parent().find("td").eq(2).find("input").val().trim(),
+                    "f.WorkUnit": $(this).parent().parent().find("td").eq(3).find("input").val().trim(),
+                    "f.Post": $(this).parent().parent().find("td").eq(4).find("input").val().trim(),
+                    "f.FamilyTotalId": $("#fatoid").text().trim()
+
+                }, function (data) {
+                    if (data == "1") {
+                        alert("保存成功！");
+                        location.href = "/EnterFile/AddBaseInfo2";    
+
+                    }
+                    else {
+                        alert("保存失败,请重试！");
+                        location.reload();//刷新
+                    }
+                });
+        });
+        //取消
+        $("#mytbody a.cancel").live("click", function () {
+
+            $(this).parent().parent().remove();
+        });
+        //出现修改框
+        $(".update").click(function () {
+
+            var temptr = $(this).parent().parent();
+
+            //序号
+            var std_id = $("<td hidden='hidden'></td>");
+            var std_input_id = $("<input type='text'/>");
+            std_input_id.val($(this).parent().parent().find("td:eq(0)").html());
+            std_id.append(std_input_id);
+
+            //称谓
+            var std_relation = $("<td></td>");
+            var std_input_relation = $("<input type='text' class=\"form-control\"/>");
+            std_input_relation.val($(this).parent().parent().find("td:eq(1)").html());
+            std_relation.append(std_input_relation);
+
+            //姓名
+            var std_name = $("<td></td>");
+            var std_input_name = $("<input type='text' class=\"form-control\"/>");
+            std_input_name.val($(this).parent().parent().find("td:eq(2)").html());
+            std_name.append(std_input_name);
+
+            //政治面貌
+            var std_outlook = $("<td></td>");
+            var std_input_outlook = $("<input type='text' class=\"form-control\"/>");
+            std_input_outlook.val($(this).parent().parent().find("td:eq(3)").html());
+            std_outlook.append(std_input_outlook);
+
+            //工作单位
+            var std_unit = $("<td></td>");
+            var std_input_unit = $("<input type='text' class=\"form-control\"/>");
+            std_input_unit.val($(this).parent().parent().find("td:eq(4)").html());
+            std_unit.append(std_input_unit);
+
+            //职务
+            var std_post = $("<td></td>");
+            var std_input_post = $("<input type='text' class=\"form-control\"/>");
+            std_input_post.val($(this).parent().parent().find("td:eq(5)").html());
+            std_post.append(std_input_post);
+
+            var std_operation = $("<td></td>");
+            var std_a_operation = $("<a class='sure_upd' style=\"cursor:pointer\">确认修改</a> | <a class='sure_del' style=\"cursor:pointer\">删除</a>");
+            std_operation.append(std_a_operation);
+
+            temptr.empty();//先清空我修改的是哪一行，不然就是在后面追加了
+
+            //把生成好的添加到列里边去   
+            temptr.append(std_id);
+            temptr.append(std_relation);
+            temptr.append(std_name);
+            temptr.append(std_outlook);
+            temptr.append(std_unit);
+            temptr.append(std_post);
+            temptr.append(std_operation);
+
+        });
+
+        //确认修改
+        $("#mytbody a.sure_upd").live("click", function () {
+
+            $.post("/EnterFile/_UpdateFamily",
+                {
+                    "f.Id": $(this).parent().parent().find("td").eq(0).find("input").val().trim(),
+                    "f.Relation": $(this).parent().parent().find("td").eq(1).find("input").val().trim(),
+                    "f.Name": $(this).parent().parent().find("td").eq(2).find("input").val().trim(),
+                    "f.Outlook": $(this).parent().parent().find("td").eq(3).find("input").val().trim(),
+                    "f.WorkUnit": $(this).parent().parent().find("td").eq(4).find("input").val().trim(),
+                    "f.Post": $(this).parent().parent().find("td").eq(5).find("input").val().trim()
+
+                }, function (data) {
+                    if (data == "1") {
+                        alert("修改成功！");
+                        location.href = "/EnterFile/AddBaseInfo2";
+                    }
+                    else {
+                        alert("修改失败,请重试！");
+                        location.reload();//刷新
+                    }
+                });
+
+
+        });
+
+        //删除
+        $("#mytbody a.sure_del").live("click", function () {
+
+            $.post("/EnterFile/_DelFamily",
+                {
+                    "f.Id": $(this).parent().parent().find("td").eq(0).find("input").val().trim(),
+
+                }, function () {
+
+                    alert("删除成功！");
+                    location.href = "/EnterFile/AddBaseInfo2";
+
+                });
+
+        });
+
+
+        //总表修改
+        $("#suresave_btn").click(function () {
+
+            $.post("/EnterFile/_UpdFamilyTotal",
+                {
+                    
+                    "f.other": $("#other").val().trim()
+
+                }, function (data) {
+
+                    if (data == "1") {
+
+                        alert("保存成功！");
+                        location.href = "/EnterFile/Index";
+                    }
+                    else {
+                        alert("保存失败,请重试！");
+                        location.reload();//刷新
+                    }
+
+                });
+
+
+
+        });
+
+
+        //退回时 总表修改
+        $("#updbtn_back").click(function () {
+
+            $.post("/EnterFile/_UpdFamily_Back",
+                {
+
+                    "f.other": $("#other").val().trim()
+
+                }, function (data) {
+
+                    if (data == "1") {
+
+                        alert("保存成功！");
+                        location.href = "/EnterFile/Index";
+                    }
+                    else {
+                        alert("保存失败,请重试！");
+                        location.reload();//刷新
+                    }
+
+                });
+
+
+
+        });
+    });
+</script>

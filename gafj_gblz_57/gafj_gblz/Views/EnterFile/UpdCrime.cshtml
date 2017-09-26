@@ -1,0 +1,167 @@
+﻿@{
+    ViewBag.Title = "UpdCrime";
+}
+@{
+    ViewBag.Title = "Crime";
+    Layout = "~/Views/_LayoutPage1.cshtml";
+}
+
+
+
+<div class="row">
+    <div class="col-md-12">
+        <!--breadcrumbs start -->
+        <ul class="breadcrumb panel">
+            <li><a href="/EnterFile/Index"><i class="fa fa-home"></i>首页</a></li>
+            <li class="active">科级干部配偶、子女及其配偶受到查处或涉嫌犯罪情况报告表</li>
+        </ul>
+        <!--breadcrumbs end -->
+    </div>
+</div>
+<div class="row">
+
+    <div class="col-sm-12">
+        <section class="panel">
+            <header class="panel-heading">
+                科级干部配偶、子女及其配偶受到查处或涉嫌犯罪情况报告表
+            </header>
+            <div class="panel-body">
+                <div class="alert alert-block alert-danger fade in">
+                    <button type="button" class="close close-sm" data-dismiss="alert"><i class="fa fa-times"></i></button>
+                    <strong>说明：</strong><p>1、科级干部本人如有对此项报告的说明事项，可填入“备注”栏。</p>
+                    <p>2、填写从2005年1月以后发生的情况。</p>
+                </div>
+
+                @{foreach (var c in (ViewBag.crime as List<Yisaa.DAL.DT_CrimeReport>))
+                      {  
+                      
+                       if (ViewBag.status == "被退回")
+                        {
+                      
+                <form class="form-horizontal" role="form" action="/EnterFile/_UpdCrime_Back" method="post">                  
+                        <h5 style="background: #eff2f7; font-weight: bold; color: #65cea7; line-height: 30px; padding-left: 20px; border-radius: 4px;">配偶、子女及其配偶受到执纪执法机关查处或涉嫌犯罪情况</h5>
+                        <div class="form-group">
+                            <label for="inputEmail1" class="col-lg-3 col-sm-2 control-label">姓名</label>
+                            <div class="col-lg-4">
+                                <input type="text" class="form-control" id="name" placeholder="" value="@c.CrimerName" name="name">
+                                <!--<p class="help-block">Example block-level help text here.</p>-->
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="input1" class="col-lg-3 col-sm-2 control-label">与本人关系</label>
+                            <div class="col-lg-4">
+                                <input type="text" class="form-control" id="relation" placeholder="" value="@c.Relation" name="relation">
+                                <!--<p class="help-block">Example block-level help text here.</p>-->
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="input1" class="col-lg-3 col-sm-2 control-label">（原）工作单位及职务</label>
+                            <div class="col-lg-4">
+                                <input type="text" class="form-control" id="unit_post" placeholder="" value="@c.CrimerUnit" name="unit">
+                                <!--<p class="help-block">Example block-level help text here.</p>-->
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="input1" class="col-lg-3 col-sm-2 control-label">执纪执法机关</label>
+                            <div class="col-lg-4">
+                                <input type="text" class="form-control" id="law" placeholder="" value="@c.LawAgency" name="law">
+                                <!--<p class="help-block">Example block-level help text here.</p>-->
+                            </div>
+
+                        </div>
+                        <div class="form-group">
+                            <label for="input1" class="col-lg-3 col-sm-2 control-label">涉案基本情况及处理结果</label>
+                            <div class="col-lg-4">
+                                <input type="text" class="form-control" id="result" placeholder="" value="@c.Result" name="result">
+                                <!--<p class="help-block">Example block-level help text here.</p>-->
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="form-group">
+                            <label for="input1" class="col-lg-3 col-sm-2 control-label">备注</label>
+                            <div class="col-lg-4">
+                                <textarea rows="6" class="form-control" id="remark" name="remark">@c.Remark</textarea>
+                                <!--<p class="help-block">Example block-level help text here.</p>-->
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-lg-offset-3 col-lg-10">
+                                <button type="submit" class="btn btn-primary" id="savebtn2">确认修改</button>
+                                <button class="btn btn-default" type="button" onclick="window.history.go(-1);">返回</button>
+                            </div>
+                        </div>
+                    
+                </form>
+                         }
+                       else
+                       {
+                         <form class="form-horizontal" role="form" action="/EnterFile/_UpdCrime" method="post">                  
+                        <h5 style="background: #eff2f7; font-weight: bold; color: #65cea7; line-height: 30px; padding-left: 20px; border-radius: 4px;">配偶、子女及其配偶受到执纪执法机关查处或涉嫌犯罪情况</h5>
+                        <div class="form-group">
+                            <label for="inputEmail1" class="col-lg-3 col-sm-2 control-label">姓名</label>
+                            <div class="col-lg-4">
+                                <input type="text" class="form-control" id="name" placeholder="" value="@c.CrimerName" name="name">
+                                <!--<p class="help-block">Example block-level help text here.</p>-->
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="input1" class="col-lg-3 col-sm-2 control-label">与本人关系</label>
+                            <div class="col-lg-4">
+                                <input type="text" class="form-control" id="relation" placeholder="" value="@c.Relation" name="relation">
+                                <!--<p class="help-block">Example block-level help text here.</p>-->
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="input1" class="col-lg-3 col-sm-2 control-label">（原）工作单位及职务</label>
+                            <div class="col-lg-4">
+                                <input type="text" class="form-control" id="unit_post" placeholder="" value="@c.CrimerUnit" name="unit">
+                                <!--<p class="help-block">Example block-level help text here.</p>-->
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="input1" class="col-lg-3 col-sm-2 control-label">执纪执法机关</label>
+                            <div class="col-lg-4">
+                                <input type="text" class="form-control" id="law" placeholder="" value="@c.LawAgency" name="law">
+                                <!--<p class="help-block">Example block-level help text here.</p>-->
+                            </div>
+
+                        </div>
+                        <div class="form-group">
+                            <label for="input1" class="col-lg-3 col-sm-2 control-label">涉案基本情况及处理结果</label>
+                            <div class="col-lg-4">
+                                <input type="text" class="form-control" id="result" placeholder="" value="@c.Result" name="result">
+                                <!--<p class="help-block">Example block-level help text here.</p>-->
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="form-group">
+                            <label for="input1" class="col-lg-3 col-sm-2 control-label">备注</label>
+                            <div class="col-lg-4">
+                                <textarea rows="6" class="form-control" id="remark" name="remark">@c.Remark</textarea>
+                                <!--<p class="help-block">Example block-level help text here.</p>-->
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-lg-offset-3 col-lg-10">
+                                <button type="submit" class="btn btn-primary" id="savebtn">确认修改</button>
+                                <button class="btn btn-default" type="button" onclick="window.history.go(-1);">返回</button>
+                            </div>
+                        </div>
+                    
+                </form>      
+                       }
+                     } 
+                  }
+
+            </div>
+        </section>
+
+    </div>
+</div>
+<script src="~/Content/js/jquery-1.10.2.min.js"></script>

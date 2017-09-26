@@ -1,0 +1,788 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="db_gblzModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="db_gblzEntities" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="DT_BeShared" EntityType="db_gblzModel.DT_BeShared" />
+    <EntitySet Name="DT_BuildTime" EntityType="db_gblzModel.DT_BuildTime" />
+    <EntitySet Name="DT_Role" EntityType="db_gblzModel.DT_Role" />
+    <EntitySet Name="DT_Share" EntityType="db_gblzModel.DT_Share" />
+    <EntitySet Name="DT_SharePeople" EntityType="db_gblzModel.DT_SharePeople" />
+    <EntitySet Name="DT_Total" EntityType="db_gblzModel.DT_Total" />
+    <EntitySet Name="DT_UnitDeptChange" EntityType="db_gblzModel.DT_UnitDeptChange" />
+    <EntitySet Name="DT_UserLoginRecord" EntityType="db_gblzModel.DT_UserLoginRecord" />
+    <EntitySet Name="DT_WorkUnit" EntityType="db_gblzModel.DT_WorkUnit" />
+    <EntitySet Name="DT_RefuseGiftTotal" EntityType="db_gblzModel.DT_RefuseGiftTotal" />
+    <EntitySet Name="DT_UserInfo" EntityType="db_gblzModel.DT_UserInfo" />
+    <EntitySet Name="DT_AdmonishingTalk" EntityType="db_gblzModel.DT_AdmonishingTalk" />
+    <EntitySet Name="DT_ApplyByLetter" EntityType="db_gblzModel.DT_ApplyByLetter" />
+    <EntitySet Name="DT_CrimeReport" EntityType="db_gblzModel.DT_CrimeReport" />
+    <EntitySet Name="DT_FamilyTotal" EntityType="db_gblzModel.DT_FamilyTotal" />
+    <EntitySet Name="DT_Important" EntityType="db_gblzModel.DT_Important" />
+    <EntitySet Name="DT_IncorruptTalk" EntityType="db_gblzModel.DT_IncorruptTalk" />
+    <EntitySet Name="DT_IndustryChanges" EntityType="db_gblzModel.DT_IndustryChanges" />
+    <EntitySet Name="DT_MarryChange" EntityType="db_gblzModel.DT_MarryChange" />
+    <EntitySet Name="DT_PetitionLetter" EntityType="db_gblzModel.DT_PetitionLetter" />
+    <EntitySet Name="DT_ProfitReport" EntityType="db_gblzModel.DT_ProfitReport" />
+    <EntitySet Name="DT_Responsibility" EntityType="db_gblzModel.DT_Responsibility" />
+    <EntitySet Name="DT_WeddingandDie" EntityType="db_gblzModel.DT_WeddingandDie" />
+    <EntitySet Name="DT_GoAbroadCompany" EntityType="db_gblzModel.DT_GoAbroadCompany" />
+    <EntitySet Name="DT_HousingBuild" EntityType="db_gblzModel.DT_HousingBuild" />
+    <EntitySet Name="DT_HousingBuy" EntityType="db_gblzModel.DT_HousingBuy" />
+    <EntitySet Name="DT_HousingHouse" EntityType="db_gblzModel.DT_HousingHouse" />
+    <EntitySet Name="DT_HousingRentout" EntityType="db_gblzModel.DT_HousingRentout" />
+    <EntitySet Name="DT_HousingSell" EntityType="db_gblzModel.DT_HousingSell" />
+    <EntitySet Name="DT_HousingTotal" EntityType="db_gblzModel.DT_HousingTotal" />
+    <EntitySet Name="DT_RewardPunishTotal" EntityType="db_gblzModel.DT_RewardPunishTotal" />
+    <EntitySet Name="DT_Family" EntityType="db_gblzModel.DT_Family" />
+    <EntitySet Name="DT_GoAbroadSettler" EntityType="db_gblzModel.DT_GoAbroadSettler" />
+    <EntitySet Name="DT_GoAbroadStudy" EntityType="db_gblzModel.DT_GoAbroadStudy" />
+    <EntitySet Name="DT_GoAbroadTotal" EntityType="db_gblzModel.DT_GoAbroadTotal" />
+    <EntitySet Name="DT_Punish" EntityType="db_gblzModel.DT_Punish" />
+    <EntitySet Name="DT_RefuseGift" EntityType="db_gblzModel.DT_RefuseGift" />
+    <EntitySet Name="DT_Reward" EntityType="db_gblzModel.DT_Reward" />
+  </EntityContainer>
+  <EntityType Name="DT_BeShared">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="BeSharedId" />
+  </EntityType>
+  <EntityType Name="DT_BuildTime">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="DateTime" Name="BuildStartTime" Precision="3" />
+    <Property Type="DateTime" Name="BuildEndTime" Precision="3" />
+    <Property Type="DateTime" Name="AddTime" Precision="3" />
+    <Property Type="DateTime" Name="UpdateTime" Precision="3" />
+    <Property Type="String" Name="Remark" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="DT_Role">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Name" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Remark" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="DT_Share">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="BeSharedPeople" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="SharedYear" />
+    <Property Type="DateTime" Name="ShareBeginTime" Precision="3" />
+    <Property Type="DateTime" Name="ShareEndTime" Precision="3" />
+    <Property Type="String" Name="SharePeople" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="CreateTime" Precision="3" />
+    <Property Type="Int32" Name="BeSharedId" />
+    <Property Type="Int32" Name="ShareId" />
+  </EntityType>
+  <EntityType Name="DT_SharePeople">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="ShareId" />
+    <Property Type="Int32" Name="TotalId" />
+  </EntityType>
+  <EntityType Name="DT_Total">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="UserId" />
+    <Property Type="Int32" Name="YearTable" />
+    <Property Type="DateTime" Name="AddTime" Precision="3" />
+    <Property Type="DateTime" Name="UpdTime" Precision="3" />
+    <Property Type="String" Name="Status" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="CheckStatus" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="FileStatus" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="BackTime" Precision="3" />
+    <Property Type="DateTime" Name="ChkSubmitTime" Precision="3" />
+    <Property Type="DateTime" Name="HighBackTime" Precision="3" />
+    <Property Type="DateTime" Name="HighFileTime" Precision="3" />
+    <Property Type="Int32" Name="UserInfoId" />
+    <Property Type="Int32" Name="FamilyId" />
+    <Property Type="Int32" Name="RewardId" />
+    <Property Type="Int32" Name="RefuseGiftId" />
+    <Property Type="Int32" Name="ProfitId" />
+    <Property Type="Int32" Name="HousingId" />
+    <Property Type="Int32" Name="MarryChangeId" />
+    <Property Type="Int32" Name="WeddingandDieId" />
+    <Property Type="Int32" Name="GoAbroadId" />
+    <Property Type="Int32" Name="CrimeId" />
+    <Property Type="Int32" Name="IndustryChangesId" />
+    <Property Type="Int32" Name="ImportantId" />
+    <Property Type="Int32" Name="ResponsibilityId" />
+    <Property Type="Int32" Name="PetitionLetterId" />
+    <Property Type="Int32" Name="AdmonishingTalkId" />
+    <Property Type="Int32" Name="IncorruptTalkId" />
+    <Property Type="Int32" Name="ApplyByLetterId" />
+    <Property Type="String" Name="UserInfoAdvice1" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="FamilyAdvice1" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="RewardAdvice1" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="RefuseAdvice1" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ProfitAdvice1" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="HousingAdvice1" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="MarryChgAdvice1" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="WeddDieAdvice1" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="AbroadAdvice1" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="CrimeAdvice1" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="IndustryAdvice1" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ImportantAdvice1" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ResponsAdvice1" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="LetterAdvice1" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="AdmTalkAdvice1" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="IncTalkAdvice1" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ApplyAdvice1" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="UserInfoAdvice2" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="FamilyAdvice2" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="RewardAdvice2" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="RefuseAdvice2" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ProfitAdvice2" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="HousingAdvice2" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="MarryChgAdvice2" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="WeddDieAdvice2" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="AbroadAdvice2" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="CrimeAdvice2" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="IndustryAdvice2" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ImportantAdvice2" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ResponsAdvice2" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="LetterAdvice2" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="AdmTalkAdvice2" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="IncTalkAdvice2" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ApplyAdvice2" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="UserInfoTime1" Precision="3" />
+    <Property Type="DateTime" Name="FamilyTime1" Precision="3" />
+    <Property Type="DateTime" Name="RewardTime1" Precision="3" />
+    <Property Type="DateTime" Name="RefuseTime1" Precision="3" />
+    <Property Type="DateTime" Name="ProfitTime1" Precision="3" />
+    <Property Type="DateTime" Name="HousingTime1" Precision="3" />
+    <Property Type="DateTime" Name="MarryChgTime1" Precision="3" />
+    <Property Type="DateTime" Name="WeddDieTime1" Precision="3" />
+    <Property Type="DateTime" Name="AbroadTime1" Precision="3" />
+    <Property Type="DateTime" Name="CrimeTime1" Precision="3" />
+    <Property Type="DateTime" Name="IndustryTime1" Precision="3" />
+    <Property Type="DateTime" Name="ImportantTime1" Precision="3" />
+    <Property Type="DateTime" Name="ResponsTime1" Precision="3" />
+    <Property Type="DateTime" Name="LetterTime1" Precision="3" />
+    <Property Type="DateTime" Name="AdmTalkTime1" Precision="3" />
+    <Property Type="DateTime" Name="IncTalkTime1" Precision="3" />
+    <Property Type="DateTime" Name="ApplyTime1" Precision="3" />
+    <Property Type="DateTime" Name="UserInfoTime2" Precision="3" />
+    <Property Type="DateTime" Name="FamilyTime2" Precision="3" />
+    <Property Type="DateTime" Name="RewardTime2" Precision="3" />
+    <Property Type="DateTime" Name="RefuseTime2" Precision="3" />
+    <Property Type="DateTime" Name="ProfitTime2" Precision="3" />
+    <Property Type="DateTime" Name="HousingTime2" Precision="3" />
+    <Property Type="DateTime" Name="MarryChgTime2" Precision="3" />
+    <Property Type="DateTime" Name="WeddDieTime2" Precision="3" />
+    <Property Type="DateTime" Name="AbroadTime2" Precision="3" />
+    <Property Type="DateTime" Name="CrimeTime2" Precision="3" />
+    <Property Type="DateTime" Name="IndustryTime2" Precision="3" />
+    <Property Type="DateTime" Name="ImportantTime2" Precision="3" />
+    <Property Type="DateTime" Name="ResponsTime2" Precision="3" />
+    <Property Type="DateTime" Name="LetterTime2" Precision="3" />
+    <Property Type="DateTime" Name="AdmTalkTime2" Precision="3" />
+    <Property Type="DateTime" Name="IncTalkTime2" Precision="3" />
+    <Property Type="DateTime" Name="ApplyTime2" Precision="3" />
+    <Property Type="String" Name="UserInfoPeople1" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="FamilyPeople1" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="RewardPeople1" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="RefusePeople1" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ProfitPeople1" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="HousingPeople1" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="MarryChgPeople1" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="WeddDiePeople1" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="AbroadPeople1" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="CrimePeople1" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="IndustryPeople1" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ImportantPeople1" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ResponsPeople1" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="LetterPeople1" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="AdmTalkPeople1" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="IncTalkPeople1" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ApplyPeople1" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="UserInfoPeople2" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="FamilyPeople2" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="RewardPeople2" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="RefusePeople2" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ProfitPeople2" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="HousingPeople2" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="MarryChgPeople2" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="WeddDiePeople2" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="AbroadPeople2" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="CrimePeople2" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="IndustryPeople2" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ImportantPeople2" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ResponsPeople2" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="LetterPeople2" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="AdmTalkPeople2" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="IncTalkPeople2" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ApplyPeople2" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="UserInfoStatus1" />
+    <Property Type="Int32" Name="FamilyStatus1" />
+    <Property Type="Int32" Name="RewardStatus1" />
+    <Property Type="Int32" Name="RefuseStatus1" />
+    <Property Type="Int32" Name="ProfitStatus1" />
+    <Property Type="Int32" Name="HousingStatus1" />
+    <Property Type="Int32" Name="MarryChgStatus1" />
+    <Property Type="Int32" Name="WeddDieStatus1" />
+    <Property Type="Int32" Name="AbroadStatus1" />
+    <Property Type="Int32" Name="CrimeStatus1" />
+    <Property Type="Int32" Name="IndustryStatus1" />
+    <Property Type="Int32" Name="ImportantStatus1" />
+    <Property Type="Int32" Name="ResponsStatus1" />
+    <Property Type="Int32" Name="LetterStatus1" />
+    <Property Type="Int32" Name="AdmTalkStatus1" />
+    <Property Type="Int32" Name="IncTalkStatus1" />
+    <Property Type="Int32" Name="ApplyStatus1" />
+    <Property Type="Int32" Name="UserInfoStatus2" />
+    <Property Type="Int32" Name="FamilyStatus2" />
+    <Property Type="Int32" Name="RewardStatus2" />
+    <Property Type="Int32" Name="RefuseStatus2" />
+    <Property Type="Int32" Name="ProfitStatus2" />
+    <Property Type="Int32" Name="HousingStatus2" />
+    <Property Type="Int32" Name="MarryChgStatus2" />
+    <Property Type="Int32" Name="WeddDieStatus2" />
+    <Property Type="Int32" Name="AbroadStatus2" />
+    <Property Type="Int32" Name="CrimeStatus2" />
+    <Property Type="Int32" Name="IndustryStatus2" />
+    <Property Type="Int32" Name="ImportantStatus2" />
+    <Property Type="Int32" Name="ResponsStatus2" />
+    <Property Type="Int32" Name="LetterStatus2" />
+    <Property Type="Int32" Name="AdmTalkStatus2" />
+    <Property Type="Int32" Name="IncTalkStatus2" />
+    <Property Type="Int32" Name="ApplyStatus2" />
+    <Property Type="String" Name="Remark" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="DT_UnitDeptChange">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="UserId" />
+    <Property Type="String" Name="UnitName" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="DeptName" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="AddTime" Precision="3" />
+    <Property Type="String" Name="Remarks" MaxLength="150" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="DT_UserLoginRecord">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Telphone" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Password" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="LoginTime" Precision="3" />
+    <Property Type="String" Name="LoginIp" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="LoginNum" />
+    <Property Type="String" Name="Remark" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="RoleId" />
+    <Property Type="Boolean" Name="IsInner" />
+    <Property Type="Boolean" Name="IsCadre" />
+    <Property Type="Int32" Name="WorkUnitId" />
+    <Property Type="Int32" Name="DeptId" />
+    <Property Type="DateTime" Name="Effectivedate" Precision="3" />
+    <Property Type="Boolean" Name="Status" />
+    <Property Type="String" Name="RealName" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="WorkUnit" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Department" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Upost" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="FillStatus" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ShareStatus" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="AddTime" Precision="3" />
+    <Property Type="DateTime" Name="UpdateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="DT_WorkUnit">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="UnitName" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="ParentId" />
+    <Property Type="String" Name="CreateUnit" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="CreateDept" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="AddUnitTime" Precision="3" />
+    <Property Type="DateTime" Name="AddDeptTime" Precision="3" />
+    <Property Type="DateTime" Name="UpdUnitTime" Precision="3" />
+    <Property Type="DateTime" Name="UpdDeptTime" Precision="3" />
+    <Property Type="String" Name="Remarks" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="DT_RefuseGiftTotal">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="UserId" />
+    <Property Type="String" Name="CheckAdvice" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="FillTime" Precision="3" />
+    <Property Type="DateTime" Name="UpdateTime" Precision="3" />
+    <Property Type="String" Name="Remark" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="YearTable" />
+  </EntityType>
+  <EntityType Name="DT_UserInfo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="UserId" />
+    <Property Type="Int32" Name="YearTable" />
+    <Property Type="String" Name="Photo" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="RealName" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Sex" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="NativePlace" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="Birthday" Precision="3" />
+    <Property Type="String" Name="IdCardNum" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Outlook" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="PartyTime" Precision="3" />
+    <Property Type="String" Name="Nation" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Property" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="JobTime" Precision="3" />
+    <Property Type="String" Name="Education" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="WorkUnit" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Post" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="PostStatus" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="PostTime" Precision="3" />
+    <Property Type="String" Name="DoWork" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="UserAddress" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Introduction" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="FillTime" Precision="3" />
+    <Property Type="DateTime" Name="UpdateTime" Precision="3" />
+    <Property Type="String" Name="Remark" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="DT_AdmonishingTalk">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="UserId" />
+    <Property Type="Int32" Name="YearTable" />
+    <Property Type="String" Name="BeLordTalk" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="BePost" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="BeUnit" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="TalkReason" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="LordTalk" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Post" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="TalkTime" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="TalkAddress" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Content" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ObjectAdvice" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="LordTalkAdvice" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Remark" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="FillTime" Precision="3" />
+    <Property Type="DateTime" Name="UpdateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="DT_ApplyByLetter">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="UserId" />
+    <Property Type="Int32" Name="YearTable" />
+    <Property Type="String" Name="ApplyTime" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Reason" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Answer" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Remark" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="FillTime" Precision="3" />
+    <Property Type="DateTime" Name="UpdateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="DT_CrimeReport">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="UserId" />
+    <Property Type="Int32" Name="YearTable" />
+    <Property Type="String" Name="CrimerName" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Relation" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="CrimerUnit" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="CrimerPost" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="LawAgency" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Result" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Remark" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="FillTime" Precision="3" />
+    <Property Type="DateTime" Name="UpdateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="DT_FamilyTotal">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="UserId" />
+    <Property Type="Int32" Name="YearTable" />
+    <Property Type="String" Name="other" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="FillTime" Precision="3" />
+    <Property Type="DateTime" Name="UpdateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="DT_Important">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="UserId" />
+    <Property Type="Int32" Name="YearTable" />
+    <Property Type="String" Name="Report" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="CheckIn" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="CheckInTime" Precision="3" />
+    <Property Type="String" Name="Remark" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="FillTime" Precision="3" />
+    <Property Type="DateTime" Name="UpdateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="DT_IncorruptTalk">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="UserId" />
+    <Property Type="Int32" Name="YearTable" />
+    <Property Type="String" Name="TalkReason" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="TalkTime" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="TalkAddress" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="LordTalk" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="RecordPerson" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Content" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Remark" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="FillTime" Precision="3" />
+    <Property Type="DateTime" Name="UpdateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="DT_IndustryChanges">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="UserId" />
+    <Property Type="Int32" Name="YearTable" />
+    <Property Type="String" Name="Name" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Relation" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ChangeTime" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="LastUnit" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="LastPost" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="NowUnit" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="NowPost" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Reason" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Remark" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="FillTime" Precision="3" />
+    <Property Type="DateTime" Name="UpdateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="DT_MarryChange">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="UserId" />
+    <Property Type="Int32" Name="YearTable" />
+    <Property Type="String" Name="IsMarryChange" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="LastPartner" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="LastRegisterTime" Precision="3" />
+    <Property Type="DateTime" Name="LastEndTime" Precision="3" />
+    <Property Type="String" Name="NowPartner" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="NowPolitical" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="NowUnit" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="NowPost" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="NowRegisterTime" Precision="3" />
+    <Property Type="String" Name="Other" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="FillTime" Precision="3" />
+    <Property Type="DateTime" Name="UpdateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="DT_PetitionLetter">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="UserId" />
+    <Property Type="Int32" Name="YearTable" />
+    <Property Type="String" Name="RecordNum" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="LetterTime" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="FromUnit" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ByManName" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ByManPost" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ByManUnit" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ManName" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ManTel" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ManUnit" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ManPost" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Content" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="SurveyResult" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="HandleResult" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Remark" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="FillTime" Precision="3" />
+    <Property Type="DateTime" Name="UpdateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="DT_ProfitReport">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="UserId" />
+    <Property Type="Int32" Name="YearTable" />
+    <Property Type="String" Name="CompanyName" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="BusinessScope" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="RegisterMoney" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="InvestmentRate" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="YearProfit" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ParttimeUnit" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ParttimeUnitNature" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ParttimePost" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="YearMoney" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="InvestUnit" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="InvestUnitNature" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="InvestWay" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="InvestMoney" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="YearIncome" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Other" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="FillTime" Precision="3" />
+    <Property Type="DateTime" Name="UpdateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="DT_Responsibility">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="UserId" />
+    <Property Type="Int32" Name="YearTable" />
+    <Property Type="String" Name="Nature" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ResTime" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="HandleOffice" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Fact" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="HandleStatus" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Remark" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="FillTime" Precision="3" />
+    <Property Type="DateTime" Name="UpdateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="DT_WeddingandDie">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="UserId" />
+    <Property Type="Int32" Name="YearTable" />
+    <Property Type="String" Name="Arrange" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ManageTime" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ManageAddress" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="PartyObject" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="PartyNum" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="AcceptingMoney" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="AcceptingCount" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="AcceptingValue" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="HandleStatus" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Adivce" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="AdivceTime" Precision="3" />
+    <Property Type="DateTime" Name="FillTime" Precision="3" />
+    <Property Type="DateTime" Name="UpdateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="DT_GoAbroadCompany">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="UserId" />
+    <Property Type="Int32" Name="YearTable" />
+    <Property Type="String" Name="BuildCompanyName" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="BuildCompanyTitle" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="BuildCompanyAddress" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="CompanyName" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="AbroadTotalId" />
+  </EntityType>
+  <EntityType Name="DT_HousingBuild">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="UserId" />
+    <Property Type="Int32" Name="YearTable" />
+    <Property Type="String" Name="BuildHousesAddress" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="BuildHousesArea" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="BuildHousesUnit" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="BuildHousesTotal" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Payment" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="HousingTotalId" />
+  </EntityType>
+  <EntityType Name="DT_HousingBuy">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="UserId" />
+    <Property Type="Int32" Name="YearTable" />
+    <Property Type="String" Name="BuyHouseAddress" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="BuyHouseArea" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="BuyHouseMoney" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="BuyHouseIncome" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="BuyHouseTime" Precision="3" />
+    <Property Type="Int32" Name="HousingTotalId" />
+  </EntityType>
+  <EntityType Name="DT_HousingHouse">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="UserId" />
+    <Property Type="Int32" Name="YearTable" />
+    <Property Type="String" Name="HouseAddress" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Area" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="HouseNature" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="HouseFrom" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="PropertyOwner" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="HousingTotalId" />
+  </EntityType>
+  <EntityType Name="DT_HousingRentout">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="UserId" />
+    <Property Type="Int32" Name="YearTable" />
+    <Property Type="String" Name="RentoutAddress" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="RentoutArea" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="RentoutNature" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="RentoutTime" Precision="3" />
+    <Property Type="String" Name="RentoutMoney" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="HousingTotalId" />
+  </EntityType>
+  <EntityType Name="DT_HousingSell">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="UserId" />
+    <Property Type="Int32" Name="YearTable" />
+    <Property Type="String" Name="SellHouseAddress" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="SellHouseArea" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="SellHouseNature" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="SellHouseTime" Precision="3" />
+    <Property Type="String" Name="SellHouseMoney" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="HousingTotalId" />
+  </EntityType>
+  <EntityType Name="DT_HousingTotal">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="UserId" />
+    <Property Type="Int32" Name="YearTable" />
+    <Property Type="String" Name="PartnerName" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="PartnerUnit" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="PartnerPost" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Other" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="FillTime" Precision="3" />
+    <Property Type="DateTime" Name="UpdateTime" Precision="3" />
+    <Property Type="String" Name="Remark" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="DT_RewardPunishTotal">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="UserId" />
+    <Property Type="Int32" Name="YearTable" />
+    <Property Type="String" Name="CheckAdvice" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="FillTime" Precision="3" />
+    <Property Type="DateTime" Name="UpdateTime" Precision="3" />
+    <Property Type="String" Name="Remark" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="DT_Family">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="UserId" />
+    <Property Type="Int32" Name="YearTable" />
+    <Property Type="String" Name="Name" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Relation" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Outlook" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="WorkUnit" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Post" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="FamilyTotalId" />
+  </EntityType>
+  <EntityType Name="DT_GoAbroadSettler">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="UserId" />
+    <Property Type="Int32" Name="YearTable" />
+    <Property Type="String" Name="Settler" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="SettlerTitle" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="SettleTime" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="SettleAddress" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="SettlerWork" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="AbroadTotalId" />
+  </EntityType>
+  <EntityType Name="DT_GoAbroadStudy">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="UserId" />
+    <Property Type="Int32" Name="YearTable" />
+    <Property Type="String" Name="StudyName" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="StudyTitle" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="StudyTime" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="StudyAddress" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="StudyMoney" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="AbroadTotalId" />
+  </EntityType>
+  <EntityType Name="DT_GoAbroadTotal">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="UserId" />
+    <Property Type="Int32" Name="YearTable" />
+    <Property Type="String" Name="LandingPaper" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="HKCertificate" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="FillTime" Precision="3" />
+    <Property Type="DateTime" Name="UpdateTime" Precision="3" />
+    <Property Type="String" Name="MarryName" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="MarryUnit" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="RegisterTime" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="MarryPartner" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="PartnerNational" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Remark" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="DT_Punish">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="UserId" />
+    <Property Type="Int32" Name="YearTable" />
+    <Property Type="String" Name="PunishTime" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="PunishName" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="PunishReason" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="PunishDpt" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Remark" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="RewardTotalId" />
+  </EntityType>
+  <EntityType Name="DT_RefuseGift">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="UserId" />
+    <Property Type="Int32" Name="YearTable" />
+    <Property Type="String" Name="HandInMoney" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="HandInName" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="HandInCount" />
+    <Property Type="String" Name="HandInTime" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="HandInDpt" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Remark" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="RefuseTotalId" />
+  </EntityType>
+  <EntityType Name="DT_Reward">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="UserId" />
+    <Property Type="Int32" Name="YearTable" />
+    <Property Type="String" Name="RewardsTime" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="RewardsDptandName" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Remark" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="RewardTotalId" />
+  </EntityType>
+</Schema>

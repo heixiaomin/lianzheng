@@ -1,0 +1,444 @@
+﻿@{
+    ViewBag.Title = "RewardPunish";
+    Layout = "~/Views/_LayoutPage1.cshtml";
+}
+
+
+
+<div class="row">
+    <div class="col-md-12">
+        <!--breadcrumbs start -->
+        <ul class="breadcrumb panel">
+            <li><a href="/EnterFile/Index"><i class="fa fa-home"></i>首页</a></li>
+            <li class="active">科级干部奖惩情况登记表</li>
+        </ul>
+        <!--breadcrumbs end -->
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12">
+        <section class="panel">
+            <header class="panel-heading">【@Session["realname"]】奖惩情况登记表</header>
+            <div class="panel-body">
+                <div class="alert alert-block alert-danger fade in">
+                    <button type="button" class="close close-sm" data-dismiss="alert"><i class="fa fa-times"></i></button>
+                    <strong>说明：</strong><p>1、“获奖情况”填区级以上党委、政府正式发文表彰的获奖情况；</p>
+                    <p>2、如有受惩处情况均须如实填报；</p>
+                    <p>3、“获奖情况”和“受惩处情况”由科级干部本人填写，“单位审核意见”栏由科级干部所在单位党组织审核并盖章。</p>
+                </div>
+                <table class="table table-striped table-hover table-bordered" id="editable-sample2">
+                    <thead>
+                        <tr>
+                            <th colspan="6">获奖情况
+                      <div style="float: right">
+                          <button id="editable-text3" class="btn btn-primary">新增 <i class="fa fa-plus"></i></button>
+                      </div>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th width="15%">时间</th>
+                            <th>奖励机关及获奖名称</th>
+                            <th width="30%">备注</th>
+                            <th width="10%">操作</th>
+                        </tr>
+                    </thead>
+                    <tbody id="mytbody">
+                        @{
+                            var rewardlist = ViewBag.rewardlist as List<Yisaa.DAL.DT_Reward>;
+                            foreach (var re in rewardlist.Where(a => a.UserId == ViewBag.id))
+                            {
+                            <tr>
+                                <td hidden="hidden">@re.Id</td>
+                                <td>@re.RewardsTime</td>
+                                <td>
+                                    @re.RewardsDptandName</td>
+                                <td>
+                                    @re.Remark</td>
+                                <td>
+                                    <a href="#" style="cursor: pointer" class="update">修改</a> | <a href="/EnterFile/_DelReward?r.Id=@re.Id" style="cursor:pointer" class="delete">删除</a>
+
+                                </td>
+                            </tr>
+                            }
+                        
+                        }
+
+                    </tbody>
+                </table>
+                <table class="table table-striped table-hover table-bordered" id="editable-sample">
+                    <thead>
+                        <tr>
+                            <th colspan="6">受惩处情况
+                      <div style="float: right">
+                          <button id="editable-sample_new" class="btn btn-primary">新增 <i class="fa fa-plus"></i></button>
+                      </div>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>时间</th>
+                            <th>所受处分</th>
+                            <th>受处分原因</th>
+                            <th>惩处机关</th>
+                            <th>备注</th>
+                            <th width="10%">操作</th>
+                        </tr>
+                    </thead>
+                    <tbody id="mytbody2">
+
+                        @{
+                            var punishlist = ViewBag.punishlist as List<Yisaa.DAL.DT_Punish>;
+                            foreach (var pu in punishlist)
+                            {
+                               
+                            <tr>
+                                 <td hidden="hidden">
+                                    @pu.Id</td>
+                                <td>
+                                    @pu.PunishTime</td>
+                                <td>
+                                    @pu.PunishName</td>
+                                <td>
+                                    @pu.PunishReason</td>
+                                <td>
+                                     @pu.PunishDpt</td>
+                                <td>
+                                     @pu.Remark</td>
+                                <td>
+                                  <a href="#" style="cursor: pointer" class="update2">修改</a> | <a href="/EnterFile/_DelPunish?p.Id=@pu.Id" style="cursor:pointer" class="delete">删除</a>
+                                </td>
+                            </tr>
+                            }
+                            
+                        }
+                    </tbody>
+                </table>
+                <!-- <table class="table table-striped table-hover table-bordered" >
+                <thead>
+				 <tr>
+                    <th>单位审核意见</th>
+                   
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="">
+                   
+                    <td> <textarea rows="6" class="form-control"></textarea></td>
+                </tr>
+				
+				
+                </tbody>
+                </table>-->
+                <div class="form-group">
+                    <div class="col-lg-offset-5 col-lg-10">
+                        <button type="submit" class="btn btn-primary" id="suresave_btn">保存</button>
+                        <button class="btn btn-default" type="button" onclick="window.history.go(-1);">返回</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+
+<script src="~/Content/js/jquery-1.10.2.min.js"></script>
+
+<script src="~/Content/myjs/datepicker/WdatePicker.js"></script>
+<script src="~/Content/myjs/datepicker/calendar.js"></script>
+<script src="~/Content/laydate/laydate.js"></script>
+
+
+<script>
+    $(function () {
+
+        //////获奖
+        //添加
+        $("#editable-text3").click(function () {
+            var needtr = $("<tr></tr>");
+            needtr.append(
+            "<td><input type=\"text\" id='time' class=\"form-control laydate-icon\" onClick = \"WdatePicker()\"></td>" +
+            "<td><input type=\"text\" id='name' class=\"form-control\"></td>" +
+            "<td><input type=\"text\" id='remark' class=\"form-control\"></td>" +
+            "<td><a class='save' style=\"cursor:pointer\" href=''>保存</a> | <a class='cancel' style=\"cursor:pointer\" href=''>取消</a></td>");
+            //editable-sample2
+            $("#mytbody").append(needtr);
+        });
+
+        //保存 
+        $("#mytbody a.save").live("click", function () {
+
+            $.post("/EnterFile/_AddReward",
+                {
+                    "r.RewardsTime": $(this).parent().parent().find("td").eq(0).find("input").val().trim(),
+                    "r.RewardsDptandName": $(this).parent().parent().find("td").eq(1).find("input").val().trim(),
+                    "r.Remark": $(this).parent().parent().find("td").eq(2).find("input").val().trim(),
+
+                }, function (data) {
+                    if (data == "1") {
+                        alert("保存成功！");
+                        location.href = "/EnterFile/RewardPunish";
+                        location.reload();//刷新
+                    }
+                    else {
+                        alert("保存失败,请重试！");
+                        location.reload();//刷新
+                    }
+                });
+        });
+
+        //取消
+        $("#mytbody a.cancel").live("click", function () {
+
+            $(this).parent().parent().remove();
+        });
+
+        //出现修改框
+        $(".update").click(function () {
+
+            var temptr = $(this).parent().parent();
+
+            //序号
+            var std_id = $("<td hidden='hidden'></td>");
+            var std_input_id = $("<input type='text' class=\"form-control\"/>");
+            std_input_id.val($(this).parent().parent().find("td:eq(0)").html().trim());
+            std_id.append(std_input_id);
+
+            //时间
+            var std_time = $("<td></td>");
+            var std_input_time = $("<input type='text' class=\"form-control laydate-icon\" onClick = \"WdatePicker()\"/>");
+            std_input_time.val($(this).parent().parent().find("td:eq(1)").html().trim());
+            std_time.append(std_input_time);
+
+            //名称
+            var std_name = $("<td></td>");
+            var std_input_name = $("<input type='text'class=\"form-control\"/>");
+            std_input_name.val($(this).parent().parent().find("td:eq(2)").html().trim());
+            std_name.append(std_input_name);
+
+            //备注
+            var std_remark = $("<td></td>");
+            var std_input_remark = $("<input type='text' class=\"form-control\"/>");
+            std_input_remark.val($(this).parent().parent().find("td:eq(3)").html().trim());
+            std_remark.append(std_input_remark);
+
+            //操作
+            var std_operation = $("<td></td>");
+            var std_a_operation = $("<a class='sure_upd' style=\"cursor:pointer\">确认修改</a> | <a class='sure_del' style=\"cursor:pointer\">删除</a>");
+            std_operation.append(std_a_operation);
+
+            temptr.empty();//先清空我修改的是哪一行，不然就是在后面追加了
+
+            //把生成好的添加到列里边去   
+            temptr.append(std_id);
+            temptr.append(std_time);
+            temptr.append(std_name);
+            temptr.append(std_remark);
+            temptr.append(std_operation);
+
+        });
+
+        //确认修改
+        $("#mytbody a.sure_upd").live("click", function () {
+
+            $.post("/EnterFile/_UpdReward",
+                {
+                    "r.Id": $(this).parent().parent().find("td").eq(0).find("input").val().trim(),
+                    "r.RewardsTime": $(this).parent().parent().find("td").eq(1).find("input").val().trim(),
+                    "r.RewardsDptandName": $(this).parent().parent().find("td").eq(2).find("input").val().trim(),
+                    "r.Remark": $(this).parent().parent().find("td").eq(3).find("input").val().trim(),
+
+                }, function (data) {
+                    if (data == "1") {
+                        alert("修改成功！");
+                        location.href = "/EnterFile/RewardPunish";
+                        location.reload();//刷新
+                    }
+                    else {
+                        alert("修改失败,请重试！");
+                        location.reload();//刷新
+                    }
+                });
+        });
+
+        //删除
+        $("#mytbody a.sure_del").live("click", function () {
+
+            $.post("/EnterFile/_DelReward",
+                {
+                    "r.Id": $(this).parent().parent().find("td").eq(0).find("input").val().trim(),
+
+                }, function () {
+                    alert("删除成功！");
+                    location.href = "/EnterFile/RewardPunish";
+                    location.reload();//刷新
+                });
+        });
+
+        ////////////惩罚
+        //添加
+        $("#editable-sample_new").click(function () {
+            var needtr = $("<tr></tr>");
+            needtr.append(
+            "<td><input type=\"text\" id='time' class=\"form-control laydate-icon\" onClick = \"WdatePicker()\"></td>" +
+            "<td><input type=\"text\" id='name' class=\"form-control\"></td>" +
+            "<td><input type=\"text\" id='reason' class=\"form-control\"></td>" +
+             "<td><input type=\"text\" id='dept' class=\"form-control\"></td>" +
+              "<td><input type=\"text\" id='remark' class=\"form-control\"></td>" +
+            "<td><a class='save' style=\"cursor:pointer\" href=''>保存</a> | <a class='cancel' style=\"cursor:pointer\" href=''>取消</a></td>");
+            //editable-sample2
+            $("#mytbody2").append(needtr);
+        });
+
+        //保存 
+        $("#mytbody2 a.save").live("click", function () {
+
+            $.post("/EnterFile/_AddPunish",
+                {
+                    "p.PunishTime": $(this).parent().parent().find("td").eq(0).find("input").val().trim(),
+                    "p.PunishName": $(this).parent().parent().find("td").eq(1).find("input").val().trim(),
+                    "p.PunishReason": $(this).parent().parent().find("td").eq(2).find("input").val().trim(),
+                    "p.PunishDpt": $(this).parent().parent().find("td").eq(3).find("input").val().trim(),
+                    "p.Remark": $(this).parent().parent().find("td").eq(4).find("input").val().trim()
+
+                }, function (data) {
+                    if (data == "1") {
+                        alert("保存成功！");
+                        location.href = "/EnterFile/RewardPunish";
+                        location.reload();//刷新
+
+                    }
+                    else {
+                        alert("保存失败,请重试！");
+                        location.reload();//刷新
+                    }
+                });
+        });
+
+        //取消
+        $("#mytbody2 a.cancel").live("click", function () {
+
+            $(this).parent().parent().remove();
+        });
+ 
+        //出现修改框
+        $(".update2").click(function () {
+
+            var temptr = $(this).parent().parent();
+
+            //序号
+            var std_id = $("<td hidden='hidden'></td>");
+            var std_input_id = $("<input type='text' class=\"form-control\"/>");
+            std_input_id.val($(this).parent().parent().find("td:eq(0)").html().trim());
+            std_id.append(std_input_id);
+
+            //时间
+            var std_time = $("<td></td>");
+            var std_input_time = $("<input type='text' class=\"form-control laydate-icon\" onClick = \"WdatePicker()\"/>");
+            std_input_time.val($(this).parent().parent().find("td:eq(1)").html().trim());
+            std_time.append(std_input_time);
+
+            //处分名称
+            var std_name = $("<td></td>");
+            var std_input_name = $("<input type='text'class=\"form-control\"/>");
+            std_input_name.val($(this).parent().parent().find("td:eq(2)").html().trim());
+            std_name.append(std_input_name);
+
+            //处分原因
+            var std_reason = $("<td></td>");
+            var std_input_reason = $("<input type='text'class=\"form-control\"/>");
+            std_input_reason.val($(this).parent().parent().find("td:eq(3)").html().trim());
+            std_reason.append(std_input_reason);
+
+            //处分机关
+            var std_dept = $("<td></td>");
+            var std_input_dept = $("<input type='text'class=\"form-control\"/>");
+            std_input_dept.val($(this).parent().parent().find("td:eq(4)").html().trim());
+            std_dept.append(std_input_dept);
+
+            //备注
+            var std_remark = $("<td></td>");
+            var std_input_remark = $("<input type='text' class=\"form-control\"/>");
+            std_input_remark.val($(this).parent().parent().find("td:eq(5)").html().trim());
+            std_remark.append(std_input_remark);
+
+            //操作
+            var std_operation = $("<td></td>");
+            var std_a_operation = $("<a class='sure_upd2' style=\"cursor:pointer\">确认修改</a> | <a class='sure_del2' style=\"cursor:pointer\">删除</a>");
+            std_operation.append(std_a_operation);
+
+            temptr.empty();//先清空我修改的是哪一行，不然就是在后面追加了
+
+            //把生成好的添加到列里边去   
+            temptr.append(std_id);
+            temptr.append(std_time);
+            temptr.append(std_name);
+            temptr.append(std_reason);
+            temptr.append(std_dept);
+            temptr.append(std_remark);
+            temptr.append(std_operation);
+
+        });
+
+        //确认修改
+        $("#mytbody2 a.sure_upd2").live("click", function () {
+
+            $.post("/EnterFile/_UpdPunish",
+                {
+                    "p.Id": $(this).parent().parent().find("td").eq(0).find("input").val().trim(),
+                    "p.PunishTime": $(this).parent().parent().find("td").eq(1).find("input").val().trim(),
+                    "p.PunishName": $(this).parent().parent().find("td").eq(2).find("input").val().trim(),
+                    "p.PunishReason": $(this).parent().parent().find("td").eq(3).find("input").val().trim(),
+                    "p.PunishDpt": $(this).parent().parent().find("td").eq(4).find("input").val().trim(),
+                    "p.Remark": $(this).parent().parent().find("td").eq(5).find("input").val().trim(),
+
+                }, function (data) {
+                    if (data == "1") {
+                        alert("修改成功！");
+                        location.href = "/EnterFile/RewardPunish";
+                        location.reload();//刷新
+                    }
+                    else {
+                        alert("修改失败,请重试！");
+                         
+                    }
+                });
+        });
+
+        //删除
+        $("#mytbody2 a.sure_del2").live("click", function () {
+
+            $.post("/EnterFile/_DelPunish",
+                {
+                    "p.Id": $(this).parent().parent().find("td").eq(0).find("input").val().trim(),
+
+                }, function () {
+                    alert("删除成功！");
+                    location.href = "/EnterFile/RewardPunish";
+                    location.reload();//刷新
+                });
+        });
+
+        //总表保存
+        $("#suresave_btn").click(function () {
+
+            $.post("/EnterFile/_AddRewardPunish",
+                function (data) {
+
+                    if (data == "1") {
+
+                        alert("保存成功！");
+                        location.href = "/EnterFile/Index";
+                    }
+                    else {
+                        alert("保存失败,请重试！");
+                        location.reload();//刷新
+                    }
+
+                });
+
+
+
+        });
+
+    });
+
+
+</script>

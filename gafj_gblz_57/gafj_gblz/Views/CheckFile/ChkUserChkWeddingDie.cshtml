@@ -1,0 +1,192 @@
+﻿@{
+    ViewBag.Title = "ChkUserChkWeddingDie";
+    Layout = "~/Views/_PartialPage2.cshtml";
+}
+<style>
+    #row1
+    {
+        margin-top: -2px;
+    }
+
+    #row2
+    {
+        margin-top: -2px;
+    }
+</style>
+
+
+<div class="row" id="row1">
+    <div class="col-md-12">
+        <!--breadcrumbs start -->
+        <ul class="breadcrumb panel">
+             <li><a href="/Main/Index"><i class="fa fa-home"></i>首页</a></li>
+            <li><a href="/CheckFile/CheckUserIndex">档案审核</a></li>           
+            <li class="active">廉政档案登记表</li>
+        </ul>
+        <!--breadcrumbs end -->
+    </div>
+</div>
+
+
+<div class="row" id="row2">
+    <div class="col-sm-12">
+        @{ 
+            var userinfolist = ViewBag.userinfolist as List<Yisaa.DAL.DT_UserInfo>;
+          
+            var weddingdie = ViewBag.weddingdie as List<Yisaa.DAL.DT_WeddingandDie>;
+                
+            foreach (var total in (ViewBag.tlist as List<Yisaa.DAL.DT_Total>))
+            {
+              
+                foreach (var user in userinfolist.Where(a => a.Id == total.UserInfoId))
+                {
+
+                    foreach (var w in weddingdie.Where(a => a.Id == total.WeddingandDieId))
+                    {     
+      
+            <section class="panel">
+                <input type="text" value="@total.Id" hidden="hidden" id="myid"/>
+                <input type="text" value="@total.UserId" hidden="hidden" id="myuserid"/>
+                <header class="panel-heading">【@user.RealName】参与操办本人及近亲属婚丧喜庆事宜情况报告表</header>
+                <div class="panel-body">
+
+                        <table class="table table-bordered">
+                               
+                                   <tr >
+                                  <td class="t01" width="15%">姓  名 </td>
+                                  <td width="15%">@user.RealName</td>
+                                  <td class="t01" width="15%">单  位 </td>
+                                  <td width="20%">@user.WorkUnit</td>
+                                  <td class="t01" width="15%">职 务 </td>
+                                  <td width="20%">@user.Post</td>
+                                </tr>
+                                <tr >
+                                  <td class="t01" rowspan="10" >
+                                    本人参 <br />
+                                    与操办 <br />
+                                    本人及 <br />
+                                    近亲属 <br />
+                                    婚丧喜 <br />
+                                    庆事宜 </td>
+                                  <td class="t01">操办事项 </td>
+                                  <td colspan="4" >@w.Arrange</td>
+                                </tr>
+                                <tr >
+                                  <td class="t01" >办理时间 </td>
+                                  <td colspan="4" >@if (w.ManageTime != null) { @Convert.ToDateTime(w.ManageTime).ToString("yyyy-MM-dd"); }
+                                                   else
+                                                   {@w.ManageTime;}</td>
+                                </tr>
+                                <tr >
+                                  <td class="t01" >办理地点 </td>
+                                  <td colspan="4" >@w.ManageAddress</td>
+                                </tr>
+                                <tr >
+                                  <td class="t01" >参加对象 </td>
+                                  <td colspan="4" >@w.PartyObject</td>
+                                </tr>
+                                <tr >
+                                  <td class="t01" >参加人数 </td>
+                                  <td colspan="4" >@w.PartyNum</td>
+                                </tr>
+                                <tr >
+                                  <td class="t01" >收受礼金金额 </td>
+                                  <td colspan="4" >@w.AcceptingMoney（元）</td>
+                                </tr>
+                                <tr >
+                                  <td class="t01" rowspan="2" >收受礼品数量 <br />
+                                    及价值 </td>
+                                  <td colspan="4" >@w.AcceptingCount（件） </td>
+                                </tr>
+                                <tr >
+                                  <td colspan="4" >@w.AcceptingValue（元） </td>
+                                </tr>
+                                <tr >
+                                  <td class="t01" >所受礼金礼品处理情况 </td>
+                                  <td colspan="4" >@w.HandleStatus</td>
+                                </tr>
+                                     </table>
+
+                    <table class="table table-striped table-hover table-bordered">
+                        <thead>
+                            <tr>
+                                <th>退回意见<span style="color: red">（审核通过不必填写）</span></th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="">
+                                <td>
+                                    <textarea rows="6" class="form-control" id="backadvice"></textarea></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p class="t_center">
+                        <button class="btn btn-success btn-lg" type="button" id="check_yesbtn">审核通过</button>
+                        <button class="btn btn-danger btn-lg" type="button" id="check_nobtn">审核不通过</button>
+                        <button class="btn btn-default btn-lg" type="button" onclick="window.history.go(-1);">返回</button>
+                    </p>
+                </div>
+            </section>  
+                
+                    }
+                }
+            }
+        }
+    </div>
+</div>
+<script src="~/Content/js/jquery-1.10.2.min.js"></script>
+
+<script>
+    $(function () {
+       
+        //审核通过
+        $("#check_yesbtn").click(function () {
+
+            $.post("/CheckFile/_UpdTotalWeddingDie?id=" + $("#myid").val(),
+              {
+                  "id": $("#myid").val(),   
+                  "advice": $("#backadvice").val(),
+                
+              },
+              function (data) {
+                  if (data=="1") {
+                      alert("审核通过！");
+
+                      location.href = "/CheckFile/CheckUserCheckOne?tid=" + $("#myuserid").val();
+ 
+                  } else {
+
+                      alert("审核不通过！");
+                      window.history.go(-1);
+                     
+                  }
+            });
+
+        });
+        //审核不通过
+        $("#check_nobtn").click(function () {
+
+            if ($("#backadvice").val() == "" || $("#backadvice").val() == null) {
+                alert("请填写不通过原由！");
+                return;
+            } else {
+                $.post("/CheckFile/_UpdTotalWeddingDie_No?id=" + $("#myid").val(),
+                  {
+                      "id": $("#myid").val(),
+                      "advice": $("#backadvice").val(),
+
+                  },
+                  function (data) {
+                      if (data == "1") {
+                          alert("审核不通过！");
+                          location.href = "/CheckFile/CheckUserCheckOne?tid=" + $("#myuserid").val();
+
+                      }
+                  });
+            }
+        });
+    });
+    
+
+</script>

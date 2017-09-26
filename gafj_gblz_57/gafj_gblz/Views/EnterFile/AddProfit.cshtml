@@ -1,0 +1,222 @@
+﻿@{
+    ViewBag.Title = "AddProfit";
+    Layout = "~/Views/_LayoutPage1.cshtml";
+}
+ 
+    <div class="row">
+        <div class="col-md-12">
+            <!--breadcrumbs start -->
+            <ul class="breadcrumb panel">
+                <li><a href="/EnterFile/Index"><i class="fa fa-home"></i>首页</a></li>
+                <li class="active">科级干部从事或参与营业性活动及兼职持股情况报告表</li>
+            </ul>
+            <!--breadcrumbs end -->
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="col-sm-12">
+            <section class="panel">
+                <header class="panel-heading">
+                    【@Session["realname"]】从事或参与营业性活动及兼职持股情况报告表
+                </header>
+
+                <div class="panel-body">
+                    <div class="alert alert-block alert-danger fade in">
+                        <button type="button" class="close close-sm" data-dismiss="alert"><i class="fa fa-times"></i></button>
+                        <strong>说明：</strong><p>1、填写现状；</p>
+                        <p>2、投资入股方式指资金入股、技术入股或其他方式。</p>
+                    </div>
+                    <form class="form-horizontal" role="form" action="index.html">
+                        <h5 style="background: #eff2f7; font-weight: bold; color: #65cea7; line-height: 30px; padding-left: 20px; border-radius: 4px;">个人经商办企业情况</h5>
+                        <div class="form-group">
+                            <label for="inputEmail1" class="col-lg-3 col-sm-2 control-label">企业名称</label>
+                            <div class="col-lg-4">
+                                <input type="text" class="form-control" id="comname" placeholder="">
+                                <!--<p class="help-block">Example block-level help text here.</p>-->
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="input1" class="col-lg-3 col-sm-2 control-label">经营范围</label>
+                            <div class="col-lg-4">
+                                <input type="text" class="form-control" id="scope" placeholder="">
+                                <!--<p class="help-block">Example block-level help text here.</p>-->
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="input1" class="col-lg-3 col-sm-2 control-label">注册资金（元）</label>
+                            <div class="col-lg-4">
+                                <input type="text" class="form-control" id="regmoney" placeholder="">
+                                <!--<p class="help-block">Example block-level help text here.</p>-->
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="input1" class="col-lg-3 col-sm-2 control-label">本人出资比例（百分比）</label>
+                            <div class="col-lg-4">
+                                <input type="text" class="form-control" id="investrate" placeholder="">
+                                <!--<p class="help-block">Example block-level help text here.</p>-->
+                            </div>
+
+                        </div>
+                         <div class="form-group">
+                            <label for="input1" class="col-lg-3 col-sm-2 control-label">年利润（元）</label>
+                            <div class="col-lg-4">
+                                <input type="text" class="form-control" id="yearprofit" placeholder="">
+                                <!--<p class="help-block">Example block-level help text here.</p>-->
+                            </div>
+
+                        </div>
+                        <hr>
+                        <h5 style="background: #eff2f7; font-weight: bold; color: #65cea7; line-height: 30px; padding-left: 20px; border-radius: 4px;">在企事业单位、社会团体或其他营利性组织中兼职情况</h5>
+                        <div class="form-group">
+                            <label for="input1" class="col-lg-3 col-sm-2 control-label">兼职单位名称</label>
+                            <div class="col-lg-4">
+                                <input type="text" class="form-control" id="partunit" placeholder="">
+                                <!--<p class="help-block">Example block-level help text here.</p>-->
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="input1" class="col-lg-3 col-sm-2 control-label">兼职单位性质</label>
+                            <div class="col-lg-4">
+                                <input type="text" class="form-control" id="partproperty" placeholder="">
+                                <!--<p class="help-block">Example block-level help text here.</p>-->
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="input1" class="col-lg-3 col-sm-2 control-label">兼职职务</label>
+                            <div class="col-lg-4">
+                                <input type="text" class="form-control" id="partpost" placeholder="">
+                                <!--<p class="help-block">Example block-level help text here.</p>-->
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="input1" class="col-lg-3 col-sm-2 control-label">年取酬（元）</label>
+                            <div class="col-lg-4">
+                                <input type="text" class="form-control" id="yearmoney" placeholder="">
+                                <!--<p class="help-block">Example block-level help text here.</p>-->
+                            </div>
+                        </div>
+                        <hr>
+                        <h5 style="background: #eff2f7; font-weight: bold; color: #65cea7; line-height: 30px; padding-left: 20px; border-radius: 4px;">投资或入股情况</h5>
+                        <div class="form-group">
+                            <label for="input1" class="col-lg-3 col-sm-2 control-label">投资或入股单位</label>
+                            <div class="col-lg-4">
+                                <input type="text" class="form-control" id="investunit" placeholder="">
+                                <!--<p class="help-block">Example block-level help text here.</p>-->
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="input1" class="col-lg-3 col-sm-2 control-label">投资或入股单位性质</label>
+                            <div class="col-lg-4">
+                                <input type="text" class="form-control" id="investproperty" placeholder="">
+                                <!--<p class="help-block">Example block-level help text here.</p>-->
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="input1" class="col-lg-3 col-sm-2 control-label">投资或入股方式</label>
+                            <div class="col-lg-4">
+                                <input type="text" class="form-control" id="investway" placeholder="">
+                                <!--<p class="help-block">Example block-level help text here.</p>-->
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="input1" class="col-lg-3 col-sm-2 control-label">本人投资或入股金额（元）</label>
+                            <div class="col-lg-4">
+                                <input type="text" class="form-control" id="investmoney" placeholder="">
+                                <!--<p class="help-block">Example block-level help text here.</p>-->
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="input1" class="col-lg-3 col-sm-2 control-label">年收益（元）</label>
+                            <div class="col-lg-4">
+                                <input type="text" class="form-control" id="yearincome" placeholder="">
+                                <!--<p class="help-block">Example block-level help text here.</p>-->
+                            </div>
+                        </div>
+                        <hr>
+                        <h5 style="background: #eff2f7; font-weight: bold; color: #65cea7; line-height: 30px; padding-left: 20px; border-radius: 4px;">从事或参与其他证券投资情况（主要指购买股票、基金、债券、期货等）</h5>
+                        <div class="form-group">
+                            <label for="input1" class="col-lg-3 col-sm-2 control-label"></label>
+                            <div class="col-lg-4">
+                                <textarea rows="6" class="form-control" id="other"></textarea>
+                                <!--<p class="help-block">Example block-level help text here.</p>-->
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-lg-offset-3 col-lg-10">
+                                <button type="button" class="btn btn-primary" id="savebtn">保存</button>
+                                <button class="btn btn-default" type="button" onclick="window.history.go(-1);">返回</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </div>
+    </div>
+ 
+<script src="~/Content/js/jquery-1.10.2.min.js"></script>
+
+<script>
+
+
+    $(function () {
+        //保存
+        $("#savebtn").click(function () {
+           
+            //if (($("#comname").val() == "" || $("#comname").val() == null) || ($("#scope").val() == "" || $("#scope").val() == null) ||
+            //    ($("#regmoney").val() == "" || $("#regmoney").val() == null) || ($("#investrate").val() == "" || $("#investrate").val() == null) ||
+            //    ($("#yearprofit").val() == "" || $("#yearprofit").val() == null) || ($("#partunit").val() == "" || $("#partunit").val() == null) ||
+            //    ($("#partproperty").val() == "" || $("#partproperty").val() == null) || ($("#partpost").val() == "" || $("#partpost").val() == null) ||
+            //    ($("#yearmoney").val() == "" || $("#yearmoney").val() == null) || ($("#investunit").val() == "" || $("#investunit").val() == null) ||
+            //    ($("#investproperty").val() == "" || $("#investproperty").val() == null) || ($("#investway").val() == "" || $("#investway").val() == null) ||
+            //    ($("#investmoney").val() == "" || $("#investmoney").val() == null) || ($("#yearincome").val() == "" || $("#yearincome").val() == null)
+            //    )
+            //{
+            //    alert("请将信息填写完整！");
+            //    return;
+            //}
+            //else
+            //{
+                $.post("/EnterFile/_AddProfit", {
+
+                    "p.CompanyName": $("#comname").val(),
+                    "p.BusinessScope": $("#scope").val(),
+                    "p.RegisterMoney": $("#regmoney").val(),
+                    "p.InvestmentRate": $("#investrate").val(),
+                    "p.YearProfit": $("#yearprofit").val(),
+                    "p.ParttimeUnit": $("#partunit").val(),
+                    "p.ParttimeUnitNature": $("#partproperty").val(),
+                    "p.ParttimePost": $("#partpost").val(),
+                    "p.YearMoney": $("#yearmoney").val(),
+                    "p.InvestUnit": $("#investunit").val(),
+                    "p.InvestUnitNature": $("#investproperty").val(),
+                    "p.InvestWay": $("#investway").val(),
+                    "p.InvestMoney": $("#investmoney").val(),
+                    "p.YearIncome": $("#yearincome").val(),
+                    "p.Other": $("#other").val()
+
+                }, function (data) {
+
+                    if (data == "1") {
+                        alert("保存成功！");
+                        location.href = "/EnterFile/Index";
+                    }
+                    else {
+                        alert("保存失败,请重试！");
+                        location.reload();//刷新
+                    }
+                });
+          //  }
+
+           
+
+        });
+    });
+
+</script>
+
+
+ 
+ 

@@ -1,0 +1,214 @@
+﻿@{
+    ViewBag.Title = "ChkUserChkProfit";
+    Layout = "~/Views/_PartialPage2.cshtml";
+}
+
+
+
+<style>
+    #row1
+    {
+        margin-top: -2px;
+    }
+
+    #row2
+    {
+        margin-top: -2px;
+    }
+</style>
+
+
+<div class="row" id="row1">
+    <div class="col-md-12">
+        <!--breadcrumbs start -->
+        <ul class="breadcrumb panel">
+            <li><a href="/Main/Index"><i class="fa fa-home"></i>首页</a></li>
+            <li><a href="/CheckFile/CheckUserIndex">档案审核</a></li>           
+            <li class="active">廉政档案登记表</li>
+        </ul>
+        <!--breadcrumbs end -->
+    </div>
+</div>
+
+
+<div class="row" id="row2">
+    <div class="col-sm-12">
+        @{ 
+             
+            var userinfolist = ViewBag.userinfolist as List<Yisaa.DAL.DT_UserInfo>;
+            var plist = ViewBag.plist as List<Yisaa.DAL.DT_ProfitReport>;
+            foreach (var total in (ViewBag.tlist as List<Yisaa.DAL.DT_Total>))
+            {
+                foreach (var user in userinfolist.Where(a => a.Id == total.UserInfoId))
+                {
+             
+                    foreach (var p in plist.Where(a => a.Id == total.ProfitId))
+                    {
+            <section class="panel">
+                <input type="text" value="@total.Id" hidden="hidden" id="myid"/>
+                <input type="text" value="@total.UserId" hidden="hidden" id="myuserid"/>
+                <header class="panel-heading">【@user.RealName】从事或参与营业性活动及兼职持股情况报告表</header>
+                <div class="panel-body">
+                    <table class="table table-bordered">
+
+                        <tr>
+                            <td class="t01" width="15%">姓  名 </td>
+                            <td width="15%">@user.RealName</td>
+                            <td class="t01" width="15%">单 位 </td>
+                            <td width="20%">@user.WorkUnit</td>
+                            <td class="t01" width="15%">职 务 </td>
+                            <td width="20%">@user.Post</td>
+                        </tr>
+                        <tr>
+                            <td class="t01" rowspan="5">个人经商办企业情况 </td>
+                            <td class="t01">企业名称 </td>
+                            <td colspan="4">@p.CompanyName</td>
+                        </tr>
+                        <tr>
+                            <td class="t01">经营范围 </td>
+                            <td colspan="4">@p.BusinessScope</td>
+                        </tr>
+                        <tr>
+                            <td class="t01">注册资金（元） </td>
+                            <td colspan="4">@p.RegisterMoney</td>
+                        </tr>
+                        <tr>
+                            <td class="t01">本人出资比例（百分比） </td>
+                            <td colspan="4">@p.InvestmentRate</td>
+                        </tr>
+                        <tr>
+                            <td class="t01">年利润（元） </td>
+                            <td colspan="4">@p.YearProfit</td>
+                        </tr>
+                        <tr>
+                            <td class="t01" rowspan="4">在企事业单位、社会团体或其他营利性组织中兼职情况 </td>
+                            <td class="t01">兼职单位名称 </td>
+                            <td colspan="4">@p.ParttimeUnit</td>
+                        </tr>
+                        <tr>
+                            <td class="t01">兼职单位性质 </td>
+                            <td colspan="4">@p.ParttimeUnitNature</td>
+                        </tr>
+                        <tr>
+                            <td class="t01">兼任职务 </td>
+                            <td colspan="4">@p.ParttimePost</td>
+                        </tr>
+                        <tr>
+                            <td class="t01">年取酬（元） </td>
+                            <td colspan="4">@p.YearMoney</td>
+                        </tr>
+                        <tr>
+                            <td class="t01" rowspan="5">投资或入股情况 </td>
+                            <td class="t01">投资或入股单位 </td>
+                            <td colspan="4">@p.InvestUnit</td>
+                        </tr>
+                        <tr>
+                            <td class="t01">投资或入股单位性质 </td>
+                            <td colspan="4">@p.InvestUnitNature</td>
+                        </tr>
+                        <tr>
+                            <td class="t01">投资或入股方式 </td>
+                            <td colspan="4">@p.InvestWay</td>
+                        </tr>
+                        <tr>
+                            <td class="t01">本人投资或入股金额（元） </td>
+                            <td colspan="4">@p.InvestMoney</td>
+                        </tr>
+                        <tr>
+                            <td class="t01">年收益（元） </td>
+                            <td colspan="4">@p.YearIncome</td>
+                        </tr>
+                        <tr>
+                            <td class="t01">从事或参与其他
+                                    证券投资情况
+                                    （主要指购买股票、
+                                    基金、债券、期货等） </td>
+                            <td colspan="5">@p.Other</td>
+                        </tr>
+
+                    </table>
+
+                    <table class="table table-striped table-hover table-bordered">
+                        <thead>
+                            <tr>
+                                <th>退回意见<span style="color: red">（审核通过不必填写）</span></th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="">
+                                <td>
+                                    <textarea rows="6" class="form-control" id="backadvice"></textarea></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p class="t_center">
+                        <button class="btn btn-success btn-lg" type="button" id="check_yesbtn">审核通过</button>
+                        <button class="btn btn-danger btn-lg" type="button" id="check_nobtn">审核不通过</button>
+                        <button class="btn btn-default btn-lg" type="button" onclick="window.history.go(-1);">返回</button>
+                    </p>
+                </div>
+            </section>      
+                    }
+                }
+            }
+            }
+</div>
+</div>
+<script src="~/Content/js/jquery-1.10.2.min.js"></script>
+
+
+<script>
+    $(function () {
+       
+        //审核通过
+        $("#check_yesbtn").click(function () {
+
+            $.post("/CheckFile/_UpdTotalProfit?id=" + $("#myid").val(),
+              {
+                  "id": $("#myid").val(),   
+                  "advice": $("#backadvice").val(),
+                
+              },
+              function (data) {
+                  if (data=="1") {
+                      alert("审核通过！");
+
+                      location.href = "/CheckFile/CheckUserCheckOne?tid=" + $("#myuserid").val();
+ 
+                  } else {
+
+                      alert("审核不通过！");
+                      window.history.go(-1);
+                     
+                  }
+            });
+
+        });
+        //审核不通过
+        $("#check_nobtn").click(function () {
+
+            if ($("#backadvice").val() == "" || $("#backadvice").val() == null) {
+                alert("请填写不通过原由！");
+                return;
+            } else {
+
+                $.post("/CheckFile/_UpdTotalProfit_No?id=" + $("#myid").val(),
+                  {
+                      "id": $("#myid").val(),
+                      "advice": $("#backadvice").val(),
+
+                  },
+                  function (data) {
+                      if (data == "1") {
+                          alert("审核不通过！");
+                          location.href = "/CheckFile/CheckUserCheckOne?tid=" + $("#myuserid").val();
+
+                      }
+                  });
+            }
+        });
+    });
+    
+
+</script>

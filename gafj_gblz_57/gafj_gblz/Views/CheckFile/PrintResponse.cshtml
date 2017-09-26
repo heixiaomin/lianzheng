@@ -1,0 +1,82 @@
+﻿@{
+    ViewBag.Title = "PrintResponse";
+}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="~/Content/css/global.css" type="text/css"/>
+<link rel="stylesheet" href="~/Content/css/print.css" type="text/css"/>
+<title>科级干部违规违纪问题处理及责任追究情况报告表打印页面</title>
+</head>
+<body>
+<div class="menu02">
+    <input type="button" value="打印" id="print_btn" onclick="javascript: window.print();"/>
+    <input type="button" value="关闭" onclick="window.history.go(-1);" />
+</div>
+<div class="print_bd lin_h45">
+  <h1 class="font_2 t_center padd_t30 lin_h36" >科级干部违规违纪问题处理及<br/>责任追究情况报告表</h1>
+  <div class="font_4"><span class="font_4sm fr">表五</span></div>
+
+      @{              
+            var userinfolist = ViewBag.userinfolist as List<Yisaa.DAL.DT_UserInfo>;
+            var respons = ViewBag.respons as List<Yisaa.DAL.DT_Responsibility>;
+            foreach (var total in (ViewBag.tlist as List<Yisaa.DAL.DT_Total>))
+            {
+                foreach (var user in userinfolist.Where(a => a.Id == total.UserInfoId))
+                {
+
+                    foreach (var p in respons.Where(a => a.Id == total.ResponsibilityId))
+                    {    
+  <table class="tab_b01 font_4sm lin_h24 tb_h48" >
+    <tr >
+                                  <td class="t01" width="15%" >姓  名 </td>
+                                  <td width="18%">@user.RealName</td>
+                                  <td class="t01" width="15%" >工作<br/>
+                                    单位 </td>
+                                  <td width="22%">@user.WorkUnit</td>
+                                  <td class="t01" width="15%" >职 务 </td>
+                                  <td width="15%">@user.Post</td>
+                                </tr>
+                                <tr >
+                                  <td class="t01">违纪性质 </td>
+                                  <td colspan="3" >@p.Nature</td>
+                                  <td class="t01">违纪时间 </td>
+                                  <td colspan="2" >@p.ResTime</td>
+                                </tr>
+                                <tr >
+                                  <td class="t01">处理机关 </td>
+                                  <td colspan="6" >@p.HandleOffice</td>
+                                </tr>
+                                <tr >
+                                  <td class="t01">违 <br />
+                                    纪 <br />
+                                    事 <br />
+                                    实 </td>
+                                  <td colspan="6" class="h220">@p.Fact</td>
+                                </tr>
+                                <tr >
+                                  <td class="t01">处 <br />
+                                    理 <br />
+                                    情 <br />
+                                    况 </td>
+                                  <td colspan="6" class="h220">@p.HandleStatus</td>
+                                </tr>
+                                <tr >
+                                  <td class="t01">备 <br />
+                                    注 </td>
+                                  <td colspan="6" class="h90">@p.Remark</td>
+                                </tr>
+                              </table>
+            }
+         }
+            }
+         }
+
+  <div class="font_4">填表单位（章）：<span class="fr font_4">填表时间：<u>　　　　</u>年<u>　　</u>月<u>　　</u>日</span></div>
+<!--  <div class="font_5 lin_h24">说明：1、本表填写《关于领导干部报告个人有关事项的规定》中需要向组织报告的本人及其家庭成员的其他重大事项、本人认为应当向组织报告的其他事项。<br/>
+　　　2、填写从2015年1月以后发生的情况。</div>-->
+</div>
+</body>
+</html>

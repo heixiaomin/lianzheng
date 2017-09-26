@@ -1,0 +1,332 @@
+﻿@{
+    ViewBag.Title = "UpdWeddingandDie";
+    Layout = "~/Views/_LayoutPage1.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <!--breadcrumbs start -->
+        <ul class="breadcrumb panel">
+            <li><a href="/EnterFile/Index"><i class="fa fa-home"></i>首页</a></li>
+            <li class="active">科级干部参与操办本人及近亲属婚丧喜庆事宜情况报告表</li>
+        </ul>
+        <!--breadcrumbs end -->
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12">
+        <section class="panel">
+            <header class="panel-heading">
+                【@Session["realname"]】参与操办本人及近亲属婚丧喜庆事宜情况报告表
+            </header>
+
+            <div class="panel-body">
+                <div class="alert alert-block alert-danger fade in">
+                    <button type="button" class="close close-sm" data-dismiss="alert"><i class="fa fa-times"></i></button>
+                    <strong>说明：</strong><p>1、近亲属包括父母、岳父母、配偶、子女及其配偶、兄弟姐妹等。</p>
+                    <p>2、填写2013年1月后发生的情况。</p>
+                </div>
+
+                @{
+                    var weddingdie = ViewBag.weddingdie as List<Yisaa.DAL.DT_WeddingandDie>;
+                    foreach (var w in weddingdie)
+                    {
+
+                        if (ViewBag.status == "被退回")
+                        {
+                <form class="form-horizontal" role="form" action="/EnterFile/_UpdWedding_Back" method="post">
+                    <h5 style="background: #eff2f7; font-weight: bold; color: #65cea7; line-height: 30px; padding-left: 20px; border-radius: 4px;">本人参与操办本人及近亲属婚丧喜庆事宜</h5>
+                    <div class="form-group">
+                        <label for="inputEmail1" class="col-lg-3 col-sm-2 control-label">操办事项</label>
+                        <div class="col-lg-4">
+                            <input type="text" class="form-control" id="arrange" placeholder="" name="arrange" value="@w.Arrange">
+                            <!--<p class="help-block">Example block-level help text here.</p>-->
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="input1" class="col-lg-3 col-sm-2 control-label">办理时间</label>
+                        <div class="col-lg-4">
+                            <input type="text" class="form-control laydate-icon" id="time" placeholder="" name="time" value="@w.ManageTime">
+                            <!--<p class="help-block">Example block-level help text here.</p>-->
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="input1" class="col-lg-3 col-sm-2 control-label">办理地点</label>
+                        <div class="col-lg-4">
+                            <input type="text" class="form-control" id="address" placeholder="" name="address" value="@w.ManageAddress">
+                            <!--<p class="help-block">Example block-level help text here.</p>-->
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="input1" class="col-lg-3 col-sm-2 control-label">参加对象</label>
+                        <div class="col-lg-4">
+                            <input type="text" class="form-control" id="object" placeholder="" name="object" value="@w.PartyObject">
+                            <!--<p class="help-block">Example block-level help text here.</p>-->
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        <label for="input1" class="col-lg-3 col-sm-2 control-label">参加人数</label>
+                        <div class="col-lg-4">
+                            <input type="text" class="form-control" id="joincount" placeholder="" name="joincount" value="@w.PartyNum">
+                            <!--<p class="help-block">Example block-level help text here.</p>-->
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="input1" class="col-lg-3 col-sm-2 control-label">收受礼金金额</label>
+                        <div class="col-lg-4">
+                            <input type="" class="form-control" id="money" placeholder="（件）" name="money" value="@w.AcceptingMoney">
+                            <!--<p class="help-block">Example block-level help text here.</p>-->
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="input1" class="col-lg-3 col-sm-2 control-label">收受礼品数量及价值</label>
+                        <div class="col-lg-2">
+                            <input type="" class="form-control" id="giftcount" placeholder="（件）" name="giftcount" value="@w.AcceptingCount">
+                            <!--<p class="help-block">Example block-level help text here.</p>-->
+                        </div>
+                        <div class="col-lg-2">
+                            <input type="" class="form-control" id="giftvalue" placeholder="（元）" name="giftvalue" value="@w.AcceptingValue">
+                            <!--<p class="help-block">Example block-level help text here.</p>-->
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="input1" class="col-lg-3 col-sm-2 control-label">所受礼金礼品处理情况</label>
+                        <div class="col-lg-4">
+                            <input type="" class="form-control" id="result" placeholder="" name="result" value="@w.HandleStatus">
+                            <!--<p class="help-block">Example block-level help text here.</p>-->
+                        </div>
+                    </div>
+                    <table class="table table-striped table-hover table-bordered">
+                        <thead>
+                            <tr>
+                                <th>组织意见</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="">
+
+                                <td>
+                                    <textarea rows="6" class="form-control" id="advice" name="advice"></textarea></td>
+                            </tr>
+
+
+                        </tbody>
+                    </table>
+                    <div class="form-group">
+
+                        <div class="col-lg-offset-3 col-lg-10">
+                            <button type="submit" class="btn btn-primary" id="savebtn2">确认修改</button>
+
+                            <button class="btn btn-default" type="button" onclick="window.history.go(-1);">返回</button>
+                        </div>
+                    </div>
+                </form>
+                        
+                        }
+                        else
+                        {
+                              <form class="form-horizontal" role="form" action="/EnterFile/_UpdWedding" method="post">
+                    <h5 style="background: #eff2f7; font-weight: bold; color: #65cea7; line-height: 30px; padding-left: 20px; border-radius: 4px;">本人参与操办本人及近亲属婚丧喜庆事宜</h5>
+                    <div class="form-group">
+                        <label for="inputEmail1" class="col-lg-3 col-sm-2 control-label">操办事项</label>
+                        <div class="col-lg-4">
+                            <input type="text" class="form-control" id="arrange" placeholder="" name="arrange" value="@w.Arrange">
+                            <!--<p class="help-block">Example block-level help text here.</p>-->
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="input1" class="col-lg-3 col-sm-2 control-label">办理时间</label>
+                        <div class="col-lg-4">
+                            <input type="text" class="form-control laydate-icon" id="time" placeholder="" name="time" value="@w.ManageTime">
+                            <!--<p class="help-block">Example block-level help text here.</p>-->
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="input1" class="col-lg-3 col-sm-2 control-label">办理地点</label>
+                        <div class="col-lg-4">
+                            <input type="text" class="form-control" id="address" placeholder="" name="address" value="@w.ManageAddress">
+                            <!--<p class="help-block">Example block-level help text here.</p>-->
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="input1" class="col-lg-3 col-sm-2 control-label">参加对象</label>
+                        <div class="col-lg-4">
+                            <input type="text" class="form-control" id="object" placeholder="" name="object" value="@w.PartyObject">
+                            <!--<p class="help-block">Example block-level help text here.</p>-->
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        <label for="input1" class="col-lg-3 col-sm-2 control-label">参加人数</label>
+                        <div class="col-lg-4">
+                            <input type="text" class="form-control" id="joincount" placeholder="" name="joincount" value="@w.PartyNum">
+                            <!--<p class="help-block">Example block-level help text here.</p>-->
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="input1" class="col-lg-3 col-sm-2 control-label">收受礼金金额</label>
+                        <div class="col-lg-4">
+                            <input type="" class="form-control" id="money" placeholder="（件）" name="money" value="@w.AcceptingMoney">
+                            <!--<p class="help-block">Example block-level help text here.</p>-->
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="input1" class="col-lg-3 col-sm-2 control-label">收受礼品数量及价值</label>
+                        <div class="col-lg-2">
+                            <input type="" class="form-control" id="giftcount" placeholder="（件）" name="giftcount" value="@w.AcceptingCount">
+                            <!--<p class="help-block">Example block-level help text here.</p>-->
+                        </div>
+                        <div class="col-lg-2">
+                            <input type="" class="form-control" id="giftvalue" placeholder="（元）" name="giftvalue" value="@w.AcceptingValue">
+                            <!--<p class="help-block">Example block-level help text here.</p>-->
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="input1" class="col-lg-3 col-sm-2 control-label">所受礼金礼品处理情况</label>
+                        <div class="col-lg-4">
+                            <input type="" class="form-control" id="result" placeholder="" name="result" value="@w.HandleStatus">
+                            <!--<p class="help-block">Example block-level help text here.</p>-->
+                        </div>
+                    </div>
+                    <table class="table table-striped table-hover table-bordered">
+                        <thead>
+                            <tr>
+                                <th>组织意见</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="">
+
+                                <td>
+                                    <textarea rows="6" class="form-control" id="advice" name="advice"></textarea></td>
+                            </tr>
+
+
+                        </tbody>
+                    </table>
+                    <div class="form-group">
+
+                        <div class="col-lg-offset-3 col-lg-10">
+                            <button type="submit" class="btn btn-primary" id="savebtn">确认修改</button>
+
+                            <button class="btn btn-default" type="button" onclick="window.history.go(-1);">返回</button>
+                        </div>
+                    </div>
+                </form>
+                        }
+
+                    }
+                    }
+            </div>
+        </section>
+
+    </div>
+</div>
+
+
+
+<script src="~/Content/js/jquery-1.10.2.min.js"></script>
+
+<script src="~/Content/myjs/datepicker/WdatePicker.js"></script>
+<script src="~/Content/myjs/datepicker/calendar.js"></script>
+
+<script src="~/Content/laydate/laydate.js"></script>
+
+
+
+<script>
+
+    $(function () {
+
+        //保存
+        $("#savebtn").click(function () {
+
+
+            //if ($("#arrange").val() == null || $("#arrange").val() == "") {
+            //    alert("请填写操办事项！");
+
+            //    return;
+            //}
+            //else if ($("#time").val() == null || $("#time").val() == "") {
+            //    alert("请填写办理时间！");
+
+            //    return;
+            //}
+            //else if ($("#native").val() == null || $("#native").val() == "") {
+            //    alert("请填写籍贯！");
+
+            //    return;
+            //}
+            //else if ($("#Path").val() == null || $("#Path").val() == "") {
+            //    alert("请上传照片！");
+
+            //    return;
+            //}
+
+            //else if ($("#outlook").val() == null || $("#outlook").val() == "") {
+            //    alert("请填写政治面貌！");
+
+            //    return;
+            //}
+            //else if ($("#partytime").val() == null || $("#partytime").val() == "") {
+            //    alert("请填写入党时间！");
+
+            //    return;
+            //}
+
+            //else
+            //{
+            //    $.post("/EnterFile/_AddBaseInfo1", {
+
+            //        "u.RealName": $("#name").val(),
+            //        "u.Sex": $("#sex").val(),
+            //        "u.NativePlace": $("#native").val(),
+            //        "u.Photo": $("#Path").val(),
+            //        "u.Birthday": $("#birthday").val(),
+            //        "u.IdCardNum": $("#idcard").val(),
+            //        "u.Outlook": $("#outlook").val(),
+            //        "u.PartyTime": $("#partytime").val(),
+            //        "u.Nation": $("#nation").val(),
+            //        "u.Property": $("#property").val(),
+            //        "u.JobTime": $("#jobtime").val(),
+            //        "u.Education": $("#education").val(),
+            //        "u.WorkUnit": $("#workunit").val(),
+            //        "u.Post": $("#post").val(),
+            //        "u.PostStatus": $("#poststatus").val(),
+            //        "u.PostTime": $("#posttime").val(),
+            //        "u.DoWork": $("#dowork").val(),
+            //        "u.UserAddress": $("#address").val(),
+            //        "u.Introduction": $("#introduction").val()
+            //    }, function (data) {
+
+            //        if (data == "1") {
+            //            alert("保存成功！");
+            //            location.href = "/EnterFile/Index";
+            //        }
+            //        else {
+            //            alert("保存失败,请重试！");
+            //            location.reload();//刷新
+            //        }
+            //    });
+
+            //}
+
+
+        });
+
+    });
+
+    laydate({
+        elem: '#time',
+        event: 'focus'
+    });
+
+</script>
+

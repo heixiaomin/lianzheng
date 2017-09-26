@@ -1,0 +1,683 @@
+﻿@{
+    ViewBag.Title = "GoAbroad";
+    Layout = "~/Views/_LayoutPage1.cshtml";
+}
+
+
+<div class="row">
+    <div class="col-md-12">
+        <!--breadcrumbs start -->
+        <ul class="breadcrumb panel">
+            <li><a href="/EnterFile/Index"><i class="fa fa-home"></i>首页</a></li>
+            <li class="active">科级干部本人、配偶、子女及其配偶出国（境）情况报告表</li>
+        </ul>
+        <!--breadcrumbs end -->
+    </div>
+</div>
+<div class="row">
+
+    <div class="col-sm-12">
+        <section class="panel">
+            <header class="panel-heading">
+                【@Session["realname"]】本人、配偶、子女及其配偶出国（境）情况报告表
+            </header>
+
+            <div class="panel-body">
+                <div class="alert alert-block alert-danger fade in">
+                    <button type="button" class="close close-sm" data-dismiss="alert"><i class="fa fa-times"></i></button>
+                    <strong>说明：</strong><p>1、“每年留学费用”、“实际费用”折合人民币表示，单位元。</p>
+                    <p>2、留学、通婚、定居情况填2010年1月以后发生的情况。</p>
+                </div>
+                <form class="form-horizontal" role="form" action="#">
+                    <table class="table table-striped table-hover table-bordered">
+                        <thead>
+                            <tr>
+                                <th colspan="2">本人持有出国（境）证件情况
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td width="15%">持出国证件</td>
+                                <td><input type="text" class="form-control" id="abroad_card" placeholder=""></td>
+                            </tr>
+                            <tr>
+                                <td>持港澳台证件</td>
+                                <td><input type="text" class="form-control" id="HK_card" placeholder=""></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-striped table-hover table-bordered">
+                        <thead>
+                            <tr>
+                                <th colspan="5">配偶、子女私人在国（境）外办企业情况<div style="float: right">
+                                    <button class="btn btn-primary" id="com_add">
+                                        新增 <i class="fa fa-plus"></i>
+                                    </button>
+                                </div>
+                                </th>
+
+                            </tr>
+                            <tr>
+                                <th hidden="hidden">序号</th>
+                                <th>姓名</th>
+                                <th>称谓</th>
+                                <th>地点</th>
+                                <th>企业名称</th>
+                                <th width="10%">操作</th>
+                            </tr>
+                        </thead>
+                        <tbody id="com_tbody">
+                            @{foreach (var com in ViewBag.companylist as List<Yisaa.DAL.DT_GoAbroadCompany>)
+                              {
+                 
+                                <tr>
+                                    <td hidden="hidden">@com.Id</td>
+                                    <td>
+                                         @com.BuildCompanyName</td>
+                                    <td>
+                                         @com.BuildCompanyTitle</td>
+                                    <td>
+                                        @com.BuildCompanyAddress</td>
+                                    <td>
+                                       @com.CompanyName</td>
+
+                                    <td>
+                                       <a href="#" style="cursor: pointer" class="com_update">修改</a> | <a href="/EnterFile/_DelCompany?c.Id=@com.Id" style="cursor:pointer" class="delete">删除</a>
+
+                                    </td>
+                                </tr>
+                              }
+                            }
+
+                        </tbody>
+                    </table>
+                    <table class="table table-striped table-hover table-bordered">
+                        <thead>
+                            <tr>
+                                <th colspan="6">配偶、子女及其配偶出国（境）留学情况<div class="fr">
+                                    <button class="btn btn-primary" id="study_add">
+                                        新增 <i class="fa fa-plus"></i>
+                                    </button>
+                                </div>
+                                </th>
+
+                            </tr>
+                            <tr>
+                                <th hidden="hidden">序号</th>
+                                <th>姓名</th>
+                                <th>称谓</th>
+                                <th>时间</th>
+                                <th>地点</th>
+                                <th>每年留学费用</th>
+                                <th width="10%">操作</th>
+                            </tr>
+                        </thead>
+                        <tbody id="stu_tbody">
+                             @{foreach (var st in ViewBag.studylist as List<Yisaa.DAL.DT_GoAbroadStudy>)
+                              {
+                            <tr>
+                                <td hidden="hidden">@st.Id</td>
+                                <td>
+                                    @st.StudyName</td>
+                                <td>
+                                   @st.StudyTitle </td>
+                                <td>
+                                   @st.StudyTime </td>
+                                <td>
+                                    @st.StudyAddress</td>
+                                <td>
+                                   @st.StudyMoney </td>
+                                <td>
+                                   <a href="#" style="cursor: pointer" class="study_update">修改</a> | <a href="/EnterFile/_DelStudy?s.Id=@st.Id" style="cursor:pointer" class="delete">删除</a>
+                                </td>
+                            </tr>
+                                    }
+                            }
+                          
+                        </tbody>
+                    </table>
+                    <table class="table table-striped table-hover table-bordered">
+                        <thead>
+                            <tr>
+                                <th colspan="6">子女与外国人、港澳台居民通婚情况
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td width="15%">子女姓名</td>
+                                <td><input type="text" class="form-control" id="son_name" placeholder=""></td>
+                                <td width="15%">单位</td>
+                                <td colspan="3"><input type="text" class="form-control" id="unit" placeholder=""></td>
+                            </tr>
+                            <tr>
+                                <td>子女配偶姓名</td>
+                                <td><input type="text" class="form-control" id="partner_name" placeholder=""></td>
+                                <td>国籍</td>
+                                <td><input type="text" class="form-control" id="nation" placeholder=""></td>
+                                <td>婚姻登记时间</td>
+                                <td><input type="text" class="form-control laydate-icon" id="marrytime" placeholder="" onClick = "WdatePicker()"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <table class="table table-striped table-hover table-bordered">
+                        <thead>
+                            <tr>
+                                <th colspan="6">配偶、子女及其配偶出国（境）定居情况<div style="float: right">
+                                    <button class="btn btn-primary" id="settle_add">
+                                        新增 <i class="fa fa-plus"></i>
+                                    </button>
+                                </div>
+                                </th>
+
+                            </tr>
+                            <tr>
+                                 <th hidden="hidden">序号</th>
+                                <th>姓名</th>
+                                <th>称谓</th>
+                                <th>时间</th>
+                                <th>定居地点</th>
+                                <th>从业情况</th>
+                                <th width="10%">操作</th>
+                            </tr>
+                        </thead>
+                        <tbody id="settle_tbody">
+                              @{foreach (var se in ViewBag.settlelist as List<Yisaa.DAL.DT_GoAbroadSettler>)
+                              {
+                            <tr>
+                                 <td hidden="hidden">@se.Id</td>
+                                <td>
+                                    @se.Settler</td>
+                                <td>
+                                    @se.SettlerTitle </td>
+                                <td>
+                                    @se.SettleTime</td>
+                                <td>
+                                    @se.SettleAddress </td>
+                                <td>
+                                    @se.SettlerWork</td>
+                                <td>
+                                     <a href="#" style="cursor: pointer" class="settle_update">修改</a> | <a href="/EnterFile/_DelSettle?s.Id=@se.Id" style="cursor:pointer" class="delete">删除</a>
+                                </td>
+                            </tr>
+                                  }
+                            }
+                         
+                        </tbody>
+                    </table>
+                    <div class="form-group">
+                        <div class="col-lg-offset-3 col-lg-10">
+                            <button type="button" class="btn btn-primary" id="save">保存</button>
+                            <button class="btn btn-default" type="button" onclick="window.history.go(-1);">返回</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+    </div>
+</div>
+
+
+<script src="~/Content/js/jquery-1.10.2.min.js"></script>
+
+<script src="~/Content/myjs/datepicker/WdatePicker.js"></script>
+<script src="~/Content/myjs/datepicker/calendar.js"></script>
+<script src="~/Content/laydate/laydate.js"></script>
+
+
+<script>
+  
+
+    $(function () {
+        ////////办企
+        //添加
+        $("#com_add").click(function () {
+            var needtr = $("<tr></tr>");
+            needtr.append(
+            "<td><input type=\"text\" class=\"form-control\"></td>" +
+            "<td><input type=\"text\" class=\"form-control\"></td>" +
+            "<td><input type=\"text\" class=\"form-control\"></td>" +
+            "<td><input type=\"text\" class=\"form-control\"></td>" +
+            "<td><a class='save' style=\"cursor:pointer\" href=''>保存</a> | <a class='cancel' style=\"cursor:pointer\" href=''>取消</a></td>");
+            
+            $("#com_tbody").append(needtr);
+        });
+
+        //保存 
+        $("#com_tbody a.save").live("click", function () {
+
+            $.post("/EnterFile/_AddCompany",
+                {
+                    "c.BuildCompanyName": $(this).parent().parent().find("td").eq(0).find("input").val().trim(),
+                    "c.BuildCompanyTitle": $(this).parent().parent().find("td").eq(1).find("input").val().trim(),
+                    "c.BuildCompanyAddress": $(this).parent().parent().find("td").eq(2).find("input").val().trim(),
+                    "c.CompanyName": $(this).parent().parent().find("td").eq(3).find("input").val().trim()
+
+                }, function (data) {
+                    if (data == "1") {
+                        alert("保存成功！");
+                        location.href = "/EnterFile/GoAbroad";
+
+                    }
+                    else {
+                        alert("保存失败,请重试！");
+                        location.reload();//刷新
+                    }
+                });
+        });
+
+        //取消
+        $("#com_tbody a.cancel").live("click", function () {
+
+            $(this).parent().parent().remove();
+        });
+
+
+        //出现修改框
+        $(".com_update").click(function () {
+
+            var temptr = $(this).parent().parent();
+
+            //序号
+            var std_id = $("<td hidden='hidden'></td>");
+            var std_input_id = $("<input type='text' class=\"form-control\"/>");
+            std_input_id.val($(this).parent().parent().find("td:eq(0)").html().trim());
+            std_id.append(std_input_id);
+
+            //姓名
+            var std_name = $("<td></td>");
+            var std_input_name = $("<input type='text' class=\"form-control\"/>");
+            std_input_name.val($(this).parent().parent().find("td:eq(1)").html().trim());
+            std_name.append(std_input_name);
+
+            //称谓
+            var std_title = $("<td></td>");
+            var std_input_title = $("<input type='text'class=\"form-control\"/>");
+            std_input_title.val($(this).parent().parent().find("td:eq(2)").html().trim());
+            std_title.append(std_input_title);
+
+            //地点
+            var std_address = $("<td></td>");
+            var std_input_address = $("<input type='text' class=\"form-control\"/>");
+            std_input_address.val($(this).parent().parent().find("td:eq(3)").html().trim());
+            std_address.append(std_input_address);
+
+            //企业名称
+            var std_company = $("<td></td>");
+            var std_input_company = $("<input type='text' class=\"form-control\"/>");
+            std_input_company.val($(this).parent().parent().find("td:eq(4)").html().trim());
+            std_company.append(std_input_company);
+
+            //操作
+            var std_operation = $("<td></td>");
+            var std_a_operation = $("<a class='sure_upd' style=\"cursor:pointer\">确认修改</a> | <a class='sure_del' style=\"cursor:pointer\">删除</a>");
+            std_operation.append(std_a_operation);
+
+            temptr.empty();//先清空我修改的是哪一行，不然就是在后面追加了
+
+            //把生成好的添加到列里边去   
+            temptr.append(std_id);
+            temptr.append(std_name);
+            temptr.append(std_title);
+            temptr.append(std_address);
+            temptr.append(std_company);
+            temptr.append(std_operation);
+
+        });
+
+        //确认修改
+        $("#com_tbody a.sure_upd").live("click", function () {
+
+            $.post("/EnterFile/_UpdateCompany",
+                {
+                    "c.Id": $(this).parent().parent().find("td").eq(0).find("input").val().trim(),
+                    "c.BuildCompanyName": $(this).parent().parent().find("td").eq(1).find("input").val().trim(),
+                    "c.BuildCompanyTitle": $(this).parent().parent().find("td").eq(2).find("input").val().trim(),
+                    "c.BuildCompanyAddress": $(this).parent().parent().find("td").eq(3).find("input").val().trim(),
+                    "c.CompanyName": $(this).parent().parent().find("td").eq(4).find("input").val().trim()
+
+                }, function (data) {
+                    if (data == "1") {
+                        alert("修改成功！");
+                        location.href = "/EnterFile/GoAbroad";
+                    }
+                    else {
+                        alert("修改失败,请重试！");
+                        location.reload();//刷新
+                    }
+                });
+        });
+
+        //删除
+        $("#com_tbody a.sure_del").live("click", function () {
+
+            $.post("/EnterFile/_DelCompany",
+                {
+                    "c.Id": $(this).parent().parent().find("td").eq(0).find("input").val().trim(),
+
+                }, function () {
+                    alert("删除成功！");
+                    location.href = "/EnterFile/GoAbroad";
+                });
+        });
+
+        //////////////留学  
+        //添加
+        $("#study_add").click(function () {
+            var needtr = $("<tr></tr>");
+            needtr.append(
+            "<td><input type=\"text\" class=\"form-control\"></td>" +
+            "<td><input type=\"text\" class=\"form-control\"></td>" +
+            "<td><input type=\"text\" class=\"form-control laydate-icon\" onClick = \"WdatePicker()\"></td>" +
+            "<td><input type=\"text\" class=\"form-control\"></td>" +
+            "<td><input type=\"text\" class=\"form-control\"></td>" +
+            "<td><a class='save' style=\"cursor:pointer\" href=''>保存</a> | <a class='cancel' style=\"cursor:pointer\" href=''>取消</a></td>");
+            $("#stu_tbody").append(needtr);
+            
+        });
+
+        //保存 
+        $("#stu_tbody a.save").live("click", function () {
+
+            $.post("/EnterFile/_AddStudy",
+                {
+                    "s.StudyName": $(this).parent().parent().find("td").eq(0).find("input").val().trim(),
+                    "s.StudyTitle": $(this).parent().parent().find("td").eq(1).find("input").val().trim(),
+                    "s.StudyTime": $(this).parent().parent().find("td").eq(2).find("input").val().trim(),
+                    "s.StudyAddress": $(this).parent().parent().find("td").eq(3).find("input").val().trim(),
+                    "s.StudyMoney": $(this).parent().parent().find("td").eq(4).find("input").val().trim()
+
+                }, function (data) {
+                    if (data == "1") {
+                        alert("保存成功！");
+                        location.href = "/EnterFile/GoAbroad";
+
+                    }
+                    else {
+                        alert("保存失败,请重试！");
+                        location.reload();//刷新
+                    }
+                });
+        });
+
+        //取消
+        $("#stu_tbody a.cancel").live("click", function () {
+
+            $(this).parent().parent().remove();
+        });
+
+        //出现修改框
+        $(".study_update").click(function () {
+
+            var temptr = $(this).parent().parent();
+
+            //序号
+            var std_id = $("<td hidden='hidden'></td>");
+            var std_input_id = $("<input type='text' class=\"form-control\"/>");
+            std_input_id.val($(this).parent().parent().find("td:eq(0)").html().trim());
+            std_id.append(std_input_id);
+
+            //姓名
+            var std_name = $("<td></td>");
+            var std_input_name = $("<input type='text' class=\"form-control\"/>");
+            std_input_name.val($(this).parent().parent().find("td:eq(1)").html().trim());
+            std_name.append(std_input_name);
+
+            //称谓
+            var std_title = $("<td></td>");
+            var std_input_title = $("<input type='text'class=\"form-control\"/>");
+            std_input_title.val($(this).parent().parent().find("td:eq(2)").html().trim());
+            std_title.append(std_input_title);
+
+            //时间
+            var std_time = $("<td></td>");
+            var std_input_time = $("<input type='text'class=\"form-control laydate-icon\" onClick = \"WdatePicker()\"/>");
+            std_input_time.val($(this).parent().parent().find("td:eq(3)").html().trim());
+            std_time.append(std_input_time);
+
+
+            //地点
+            var std_address = $("<td></td>");
+            var std_input_address = $("<input type='text' class=\"form-control\"/>");
+            std_input_address.val($(this).parent().parent().find("td:eq(4)").html().trim());
+            std_address.append(std_input_address);
+
+            //留学费用
+            var std_money = $("<td></td>");
+            var std_input_money = $("<input type='text' class=\"form-control\"/>");
+            std_input_money.val($(this).parent().parent().find("td:eq(5)").html().trim());
+            std_money.append(std_input_money);
+
+            //操作
+            var std_operation = $("<td></td>");
+            var std_a_operation = $("<a class='sure_upd' style=\"cursor:pointer\">确认修改</a> | <a class='sure_del' style=\"cursor:pointer\">删除</a>");
+            std_operation.append(std_a_operation);
+
+            temptr.empty();//先清空我修改的是哪一行，不然就是在后面追加了
+
+            //把生成好的添加到列里边去   
+            temptr.append(std_id);
+            temptr.append(std_name);
+            temptr.append(std_title);
+            temptr.append(std_time);
+            temptr.append(std_address);
+            temptr.append(std_money);
+            temptr.append(std_operation);
+
+        });
+
+        //确认修改
+        $("#stu_tbody a.sure_upd").live("click", function () {
+
+            $.post("/EnterFile/_UpdateStudy",
+                {
+                    "s.Id": $(this).parent().parent().find("td").eq(0).find("input").val().trim(),
+                    "s.StudyName": $(this).parent().parent().find("td").eq(1).find("input").val().trim(),
+                    "s.StudyTitle": $(this).parent().parent().find("td").eq(2).find("input").val().trim(),
+                    "s.StudyTime": $(this).parent().parent().find("td").eq(3).find("input").val().trim(),
+                    "s.StudyAddress": $(this).parent().parent().find("td").eq(4).find("input").val().trim(),
+                    "s.StudyMoney": $(this).parent().parent().find("td").eq(5).find("input").val().trim()
+
+                }, function (data) {
+                    if (data == "1") {
+                        alert("修改成功！");
+                        location.href = "/EnterFile/GoAbroad";
+                    }
+                    else {
+                        alert("修改失败,请重试！");
+                        location.reload();//刷新
+                    }
+                });
+        });
+
+        //删除
+        $("#stu_tbody a.sure_del").live("click", function () {
+
+            $.post("/EnterFile/_DelStudy",
+                {
+                    "s.Id": $(this).parent().parent().find("td").eq(0).find("input").val().trim(),
+
+                }, function () {
+                    alert("删除成功！");
+                    location.href = "/EnterFile/GoAbroad";
+                });
+        });
+
+        //////////////定居  
+        //添加
+        $("#settle_add").click(function () {
+            var needtr = $("<tr></tr>");
+            needtr.append(
+            "<td><input type=\"text\" class=\"form-control\"></td>" +
+            "<td><input type=\"text\" class=\"form-control\"></td>" +
+            "<td><input type=\"text\" class=\"form-control laydate-icon\" onClick = \"WdatePicker()\"></td>" +
+            "<td><input type=\"text\" class=\"form-control\"></td>" +
+            "<td><input type=\"text\" class=\"form-control\"></td>" +
+            "<td><a class='save' style=\"cursor:pointer\" href=''>保存</a> | <a class='cancel' style=\"cursor:pointer\" href=''>取消</a></td>");
+            $("#settle_tbody").append(needtr);
+
+        });
+
+        //保存 
+        $("#settle_tbody a.save").live("click", function () {
+
+            $.post("/EnterFile/_AddSettle",
+                {
+                    "s.Settler": $(this).parent().parent().find("td").eq(0).find("input").val().trim(),
+                    "s.SettlerTitle": $(this).parent().parent().find("td").eq(1).find("input").val().trim(),
+                    "s.SettleTime": $(this).parent().parent().find("td").eq(2).find("input").val().trim(),
+                    "s.SettleAddress": $(this).parent().parent().find("td").eq(3).find("input").val().trim(),
+                    "s.SettlerWork": $(this).parent().parent().find("td").eq(4).find("input").val().trim()
+
+                }, function (data) {
+                    if (data == "1") {
+                        alert("保存成功！");
+                        location.href = "/EnterFile/GoAbroad";
+
+                    }
+                    else {
+                        alert("保存失败,请重试！");
+                        location.reload();//刷新
+                    }
+                });
+        });
+
+        //取消
+        $("#settle_tbody a.cancel").live("click", function () {
+
+            $(this).parent().parent().remove();
+        });
+
+        //出现修改框
+        $(".settle_update").click(function () {
+
+            var temptr = $(this).parent().parent();
+
+            //序号
+            var std_id = $("<td hidden='hidden'></td>");
+            var std_input_id = $("<input type='text' class=\"form-control\"/>");
+            std_input_id.val($(this).parent().parent().find("td:eq(0)").html().trim());
+            std_id.append(std_input_id);
+
+            //姓名
+            var std_name = $("<td></td>");
+            var std_input_name = $("<input type='text' class=\"form-control\"/>");
+            std_input_name.val($(this).parent().parent().find("td:eq(1)").html().trim());
+            std_name.append(std_input_name);
+
+            //称谓
+            var std_title = $("<td></td>");
+            var std_input_title = $("<input type='text'class=\"form-control\"/>");
+            std_input_title.val($(this).parent().parent().find("td:eq(2)").html().trim());
+            std_title.append(std_input_title);
+
+            //时间
+            var std_time = $("<td></td>");
+            var std_input_time = $("<input type='text'class=\"form-control laydate-icon\" onClick = \"WdatePicker()\"/>");
+            std_input_time.val($(this).parent().parent().find("td:eq(3)").html().trim());
+            std_time.append(std_input_time);
+
+
+            //地点
+            var std_address = $("<td></td>");
+            var std_input_address = $("<input type='text' class=\"form-control\"/>");
+            std_input_address.val($(this).parent().parent().find("td:eq(4)").html().trim());
+            std_address.append(std_input_address);
+
+            //从业情况
+            var std_work = $("<td></td>");
+            var std_input_work = $("<input type='text' class=\"form-control\"/>");
+            std_input_work.val($(this).parent().parent().find("td:eq(5)").html().trim());
+            std_work.append(std_input_work);
+
+            //操作
+            var std_operation = $("<td></td>");
+            var std_a_operation = $("<a class='sure_upd' style=\"cursor:pointer\">确认修改</a> | <a class='sure_del' style=\"cursor:pointer\">删除</a>");
+            std_operation.append(std_a_operation);
+
+            temptr.empty();//先清空我修改的是哪一行，不然就是在后面追加了
+
+            //把生成好的添加到列里边去   
+            temptr.append(std_id);
+            temptr.append(std_name);
+            temptr.append(std_title);
+            temptr.append(std_time);
+            temptr.append(std_address);
+            temptr.append(std_work);
+            temptr.append(std_operation);
+
+        });
+
+        //确认修改
+        $("#settle_tbody a.sure_upd").live("click", function () {
+
+            $.post("/EnterFile/_UpdateSettle",
+                {
+                    "s.Id": $(this).parent().parent().find("td").eq(0).find("input").val().trim(),
+                    "s.Settler": $(this).parent().parent().find("td").eq(1).find("input").val().trim(),
+                    "s.SettlerTitle": $(this).parent().parent().find("td").eq(2).find("input").val().trim(),
+                    "s.SettleTime": $(this).parent().parent().find("td").eq(3).find("input").val().trim(),
+                    "s.SettleAddress": $(this).parent().parent().find("td").eq(4).find("input").val().trim(),
+                    "s.SettlerWork": $(this).parent().parent().find("td").eq(5).find("input").val().trim()
+
+                }, function (data) {
+                    if (data == "1") {
+                        alert("修改成功！");
+                        location.href = "/EnterFile/GoAbroad";
+                    }
+                    else {
+                        alert("修改失败,请重试！");
+                        location.reload();//刷新
+
+                    }
+                });
+        });
+
+        //删除
+        $("#settle_tbody a.sure_del").live("click", function () {
+
+            $.post("/EnterFile/_DelSettle",
+                {
+                    "s.Id": $(this).parent().parent().find("td").eq(0).find("input").val().trim(),
+
+                }, function () {
+                    alert("删除成功！");
+                    location.href = "/EnterFile/GoAbroad";
+                });
+        });
+
+
+        //////////////////出国总表
+        //保存 
+        $("#save").click(function () {
+
+            $.post("/EnterFile/_AddAbroadTotal",
+                {
+                    "a.LandingPaper": $("#abroad_card").val().trim(),
+                    "a.HKCertificate": $("#HK_card").val().trim(),
+                    "a.MarryName": $("#son_name").val().trim(),
+                    "a.MarryUnit": $("#unit").val().trim(),
+                    "a.RegisterTime": $("#marrytime").val().trim(),
+                    "a.MarryPartner": $("#partner_name").val().trim(),
+                    "a.PartnerNational": $("#nation").val().trim(),
+
+                }, function (data) {
+                    if (data == "1") {
+                        alert("保存成功！");
+                        location.href = "/EnterFile/Index";
+
+                    }
+                    else {
+                        alert("保存失败,请重试！");
+                        location.reload();//刷新
+                    }
+                });
+        });
+
+    });
+
+
+</script>

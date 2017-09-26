@@ -1,0 +1,165 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "./_PartialPage1.cshtml";
+}
+
+<style>
+    .t
+    {
+        margin-top: -15px;
+    }
+</style>
+
+<div class="t">
+    <div class="tree_list" id="mm1">
+
+        <div class="dd" id="nestable_list_1">
+
+            <ol class="dd-list">
+
+                @{
+                    var ulists = ViewBag.userinfolist1 as List<Yisaa.DAL.DT_UserInfo>;
+                    var allusers = (ViewBag.allusers as List<Yisaa.DAL.DT_UserLoginRecord>);
+                    var depts = (ViewBag.alldepts as List<Yisaa.DAL.DT_WorkUnit>);
+                    var allunits = ViewBag.allunits as List<Yisaa.DAL.DT_WorkUnit>;
+
+                    if (ViewBag.role == 2)
+                    {
+
+                        foreach (var unit in allunits.Where(a => a.Id == ViewBag.unitid))
+                        {                                           
+                    <li class="dd-item" data-id="1">
+
+                        <div class="dd-handle"><a href="/CheckFile/CheckUserIndex"><i class="dd-red i_link fa fa-folder"></i>@unit.UnitName</a></div>
+                        @foreach (var d in depts.Where(a => a.ParentId == unit.Id))
+                        {                                             
+                            <ol class="dd-list">
+                                <li class="dd-item" data-id="3">
+                                    <div class="dd-branch"><a href="#"><i class="dd-blue i_link fa fa-folder"></i>@d.UnitName</a></div>
+
+                                    @foreach (var user in allusers.Where(a => a.DeptId == d.Id))
+                                    {    
+                                        <ol class="dd-list">
+                                            <li class="dd-item" data-id="6">
+
+                                                <div class="dd-people">
+                                                    <a href="/CheckFile/CheckUserCheckOne?tid=@user.Id">
+                                                        @foreach (var u in ulists.Where(a => a.UserId == user.Id))
+                                                        {
+                                                            if (u.Photo == null || u.Photo == "")
+                                                            {
+                                                            <div class="tree_pic po_rel">
+                                                                <em class="r_point"></em>
+                                                                <img src="~/Content/images/user.gif" style="width: 30px; height: 26px" />
+
+                                                            </div>
+                                                            
+                                                            }
+                                                            else
+                                                            {
+                                                            <div class="tree_pic po_rel">
+                                                                <em class="r_point"></em>
+
+                                                                <img src="~/Content/Upload/Images/@u.Photo" style="width:30px;height:26px"/>
+
+                                                            </div>
+                                                            }
+                                                        }
+                                                        @user.RealName</a>
+                                                </div>
+
+                                            </li>
+                                        </ol>
+
+                                    }
+
+                                </li>
+
+                            </ol>
+                        }
+
+                    </li>                    
+                        }
+                    }
+                    else if (ViewBag.role == 3 || ViewBag.role == 4)
+                    {
+                        foreach (var unit in allunits)
+                        {                                           
+                    <li class="dd-item" data-id="1">
+
+                        <div class="dd-handle"><a href="#"><i class="dd-red i_link fa fa-folder"></i>@unit.UnitName</a></div>
+                        @foreach (var d in depts.Where(a => a.ParentId == unit.Id))
+                        {                                             
+                            <ol class="dd-list">
+                                <li class="dd-item" data-id="3">
+                                    <div class="dd-branch"><a href="#"><i class="dd-blue i_link fa fa-folder"></i>@d.UnitName</a></div>
+
+                                    @foreach (var user in allusers.Where(a => a.DeptId == d.Id))
+                                    {
+                                       
+                                        <ol class="dd-list">
+                                            <li class="dd-item" data-id="6">
+
+                                                <div class="dd-people">
+                                                    <a href="/CheckFile/CheckUserCheckOne?tid=@user.Id">
+                                                        @foreach (var u in ulists.Where(a => a.UserId == user.Id))
+                                                        {
+                                                            if (u.Photo == null || u.Photo == "")
+                                                            {
+                                                                
+                                                            <div class="tree_pic po_rel">
+                                                                <em class="r_point"></em>
+                                                                <img src="~/Content/images/user.gif" style="width: 30px; height: 26px" />
+                                                            </div>
+                                                            
+                                                            }
+                                                            else
+                                                            {
+                                                            <div class="tree_pic po_rel">
+                                                                <em class="r_point"></em>
+                                                                <img src="~/Content/Upload/Images/@u.Photo" style="width:30px;height:26px"/>
+                                                            </div>
+
+                                                            }
+
+                                                        }
+                                                        @user.RealName
+                                                    </a>
+                                                </div>
+
+                                            </li>
+                                        </ol>
+                                        
+                                    }
+
+
+                                </li>
+
+                            </ol>
+                        }
+
+                    </li>                    
+                        }
+                    }
+                    
+                }
+
+            </ol>
+
+        </div>
+    </div>
+
+    <div class="ml_260">
+
+
+        <!--body wrapper start-->
+        <div class="wrapper">
+
+
+            @RenderBody()
+
+        </div>
+        <!--body wrapper end-->
+    </div>
+</div>
+

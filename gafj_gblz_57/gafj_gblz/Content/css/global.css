@@ -1,0 +1,41 @@
+@charset "utf-8";
+/* CSS Document */
+
+body,p,div,a,ul,ol,li,dl,dd,dt,li,h1,h2,h3,h4,h5,h6,input,table,form,textarea,iframe,button,select,th,td,rable,fieldset{margin:0;padding:0;}
+body, input, select, button, textarea ,p ,span{ font-size: 14px;  font-family:"Microsoft Yahei",Arial, Helvetica, sans-serif;color:#444;}
+html { margin:0px; padding:0px;margin-bottom:1px;}
+h1,h2,h3,h4,h5,h6{ font-size:14px;}
+ul,ol,li{list-style:none;}
+img{vertical-align:top; border:0 none;}
+table{border-collapse:collapse;border-spacing:0;}
+p,caption, th{text-align:left;}
+address, caption, cite, code, dfn, em, th, var {font-style:normal;font-weight:normal;}
+fieldset{border:0;}
+input {
+    outline: medium none;
+}
+
+/*=Forms
+----------------------------------*/
+button{ cursor: pointer;}
+
+/*=Links
+----------------------------------*/
+a{text-decoration:none;}
+*html a:visited{ text-decoration:none;}
+a:hover{text-decoration:none; color:#4285f4}
+ 
+/*=Margin
+----------------------------------*/
+
+/*=Hocks
+----------------------------------*/
+/*.clear {diplay: block!important; float: none!important;clear:both;height;0px; overflow: hidden;}*/
+
+.overhide{overflow:hidden;text-indent:-100em; }
+.clear {clear: both;}
+.clearfix:after {clear: both;content: ' ';display: block;font-size: 0;line-height: 0;visibility: hidden;width: 0;height: 0;}
+.clearfix{zoom:1} 
+a:link,a:visited{
+text-decoration:none;color:#444; font-family:"Microsoft Yahei",Arial;}
+a:hover{text-decoration:none;color:#4285f4; font-family:"Microsoft Yahei",Arial;}

@@ -1,0 +1,131 @@
+﻿@{
+    ViewBag.Title = "ShareIndex";
+    Layout = "~/Views/_PartialPage3.cshtml";
+}
+
+ 
+<style>
+    .directory-info-row
+    {
+        margin-top: -50px;
+    }
+
+    .page-heading
+    {
+        margin-top:-20px;
+    }
+</style>
+
+      <!-- page heading start-->
+      <div class="page-heading">
+        <h3>科级干部廉政档案
+        </h3>
+        <ul class="breadcrumb">
+          <li> <a href="/Main/Index">首页</a> </li>
+          <li class="active">档案共享</li>
+        </ul>
+      </div>
+      <!-- page heading end-->      
+          <div class="directory-info-row">
+          <div class="row" id="bdbb">
+       
+                 @{
+                     var userlog = ViewBag.allusers as List<Yisaa.DAL.DT_UserLoginRecord>;
+                     var allunits = ViewBag.allunits as List<Yisaa.DAL.DT_WorkUnit>;
+                     var alldepts = ViewBag.alldepts as List<Yisaa.DAL.DT_WorkUnit>;
+                     var userinfolist = ViewBag.userinfolist as List<Yisaa.DAL.DT_UserInfo>;
+                     foreach (var total in (ViewBag.filedlist as List<Yisaa.DAL.DT_Total>))
+                     {
+                         foreach (var ulogin in userlog.Where(a => a.Id == total.UserId))
+                         {
+                             foreach (var unit in allunits.Where(a => a.Id == ulogin.WorkUnitId))
+                             {
+                                 foreach (var dept in alldepts.Where(a => a.Id == ulogin.DeptId))
+                                 {
+                                     foreach (var user in userinfolist.Where(a => a.UserId == total.UserId))
+                                     {
+                   <div class="col-md-6 col-sm-6">
+              <div class="panel"><a class="inv_link" href="/ShareFile/ShareSingle?tid=@total.UserId">
+                <div class="panel-body">
+                  <h4>@ulogin.RealName<span class="text-muted small"> -@user.Post</span>
+                    <div class="fr share_c">  @*a_@ulogin.Id*@
+                      <input type="checkbox" id="a_@ulogin.Id" value="@ulogin.RealName" onclick="dblist(@ulogin.Id,event)" class="ids">
+                      <label for="a_@ulogin.Id">设置共享</label>
+                    </div>
+                  </h4>
+                  <div class="media">
+                    <div class="pull-left">
+                         @{if (user.Photo == null || user.Photo == "")
+                                      {
+                            
+                                        <img class="thumb media-object" src="~/Content/images/user.gif" style="width: 103px; height: 103px">
+                                      }
+                                      else
+                                      {
+                                       
+                                        <img class="thumb media-object" src="~/Content/Upload/Images/@user.Photo" alt="" style="width: 103px; height: 103px">
+                                      }
+                                    }
+ 
+                    </div>
+                    <div class="media-body">
+                      <address>
+                      单位：@unit.UnitName <br>
+                      科室：@dept.UnitName<br>
+                      <abbr title="Phone">联系电话:</abbr> @ulogin.Telphone
+                      </address>
+                    </div>
+                  </div>
+                </div>
+                </a> </div>
+            </div>
+                     
+                             }
+                                 }
+
+
+                             }
+
+                         }
+                     }
+        }
+     
+          </div>
+        </div>
+  
+
+                           
+<div id="xsyc"></div>
+<div id="bbv">
+  <div id="dbimg" onClick="dbhidd()"></div>
+  <div id="dbnr">
+    <h4><span>共享档案</span><span class="span2" onClick="dbhidd()"><img src="~/Content/images/closex.gif" align="absmiddle" />&nbsp;隐藏</span></h4>
+    <div id="tishi">对不起，您还没有选择要共享的档案</div>
+    <ul>
+    </ul>
+    <div class="pkbut" id="makeshare"> <span><a href="/ShareFile/SetShare">设置共享</a></span> <span onClick="clears()">清&nbsp;空</span> </div>
+  </div>   @*/ShareFile/SetShare /ShareFile/_AddBeShared?bsid= onClick="share(id)"*@
+</div>
+         
+    
+<script src="~/Content/js/jquery-1.10.2.min.js"></script>
+@*<link rel="stylesheet" href="~/Content/css/share.css" type="text/css" />
+<script src="~/Content/js/dom.js" type="text/javascript"></script>
+<script src="~/Content/js/compare.js"></script>*@
+<script src="~/Content/js/dom.js" type="text/javascript"></script>
+<script src="~/Content/js/compare.js"></script>
+
+
+@*<script>
+    $(function () {
+        $("#makeshare").click(function(){
+            alert();
+        
+        
+        });
+    
+    
+    });
+
+
+</script>*@

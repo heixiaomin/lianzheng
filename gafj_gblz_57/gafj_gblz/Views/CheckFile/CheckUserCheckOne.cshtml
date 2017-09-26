@@ -1,0 +1,2410 @@
+﻿@{
+    ViewBag.Title = "CheckUserCheckOne";
+
+    Layout = "~/Views/_PartialPage2.cshtml";
+}
+
+<style>
+    #row1
+    {
+        margin-top: -2px;
+    }
+
+    #row2
+    {
+        margin-top: -2px;
+    }
+</style>
+
+<div class="row" id="row1">
+    <div class="col-md-12">
+        <!--breadcrumbs start -->
+        <ul class="breadcrumb panel">
+            <li><a href="/Main/Index"><i class="fa fa-home"></i>首页</a></li>
+            <li><a href="/CheckFile/CheckUserIndex">档案审核</a></li>           
+            <li class="active">廉政档案登记表</li>
+        </ul>
+        <!--breadcrumbs end -->
+    </div>
+</div>
+
+<div class="row" id="row2">
+    <div class="col-sm-12">
+
+        @{  
+            // var userlog = ViewBag.allusers as List<Yisaa.DAL.DT_UserLoginRecord>;
+            var ulist = ViewBag.ulist as List<Yisaa.DAL.DT_UserLoginRecord>;
+            foreach (var total in (ViewBag.tlist as List<Yisaa.DAL.DT_Total>))
+            {
+                foreach (var ulogin in ulist.Where(a => a.Id == total.UserId))
+                {                  
+            <section class="panel">
+                <input type="text" value="@total.Id" hidden="hidden" id="myid"/>
+                <header class="panel-heading">【@ulogin.RealName】廉政档案登记表</header>
+                <div class="panel-body">
+                    <div class="alert alert-block alert-danger fade in">
+                    <button type="button" class="close close-sm" data-dismiss="alert"><i class="fa fa-times"></i></button>
+                    <strong>提示：</strong>
+                    @{
+                        var buildtime = ViewBag.buildtime as Yisaa.DAL.DT_BuildTime;
+                        if (buildtime != null)
+                        {		                
+                      <span>本年度档案登记表审核时间为：</span>@DateTime.Parse(buildtime.BuildStartTime.ToString()).ToString("yyyy年MM月dd日");<span>至</span>@DateTime.Parse(buildtime.BuildEndTime.ToString()).ToString("yyyy年MM月dd日");<span>，请在有效期内审核完毕并提交归档！</span>                        
+                        }
+                        else
+                        {
+                        <span>本年度档案登记表填写时间为：××××年××月××日 至 ××××年××月××日，请在有效期内填写完毕并提交归档！</span>
+                        }
+                      
+                         }
+                </div>
+                    <table class="table  table-hover general-table">
+                        <thead>
+                            <tr>
+                                <th>序号</th>
+                                <th class="hidden-phone">表单名称</th>
+                                <th width="10%">操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1 </td>
+                                <td class="hidden-phone">
+                                   
+                                    @if (total.UserInfoStatus1 == 1)
+                                    {
+                                        if (total.CheckStatus == "被退回")
+                                        {
+                                            var tlist2 = ViewBag.tlist as List<Yisaa.DAL.DT_Total>;
+                                            var ulist3 = ViewBag.ulist as List<Yisaa.DAL.DT_UserLoginRecord>;
+                                            foreach (var u in ulist3)
+                                            {
+                                                foreach (var t in tlist2.Where(a => a.UserId == u.Id))
+                                                {
+                                                    if (t.UserInfoTime2 != null)
+                                                    {  
+                                                     <a data-toggle="modal" href="#myModal1">科级干部基本情况登记表一</a> 
+                                                     <span class="label label-danger label-mini">被退回</span> 
+                                                    }
+                                                    else
+                                                    {
+                                                     <a data-toggle="modal" href="#myModal1">科级干部基本情况登记表一</a>
+                                                     <span class="label label-warning label-mini">已确认</span>
+                                                    }
+                                                }
+                                            }
+
+                                        }
+                                        else
+                                        {
+                                         <a data-toggle="modal" href="#myModal1">科级干部基本情况登记表一</a>
+                                        <span class="label label-success label-mini">已确认</span>   
+                                        }
+
+                                    }
+                                    else if (total.UserInfoStatus1 == 0)
+                                    {
+                                        if (total.CheckStatus == "已退回")
+                                        { 
+                                             <a  href="#">科级干部基本情况登记表一</a>
+                                       <span class="label label-warning label-mini">已退回</span>
+                                        }
+                                        else
+                                        {
+                                             <a  href="#">科级干部基本情况登记表一</a>
+                                        <span class="label label-danger label-mini">待退回</span> 
+                                        }
+
+                                    }
+                                    else
+                                    {
+                                        if (total.CheckStatus=="待审核")
+                                      {
+                                          <a href="#">科级干部基本情况登记表一</a>
+                                       <span class="label label-warning label-mini">待审核</span>
+                                      }
+                                        else
+                                        {
+                                          <a href="#">科级干部基本情况登记表一</a>
+                                        }
+                                        
+                                    }
+                                </td>
+                                <td>
+
+                                    @*<a class="btn btn-warning btn-xs" href="/CheckFile/ChkUserChkUserDetails?tid=@total.UserInfoId">审核</a>*@
+                                    @if (total.UserInfoStatus1 == 1)
+                                    {
+                                        if (total.CheckStatus == "已归档")
+                                        {
+                                        <a class="btn btn-success btn-xs" data-toggle="modal" href="#myModal1" >查看</a> 
+                                        <a class="btn btn-default btn-xs" href="/CheckFile/PrintUserinfo?uid=@total.UserInfoId">打印</a>
+                                        
+                                        }
+                                        else if (total.CheckStatus == "被退回")
+                                        {
+
+                                            var tlist2 = ViewBag.tlist as List<Yisaa.DAL.DT_Total>;
+                                            var ulist3 = ViewBag.ulist as List<Yisaa.DAL.DT_UserLoginRecord>;
+                                            foreach (var u in ulist3)
+                                            {
+                                                foreach (var t in tlist2.Where(a => a.UserId == u.Id))
+                                                {
+                                                    if (t.UserInfoTime2 != null)
+                                                    {  
+                                                       <a class="btn btn-warning btn-xs" href="/CheckFile/ChkUserChkUserDetails?tid=@total.UserInfoId">审核</a>
+                                                    }
+                                                    else
+                                                    {
+                                                      <a class="btn btn-success btn-xs" data-toggle="modal" href="#myModal1">查看</a> 
+                                            <a class="btn btn-default btn-xs" href="/CheckFile/PrintUserinfo?uid=@total.UserInfoId">打印</a>
+                                          
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        else
+                                        {
+                                             <a class="btn btn-success btn-xs" data-toggle="modal" href="#myModal1"  >查看</a> 
+                                            <a class="btn btn-default btn-xs" href="/CheckFile/PrintUserinfo?uid=@total.UserInfoId">打印</a>
+                                          
+                                        }
+
+                                    }
+
+                                    else
+                                    {
+                                        if (total.CheckStatus == "已退回")
+                                        { 
+                                        <a class="btn btn-success btn-xs" data-toggle="modal" href="#myModal1" id="seebtn3">查看</a> 
+                                        }
+                                        else
+                                        {
+                                        <a class="btn btn-warning btn-xs" href="/CheckFile/ChkUserChkUserDetails?tid=@total.UserInfoId">审核</a>
+                                        }
+
+                                    }
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="myModal1" aria-hidden="true" style="display: none;">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                                    <h4 class="modal-title">科级干部基本情况登记表一</h4>
+                                                </div>
+                                                <div class="modal-body" style="height: 560px; overflow-y: scroll">  
+                                                    <table class="table table-bordered">
+                                                        <tbody>
+                                                            @{
+                                    foreach (var item in (ViewBag.SelInfoById as List<Yisaa.DAL.DT_UserInfo>).Where(a => a.UserId == total.UserId))
+                                    {  
+                                                       
+                                                                <tr>
+                                                                    <td class="t01" width="15%">姓      名</td>
+                                                                    <td width="25%">@item.RealName</td>
+                                                                    <td class="t01" width="15%">性      别</td>
+                                                                    <td>@item.Sex</td>
+                                                                    <td width="130" rowspan="3">
+                                                                        <img src="~/Content/Upload/Images/@item.Photo" width="130" height="170"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="t01">籍      贯</td>
+                                                                    <td>@item.NativePlace</td>
+                                                                    <td class="t01">出生年月</td>
+                                                                    <td>
+                                                                       
+                                                                         @if (item.Birthday == null)
+                                                                         {
+                                                                            @item.Birthday 
+                                                                         }
+                                                                         else
+                                                                         {
+                                                                            @Convert.ToDateTime(item.Birthday).ToString("yyyy-MM-dd")
+                                                                    
+                                                                         }
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="t01">身份证号码</td>
+                                                                    <td colspan="3">@item.IdCardNum</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="t01">政治面貌 </td>
+                                                                    <td>@item.Outlook</td>
+                                                                    <td class="t01">入党时间</td>
+                                                                    <td colspan="2">
+                                                                      
+                                                                         @if (item.PartyTime == null)
+                                                                         {
+                                                                            @item.PartyTime 
+                                                                         }
+                                                                         else
+                                                                         {
+                                                                            @Convert.ToDateTime(item.PartyTime).ToString("yyyy-MM-dd")
+                                                                    
+                                                                         }
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="t01">民族</td>
+                                                                    <td>@item.Nation</td>
+                                                                    <td class="t01">本人编制性质</td>
+                                                                    <td colspan="2">@item.Property</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="t01">参加工作时间 </td>
+                                                                    <td colspan="4">
+                                                                     
+                                                                         @if (item.JobTime == null)
+                                                                         {
+                                                                            @item.JobTime 
+                                                                         }
+                                                                         else
+                                                                         {
+                                                                            @Convert.ToDateTime(item.JobTime).ToString("yyyy-MM-dd")
+                                                                    
+                                                                         }
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="t01">学历</td>
+                                                                    <td colspan="4">@item.Education</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="t01">工作单位</td>
+                                                                    <td colspan="4">@item.WorkUnit</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="t01">现在职务</td>
+                                                                    <td>@item.Post</td>
+                                                                    <td class="t01">职级</td>
+                                                                    <td colspan="2">@item.PostStatus</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="t01">任现职务时间</td>
+                                                                    <td colspan="4">
+                                                                      
+                                                                          @if (item.PostTime == null)
+                                                                          {
+                                                                            @item.PostTime 
+                                                                          }
+                                                                          else
+                                                                          {
+                                                                            @Convert.ToDateTime(item.PostTime).ToString("yyyy-MM-dd")
+                                                                    
+                                                                          }
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="t01">分管工作</td>
+                                                                    <td colspan="4">@item.DoWork</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="t01">家庭住址</td>
+                                                                    <td colspan="4">@item.UserAddress</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="t01" style="height: 200px">
+                                                                        <br>
+                                                                        个<br>
+                                                                        人<br>
+                                                                        简<br>
+                                                                        历</td>
+                                                                    <td colspan="4">
+                                                                        @item.Introduction
+                                                                    </td>
+                                                                </tr>
+                                                        
+                                    }}
+                                                        </tbody>
+
+                                                    </table>
+                                                    <div class="modal-footer">
+                                                        <button data-dismiss="modal" class="btn btn-primary" type="button">关闭</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- modal -->
+
+                                </td>
+                            </tr>
+              
+                            <tr>
+                                <td>2 </td>
+                                <td class="hidden-phone">
+                                   
+                                   @if (total.FamilyStatus1 == 1)
+                                   {
+                                       if (total.CheckStatus == "被退回")
+                                       {
+
+                                           var tlist2 = ViewBag.tlist as List<Yisaa.DAL.DT_Total>;
+                                           var ulist3 = ViewBag.ulist as List<Yisaa.DAL.DT_UserLoginRecord>;
+                                           foreach (var u in ulist3)
+                                           {
+                                               foreach (var t in tlist2.Where(a => a.UserId == u.Id))
+                                               {
+                                                   if (t.FamilyTime2 != null)
+                                                   {  
+                                                     <a data-toggle="modal" href="#myModal2">科级干部基本情况登记表二</a> 
+                                                     <span class="label label-danger label-mini">被退回</span> 
+                                                   }
+                                                   else
+                                                   {
+                                                     <a data-toggle="modal" href="#myModal2">科级干部基本情况登记表二</a>
+                                                     <span class="label label-warning label-mini">已确认</span>
+                                                   }
+                                               }
+                                           }
+                                       }
+                                       else
+                                       {
+                                        <a data-toggle="modal" href="#myModal2">科级干部基本情况登记表二</a>
+                                        <span class="label label-success label-mini">已确认</span>   
+                                       }
+
+                                   }
+                                   else if (total.FamilyStatus1 == 0)
+                                   {
+                                       if (total.CheckStatus == "已退回")
+                                       { 
+                                           <a href="#">科级干部基本情况登记表二</a>
+                                       <span class="label label-warning label-mini">已退回</span>
+                                       }
+                                       else
+                                       {
+                                           <a href="#">科级干部基本情况登记表二</a>
+                                        <span class="label label-danger label-mini">待退回</span> 
+                                       }
+                                   }
+                                   else
+                                   {
+                                        if (total.CheckStatus=="待审核")
+                                      {
+                                          <a href="#">科级干部基本情况登记表二</a>
+                                       <span class="label label-warning label-mini">待审核</span>
+                                      }
+                                        else
+                                        {
+                                          <a href="#">科级干部基本情况登记表二</a>
+                                        }
+                                         
+                                   }
+
+                                </td>
+                                <td>
+                                     @if (total.FamilyStatus1 == 1)
+                                     {
+                                         @*<a class="btn btn-warning btn-xs" href="/CheckFile/ChkUserChkFamily?tid=@total.FamilyId">审核</a>*@
+                                         if (total.CheckStatus == "已归档")
+                                         {
+                                        <a class="btn btn-success btn-xs" data-toggle="modal" href="#myModal2">查看</a> 
+                                           <a class="btn btn-default btn-xs" href="/CheckFile/PrintFamily?fid=@total.FamilyId">打印</a>
+                                         }
+                                         else if (total.CheckStatus == "被退回")
+                                         {
+
+                                             var tlist2 = ViewBag.tlist as List<Yisaa.DAL.DT_Total>;
+                                             var ulist3 = ViewBag.ulist as List<Yisaa.DAL.DT_UserLoginRecord>;
+                                             foreach (var u in ulist3)
+                                             {
+                                                 foreach (var t in tlist2.Where(a => a.UserId == u.Id))
+                                                 {
+                                                     if (t.FamilyTime2 != null)
+                                                     {  
+                                                          <a class="btn btn-warning btn-xs" href="/CheckFile/ChkUserChkFamily?tid=@total.FamilyId">审核</a>
+                                                     }
+                                                     else
+                                                     {
+                                                      <a class="btn btn-success btn-xs" data-toggle="modal" href="#myModal2">查看</a> 
+                                                      <a class="btn btn-default btn-xs" href="/CheckFile/PrintFamily?fid=@total.FamilyId">打印</a>
+                                          
+                                                     }
+                                                 }
+                                             }
+                                         }
+                                         else
+                                         {
+                                              <a class="btn btn-success btn-xs" data-toggle="modal" href="#myModal2">查看</a> 
+                                             <a class="btn btn-default btn-xs" href="/CheckFile/PrintFamily?fid=@total.FamilyId">打印</a>
+                                         }
+
+
+                                     }
+                                     else
+                                     {
+                                         if (total.CheckStatus == "已退回")
+                                         { 
+                                        <a class="btn btn-success btn-xs" data-toggle="modal" href="#myModal2">查看</a> 
+                                         }
+                                         else
+                                         {
+                                        <a class="btn btn-warning btn-xs" href="/CheckFile/ChkUserChkFamily?tid=@total.FamilyId">审核</a>
+                                         }
+
+                                     }
+                                      <!-- 科级干部基本情况登记表二弹出 -->
+                                <div class="modal fade" id="myModal2">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                                <h4 class="modal-title">科级干部基本情况登记表二</h4>
+                                            </div>
+                                             @{ 
+                                     
+                                     foreach (var fa in (ViewBag.falist as List<Yisaa.DAL.DT_FamilyTotal>).Where(a => a.Id == total.FamilyId))
+                                     {
+                                                 
+                                            <div class="modal-body" style="height: 600px; overflow-y: scroll">                                                                                                                                                                                                                                                      
+                                                <table class="table table-bordered">
+                                                    <tr>
+                                                        <td rowspan="9">
+                                                            家<br />
+                                                            庭<br />
+                                                            主<br />                                                                                                                                                                                                                                                           
+                                                            要<br />
+                                                            成<br />
+                                                            员<br />
+                                                            及<br />
+                                                            主<br />
+                                                            要<br />
+                                                            社<br />
+                                                            会<br />                                                                                                                                                                                                                                                                                                                                                                                                                                             
+                                                            关<br />
+                                                            系 
+
+                                                        </td>
+                                                        <td>称 谓 </td>
+                                                        <td>姓 名 </td>
+                                                        <td>政治面貌 </td>
+                                                        <td>工 作 单 位 </td>
+                                                        <td>职 务 </td>
+                                                    </tr>
+                                                   @foreach (var f in (ViewBag.flist as List<Yisaa.DAL.DT_Family>).Where(a => a.UserId == fa.UserId))
+                                                   {                                                    
+                                                        <tr>
+                                                            <td>@f.Relation</td>
+                                                            <td>@f.Name</td>
+                                                            <td>@f.Outlook</td>
+                                                            <td>@f.WorkUnit</td>
+                                                            <td>@f.Post</td>
+                                                        </tr>   
+                                                   }                                           
+                                                    <tr>
+                                                        <td width="57">其他需要说明的情况 </td>
+                                                        <td width="540" colspan="5">
+                                                            @fa.other
+                                 
+                                  <p>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                                <div class="modal-footer">
+                                                    <button data-dismiss="modal" class="btn btn-primary" type="button">关闭</button>
+                                                </div>
+                                            </div>
+                                                    
+                                         
+                                     }
+                                              }
+                                                 </div>
+                                    </div>
+                                </div>
+                                <!-- 科级干部基本情况登记表二弹出 -->
+
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>3 </td>
+                                <td class="hidden-phone">
+                                    
+                                    @if (total.ProfitStatus1 == 1)
+                                    {
+                                        if (total.CheckStatus == "被退回")
+                                        {
+
+                                            var tlist2 = ViewBag.tlist as List<Yisaa.DAL.DT_Total>;
+                                            var ulist3 = ViewBag.ulist as List<Yisaa.DAL.DT_UserLoginRecord>;
+                                            foreach (var u in ulist3)
+                                            {
+                                                foreach (var t in tlist2.Where(a => a.UserId == u.Id))
+                                                {
+                                                    if (t.ProfitTime2 != null)
+                                                    {  
+                                                     <a data-toggle="modal" href="#myModal5">科级干部从事或参与营业性活动及兼职持股情况报告表</a> 
+                                                     <span class="label label-danger label-mini">被退回</span> 
+                                                    }
+                                                    else
+                                                    {
+                                                     <a data-toggle="modal" href="#myModal5">科级干部从事或参与营业性活动及兼职持股情况报告表</a>
+                                                     <span class="label label-warning label-mini">已确认</span>
+                                                    }
+                                                }
+                                            }
+
+                                        }
+                                        else
+                                        {
+                                         <a data-toggle="modal" href="#myModal5">科级干部从事或参与营业性活动及兼职持股情况报告表</a>
+                                        <span class="label label-success label-mini">已确认</span>   
+                                        }
+
+                                    }
+                                    else if (total.ProfitStatus1 == 0)
+                                    {
+                                        if (total.CheckStatus == "已退回")
+                                        { 
+                                            <a href="#">科级干部从事或参与营业性活动及兼职持股情况报告表</a>
+                                       <span class="label label-warning label-mini">已退回</span>
+                                        }
+                                        else
+                                        {
+                                         <a href="#">科级干部从事或参与营业性活动及兼职持股情况报告表</a>
+                                        <span class="label label-danger label-mini">待退回</span> 
+                                        }
+
+                                    }
+                                    else
+                                    {
+                                         if (total.CheckStatus=="待审核")
+                                      {
+                                          <a href="#">科级干部从事或参与营业性活动及兼职持股情况报告表</a>
+                                       <span class="label label-warning label-mini">待审核</span>
+                                      }
+                                         else
+                                         {
+                                          <a href="#">科级干部从事或参与营业性活动及兼职持股情况报告表</a>
+                                         }
+                                         
+                                    }
+                                </td>
+
+                                <td>
+                                      @if (total.ProfitStatus1 == 1)
+                                      {
+
+                                          if (total.CheckStatus == "已归档")
+                                          {
+                                        <a class="btn btn-success btn-xs" data-toggle="modal" href="#myModal5">查看</a> 
+                                          <a class="btn btn-default btn-xs" href="/CheckFile/PrintProfit?pid=@total.ProfitId">打印</a>
+                                          }
+                                          else if (total.CheckStatus == "被退回")
+                                          {
+
+                                              var tlist2 = ViewBag.tlist as List<Yisaa.DAL.DT_Total>;
+                                              var ulist3 = ViewBag.ulist as List<Yisaa.DAL.DT_UserLoginRecord>;
+                                              foreach (var u in ulist3)
+                                              {
+                                                  foreach (var t in tlist2.Where(a => a.UserId == u.Id))
+                                                  {
+                                                      if (t.ProfitTime2 != null)
+                                                      {  
+                                                         <a class="btn btn-warning btn-xs" href="/CheckFile/ChkUserChkProfit?tid=@total.ProfitId">审核</a>
+                                                      }
+                                                      else
+                                                      {
+                                                      <a class="btn btn-success btn-xs" data-toggle="modal" href="#myModal5">查看</a> 
+                                              <a class="btn btn-default btn-xs" href="/CheckFile/PrintProfit?pid=@total.ProfitId">打印</a>
+                                          
+                                                      }
+                                                  }
+                                              }
+                                          }
+                                          else
+                                          {
+                                                <a class="btn btn-success btn-xs" data-toggle="modal" href="#myModal5">查看</a> 
+                                              <a class="btn btn-default btn-xs" href="/CheckFile/PrintProfit?pid=@total.ProfitId">打印</a>
+                                          }
+
+                                      }
+
+                                      else
+                                      {
+                                          if (total.CheckStatus == "已退回")
+                                          { 
+                                        <a class="btn btn-success btn-xs" data-toggle="modal" href="#myModal5">查看</a> 
+                                          }
+                                          else
+                                          {
+                                        <a class="btn btn-warning btn-xs" href="/CheckFile/ChkUserChkProfit?tid=@total.ProfitId">审核</a>
+                                          }
+
+                                      }
+ 
+                                     <!-- 科级干部从事或参与营业性活动及兼职持股情况报告表弹出 -->
+                      <div class="modal fade" id="myModal5">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                              <h4 class="modal-title">科级干部从事或参与营利性活动及兼职持股情况报告表</h4>
+                            </div>
+                            <div class="modal-body">
+                              <table class="table table-bordered">
+                                  @{
+                                      
+                                      var user = (ViewBag.SelInfoById as List<Yisaa.DAL.DT_UserInfo>).Where(a => a.UserId == total.UserId);
+                                      var profitlist = ViewBag.profitlist as List<Yisaa.DAL.DT_ProfitReport>;
+                                      foreach (var u in user)
+                                      {
+                                          foreach (var p in profitlist.Where(a => a.Id == total.ProfitId))
+                                          {
+                                    
+                                <tr >
+                                  <td class="t01" width="15%">姓  名 </td>
+                                  <td  width="15%">@u.RealName</td>
+                                  <td class="t01" width="15%">单 位 </td>
+                                  <td width="20%">@u.WorkUnit</td>
+                                  <td class="t01" width="15%">职 务 </td>
+                                  <td  width="20%">@u.Post</td>
+                                </tr>
+                                <tr >
+                                  <td class="t01" rowspan="5">个人经商办企业情况 </td>
+                                  <td class="t01">企业名称 </td>
+                                  <td colspan="4" >@p.CompanyName</td>
+                                </tr>
+                                <tr >
+                                  <td class="t01">经营范围 </td>
+                                  <td colspan="4" >@p.BusinessScope</td>
+                                </tr>
+                                <tr >
+                                  <td class="t01">注册资金（元） </td>
+                                  <td colspan="4" >@p.RegisterMoney</td>
+                                </tr>
+                                <tr >
+                                  <td class="t01">本人出资比例（百分比） </td>
+                                  <td colspan="4" >@p.InvestmentRate</td>
+                                </tr>
+                                <tr >
+                                  <td class="t01">年利润（元） </td>
+                                  <td colspan="4" >@p.YearProfit</td>
+                                </tr>
+                                <tr >
+                                  <td class="t01" rowspan="4">在企事业单位、社会团体或其他营利性组织中兼职情况 </td>
+                                  <td class="t01">兼职单位名称 </td>
+                                  <td colspan="4" >@p.ParttimeUnit</td>
+                                </tr>
+                                <tr >
+                                  <td class="t01">兼职单位性质 </td>
+                                  <td colspan="4" >@p.ParttimeUnitNature</td>
+                                </tr>
+                                <tr >
+                                  <td class="t01">兼任职务 </td>
+                                  <td colspan="4" >@p.ParttimePost</td>
+                                </tr>
+                                <tr >
+                                  <td class="t01">年取酬（元） </td>
+                                  <td colspan="4" >@p.YearMoney</td>
+                                </tr>
+                                <tr >
+                                  <td class="t01" rowspan="5">投资或入股情况 </td>
+                                  <td class="t01">投资或入股单位 </td>
+                                  <td colspan="4" >@p.InvestUnit</td>
+                                </tr>
+                                <tr >
+                                  <td class="t01">投资或入股单位性质 </td>
+                                  <td colspan="4" >@p.InvestUnitNature</td>
+                                </tr>
+                                <tr >
+                                  <td class="t01">投资或入股方式 </td>
+                                  <td colspan="4" >@p.InvestWay</td>
+                                </tr>
+                                <tr >
+                                  <td class="t01">本人投资或入股金额（元） </td>
+                                  <td colspan="4" >@p.InvestMoney</td>
+                                </tr>
+                                <tr >
+                                  <td class="t01">年收益（元） </td>
+                                  <td colspan="4" >@p.YearIncome</td>
+                                </tr>
+                                <tr >
+                                  <td class="t01">从事或参与其他
+                                    证券投资情况
+                                    （主要指购买股票、
+                                    基金、债券、期货等） </td>
+                                  <td colspan="5" >@p.Other</td>
+                                </tr>
+                                          }
+
+                                      }
+                                }
+
+                              </table>
+                              <div class="modal-footer">
+                                <button data-dismiss="modal" class="btn btn-primary" type="button">关闭</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- 科级干部从事或参与营业性活动及兼职持股情况报告表弹出 -->
+                                </td>
+                            </tr>
+            
+                            <tr>
+                                <td>4 </td>
+                                <td class="hidden-phone">
+                                  
+                                      @if (total.MarryChgStatus1 == 1)
+                                      {
+                                          if (total.CheckStatus == "被退回")
+                                          {
+                                              var tlist2 = ViewBag.tlist as List<Yisaa.DAL.DT_Total>;
+                                              var ulist3 = ViewBag.ulist as List<Yisaa.DAL.DT_UserLoginRecord>;
+                                              foreach (var u in ulist3)
+                                              {
+                                                  foreach (var t in tlist2.Where(a => a.UserId == u.Id))
+                                                  {
+                                                      if (t.MarryChgTime2 != null)
+                                                      {  
+                                                     <a data-toggle="modal" href="#myModal7">科级干部婚姻变化情况报告表</a> 
+                                                     <span class="label label-danger label-mini">被退回</span> 
+                                                      }
+                                                      else
+                                                      {
+                                                     <a data-toggle="modal" href="#myModal7">科级干部婚姻变化情况报告表</a>
+                                                     <span class="label label-warning label-mini">已确认</span>
+                                                      }
+                                                  }
+                                              }
+
+                                          }
+                                          else
+                                          {
+                                                <a data-toggle="modal" href="#myModal7">科级干部婚姻变化情况报告表</a> 
+                                        <span class="label label-success label-mini">已确认</span>   
+                                          }
+
+                                      }
+                                      else if (total.MarryChgStatus1 == 0)
+                                      {
+                                          if (total.CheckStatus == "已退回")
+                                          { 
+                                                <a href="#">科级干部婚姻变化情况报告表</a> 
+                                       <span class="label label-warning label-mini">已退回</span>
+                                          }
+                                          else
+                                          {
+                                                <a href="#">科级干部婚姻变化情况报告表</a> 
+                                        <span class="label label-danger label-mini">待退回</span> 
+                                          }
+
+                                      }
+                                      else
+                                      {
+                                          if (total.CheckStatus=="待审核")
+                                      {
+                                          <a href="#">科级干部婚姻变化情况报告表</a>
+                                       <span class="label label-warning label-mini">待审核</span>
+                                      }
+                                          else
+                                          {
+                                          <a href="#">科级干部婚姻变化情况报告表</a>
+                                          }
+                                          
+                                      }
+
+                                </td>
+                                <td>
+                                     @if (total.MarryChgStatus1 == 1)
+                                     {
+                                         if (total.CheckStatus == "已归档")
+                                         {
+                                        <a class="btn btn-success btn-xs" data-toggle="modal" href="#myModal7">查看</a> 
+                                          <a class="btn btn-default btn-xs" href="/CheckFile/PrintMarry?pid=@total.MarryChangeId">打印</a>
+                                         }
+                                         else if (total.CheckStatus == "被退回")
+                                         {
+
+                                             var tlist2 = ViewBag.tlist as List<Yisaa.DAL.DT_Total>;
+                                             var ulist3 = ViewBag.ulist as List<Yisaa.DAL.DT_UserLoginRecord>;
+                                             foreach (var u in ulist3)
+                                             {
+                                                 foreach (var t in tlist2.Where(a => a.UserId == u.Id))
+                                                 {
+                                                     if (t.MarryChgTime2 != null)
+                                                     {  
+                                                       <a class="btn btn-warning btn-xs" href="/CheckFile/ChkUserChkMarryChage?tid=@total.MarryChangeId">审核</a>
+                                                     }
+                                                     else
+                                                     {
+                                                       <a class="btn btn-success btn-xs" data-toggle="modal" href="#myModal7">查看</a> 
+                                                       <a class="btn btn-default btn-xs" href="/CheckFile/PrintMarry?pid=@total.MarryChangeId">打印</a>
+                                                     }
+                                                 }
+                                             }
+                                         }
+                                         else
+                                         {
+                                               <a class="btn btn-success btn-xs" data-toggle="modal" href="#myModal7">查看</a> 
+                                          <a class="btn btn-default btn-xs" href="/CheckFile/PrintMarry?pid=@total.MarryChangeId">打印</a>
+                                         }
+
+                                     }
+
+                                     else
+                                     {
+                                         if (total.CheckStatus == "已退回")
+                                         { 
+                                        <a class="btn btn-success btn-xs" data-toggle="modal" href="#myModal7">查看</a> 
+                                         }
+                                         else
+                                         {
+                                        <a class="btn btn-warning btn-xs" href="/CheckFile/ChkUserChkMarryChage?tid=@total.MarryChangeId">审核</a>
+                                         }
+
+                                     }
+                                    
+                                 <!--科级干部婚姻变化情况报告表弹出 -->
+                      <div class="modal fade" id="myModal7">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                              <h4 class="modal-title">科级干部婚姻变化情况报告表</h4>
+                            </div>
+                            <div class="modal-body">
+                              <table class="table table-bordered">
+                                  @{
+                                     var user2 = (ViewBag.SelInfoById as List<Yisaa.DAL.DT_UserInfo>).Where(a => a.UserId == total.UserId);
+
+                                     var marry = ViewBag.marry as List<Yisaa.DAL.DT_MarryChange>;
+                                     foreach (var u in user2)
+                                     {
+                                         foreach (var m in marry.Where(a => a.Id == total.MarryChangeId))
+                                         {
+                                  <tr >
+                                  <td class="t01" width="12%">姓  名 </td>
+                                  <td width="15%" colspan="3" >@u.RealName</td>
+                                  <td class="t01" width="15%">单 位 </td>
+                                  <td colspan="3" >@u.WorkUnit</td>
+                                  <td class="t01" width="15%">职 务 </td>
+                                  <td width="15%">@u.Post</td>
+                                </tr>
+                                <tr >
+                                  <td class="t01" colspan="4" >本人是否有婚姻变化情况 </td>
+                                  <td colspan="6" >@m.IsMarryChange</td>
+                                </tr>
+                                <tr >
+                                  <td class="t01">原配偶 </td>
+                                  <td class="t01">姓  名 </td>
+                                  <td colspan="3">@m.LastPartner</td>
+                                  <td class="t01" width="15%">婚姻登记<br/>
+                                    时    间 </td>
+                                  <td > 
+                                       @if (m.LastRegisterTime == null)
+                                       {
+                                            @m.LastRegisterTime
+                                       }
+                                       else
+                                       {
+                                            @Convert.ToDateTime(m.LastRegisterTime).ToString("yyyy-MM-dd")
+                                                                    
+                                       }
+                                  </td>
+                                  <td class="t01" width="15%" colspan="2" >婚姻结束<br/>
+                                    时    间 </td>
+                                  <td >
+                                       @if (m.LastEndTime == null)
+                                       {
+                                            @m.LastEndTime
+                                       }
+                                       else
+                                       {
+                                            @Convert.ToDateTime(m.LastEndTime).ToString("yyyy-MM-dd")
+                                                                    
+                                       }
+                                  </td>
+                                </tr>
+                                <tr >
+                                  <td class="t01" rowspan="2" >现配偶</td>
+                                  <td class="t01">姓  名 </td>
+                                  <td colspan="3">@m.NowPartner</td>
+                                  <td class="t01" >政治面貌 </td>
+                                  <td colspan="2" >@m.NowPolitical</td>
+                                  <td class="t01" >婚姻登记<br/>
+                                    时    间 </td>
+                                  <td > @if (m.NowRegisterTime == null)
+                                        {
+                                            @m.NowRegisterTime
+                                        }
+                                        else
+                                        {
+                                            @Convert.ToDateTime(m.NowRegisterTime).ToString("yyyy-MM-dd")
+                                                                    
+                                        }
+
+                                  </td>
+                                </tr>
+                                <tr >
+                                  <td class="t01">单  位 </td>
+                                  <td colspan="6" >@m.NowUnit</td>
+                                  <td class="t01" >职    务 </td>
+                                  <td >@m.NowPost</td>
+                                </tr>
+                                <tr >
+                                  <td class="t01" height="200">
+                                    其<br/>
+                                    他<br/>
+                                    需<br/>
+                                    说<br/>
+                                    明<br/>
+                                    情<br/>
+                                    况 </td>
+                                  <td colspan="9" >@m.Other</td>
+                                </tr>
+                                         }
+                                     }
+}
+                              </table>
+                              <div class="modal-footer">
+                                <button data-dismiss="modal" class="btn btn-primary" type="button">关闭</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!--科级干部婚姻变化情况报告表弹出-->
+
+                                </td>
+                            </tr>
+                          
+                            <tr>
+                                <td>5 </td>
+                                <td class="hidden-phone">
+                                  
+                                    @if (total.CrimeStatus1 == 1)
+                                    {
+                                        if (total.CheckStatus == "被退回")
+                                        {
+                                            var tlist2 = ViewBag.tlist as List<Yisaa.DAL.DT_Total>;
+                                            var ulist3 = ViewBag.ulist as List<Yisaa.DAL.DT_UserLoginRecord>;
+                                            foreach (var u in ulist3)
+                                            {
+                                                foreach (var t in tlist2.Where(a => a.UserId == u.Id))
+                                                {
+                                                    if (t.CrimeTime2 != null)
+                                                    {  
+                                                     <a data-toggle="modal" href="#myModal10">科级干部配偶、子女及其配偶受到查处或涉嫌犯罪情况报告表</a> 
+                                                     <span class="label label-danger label-mini">被退回</span> 
+                                                    }
+                                                    else
+                                                    {
+                                                     <a data-toggle="modal" href="#myModal10">科级干部配偶、子女及其配偶受到查处或涉嫌犯罪情况报告表</a>
+                                                     <span class="label label-warning label-mini">已确认</span>
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        else
+                                        {
+                                        <a data-toggle="modal" href="#myModal10">科级干部配偶、子女及其配偶受到查处或涉嫌犯罪情况报告表</a>
+                                        <span class="label label-success label-mini">已确认</span>   
+                                        }
+
+                                    }
+                                    else if (total.CrimeStatus1 == 0)
+                                    {
+                                        if (total.CheckStatus == "已退回")
+                                        { 
+                                              <a href="#">科级干部配偶、子女及其配偶受到查处或涉嫌犯罪情况报告表</a>
+                                       <span class="label label-warning label-mini">已退回</span>
+                                        }
+                                        else
+                                        {
+                                              <a href="#">科级干部配偶、子女及其配偶受到查处或涉嫌犯罪情况报告表</a>
+                                        <span class="label label-danger label-mini">待退回</span> 
+                                        }
+
+                                    }
+                                    else
+                                    {
+                                        if (total.CheckStatus=="待审核")
+                                      {
+                                          <a href="#">科级干部配偶、子女及其配偶受到查处或涉嫌犯罪情况报告表</a>
+                                       <span class="label label-warning label-mini">待审核</span>
+                                      }
+                                        else
+                                        {
+                                          <a href="#">科级干部配偶、子女及其配偶受到查处或涉嫌犯罪情况报告表</a>
+                                        }
+                                          
+                                    }
+                                     
+                                <td>
+                                      @if (total.CrimeStatus1 == 1)
+                                      {
+                                          if (total.CheckStatus == "已归档")
+                                          {
+                                        <a class="btn btn-success btn-xs" data-toggle="modal" href="#myModal10">查看</a> 
+                                           <a class="btn btn-default btn-xs" href="/CheckFile/PrintCrime?pid=@total.CrimeId">打印</a>
+                                          }
+                                          else if (total.CheckStatus == "被退回")
+                                          {
+
+                                              var tlist2 = ViewBag.tlist as List<Yisaa.DAL.DT_Total>;
+                                              var ulist3 = ViewBag.ulist as List<Yisaa.DAL.DT_UserLoginRecord>;
+                                              foreach (var u in ulist3)
+                                              {
+                                                  foreach (var t in tlist2.Where(a => a.UserId == u.Id))
+                                                  {
+                                                      if (t.CrimeTime2 != null)
+                                                      {  
+                                                     <a class="btn btn-warning btn-xs" href="/CheckFile/ChkUserChkCrime?tid=@total.CrimeId">审核</a>
+                                                      }
+                                                      else
+                                                      {
+                                                      <a class="btn btn-success btn-xs" data-toggle="modal" href="#myModal10">查看</a> 
+                                                      <a class="btn btn-default btn-xs" href="/CheckFile/PrintCrime?pid=@total.CrimeId">打印</a>
+                                                      }
+                                                  }
+                                              }
+                                          }
+                                          else
+                                          {
+                                               <a class="btn btn-success btn-xs" data-toggle="modal" href="#myModal10">查看</a> 
+                                              <a class="btn btn-default btn-xs" href="#">打印</a>
+                                          }
+
+                                      }
+                                      else
+                                      {
+                                          if (total.CheckStatus == "已退回")
+                                          { 
+                                        <a class="btn btn-success btn-xs" data-toggle="modal" href="#myModal10">查看</a> 
+                                          }
+                                          else
+                                          {
+                                        <a class="btn btn-warning btn-xs" href="/CheckFile/ChkUserChkCrime?tid=@total.CrimeId">审核</a>
+                                          }
+                                      }
+
+                                      <!-- 科级干部配偶、子女及其配偶受到查处或涉嫌犯罪情况报告表弹出 -->
+                      <div class="modal fade" id="myModal10">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                              <h4 class="modal-title">科级干部配偶、子女及其配偶受到查处或涉嫌犯罪情况报告表</h4>
+                            </div>
+                            <div class="modal-body">
+                              <table class="table table-bordered">
+                                @{
+                                      var user3 = (ViewBag.SelInfoById as List<Yisaa.DAL.DT_UserInfo>).Where(a => a.UserId == total.UserId);
+
+                                      var crime = ViewBag.crime as List<Yisaa.DAL.DT_CrimeReport>;
+                                      foreach (var u in user3)
+                                      {
+                                          foreach (var c in crime.Where(a => a.Id == total.CrimeId))
+                                          {
+                                   <tr >
+                                  <td class="t01" width="15%" >姓  名 </td>
+                                  <td width="18%">@u.RealName</td>
+                                  <td class="t01"  width="15%" >单  位 </td>
+                                  <td width="22%">@u.WorkUnit</td>
+                                  <td class="t01"  width="15%" >职 务 </td>
+                                  <td width="15%">@u.Post</td>
+                                </tr>
+                                <tr >
+                                  <td class="t01" rowspan="5" >配偶、子女及其配偶受到执纪执法机关查处或涉嫌犯罪情况 </td>
+                                  <td class="t01" >姓  名 </td>
+                                  <td colspan="4" >@c.CrimerName</td>
+                                </tr>
+                                <tr >
+                                  <td class="t01" >与本人关系 </td>
+                                  <td colspan="4" >@c.Relation</td>
+                                </tr>
+                                <tr >
+                                  <td class="t01" >（原）工作 <br />
+                                    单位及职务 </td>
+                                  <td colspan="4" >@c.CrimerUnit</td>
+                                </tr>
+                                <tr >
+                                  <td class="t01" >执纪执法 <br />
+                                    机关 </td>
+                                  <td colspan="4" >@c.LawAgency</td>
+                                </tr>
+                                <tr >
+                                  <td class="t01" height="150">涉案基本 <br />
+                                    情况及处 <br />
+                                    理结果 </td>
+                                  <td colspan="4" >@c.Result</td>
+                                </tr>
+                                <tr >
+                                  <td class="t01" >备  注 </td>
+                                  <td colspan="5" >@c.Remark</td>
+                                </tr>
+                                          }
+                                      }}
+                              </table>
+                              <div class="modal-footer">
+                                <button data-dismiss="modal" class="btn btn-primary" type="button">关闭</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- 科级干部配偶、子女及其配偶受到查处或涉嫌犯罪情况报告表弹出 -->
+                                </td>
+                            </tr>
+
+                            <tr>
+                            <td>6</td>
+                            <td class="hidden-phone">
+                               
+                                  @if (total.WeddDieStatus1 == 1)
+                                  {
+                                      if (total.CheckStatus == "被退回")
+                                      {
+                                          var tlist2 = ViewBag.tlist as List<Yisaa.DAL.DT_Total>;
+                                          var ulist3 = ViewBag.ulist as List<Yisaa.DAL.DT_UserLoginRecord>;
+                                          foreach (var u in ulist3)
+                                          {
+                                              foreach (var t in tlist2.Where(a => a.UserId == u.Id))
+                                              {
+                                                  if (t.WeddDieTime2 != null)
+                                                  {  
+                                                     <a data-toggle="modal" href="#myModal8">科级干部参与操办本人及近亲属婚丧喜庆事宜情况报告表</a> 
+                                                     <span class="label label-danger label-mini">被退回</span> 
+                                                  }
+                                                  else
+                                                  {
+                                                     <a data-toggle="modal" href="#myModal8">科级干部参与操办本人及近亲属婚丧喜庆事宜情况报告表</a>
+                                                     <span class="label label-warning label-mini">已确认</span>
+                                                  }
+                                              }
+                                          }
+                                      }
+                                      else
+                                      {
+                                           <a data-toggle="modal" href="#myModal8">科级干部参与操办本人及近亲属婚丧喜庆事宜情况报告表</a>
+                                        <span class="label label-success label-mini">已确认</span>   
+                                      }
+
+                                  }
+                                  else if (total.WeddDieStatus1 == 0)
+                                  {
+                                      if (total.CheckStatus == "已退回")
+                                      { 
+                                           <a data-toggle="modal" href="#">科级干部参与操办本人及近亲属婚丧喜庆事宜情况报告表</a>
+                                       <span class="label label-warning label-mini">已退回</span>
+                                      }
+                                      else
+                                      {
+                                           <a data-toggle="modal" href="#">科级干部参与操办本人及近亲属婚丧喜庆事宜情况报告表</a>
+                                        <span class="label label-danger label-mini">待退回</span> 
+                                      }
+
+                                  }
+                                  else
+                                  {
+                                      if (total.CheckStatus=="待审核")
+                                      {
+                                          <a href="#">科级干部参与操办本人及近亲属婚丧喜庆事宜情况报告表</a>
+                                       <span class="label label-warning label-mini">待审核</span>
+                                      }
+                                      else
+                                      {
+                                          <a href="#">科级干部参与操办本人及近亲属婚丧喜庆事宜情况报告表</a>
+                                      }
+                                          
+                                  }
+                            </td>
+                            <td>
+
+                                    @if (total.WeddDieStatus1 == 1)
+                                    {
+                                        if (total.CheckStatus == "已归档")
+                                        {
+                                        <a class="btn btn-success btn-xs" data-toggle="modal" href="#myModal8">查看</a> 
+                                         <a class="btn btn-default btn-xs" href="/CheckFile/PrintWeddingDie?pid=@total.WeddingandDieId">打印</a>
+                                        }
+                                        else if (total.CheckStatus == "被退回")
+                                        {
+
+                                            var tlist2 = ViewBag.tlist as List<Yisaa.DAL.DT_Total>;
+                                            var ulist3 = ViewBag.ulist as List<Yisaa.DAL.DT_UserLoginRecord>;
+                                            foreach (var u in ulist3)
+                                            {
+                                                foreach (var t in tlist2.Where(a => a.UserId == u.Id))
+                                                {
+                                                    if (t.WeddDieTime2 != null)
+                                                    {  
+                                                       <a class="btn btn-warning btn-xs" href="/CheckFile/ChkUserChkWeddingDie?tid=@total.WeddingandDieId">审核</a>
+                                                    }
+                                                    else
+                                                    {
+                                                      <a class="btn btn-success btn-xs" data-toggle="modal" href="#myModal8">查看</a> 
+                                                      <a class="btn btn-default btn-xs" href="/CheckFile/PrintWeddingDie?pid=@total.WeddingandDieId">打印</a>
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        else
+                                        {
+                                              <a class="btn btn-success btn-xs" data-toggle="modal" href="#myModal8">查看</a> 
+                                         <a class="btn btn-default btn-xs" href="/CheckFile/PrintWeddingDie?pid=@total.WeddingandDieId">打印</a>
+                                        }
+
+                                    }
+                                    else
+                                    {
+                                        if (total.CheckStatus == "已退回")
+                                        { 
+                                        <a class="btn btn-success btn-xs" data-toggle="modal" href="#myModal8">查看</a> 
+                                        }
+                                        else
+                                        {
+                                        <a class="btn btn-warning btn-xs" href="/CheckFile/ChkUserChkWeddingDie?tid=@total.WeddingandDieId">审核</a>
+                                        }
+                                    }
+
+                                  <!--科级干部参与操办本人及近亲属婚丧喜庆事宜情况报告表弹出 -->
+                      <div class="modal fade" id="myModal8">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                              <h4 class="modal-title">科级干部参与操办本人及近亲属婚丧喜庆事宜情况报告表</h4>
+                            </div>
+                            <div class="modal-body">
+                              <table class="table table-bordered">
+                                @{
+                                    //var user = ViewBag.UpdUserinfo as List<Yisaa.DAL.DT_UserInfo>;
+                                    var weddingdie = ViewBag.weddingdie as List<Yisaa.DAL.DT_WeddingandDie>;
+                                    foreach (var u in user)
+                                    {
+                                        foreach (var w in weddingdie)
+                                        { 
+                                   
+                                   <tr >
+                                  <td class="t01" width="15%">姓  名 </td>
+                                  <td width="15%">@u.RealName</td>
+                                  <td class="t01" width="15%">单  位 </td>
+                                  <td width="20%">@u.WorkUnit</td>
+                                  <td class="t01" width="15%">职 务 </td>
+                                  <td width="20%">@u.Post</td>
+                                </tr>
+                                <tr >
+                                  <td class="t01" rowspan="10" >本人参 <br />
+                                    与操办 <br />
+                                    本人及 <br />
+                                    近亲属 <br />
+                                    婚丧喜 <br />
+                                    庆事宜 </td>
+                                  <td class="t01">操办事项 </td>
+                                  <td colspan="4" >@w.Arrange</td>
+                                </tr>
+                                <tr >
+                                  <td class="t01" >办理时间 </td>
+                                  <td colspan="4" >@w.ManageTime</td>
+                                </tr>
+                                <tr >
+                                  <td class="t01" >办理地点 </td>
+                                  <td colspan="4" >@w.ManageAddress</td>
+                                </tr>
+                                <tr >
+                                  <td class="t01" >参加对象 </td>
+                                  <td colspan="4" >@w.PartyObject</td>
+                                </tr>
+                                <tr >
+                                  <td class="t01" >参加人数 </td>
+                                  <td colspan="4" >@w.PartyNum</td>
+                                </tr>
+                                <tr >
+                                  <td class="t01" >收受礼金金额 </td>
+                                  <td colspan="4" >@w.AcceptingMoney（元） </td>
+                                </tr>
+                                <tr >
+                                  <td class="t01" rowspan="2" >收受礼品数量 <br />
+                                    及价值 </td>
+                                  <td colspan="4" >@w.AcceptingCount（件） </td>
+                                </tr>
+                                <tr >
+                                  <td colspan="4" >@w.AcceptingValue（元） </td>
+                                </tr>
+                                <tr >
+                                  <td class="t01" >所受礼金礼品处理情况 </td>
+                                  <td colspan="4" >@w.HandleStatus</td>
+                                </tr>
+                                        }
+                                    }
+                                }
+                                     </table>
+                              <div class="modal-footer">
+                                <button data-dismiss="modal" class="btn btn-primary" type="button">关闭</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- 科级干部参与操办本人及近亲属婚丧喜庆事宜情况报告表弹出 -->
+
+                            </td>
+                        </tr>
+
+                            <tr>
+                            <td>7</td>
+                            <td class="hidden-phone">
+                                
+                                
+                                  @if (total.IndustryStatus1 == 1)
+                                  {
+                                      if (total.CheckStatus == "被退回")
+                                      {
+
+                                          var tlist2 = ViewBag.tlist as List<Yisaa.DAL.DT_Total>;
+                                          var ulist3 = ViewBag.ulist as List<Yisaa.DAL.DT_UserLoginRecord>;
+                                          foreach (var u in ulist3)
+                                          {
+                                              foreach (var t in tlist2.Where(a => a.UserId == u.Id))
+                                              {
+                                                  if (t.IndustryTime2 != null)
+                                                  {  
+                                                     <a data-toggle="modal" href="#myModal11">科级干部配偶、子女及其配偶从业变更情况报告表</a> 
+                                                     <span class="label label-danger label-mini">被退回</span> 
+                                                  }
+                                                  else
+                                                  {
+                                                     <a data-toggle="modal" href="#myModal11">科级干部配偶、子女及其配偶从业变更情况报告表</a>
+                                                     <span class="label label-warning label-mini">已确认</span>
+                                                  }
+                                              }
+                                          }
+                                      }
+                                      else
+                                      {
+                                          <a data-toggle="modal" href="#myModal11">科级干部配偶、子女及其配偶从业变更情况报告表</a>
+                                        <span class="label label-success label-mini">已确认</span>   
+                                      }
+
+                                  }
+                                  else if (total.IndustryStatus1 == 0)
+                                  {
+                                      if (total.CheckStatus == "已退回")
+                                      { 
+                                          <a data-toggle="modal" href="#">科级干部配偶、子女及其配偶从业变更情况报告表</a>
+                                       <span class="label label-warning label-mini">已退回</span>
+                                      }
+                                      else
+                                      {
+                                          <a data-toggle="modal" href="#">科级干部配偶、子女及其配偶从业变更情况报告表</a>
+                                        <span class="label label-danger label-mini">待退回</span> 
+                                      }
+
+                                  }
+                                  else
+                                  {
+                                       if (total.CheckStatus=="待审核")
+                                      {
+                                          <a href="#">科级干部配偶、子女及其配偶从业变更情况报告表</a>
+                                       <span class="label label-warning label-mini">待审核</span>
+                                      }
+                                       else
+                                       {
+                                          <a href="#">科级干部配偶、子女及其配偶从业变更情况报告表</a>
+                                       }
+                                          
+                                  }
+                            </td>
+                            <td>
+                                  @if (total.IndustryStatus1 == 1)
+                                  {
+                                      if (total.CheckStatus == "已归档")
+                                      {
+                                        <a class="btn btn-success btn-xs" data-toggle="modal" href="#myModal11">查看</a> 
+                                        <a class="btn btn-default btn-xs" href="/CheckFile/PrintIndustryChg?pid=@total.IndustryChangesId">打印</a>
+                                      }
+                                      else if (total.CheckStatus == "被退回")
+                                      {
+
+                                          var tlist2 = ViewBag.tlist as List<Yisaa.DAL.DT_Total>;
+                                          var ulist3 = ViewBag.ulist as List<Yisaa.DAL.DT_UserLoginRecord>;
+                                          foreach (var u in ulist3)
+                                          {
+                                              foreach (var t in tlist2.Where(a => a.UserId == u.Id))
+                                              {
+                                                  if (t.IndustryTime2 != null)
+                                                  {  
+                                                       <a class="btn btn-warning btn-xs" href="/CheckFile/ChkUserChkIndusChange?tid=@total.IndustryChangesId">审核</a>
+                                                  }
+                                                  else
+                                                  {
+                                                      <a class="btn btn-success btn-xs" data-toggle="modal" href="#myModal11">查看</a> 
+                                                      <a class="btn btn-default btn-xs" href="/CheckFile/PrintIndustryChg?pid=@total.IndustryChangesId">打印</a>
+                                                  }
+                                              }
+                                          }
+                                      }
+                                      else
+                                      {
+                                           <a class="btn btn-success btn-xs" data-toggle="modal" href="#myModal11">查看</a> 
+                                        <a class="btn btn-default btn-xs" href="/CheckFile/PrintIndustryChg?pid=@total.IndustryChangesId">打印</a>
+                                      }
+                                  }
+                                  else
+                                  {
+                                      if (total.CheckStatus == "已退回")
+                                      { 
+                                        <a class="btn btn-success btn-xs" data-toggle="modal" href="#myModal11">查看</a> 
+                                      }
+                                      else
+                                      {
+                                        <a class="btn btn-warning btn-xs" href="/CheckFile/ChkUserChkIndusChange?tid=@total.IndustryChangesId">审核</a>
+                                      }
+                                  }
+
+
+                      <!-- 科级干部配偶、子女及其配偶从业变更情况报告表弹出 -->
+                      <div class="modal fade" id="myModal11">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                              <h4 class="modal-title">科级干部配偶、子女及其配偶从业变更情况报告表</h4>
+                            </div>
+                           
+                              <div class="modal-body">
+                              <table class="table table-bordered">
+                                    @{
+                                         
+                                  var industry = ViewBag.industry as List<Yisaa.DAL.DT_IndustryChanges>;
+                                  foreach (var u in user)
+                                  {
+                                      foreach (var i in industry)
+                                      { 
+                                      
+                                <tr >
+                                  <td class="t01" width="15%" >姓  名 </td>
+                                  <td width="18%">@u.RealName</td>
+                                  <td class="t01" width="15%" >单  位 </td>
+                                  <td width="22%">@u.WorkUnit</td>
+                                  <td class="t01" width="15%" >职 务 </td>
+                                  <td width="15%">@u.Post</td>
+                                </tr>
+                                <tr >
+                                  <td class="t01" rowspan="7" >配偶、子女及其配偶从业变更情况 </td>
+                                  <td class="t01" >从业变更人员 </td>
+                                  <td colspan="4" >@i.Name</td>
+                                     
+                                </tr>
+                                <tr >
+                                  <td class="t01" >与填表人关系 </td>
+                                  <td colspan="4" >@i.Relation</td>
+                                     
+                                </tr>
+                                <tr >
+                                  <td class="t01" >从业变更时间 </td>
+                                  <td colspan="4" >@i.ChangeTime</td>
+                                    
+                                </tr>
+                                <tr >
+                                  <td class="t01" >变更前工作 <br />
+                                    单位及职务 </td>
+                                  <td colspan="4" >@i.LastUnit</td>
+                                   
+                                </tr>
+                                <tr >
+                                  <td class="t01" >变更后工作 <br />
+                                    单位及职务 </td>
+                                  <td colspan="4" ><p >@i.NowUnit</td>
+                                </tr>
+                                <tr >
+                                  <td class="t01" >变更原因 </td>
+                                  <td colspan="4" >@i.Reason</td>
+                                  
+                                </tr>
+                                <tr >
+                                  <td class="t01" >备  注 </td>
+                                  <td colspan="4" >@i.Remark</td>
+                                </tr>
+                                      }
+                                  }
+                                  }
+                                         </table>
+                              <div class="modal-footer">
+                                <button data-dismiss="modal" class="btn btn-primary" type="button">关闭</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- 科级干部配偶、子女及其配偶从业变更情况报告表弹出 -->
+                            </td>
+                        </tr>
+
+                            <tr>
+                            <td>8</td>
+                            <td class="hidden-phone">                         
+                              
+                                  @if (total.ImportantStatus1 == 1)
+                                  {
+                                      if (total.CheckStatus == "被退回")
+                                      {
+
+                                          var tlist2 = ViewBag.tlist as List<Yisaa.DAL.DT_Total>;
+                                          var ulist3 = ViewBag.ulist as List<Yisaa.DAL.DT_UserLoginRecord>;
+                                          foreach (var u in ulist3)
+                                          {
+                                              foreach (var t in tlist2.Where(a => a.UserId == u.Id))
+                                              {
+                                                  if (t.ImportantTime2 != null)
+                                                  {  
+                                                     <a data-toggle="modal" href="#myModal12">科级干部其他重大事项报告表</a> 
+                                                     <span class="label label-danger label-mini">被退回</span> 
+                                                  }
+                                                  else
+                                                  {
+                                                     <a data-toggle="modal" href="#myModal12">科级干部其他重大事项报告表</a>
+                                                     <span class="label label-warning label-mini">已确认</span>
+                                                  }
+                                              }
+                                          }
+                                      }
+                                      else
+                                      {
+                                        <a data-toggle="modal" href="#myModal12">科级干部其他重大事项报告表</a>
+                                        <span class="label label-success label-mini">已确认</span>   
+                                      }
+                                  }
+                                  else if (total.ImportantStatus1 == 0)
+                                  {
+                                      if (total.CheckStatus == "已退回")
+                                      { 
+                                           <a href="#">科级干部其他重大事项报告表</a>
+                                       <span class="label label-warning label-mini">已退回</span>
+                                      }
+                                      else
+                                      {
+                                           <a href="#">科级干部其他重大事项报告表</a>
+                                        <span class="label label-danger label-mini">待退回</span> 
+                                      }
+
+                                  }
+                                  else
+                                  {
+                                         
+                                      if (total.CheckStatus=="待审核")
+                                      {
+                                          <a href="#">科级干部其他重大事项报告表</a>
+                                       <span class="label label-warning label-mini">待审核</span>
+                                      }
+                                      else
+                                      {
+                                          <a href="#">科级干部其他重大事项报告表</a>
+                                      }
+                                  }
+                            </td>
+                            <td>
+
+                                    @if (total.ImportantStatus1 == 1)
+                                    {
+                                        if (total.CheckStatus == "已归档")
+                                        {
+                                        <a class="btn btn-success btn-xs" data-toggle="modal" href="#myModal12">查看</a> 
+                                          <a class="btn btn-default btn-xs" href="/CheckFile/PrintImportant?pid=@total.ImportantId">打印</a>
+                                      
+                                        }
+                                        else if (total.CheckStatus == "被退回")
+                                        {
+
+                                            var tlist2 = ViewBag.tlist as List<Yisaa.DAL.DT_Total>;
+                                            var ulist3 = ViewBag.ulist as List<Yisaa.DAL.DT_UserLoginRecord>;
+                                            foreach (var u in ulist3)
+                                            {
+                                                foreach (var t in tlist2.Where(a => a.UserId == u.Id))
+                                                {
+                                                    if (t.ImportantTime2 != null)
+                                                    {  
+                                                        <a class="btn btn-warning btn-xs" href="/CheckFile/ChkUserChkImportant?tid=@total.ImportantId">审核</a>
+                                                    }
+                                                    else
+                                                    {
+                                                      <a class="btn btn-success btn-xs" data-toggle="modal" href="#myModal12">查看</a> 
+                                                       <a class="btn btn-default btn-xs" href="/CheckFile/PrintImportant?pid=@total.ImportantId">打印</a>
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        else
+                                        {
+                                             <a class="btn btn-success btn-xs" data-toggle="modal" href="#myModal12">查看</a> 
+                                          <a class="btn btn-default btn-xs" href="/CheckFile/PrintImportant?pid=@total.ImportantId">打印</a>
+                                        }
+
+
+                                    }
+                                    else
+                                    {
+                                        if (total.CheckStatus == "已退回")
+                                        { 
+                                        <a class="btn btn-success btn-xs" data-toggle="modal" href="#myModal12">查看</a> 
+                                        }
+                                        else
+                                        {
+                                        <a class="btn btn-warning btn-xs" href="/CheckFile/ChkUserChkImportant?tid=@total.ImportantId">审核</a>
+                                        }
+                                    }
+
+
+                                 <!-- 科级干部其他重大事项报告表弹出 -->
+                      <div class="modal fade" id="myModal12">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                              <h4 class="modal-title">科级干部其他重大事项报告表</h4>
+                            </div>
+                            <div class="modal-body">
+                              <table class="table table-bordered">
+                                   @{                                      
+                                    var important = ViewBag.important as List<Yisaa.DAL.DT_Important>;
+                                    foreach (var u in user)
+                                    {
+                                        foreach (var i in important)
+                                        {
+                                           
+                                <tr >
+                                  <td class="t01" width="15%" >姓  名 </td>
+                                  <td width="18%">@u.RealName</td>
+                                  <td class="t01" width="15%" >单  位 </td>
+                                  <td width="22%">@u.WorkUnit</td>
+                                  <td class="t01" width="15%" >职 务 </td>
+                                  <td width="15%">@u.Post</td>
+                                </tr>
+                                <tr >
+                                  <td class="t01" height="300">报<br/>
+                                    告<br/>
+                                    事<br/>
+                                    项 </td>
+                                  <td colspan="5" >@i.Report</td>
+                                </tr>
+                                <tr >
+                                  <td class="t01" height="100">备  注 </td>
+                                  <td colspan="5" >@i.Remark</td>
+                                </tr>
+                                        }
+                                    }
+                                    }
+                              </table>
+                              <div class="modal-footer">
+                                <button data-dismiss="modal" class="btn btn-primary" type="button">关闭</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- 科级干部其他重大事项报告表弹出 -->
+                            </td>
+                        </tr>
+
+                            <tr>
+                            <td>9</td>
+                            <td class="hidden-phone">                         
+                              
+                                  @if (total.ResponsStatus1 == 1)
+                                  {
+                                      if (total.CheckStatus == "被退回")
+                                      {
+                                          var tlist2 = ViewBag.tlist as List<Yisaa.DAL.DT_Total>;
+                                          var ulist3 = ViewBag.ulist as List<Yisaa.DAL.DT_UserLoginRecord>;
+                                          foreach (var u in ulist3)
+                                          {
+                                              foreach (var t in tlist2.Where(a => a.UserId == u.Id))
+                                              {
+                                                  if (t.ResponsTime2 != null)
+                                                  {  
+                                                     <a data-toggle="modal" href="#myModal13">科级干部违规违纪问题处理及责任追究情况报告表</a> 
+                                                     <span class="label label-danger label-mini">被退回</span> 
+                                                  }
+                                                  else
+                                                  {
+                                                     <a data-toggle="modal" href="#myModal13">科级干部违规违纪问题处理及责任追究情况报告表</a>
+                                                     <span class="label label-warning label-mini">已确认</span>
+                                                  }
+                                              }
+                                          }
+                                      }
+                                      else
+                                      {
+                                        <a data-toggle="modal" href="#myModal13">科级干部违规违纪问题处理及责任追究情况报告表</a>
+                                        <span class="label label-success label-mini">已确认</span>   
+                                      }
+                                  }
+                                  else if (total.ResponsStatus1 == 0)
+                                  {
+                                      if (total.CheckStatus == "已退回")
+                                      { 
+                                           <a  href="#">科级干部违规违纪问题处理及责任追究情况报告表</a>
+                                       <span class="label label-warning label-mini">已退回</span>
+                                      }
+                                      else
+                                      {
+                                           <a  href="#">科级干部违规违纪问题处理及责任追究情况报告表</a>
+                                        <span class="label label-danger label-mini">待退回</span> 
+                                      }
+
+                                  }
+                                  else
+                                  {
+                                      if (total.CheckStatus == "待审核")
+                                      {
+                                          <a href="#">科级干部违规违纪问题处理及责任追究情况报告表</a>
+                                       <span class="label label-warning label-mini">待审核</span>
+                                      }
+                                      else
+                                      {
+                                          <a href="#">科级干部违规违纪问题处理及责任追究情况报告表</a>
+                                      }
+
+                                  }
+                            </td>
+                            <td>
+
+                                    @if (total.ResponsStatus1 == 1)
+                                    {
+                                        if (total.CheckStatus == "已归档")
+                                        {
+                                        <a class="btn btn-success btn-xs" data-toggle="modal" href="#myModal13">查看</a> 
+                                        <a class="btn btn-default btn-xs" href="/CheckFile/PrintResponse?pid=@total.ResponsibilityId">打印</a>
+                                        }
+                                        else if (total.CheckStatus == "被退回")
+                                        {
+
+                                            var tlist2 = ViewBag.tlist as List<Yisaa.DAL.DT_Total>;
+                                            var ulist3 = ViewBag.ulist as List<Yisaa.DAL.DT_UserLoginRecord>;
+                                            foreach (var u in ulist3)
+                                            {
+                                                foreach (var t in tlist2.Where(a => a.UserId == u.Id))
+                                                {
+                                                    if (t.ResponsTime2 != null)
+                                                    {  
+                                                       <a class="btn btn-warning btn-xs" href="/CheckFile/ChkUserChkRespons?tid=@total.ResponsibilityId">审核</a>
+                                                    }
+                                                    else
+                                                    {
+                                                      <a class="btn btn-success btn-xs" data-toggle="modal" href="#myModal13">查看</a> 
+                                                       <a class="btn btn-default btn-xs" href="/CheckFile/PrintResponse?pid=@total.ResponsibilityId">打印</a>
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        else
+                                        {
+                                                
+                                         <a class="btn btn-success btn-xs" data-toggle="modal" href="#myModal13">查看</a> 
+                                         <a class="btn btn-default btn-xs" href="/CheckFile/PrintResponse?pid=@total.ResponsibilityId">打印</a>
+                                        }
+
+                                    }
+                                    else
+                                    {
+                                        if (total.CheckStatus == "已退回")
+                                        { 
+                                        <a class="btn btn-success btn-xs" data-toggle="modal" href="#myModal13">查看</a> 
+                                        }
+                                        else
+                                        {
+                                        <a class="btn btn-warning btn-xs" href="/CheckFile/ChkUserChkRespons?tid=@total.ResponsibilityId">审核</a>
+                                        }
+                                    }
+
+
+                                 <!-- 科级干部违规违纪问题处理及责任追究情况报告表弹出 -->
+                      <div class="modal fade" id="myModal13">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                              <h4 class="modal-title">科级干部违规违纪问题处理及责任追究情况报告表</h4>
+                            </div>
+                            <div class="modal-body">
+                              <table class="table table-bordered">
+                                   @{
+                                       
+                                    var respons = ViewBag.respons as List<Yisaa.DAL.DT_Responsibility>;
+                                    foreach (var u in user)
+                                    {
+                                        foreach (var r in respons)
+                                        {
+                                        
+                                <tr >
+                                  <td class="t01" width="15%" >姓  名 </td>
+                                  <td width="18%">@u.RealName</td>
+                                  <td class="t01" width="15%" >工作<br/>
+                                    单位 </td>
+                                  <td width="22%">@u.WorkUnit</td>
+                                  <td class="t01" width="15%" >职 务 </td>
+                                  <td width="15%">@u.Post</td>
+                                </tr>
+                                <tr >
+                                  <td class="t01">违纪性质 </td>
+                                  <td colspan="3" >@r.Nature</td>
+                                  <td class="t01">违纪时间 </td>
+                                  <td colspan="2" >@Convert.ToDateTime(r.ResTime).ToString("yyyy-MM-dd")</td>
+                                </tr>
+                                <tr >
+                                  <td class="t01">处理机关 </td>
+                                  <td colspan="6" >@r.HandleOffice</td>
+                                </tr>
+                                <tr >
+                                  <td class="t01" height="150">违 <br />
+                                    纪 <br />
+                                    事 <br />
+                                    实 </td>
+                                  <td colspan="6" >@r.Fact</td>
+                                </tr>
+                                <tr >
+                                  <td class="t01" height="150">处 <br />
+                                    理 <br />
+                                    情 <br />
+                                    况 </td>
+                                  <td colspan="6" >@r.HandleStatus</td>
+                                </tr>
+                                <tr >
+                                  <td class="t01" height="100">备 <br />
+                                    注 </td>
+                                  <td colspan="6" >@r.Remark</td>
+                                </tr>
+                                        }
+                                    }
+                                    }
+                              </table>
+                              <div class="modal-footer">
+                                <button data-dismiss="modal" class="btn btn-primary" type="button">关闭</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- 科级干部违规违纪问题处理及责任追究情况报告表弹出 -->
+                            </td>
+                        </tr>
+
+                            <tr>
+                            <td>10</td>
+                            <td class="hidden-phone">                         
+                              
+                                  @if (total.LetterStatus1 == 1)
+                                  {
+                                      if (total.CheckStatus == "被退回")
+                                      {
+                                          var tlist2 = ViewBag.tlist as List<Yisaa.DAL.DT_Total>;
+                                          var ulist3 = ViewBag.ulist as List<Yisaa.DAL.DT_UserLoginRecord>;
+                                          foreach (var u in ulist3)
+                                          {
+                                              foreach (var t in tlist2.Where(a => a.UserId == u.Id))
+                                              {
+                                                  if (t.LetterTime2 != null)
+                                                  {  
+                                                     <a data-toggle="modal" href="#myModal14">科级干部信访核查情况登记表</a> 
+                                                     <span class="label label-danger label-mini">被退回</span> 
+                                                  }
+                                                  else
+                                                  {
+                                                     <a data-toggle="modal" href="#myModal14">科级干部信访核查情况登记表</a>
+                                                     <span class="label label-warning label-mini">已确认</span>
+                                                  }
+                                              }
+                                          }
+                                      }
+                                      else
+                                      {
+                                        <a data-toggle="modal" href="#myModal14">科级干部信访核查情况登记表</a>
+                                        <span class="label label-success label-mini">已确认</span>   
+                                      }
+                                  }
+                                  else if (total.LetterStatus1 == 0)
+                                  {
+                                      if (total.CheckStatus == "已退回")
+                                      { 
+                                           <a  href="#">科级干部信访核查情况登记表</a>
+                                       <span class="label label-warning label-mini">已退回</span>
+                                      }
+                                      else
+                                      {
+                                           <a  href="#">科级干部信访核查情况登记表</a>
+                                        <span class="label label-danger label-mini">待退回</span> 
+                                      }
+
+                                  }
+                                  else
+                                  {
+                                      if (total.CheckStatus == "待审核")
+                                      {
+                                          <a href="#">科级干部信访核查情况登记表</a>
+                                       <span class="label label-warning label-mini">待审核</span>
+                                      }
+                                      else
+                                      {
+                                          <a href="#">科级干部信访核查情况登记表</a>
+                                      }
+                                  }
+                            </td>
+                            <td>
+
+                                    @if (total.LetterStatus1 == 1)
+                                    {
+                                        if (total.CheckStatus == "已归档")
+                                        {
+                                        <a class="btn btn-success btn-xs" data-toggle="modal" href="#myModal14">查看</a> 
+                                         <a class="btn btn-default btn-xs" href="/CheckFile/PrintLetterCheck?pid=@total.PetitionLetterId">打印</a>
+                                        
+                                        }
+                                        else if (total.CheckStatus == "被退回")
+                                        {
+
+
+                                            var tlist2 = ViewBag.tlist as List<Yisaa.DAL.DT_Total>;
+                                            var ulist3 = ViewBag.ulist as List<Yisaa.DAL.DT_UserLoginRecord>;
+                                            foreach (var u in ulist3)
+                                            {
+                                                foreach (var t in tlist2.Where(a => a.UserId == u.Id))
+                                                {
+                                                    if (t.LetterTime2 != null)
+                                                    {  
+                                                       <a class="btn btn-warning btn-xs" href="/CheckFile/ChkUserChkLetterChk?tid=@total.PetitionLetterId">审核</a>
+                                                    }
+                                                    else
+                                                    {
+                                                      <a class="btn btn-success btn-xs" data-toggle="modal" href="#myModal14">查看</a> 
+                                                       <a class="btn btn-default btn-xs" href="/CheckFile/PrintLetterCheck?pid=@total.PetitionLetterId">打印</a>
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        else
+                                        {
+                                            <a class="btn btn-success btn-xs" data-toggle="modal" href="#myModal14">查看</a> 
+                                         <a class="btn btn-default btn-xs" href="/CheckFile/PrintLetterCheck?pid=@total.PetitionLetterId">打印</a>
+                                        
+                                        }
+
+
+                                    }
+                                    else
+                                    {
+                                        if (total.CheckStatus == "已退回")
+                                        { 
+                                        <a class="btn btn-success btn-xs" data-toggle="modal" href="#myModal14">查看</a> 
+                                        }
+                                        else
+                                        {
+                                        <a class="btn btn-warning btn-xs" href="/CheckFile/ChkUserChkLetterChk?tid=@total.PetitionLetterId">审核</a>
+                                        }
+                                    }
+
+
+                                 <!-- 科级干部信访核查情况登记表弹出 -->
+                      <div class="modal fade" id="myModal14">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                              <h4 class="modal-title">科级干部信访核查情况登记表</h4>
+                            </div>
+                            <div class="modal-body">
+                            <table class="table table-bordered">
+                                   @{
+                                       
+                                    var letterchk = ViewBag.letterchk as List<Yisaa.DAL.DT_PetitionLetter>;
+                                    foreach (var u in user)
+                                    {
+                                        foreach (var l in letterchk)
+                                        {                                           
+                                <tr >
+                                  <td class="t01" width="15%">信访 <br />
+                                    登记号 </td>
+                                  <td width="20%">@l.RecordNum</td>
+                                  <td class="t01" width="15%">信访时间 </td>
+                                  <td width="15%">@Convert.ToDateTime(l.LetterTime).ToString("yyyy-MM-dd")</td>
+                                  <td class="t01" width="15%" colspan="2" >信息 <br />
+                                    来源单位 </td>
+                                  <td width="20%">@l.FromUnit</td>
+                                </tr>
+                                <tr >
+                                  <td class="t01" rowspan="2" >被反映人 </td>
+                                  <td class="t01" >姓 名 </td>
+                                  <td >@l.ByManName</td>
+                                  <td class="t01" >职 务 </td>
+                                  <td colspan="3" >@l.ByManPost</td>
+                                </tr>
+                                <tr >
+                                  <td class="t01" >单 位 </td>
+                                  <td colspan="5" >@l.ByManUnit</td>
+                                </tr>
+                                <tr >
+                                  <td class="t01" rowspan="2" >反映人 </td>
+                                  <td class="t01">姓 名 </td>
+                                  <td >@l.ManName</td>
+                                  <td class="t01">联系<br />
+                                    方式<br /></td>
+                                  <td colspan="3" >@l.ManTel</td>
+                                </tr>
+                                <tr >
+                                  <td class="t01">单 位 </td>
+                                  <td colspan="2" >@l.ManUnit</td>
+                                  <td class="t01">职 务 </td>
+                                  <td colspan="2" >@l.ManPost</td>
+                                </tr>
+                                <tr >
+                                  <td class="t01">信访反映 <br />
+                                    内容 </td>
+                                  <td colspan="6" >@l.Content</td>
+                                </tr>
+                                <tr >
+                                  <td class="t01">调查情况 <br />
+                                    及结论 </td>
+                                  <td colspan="6" >@l.SurveyResult</td>
+                                </tr>
+                                <tr >
+                                  <td class="t01">处理结果 </td>
+                                  <td colspan="6" >@l.HandleResult</td>
+                                </tr>
+                                <tr >
+                                  <td class="t01">备注 </td>
+                                  <td colspan="6" >@l.Remark</td>
+                                </tr>
+                                        }
+                                    }
+                                    }
+                              </table>
+                              <div class="modal-footer">
+                                <button data-dismiss="modal" class="btn btn-primary" type="button">关闭</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- 科级干部信访核查情况登记表弹出 -->
+                            </td>
+                        </tr>
+                        </tbody>
+
+                    </table>
+
+                    <p class="t_center">
+                        @if (total.UserInfoStatus1 == 1 && total.FamilyStatus1 == 1 && total.ProfitStatus1 == 1 && total.MarryChgStatus1 == 1 && total.CrimeStatus1 == 1)
+                        {
+
+                            if (total.CheckStatus == "已提交")
+                            {
+                            <button class="btn btn-primary btn-lg" type="button" disabled="disabled" id="handin_checking">已提交,审核中...</button>
+                            }
+                            else if (total.CheckStatus == "已归档")
+                            {
+                            <button class="btn btn-primary btn-lg" type="button" disabled="disabled" id="filed">已归档 ~</button>
+                            }
+                            else if (total.CheckStatus == "被退回")
+                            {
+                            <button class="btn btn-primary btn-lg" type="button" disabled="disabled" id="beback">被退回,请重新审核！</button>
+                            }
+
+                            else
+                            {
+                            <button class="btn btn-success btn-lg" type="button" id="submit_check">提交党委审核</button>
+                            <button class="btn btn-primary btn-lg" type="button" disabled="disabled">退回本人修改</button>
+                            }
+
+                        }
+                        else if (total.UserInfoStatus1 == 0 || total.FamilyStatus1 == 0 || total.ProfitStatus1 == 0 || total.MarryChgStatus1 == 0 || total.CrimeStatus1 == 0)
+                        {
+                            if (total.CheckStatus == "已退回")
+                            {
+                            <button class="btn btn-primary btn-lg" type="button" disabled="disabled" id="backed">已退回</button>
+                            }
+                            else
+                            {
+                            <button class="btn btn-success btn-lg" type="button" disabled="disabled">提交党委审核</button>
+                            <button class="btn btn-primary btn-lg" type="button" id="back_upd">退回本人修改</button>
+                            }
+
+                        }
+                        else
+                        {
+                            <button class="btn btn-success btn-lg" type="button" disabled="disabled">提交党委审核</button>
+                            <button class="btn btn-primary btn-lg" type="button" disabled="disabled">退回本人修改</button>
+                        }
+                    </p>
+                </div>
+            </section>
+            
+             <section class="panel">
+            <header class="panel-heading">审核记录</header>
+            <div class="panel-body">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th width="6%">序号</th>
+                            <th width="33%">表单名称</th>
+                            <th >退回意见</th>
+                            <th width="8%">审核人</th>
+                            <th width="15%">退回时间</th>
+                        </tr>
+                    </thead>
+                  
+                      <tbody>
+                     
+                        @if (total.UserInfoAdvice2 != null && total.UserInfoAdvice2 != "")
+                        {                                          
+                                  <tr>                               
+                                   <td>1</td>
+                                    <td>科级干部基本情况登记表一</td>
+                                    <td>@total.UserInfoAdvice2</td>
+                                    <td>@total.UserInfoPeople2</td>
+                                    <td>@total.HighBackTime</td>                            
+                                  </tr>
+                        }
+                        @if (total.FamilyAdvice2 != null && total.FamilyAdvice2 != "")
+                        {
+                                   <tr>                               
+                                   <td>2</td>
+                                    <td>科级干部基本情况登记表二</td>
+                                    <td>@total.FamilyAdvice2</td>
+                                    <td>@total.FamilyPeople2</td>
+                                    <td>@total.HighBackTime</td>                            
+                                  </tr>
+                                         
+                        }
+                        @if (total.ProfitAdvice2 != null && total.ProfitAdvice2 != "")
+                        {
+                                   <tr>                               
+                                   <td>3</td>
+                                    <td>科级干部从事或参与营业性活动及兼职持股情况报告表</td>
+                                    <td>@total.ProfitAdvice2</td>
+                                    <td>@total.ProfitPeople2</td>
+                                    <td>@total.HighBackTime</td>                            
+                                  </tr>
+                                         
+                        }
+                          @if (total.MarryChgAdvice2 != null && total.MarryChgAdvice2 != "")
+                          {
+                                   <tr>                               
+                                   <td>4</td>
+                                    <td>科级干部婚姻变化情况报告表 </td>
+                                    <td>@total.MarryChgAdvice2</td>
+                                    <td>@total.MarryChgPeople2</td>
+                                    <td>@total.HighBackTime</td>                            
+                                  </tr>
+                                         
+                          }
+                                @if (total.CrimeAdvice2 != null && total.CrimeAdvice2 != "")
+                                {
+                                   <tr>                               
+                                   <td>5</td>
+                                    <td>科级干部配偶、子女及其配偶受到查处或涉嫌犯罪情况报告表 </td>
+                                    <td>@total.CrimeAdvice2</td>
+                                    <td>@total.CrimePeople2</td>
+                                    <td>@total.HighBackTime</td>                            
+                                  </tr>
+                                         
+                                }
+                                @if (total.WeddDieAdvice2 != null && total.WeddDieAdvice2 != "")
+                                {
+                                   <tr>                               
+                                   <td>6</td>
+                                    <td>科级干部参与操办本人及近亲属婚丧喜庆事宜情况报告表 </td>
+                                    <td>@total.WeddDieAdvice2</td>
+                                    <td>@total.WeddDiePeople2</td>
+                                    <td>@total.HighBackTime</td>                            
+                                  </tr>
+                                         
+                                }
+                                 @if (total.IndustryAdvice2 != null && total.IndustryAdvice2 != "")
+                                 {
+                                   <tr>                               
+                                   <td>7</td>
+                                    <td>科级干部配偶、子女及其配偶从业变更情况报告表  </td>
+                                    <td>@total.IndustryAdvice2</td>
+                                    <td>@total.IndustryPeople2</td>
+                                    <td>@total.HighBackTime</td>                            
+                                  </tr>
+                                         
+                                 }
+                                @if (total.ImportantAdvice2 != null && total.ImportantAdvice2 != "")
+                                {
+                                   <tr>                               
+                                   <td>8</td>
+                                    <td>科级干部其他重大事项报告表 </td>
+                                    <td>@total.ImportantAdvice2</td>
+                                    <td>@total.ImportantPeople2</td>
+                                    <td>@total.HighBackTime</td>                            
+                                  </tr>
+                                         
+                                }
+                                @if (total.ResponsAdvice2 != null && total.ResponsAdvice2 != "")
+                                {
+                                   <tr>                               
+                                   <td>9</td>
+                                    <td>科级干部违规违纪问题处理及责任追究情况报告表</td>
+                                    <td>@total.ResponsAdvice2</td>
+                                    <td>@total.ResponsPeople2</td>
+                                    <td>@total.HighBackTime</td>                            
+                                  </tr>
+                                         
+                                }
+                                @if (total.LetterAdvice2 != null && total.LetterAdvice2 != "")
+                                {
+                                   <tr>                               
+                                   <td>10</td>
+                                    <td>科级干部信访核查情况登记表</td>
+                                    <td>@total.LetterAdvice2</td>
+                                    <td>@total.LetterPeople2</td>
+                                    <td>@total.HighBackTime</td>                            
+                                  </tr>
+                                         
+                                }
+                                @if (total.AdmTalkAdvice2 != null && total.AdmTalkAdvice2 != "")
+                                {
+                                   <tr>                               
+                                   <td>11</td>
+                                    <td>科级干部接受诫勉谈话情况登记表</td>
+                                    <td>@total.AdmTalkAdvice2</td>
+                                    <td>@total.AdmTalkPeople2</td>
+                                    <td>@total.HighBackTime</td>                            
+                                  </tr>
+                                         
+                                }
+                                @if (total.IncTalkAdvice2 != null && total.IncTalkAdvice2 != "")
+                                {
+                                   <tr>                               
+                                   <td>12</td>
+                                    <td>科级干部接受廉政谈话情况登记表</td>
+                                    <td>@total.IncTalkAdvice2</td>
+                                    <td>@total.IncTalkPeople2</td>
+                                    <td>@total.HighBackTime</td>                            
+                                  </tr>
+                                         
+                                }
+                                @if (total.ApplyAdvice2 != null && total.ApplyAdvice2 != "")
+                                {
+                                   <tr>                               
+                                   <td>13</td>
+                                    <td>科级干部接受函询情况登记表</td>
+                                    <td>@total.ApplyAdvice2</td>
+                                    <td>@total.ApplyPeople2</td>
+                                    <td>@total.HighBackTime</td>                            
+                                  </tr>
+                                         
+                                }
+                                @if (total.RewardAdvice2 != null && total.RewardAdvice2 != "")
+                                {
+                                   <tr>                               
+                                   <td>14</td>
+                                    <td>科级干部奖惩情况登记表</td>
+                                    <td>@total.RewardAdvice2</td>
+                                    <td>@total.RewardPeople2</td>
+                                    <td>@total.HighBackTime</td>                            
+                                  </tr>
+                                         
+                                }
+                                @if (total.RefuseAdvice2 != null && total.RefuseAdvice2 != "")
+                                {
+                                   <tr>                               
+                                   <td>15</td>
+                                    <td>科级干部拒收或上交礼金、礼品情况登记表</td>
+                                    <td>@total.RefuseAdvice2</td>
+                                    <td>@total.RefusePeople2</td>
+                                    <td>@total.HighBackTime</td>                            
+                                  </tr>
+                                         
+                                }
+                                @if (total.HousingAdvice2 != null && total.HousingAdvice2 != "")
+                                {
+                                   <tr>                               
+                                   <td>16</td>
+                                    <td>科级干部本人、配偶及共同生活的子女住房情况报告表</td>
+                                    <td>@total.HousingAdvice2</td>
+                                    <td>@total.HousingPeople2</td>
+                                    <td>@total.HighBackTime</td>                            
+                                  </tr>
+                                         
+                                }
+                                @if (total.AbroadAdvice2 != null && total.AbroadAdvice2 != "")
+                                {
+                                   <tr>                               
+                                   <td>17</td>
+                                    <td>科级干部本人、配偶、子女及其配偶出国（境）情况报告表</td>
+                                    <td>@total.AbroadAdvice2</td>
+                                    <td>@total.AbroadPeople2</td>
+                                    <td>@total.HighBackTime</td>                            
+                                  </tr>
+                                         
+                                }
+                               
+                       
+                    </tbody>
+                </table>
+            </div>
+        </section>
+            
+                }
+
+
+            }
+        }
+
+        
+    
+    </div>
+</div>
+
+
+<script src="~/Content/js/jquery-1.10.2.min.js"></script>
+
+<script>
+    $(function () {
+        //提交党委审核
+        $("#submit_check").click(function () {
+            //alert();
+            $.post("/CheckFile/_UpdTotal_Submit?id=" + $("#myid").val(),
+             {
+                 "id": $("#myid").val(),
+             },
+             function (data) {
+                 if (data == "1") {
+                     alert("提交成功！");
+
+                     location.reload();
+
+                     //location.href = "/CheckFile/CheckUserIndex";
+
+                 } else {
+
+                     alert("提交失败,请重试！");
+
+                 }
+             });
+        });
+
+        //退回本人修改     
+        $("#back_upd").click(function () {
+
+            $.post("/CheckFile/_UpdTotal_BackUpdate?id=" + $("#myid").val(),
+             {
+                 "id": $("#myid").val(),
+             },
+             function (data) {
+                 if (data == "1") {
+                     alert("退回成功！");
+
+                     location.reload();
+
+                     location.href = "/CheckFile/CheckUserIndex";
+
+                 } else {
+
+                     alert("退回失败,请重试！");
+
+                 }
+             });
+        });
+
+    });
+
+
+</script>

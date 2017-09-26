@@ -1,0 +1,788 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="db_gblzModelStoreContainer" CdmEntityContainer="db_gblzEntities">
+    <EntitySetMapping Name="DT_BeShared">
+      <EntityTypeMapping TypeName="db_gblzModel.DT_BeShared">
+        <MappingFragment StoreEntitySet="DT_BeShared">
+          <ScalarProperty Name="BeSharedId" ColumnName="BeSharedId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DT_BuildTime">
+      <EntityTypeMapping TypeName="db_gblzModel.DT_BuildTime">
+        <MappingFragment StoreEntitySet="DT_BuildTime">
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+          <ScalarProperty Name="AddTime" ColumnName="AddTime" />
+          <ScalarProperty Name="BuildEndTime" ColumnName="BuildEndTime" />
+          <ScalarProperty Name="BuildStartTime" ColumnName="BuildStartTime" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DT_Role">
+      <EntityTypeMapping TypeName="db_gblzModel.DT_Role">
+        <MappingFragment StoreEntitySet="DT_Role">
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DT_Share">
+      <EntityTypeMapping TypeName="db_gblzModel.DT_Share">
+        <MappingFragment StoreEntitySet="DT_Share">
+          <ScalarProperty Name="ShareId" ColumnName="ShareId" />
+          <ScalarProperty Name="BeSharedId" ColumnName="BeSharedId" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="SharePeople" ColumnName="SharePeople" />
+          <ScalarProperty Name="ShareEndTime" ColumnName="ShareEndTime" />
+          <ScalarProperty Name="ShareBeginTime" ColumnName="ShareBeginTime" />
+          <ScalarProperty Name="SharedYear" ColumnName="SharedYear" />
+          <ScalarProperty Name="BeSharedPeople" ColumnName="BeSharedPeople" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DT_SharePeople">
+      <EntityTypeMapping TypeName="db_gblzModel.DT_SharePeople">
+        <MappingFragment StoreEntitySet="DT_SharePeople">
+          <ScalarProperty Name="TotalId" ColumnName="TotalId" />
+          <ScalarProperty Name="ShareId" ColumnName="ShareId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DT_Total">
+      <EntityTypeMapping TypeName="db_gblzModel.DT_Total">
+        <MappingFragment StoreEntitySet="DT_Total">
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="ApplyStatus2" ColumnName="ApplyStatus2" />
+          <ScalarProperty Name="IncTalkStatus2" ColumnName="IncTalkStatus2" />
+          <ScalarProperty Name="AdmTalkStatus2" ColumnName="AdmTalkStatus2" />
+          <ScalarProperty Name="LetterStatus2" ColumnName="LetterStatus2" />
+          <ScalarProperty Name="ResponsStatus2" ColumnName="ResponsStatus2" />
+          <ScalarProperty Name="ImportantStatus2" ColumnName="ImportantStatus2" />
+          <ScalarProperty Name="IndustryStatus2" ColumnName="IndustryStatus2" />
+          <ScalarProperty Name="CrimeStatus2" ColumnName="CrimeStatus2" />
+          <ScalarProperty Name="AbroadStatus2" ColumnName="AbroadStatus2" />
+          <ScalarProperty Name="WeddDieStatus2" ColumnName="WeddDieStatus2" />
+          <ScalarProperty Name="MarryChgStatus2" ColumnName="MarryChgStatus2" />
+          <ScalarProperty Name="HousingStatus2" ColumnName="HousingStatus2" />
+          <ScalarProperty Name="ProfitStatus2" ColumnName="ProfitStatus2" />
+          <ScalarProperty Name="RefuseStatus2" ColumnName="RefuseStatus2" />
+          <ScalarProperty Name="RewardStatus2" ColumnName="RewardStatus2" />
+          <ScalarProperty Name="FamilyStatus2" ColumnName="FamilyStatus2" />
+          <ScalarProperty Name="UserInfoStatus2" ColumnName="UserInfoStatus2" />
+          <ScalarProperty Name="ApplyStatus1" ColumnName="ApplyStatus1" />
+          <ScalarProperty Name="IncTalkStatus1" ColumnName="IncTalkStatus1" />
+          <ScalarProperty Name="AdmTalkStatus1" ColumnName="AdmTalkStatus1" />
+          <ScalarProperty Name="LetterStatus1" ColumnName="LetterStatus1" />
+          <ScalarProperty Name="ResponsStatus1" ColumnName="ResponsStatus1" />
+          <ScalarProperty Name="ImportantStatus1" ColumnName="ImportantStatus1" />
+          <ScalarProperty Name="IndustryStatus1" ColumnName="IndustryStatus1" />
+          <ScalarProperty Name="CrimeStatus1" ColumnName="CrimeStatus1" />
+          <ScalarProperty Name="AbroadStatus1" ColumnName="AbroadStatus1" />
+          <ScalarProperty Name="WeddDieStatus1" ColumnName="WeddDieStatus1" />
+          <ScalarProperty Name="MarryChgStatus1" ColumnName="MarryChgStatus1" />
+          <ScalarProperty Name="HousingStatus1" ColumnName="HousingStatus1" />
+          <ScalarProperty Name="ProfitStatus1" ColumnName="ProfitStatus1" />
+          <ScalarProperty Name="RefuseStatus1" ColumnName="RefuseStatus1" />
+          <ScalarProperty Name="RewardStatus1" ColumnName="RewardStatus1" />
+          <ScalarProperty Name="FamilyStatus1" ColumnName="FamilyStatus1" />
+          <ScalarProperty Name="UserInfoStatus1" ColumnName="UserInfoStatus1" />
+          <ScalarProperty Name="ApplyPeople2" ColumnName="ApplyPeople2" />
+          <ScalarProperty Name="IncTalkPeople2" ColumnName="IncTalkPeople2" />
+          <ScalarProperty Name="AdmTalkPeople2" ColumnName="AdmTalkPeople2" />
+          <ScalarProperty Name="LetterPeople2" ColumnName="LetterPeople2" />
+          <ScalarProperty Name="ResponsPeople2" ColumnName="ResponsPeople2" />
+          <ScalarProperty Name="ImportantPeople2" ColumnName="ImportantPeople2" />
+          <ScalarProperty Name="IndustryPeople2" ColumnName="IndustryPeople2" />
+          <ScalarProperty Name="CrimePeople2" ColumnName="CrimePeople2" />
+          <ScalarProperty Name="AbroadPeople2" ColumnName="AbroadPeople2" />
+          <ScalarProperty Name="WeddDiePeople2" ColumnName="WeddDiePeople2" />
+          <ScalarProperty Name="MarryChgPeople2" ColumnName="MarryChgPeople2" />
+          <ScalarProperty Name="HousingPeople2" ColumnName="HousingPeople2" />
+          <ScalarProperty Name="ProfitPeople2" ColumnName="ProfitPeople2" />
+          <ScalarProperty Name="RefusePeople2" ColumnName="RefusePeople2" />
+          <ScalarProperty Name="RewardPeople2" ColumnName="RewardPeople2" />
+          <ScalarProperty Name="FamilyPeople2" ColumnName="FamilyPeople2" />
+          <ScalarProperty Name="UserInfoPeople2" ColumnName="UserInfoPeople2" />
+          <ScalarProperty Name="ApplyPeople1" ColumnName="ApplyPeople1" />
+          <ScalarProperty Name="IncTalkPeople1" ColumnName="IncTalkPeople1" />
+          <ScalarProperty Name="AdmTalkPeople1" ColumnName="AdmTalkPeople1" />
+          <ScalarProperty Name="LetterPeople1" ColumnName="LetterPeople1" />
+          <ScalarProperty Name="ResponsPeople1" ColumnName="ResponsPeople1" />
+          <ScalarProperty Name="ImportantPeople1" ColumnName="ImportantPeople1" />
+          <ScalarProperty Name="IndustryPeople1" ColumnName="IndustryPeople1" />
+          <ScalarProperty Name="CrimePeople1" ColumnName="CrimePeople1" />
+          <ScalarProperty Name="AbroadPeople1" ColumnName="AbroadPeople1" />
+          <ScalarProperty Name="WeddDiePeople1" ColumnName="WeddDiePeople1" />
+          <ScalarProperty Name="MarryChgPeople1" ColumnName="MarryChgPeople1" />
+          <ScalarProperty Name="HousingPeople1" ColumnName="HousingPeople1" />
+          <ScalarProperty Name="ProfitPeople1" ColumnName="ProfitPeople1" />
+          <ScalarProperty Name="RefusePeople1" ColumnName="RefusePeople1" />
+          <ScalarProperty Name="RewardPeople1" ColumnName="RewardPeople1" />
+          <ScalarProperty Name="FamilyPeople1" ColumnName="FamilyPeople1" />
+          <ScalarProperty Name="UserInfoPeople1" ColumnName="UserInfoPeople1" />
+          <ScalarProperty Name="ApplyTime2" ColumnName="ApplyTime2" />
+          <ScalarProperty Name="IncTalkTime2" ColumnName="IncTalkTime2" />
+          <ScalarProperty Name="AdmTalkTime2" ColumnName="AdmTalkTime2" />
+          <ScalarProperty Name="LetterTime2" ColumnName="LetterTime2" />
+          <ScalarProperty Name="ResponsTime2" ColumnName="ResponsTime2" />
+          <ScalarProperty Name="ImportantTime2" ColumnName="ImportantTime2" />
+          <ScalarProperty Name="IndustryTime2" ColumnName="IndustryTime2" />
+          <ScalarProperty Name="CrimeTime2" ColumnName="CrimeTime2" />
+          <ScalarProperty Name="AbroadTime2" ColumnName="AbroadTime2" />
+          <ScalarProperty Name="WeddDieTime2" ColumnName="WeddDieTime2" />
+          <ScalarProperty Name="MarryChgTime2" ColumnName="MarryChgTime2" />
+          <ScalarProperty Name="HousingTime2" ColumnName="HousingTime2" />
+          <ScalarProperty Name="ProfitTime2" ColumnName="ProfitTime2" />
+          <ScalarProperty Name="RefuseTime2" ColumnName="RefuseTime2" />
+          <ScalarProperty Name="RewardTime2" ColumnName="RewardTime2" />
+          <ScalarProperty Name="FamilyTime2" ColumnName="FamilyTime2" />
+          <ScalarProperty Name="UserInfoTime2" ColumnName="UserInfoTime2" />
+          <ScalarProperty Name="ApplyTime1" ColumnName="ApplyTime1" />
+          <ScalarProperty Name="IncTalkTime1" ColumnName="IncTalkTime1" />
+          <ScalarProperty Name="AdmTalkTime1" ColumnName="AdmTalkTime1" />
+          <ScalarProperty Name="LetterTime1" ColumnName="LetterTime1" />
+          <ScalarProperty Name="ResponsTime1" ColumnName="ResponsTime1" />
+          <ScalarProperty Name="ImportantTime1" ColumnName="ImportantTime1" />
+          <ScalarProperty Name="IndustryTime1" ColumnName="IndustryTime1" />
+          <ScalarProperty Name="CrimeTime1" ColumnName="CrimeTime1" />
+          <ScalarProperty Name="AbroadTime1" ColumnName="AbroadTime1" />
+          <ScalarProperty Name="WeddDieTime1" ColumnName="WeddDieTime1" />
+          <ScalarProperty Name="MarryChgTime1" ColumnName="MarryChgTime1" />
+          <ScalarProperty Name="HousingTime1" ColumnName="HousingTime1" />
+          <ScalarProperty Name="ProfitTime1" ColumnName="ProfitTime1" />
+          <ScalarProperty Name="RefuseTime1" ColumnName="RefuseTime1" />
+          <ScalarProperty Name="RewardTime1" ColumnName="RewardTime1" />
+          <ScalarProperty Name="FamilyTime1" ColumnName="FamilyTime1" />
+          <ScalarProperty Name="UserInfoTime1" ColumnName="UserInfoTime1" />
+          <ScalarProperty Name="ApplyAdvice2" ColumnName="ApplyAdvice2" />
+          <ScalarProperty Name="IncTalkAdvice2" ColumnName="IncTalkAdvice2" />
+          <ScalarProperty Name="AdmTalkAdvice2" ColumnName="AdmTalkAdvice2" />
+          <ScalarProperty Name="LetterAdvice2" ColumnName="LetterAdvice2" />
+          <ScalarProperty Name="ResponsAdvice2" ColumnName="ResponsAdvice2" />
+          <ScalarProperty Name="ImportantAdvice2" ColumnName="ImportantAdvice2" />
+          <ScalarProperty Name="IndustryAdvice2" ColumnName="IndustryAdvice2" />
+          <ScalarProperty Name="CrimeAdvice2" ColumnName="CrimeAdvice2" />
+          <ScalarProperty Name="AbroadAdvice2" ColumnName="AbroadAdvice2" />
+          <ScalarProperty Name="WeddDieAdvice2" ColumnName="WeddDieAdvice2" />
+          <ScalarProperty Name="MarryChgAdvice2" ColumnName="MarryChgAdvice2" />
+          <ScalarProperty Name="HousingAdvice2" ColumnName="HousingAdvice2" />
+          <ScalarProperty Name="ProfitAdvice2" ColumnName="ProfitAdvice2" />
+          <ScalarProperty Name="RefuseAdvice2" ColumnName="RefuseAdvice2" />
+          <ScalarProperty Name="RewardAdvice2" ColumnName="RewardAdvice2" />
+          <ScalarProperty Name="FamilyAdvice2" ColumnName="FamilyAdvice2" />
+          <ScalarProperty Name="UserInfoAdvice2" ColumnName="UserInfoAdvice2" />
+          <ScalarProperty Name="ApplyAdvice1" ColumnName="ApplyAdvice1" />
+          <ScalarProperty Name="IncTalkAdvice1" ColumnName="IncTalkAdvice1" />
+          <ScalarProperty Name="AdmTalkAdvice1" ColumnName="AdmTalkAdvice1" />
+          <ScalarProperty Name="LetterAdvice1" ColumnName="LetterAdvice1" />
+          <ScalarProperty Name="ResponsAdvice1" ColumnName="ResponsAdvice1" />
+          <ScalarProperty Name="ImportantAdvice1" ColumnName="ImportantAdvice1" />
+          <ScalarProperty Name="IndustryAdvice1" ColumnName="IndustryAdvice1" />
+          <ScalarProperty Name="CrimeAdvice1" ColumnName="CrimeAdvice1" />
+          <ScalarProperty Name="AbroadAdvice1" ColumnName="AbroadAdvice1" />
+          <ScalarProperty Name="WeddDieAdvice1" ColumnName="WeddDieAdvice1" />
+          <ScalarProperty Name="MarryChgAdvice1" ColumnName="MarryChgAdvice1" />
+          <ScalarProperty Name="HousingAdvice1" ColumnName="HousingAdvice1" />
+          <ScalarProperty Name="ProfitAdvice1" ColumnName="ProfitAdvice1" />
+          <ScalarProperty Name="RefuseAdvice1" ColumnName="RefuseAdvice1" />
+          <ScalarProperty Name="RewardAdvice1" ColumnName="RewardAdvice1" />
+          <ScalarProperty Name="FamilyAdvice1" ColumnName="FamilyAdvice1" />
+          <ScalarProperty Name="UserInfoAdvice1" ColumnName="UserInfoAdvice1" />
+          <ScalarProperty Name="ApplyByLetterId" ColumnName="ApplyByLetterId" />
+          <ScalarProperty Name="IncorruptTalkId" ColumnName="IncorruptTalkId" />
+          <ScalarProperty Name="AdmonishingTalkId" ColumnName="AdmonishingTalkId" />
+          <ScalarProperty Name="PetitionLetterId" ColumnName="PetitionLetterId" />
+          <ScalarProperty Name="ResponsibilityId" ColumnName="ResponsibilityId" />
+          <ScalarProperty Name="ImportantId" ColumnName="ImportantId" />
+          <ScalarProperty Name="IndustryChangesId" ColumnName="IndustryChangesId" />
+          <ScalarProperty Name="CrimeId" ColumnName="CrimeId" />
+          <ScalarProperty Name="GoAbroadId" ColumnName="GoAbroadId" />
+          <ScalarProperty Name="WeddingandDieId" ColumnName="WeddingandDieId" />
+          <ScalarProperty Name="MarryChangeId" ColumnName="MarryChangeId" />
+          <ScalarProperty Name="HousingId" ColumnName="HousingId" />
+          <ScalarProperty Name="ProfitId" ColumnName="ProfitId" />
+          <ScalarProperty Name="RefuseGiftId" ColumnName="RefuseGiftId" />
+          <ScalarProperty Name="RewardId" ColumnName="RewardId" />
+          <ScalarProperty Name="FamilyId" ColumnName="FamilyId" />
+          <ScalarProperty Name="UserInfoId" ColumnName="UserInfoId" />
+          <ScalarProperty Name="HighFileTime" ColumnName="HighFileTime" />
+          <ScalarProperty Name="HighBackTime" ColumnName="HighBackTime" />
+          <ScalarProperty Name="ChkSubmitTime" ColumnName="ChkSubmitTime" />
+          <ScalarProperty Name="BackTime" ColumnName="BackTime" />
+          <ScalarProperty Name="FileStatus" ColumnName="FileStatus" />
+          <ScalarProperty Name="CheckStatus" ColumnName="CheckStatus" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="UpdTime" ColumnName="UpdTime" />
+          <ScalarProperty Name="AddTime" ColumnName="AddTime" />
+          <ScalarProperty Name="YearTable" ColumnName="YearTable" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DT_UnitDeptChange">
+      <EntityTypeMapping TypeName="db_gblzModel.DT_UnitDeptChange">
+        <MappingFragment StoreEntitySet="DT_UnitDeptChange">
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="AddTime" ColumnName="AddTime" />
+          <ScalarProperty Name="DeptName" ColumnName="DeptName" />
+          <ScalarProperty Name="UnitName" ColumnName="UnitName" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DT_UserLoginRecord">
+      <EntityTypeMapping TypeName="db_gblzModel.DT_UserLoginRecord">
+        <MappingFragment StoreEntitySet="DT_UserLoginRecord">
+          <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+          <ScalarProperty Name="AddTime" ColumnName="AddTime" />
+          <ScalarProperty Name="ShareStatus" ColumnName="ShareStatus" />
+          <ScalarProperty Name="FillStatus" ColumnName="FillStatus" />
+          <ScalarProperty Name="Upost" ColumnName="Upost" />
+          <ScalarProperty Name="Department" ColumnName="Department" />
+          <ScalarProperty Name="WorkUnit" ColumnName="WorkUnit" />
+          <ScalarProperty Name="RealName" ColumnName="RealName" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Effectivedate" ColumnName="Effectivedate" />
+          <ScalarProperty Name="DeptId" ColumnName="DeptId" />
+          <ScalarProperty Name="WorkUnitId" ColumnName="WorkUnitId" />
+          <ScalarProperty Name="IsCadre" ColumnName="IsCadre" />
+          <ScalarProperty Name="IsInner" ColumnName="IsInner" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="LoginNum" ColumnName="LoginNum" />
+          <ScalarProperty Name="LoginIp" ColumnName="LoginIp" />
+          <ScalarProperty Name="LoginTime" ColumnName="LoginTime" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Telphone" ColumnName="Telphone" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DT_WorkUnit">
+      <EntityTypeMapping TypeName="db_gblzModel.DT_WorkUnit">
+        <MappingFragment StoreEntitySet="DT_WorkUnit">
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="UpdDeptTime" ColumnName="UpdDeptTime" />
+          <ScalarProperty Name="UpdUnitTime" ColumnName="UpdUnitTime" />
+          <ScalarProperty Name="AddDeptTime" ColumnName="AddDeptTime" />
+          <ScalarProperty Name="AddUnitTime" ColumnName="AddUnitTime" />
+          <ScalarProperty Name="CreateDept" ColumnName="CreateDept" />
+          <ScalarProperty Name="CreateUnit" ColumnName="CreateUnit" />
+          <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+          <ScalarProperty Name="UnitName" ColumnName="UnitName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DT_RefuseGiftTotal">
+      <EntityTypeMapping TypeName="db_gblzModel.DT_RefuseGiftTotal">
+        <MappingFragment StoreEntitySet="DT_RefuseGiftTotal">
+          <ScalarProperty Name="YearTable" ColumnName="YearTable" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+          <ScalarProperty Name="FillTime" ColumnName="FillTime" />
+          <ScalarProperty Name="CheckAdvice" ColumnName="CheckAdvice" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DT_UserInfo">
+      <EntityTypeMapping TypeName="db_gblzModel.DT_UserInfo">
+        <MappingFragment StoreEntitySet="DT_UserInfo">
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+          <ScalarProperty Name="FillTime" ColumnName="FillTime" />
+          <ScalarProperty Name="Introduction" ColumnName="Introduction" />
+          <ScalarProperty Name="UserAddress" ColumnName="UserAddress" />
+          <ScalarProperty Name="DoWork" ColumnName="DoWork" />
+          <ScalarProperty Name="PostTime" ColumnName="PostTime" />
+          <ScalarProperty Name="PostStatus" ColumnName="PostStatus" />
+          <ScalarProperty Name="Post" ColumnName="Post" />
+          <ScalarProperty Name="WorkUnit" ColumnName="WorkUnit" />
+          <ScalarProperty Name="Education" ColumnName="Education" />
+          <ScalarProperty Name="JobTime" ColumnName="JobTime" />
+          <ScalarProperty Name="Property" ColumnName="Property" />
+          <ScalarProperty Name="Nation" ColumnName="Nation" />
+          <ScalarProperty Name="PartyTime" ColumnName="PartyTime" />
+          <ScalarProperty Name="Outlook" ColumnName="Outlook" />
+          <ScalarProperty Name="IdCardNum" ColumnName="IdCardNum" />
+          <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+          <ScalarProperty Name="NativePlace" ColumnName="NativePlace" />
+          <ScalarProperty Name="Sex" ColumnName="Sex" />
+          <ScalarProperty Name="RealName" ColumnName="RealName" />
+          <ScalarProperty Name="Photo" ColumnName="Photo" />
+          <ScalarProperty Name="YearTable" ColumnName="YearTable" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DT_AdmonishingTalk">
+      <EntityTypeMapping TypeName="db_gblzModel.DT_AdmonishingTalk">
+        <MappingFragment StoreEntitySet="DT_AdmonishingTalk">
+          <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+          <ScalarProperty Name="FillTime" ColumnName="FillTime" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="LordTalkAdvice" ColumnName="LordTalkAdvice" />
+          <ScalarProperty Name="ObjectAdvice" ColumnName="ObjectAdvice" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="TalkAddress" ColumnName="TalkAddress" />
+          <ScalarProperty Name="TalkTime" ColumnName="TalkTime" />
+          <ScalarProperty Name="Post" ColumnName="Post" />
+          <ScalarProperty Name="LordTalk" ColumnName="LordTalk" />
+          <ScalarProperty Name="TalkReason" ColumnName="TalkReason" />
+          <ScalarProperty Name="BeUnit" ColumnName="BeUnit" />
+          <ScalarProperty Name="BePost" ColumnName="BePost" />
+          <ScalarProperty Name="BeLordTalk" ColumnName="BeLordTalk" />
+          <ScalarProperty Name="YearTable" ColumnName="YearTable" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DT_ApplyByLetter">
+      <EntityTypeMapping TypeName="db_gblzModel.DT_ApplyByLetter">
+        <MappingFragment StoreEntitySet="DT_ApplyByLetter">
+          <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+          <ScalarProperty Name="FillTime" ColumnName="FillTime" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="Answer" ColumnName="Answer" />
+          <ScalarProperty Name="Reason" ColumnName="Reason" />
+          <ScalarProperty Name="ApplyTime" ColumnName="ApplyTime" />
+          <ScalarProperty Name="YearTable" ColumnName="YearTable" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DT_CrimeReport">
+      <EntityTypeMapping TypeName="db_gblzModel.DT_CrimeReport">
+        <MappingFragment StoreEntitySet="DT_CrimeReport">
+          <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+          <ScalarProperty Name="FillTime" ColumnName="FillTime" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="Result" ColumnName="Result" />
+          <ScalarProperty Name="LawAgency" ColumnName="LawAgency" />
+          <ScalarProperty Name="CrimerPost" ColumnName="CrimerPost" />
+          <ScalarProperty Name="CrimerUnit" ColumnName="CrimerUnit" />
+          <ScalarProperty Name="Relation" ColumnName="Relation" />
+          <ScalarProperty Name="CrimerName" ColumnName="CrimerName" />
+          <ScalarProperty Name="YearTable" ColumnName="YearTable" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DT_FamilyTotal">
+      <EntityTypeMapping TypeName="db_gblzModel.DT_FamilyTotal">
+        <MappingFragment StoreEntitySet="DT_FamilyTotal">
+          <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+          <ScalarProperty Name="FillTime" ColumnName="FillTime" />
+          <ScalarProperty Name="other" ColumnName="other" />
+          <ScalarProperty Name="YearTable" ColumnName="YearTable" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DT_Important">
+      <EntityTypeMapping TypeName="db_gblzModel.DT_Important">
+        <MappingFragment StoreEntitySet="DT_Important">
+          <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+          <ScalarProperty Name="FillTime" ColumnName="FillTime" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="CheckInTime" ColumnName="CheckInTime" />
+          <ScalarProperty Name="CheckIn" ColumnName="CheckIn" />
+          <ScalarProperty Name="Report" ColumnName="Report" />
+          <ScalarProperty Name="YearTable" ColumnName="YearTable" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DT_IncorruptTalk">
+      <EntityTypeMapping TypeName="db_gblzModel.DT_IncorruptTalk">
+        <MappingFragment StoreEntitySet="DT_IncorruptTalk">
+          <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+          <ScalarProperty Name="FillTime" ColumnName="FillTime" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="RecordPerson" ColumnName="RecordPerson" />
+          <ScalarProperty Name="LordTalk" ColumnName="LordTalk" />
+          <ScalarProperty Name="TalkAddress" ColumnName="TalkAddress" />
+          <ScalarProperty Name="TalkTime" ColumnName="TalkTime" />
+          <ScalarProperty Name="TalkReason" ColumnName="TalkReason" />
+          <ScalarProperty Name="YearTable" ColumnName="YearTable" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DT_IndustryChanges">
+      <EntityTypeMapping TypeName="db_gblzModel.DT_IndustryChanges">
+        <MappingFragment StoreEntitySet="DT_IndustryChanges">
+          <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+          <ScalarProperty Name="FillTime" ColumnName="FillTime" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="Reason" ColumnName="Reason" />
+          <ScalarProperty Name="NowPost" ColumnName="NowPost" />
+          <ScalarProperty Name="NowUnit" ColumnName="NowUnit" />
+          <ScalarProperty Name="LastPost" ColumnName="LastPost" />
+          <ScalarProperty Name="LastUnit" ColumnName="LastUnit" />
+          <ScalarProperty Name="ChangeTime" ColumnName="ChangeTime" />
+          <ScalarProperty Name="Relation" ColumnName="Relation" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="YearTable" ColumnName="YearTable" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DT_MarryChange">
+      <EntityTypeMapping TypeName="db_gblzModel.DT_MarryChange">
+        <MappingFragment StoreEntitySet="DT_MarryChange">
+          <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+          <ScalarProperty Name="FillTime" ColumnName="FillTime" />
+          <ScalarProperty Name="Other" ColumnName="Other" />
+          <ScalarProperty Name="NowRegisterTime" ColumnName="NowRegisterTime" />
+          <ScalarProperty Name="NowPost" ColumnName="NowPost" />
+          <ScalarProperty Name="NowUnit" ColumnName="NowUnit" />
+          <ScalarProperty Name="NowPolitical" ColumnName="NowPolitical" />
+          <ScalarProperty Name="NowPartner" ColumnName="NowPartner" />
+          <ScalarProperty Name="LastEndTime" ColumnName="LastEndTime" />
+          <ScalarProperty Name="LastRegisterTime" ColumnName="LastRegisterTime" />
+          <ScalarProperty Name="LastPartner" ColumnName="LastPartner" />
+          <ScalarProperty Name="IsMarryChange" ColumnName="IsMarryChange" />
+          <ScalarProperty Name="YearTable" ColumnName="YearTable" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DT_PetitionLetter">
+      <EntityTypeMapping TypeName="db_gblzModel.DT_PetitionLetter">
+        <MappingFragment StoreEntitySet="DT_PetitionLetter">
+          <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+          <ScalarProperty Name="FillTime" ColumnName="FillTime" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="HandleResult" ColumnName="HandleResult" />
+          <ScalarProperty Name="SurveyResult" ColumnName="SurveyResult" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="ManPost" ColumnName="ManPost" />
+          <ScalarProperty Name="ManUnit" ColumnName="ManUnit" />
+          <ScalarProperty Name="ManTel" ColumnName="ManTel" />
+          <ScalarProperty Name="ManName" ColumnName="ManName" />
+          <ScalarProperty Name="ByManUnit" ColumnName="ByManUnit" />
+          <ScalarProperty Name="ByManPost" ColumnName="ByManPost" />
+          <ScalarProperty Name="ByManName" ColumnName="ByManName" />
+          <ScalarProperty Name="FromUnit" ColumnName="FromUnit" />
+          <ScalarProperty Name="LetterTime" ColumnName="LetterTime" />
+          <ScalarProperty Name="RecordNum" ColumnName="RecordNum" />
+          <ScalarProperty Name="YearTable" ColumnName="YearTable" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DT_ProfitReport">
+      <EntityTypeMapping TypeName="db_gblzModel.DT_ProfitReport">
+        <MappingFragment StoreEntitySet="DT_ProfitReport">
+          <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+          <ScalarProperty Name="FillTime" ColumnName="FillTime" />
+          <ScalarProperty Name="Other" ColumnName="Other" />
+          <ScalarProperty Name="YearIncome" ColumnName="YearIncome" />
+          <ScalarProperty Name="InvestMoney" ColumnName="InvestMoney" />
+          <ScalarProperty Name="InvestWay" ColumnName="InvestWay" />
+          <ScalarProperty Name="InvestUnitNature" ColumnName="InvestUnitNature" />
+          <ScalarProperty Name="InvestUnit" ColumnName="InvestUnit" />
+          <ScalarProperty Name="YearMoney" ColumnName="YearMoney" />
+          <ScalarProperty Name="ParttimePost" ColumnName="ParttimePost" />
+          <ScalarProperty Name="ParttimeUnitNature" ColumnName="ParttimeUnitNature" />
+          <ScalarProperty Name="ParttimeUnit" ColumnName="ParttimeUnit" />
+          <ScalarProperty Name="YearProfit" ColumnName="YearProfit" />
+          <ScalarProperty Name="InvestmentRate" ColumnName="InvestmentRate" />
+          <ScalarProperty Name="RegisterMoney" ColumnName="RegisterMoney" />
+          <ScalarProperty Name="BusinessScope" ColumnName="BusinessScope" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="YearTable" ColumnName="YearTable" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DT_Responsibility">
+      <EntityTypeMapping TypeName="db_gblzModel.DT_Responsibility">
+        <MappingFragment StoreEntitySet="DT_Responsibility">
+          <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+          <ScalarProperty Name="FillTime" ColumnName="FillTime" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="HandleStatus" ColumnName="HandleStatus" />
+          <ScalarProperty Name="Fact" ColumnName="Fact" />
+          <ScalarProperty Name="HandleOffice" ColumnName="HandleOffice" />
+          <ScalarProperty Name="ResTime" ColumnName="ResTime" />
+          <ScalarProperty Name="Nature" ColumnName="Nature" />
+          <ScalarProperty Name="YearTable" ColumnName="YearTable" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DT_WeddingandDie">
+      <EntityTypeMapping TypeName="db_gblzModel.DT_WeddingandDie">
+        <MappingFragment StoreEntitySet="DT_WeddingandDie">
+          <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+          <ScalarProperty Name="FillTime" ColumnName="FillTime" />
+          <ScalarProperty Name="AdivceTime" ColumnName="AdivceTime" />
+          <ScalarProperty Name="Adivce" ColumnName="Adivce" />
+          <ScalarProperty Name="HandleStatus" ColumnName="HandleStatus" />
+          <ScalarProperty Name="AcceptingValue" ColumnName="AcceptingValue" />
+          <ScalarProperty Name="AcceptingCount" ColumnName="AcceptingCount" />
+          <ScalarProperty Name="AcceptingMoney" ColumnName="AcceptingMoney" />
+          <ScalarProperty Name="PartyNum" ColumnName="PartyNum" />
+          <ScalarProperty Name="PartyObject" ColumnName="PartyObject" />
+          <ScalarProperty Name="ManageAddress" ColumnName="ManageAddress" />
+          <ScalarProperty Name="ManageTime" ColumnName="ManageTime" />
+          <ScalarProperty Name="Arrange" ColumnName="Arrange" />
+          <ScalarProperty Name="YearTable" ColumnName="YearTable" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DT_GoAbroadCompany">
+      <EntityTypeMapping TypeName="db_gblzModel.DT_GoAbroadCompany">
+        <MappingFragment StoreEntitySet="DT_GoAbroadCompany">
+          <ScalarProperty Name="AbroadTotalId" ColumnName="AbroadTotalId" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="BuildCompanyAddress" ColumnName="BuildCompanyAddress" />
+          <ScalarProperty Name="BuildCompanyTitle" ColumnName="BuildCompanyTitle" />
+          <ScalarProperty Name="BuildCompanyName" ColumnName="BuildCompanyName" />
+          <ScalarProperty Name="YearTable" ColumnName="YearTable" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DT_HousingBuild">
+      <EntityTypeMapping TypeName="db_gblzModel.DT_HousingBuild">
+        <MappingFragment StoreEntitySet="DT_HousingBuild">
+          <ScalarProperty Name="HousingTotalId" ColumnName="HousingTotalId" />
+          <ScalarProperty Name="Payment" ColumnName="Payment" />
+          <ScalarProperty Name="BuildHousesTotal" ColumnName="BuildHousesTotal" />
+          <ScalarProperty Name="BuildHousesUnit" ColumnName="BuildHousesUnit" />
+          <ScalarProperty Name="BuildHousesArea" ColumnName="BuildHousesArea" />
+          <ScalarProperty Name="BuildHousesAddress" ColumnName="BuildHousesAddress" />
+          <ScalarProperty Name="YearTable" ColumnName="YearTable" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DT_HousingBuy">
+      <EntityTypeMapping TypeName="db_gblzModel.DT_HousingBuy">
+        <MappingFragment StoreEntitySet="DT_HousingBuy">
+          <ScalarProperty Name="HousingTotalId" ColumnName="HousingTotalId" />
+          <ScalarProperty Name="BuyHouseTime" ColumnName="BuyHouseTime" />
+          <ScalarProperty Name="BuyHouseIncome" ColumnName="BuyHouseIncome" />
+          <ScalarProperty Name="BuyHouseMoney" ColumnName="BuyHouseMoney" />
+          <ScalarProperty Name="BuyHouseArea" ColumnName="BuyHouseArea" />
+          <ScalarProperty Name="BuyHouseAddress" ColumnName="BuyHouseAddress" />
+          <ScalarProperty Name="YearTable" ColumnName="YearTable" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DT_HousingHouse">
+      <EntityTypeMapping TypeName="db_gblzModel.DT_HousingHouse">
+        <MappingFragment StoreEntitySet="DT_HousingHouse">
+          <ScalarProperty Name="HousingTotalId" ColumnName="HousingTotalId" />
+          <ScalarProperty Name="PropertyOwner" ColumnName="PropertyOwner" />
+          <ScalarProperty Name="HouseFrom" ColumnName="HouseFrom" />
+          <ScalarProperty Name="HouseNature" ColumnName="HouseNature" />
+          <ScalarProperty Name="Area" ColumnName="Area" />
+          <ScalarProperty Name="HouseAddress" ColumnName="HouseAddress" />
+          <ScalarProperty Name="YearTable" ColumnName="YearTable" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DT_HousingRentout">
+      <EntityTypeMapping TypeName="db_gblzModel.DT_HousingRentout">
+        <MappingFragment StoreEntitySet="DT_HousingRentout">
+          <ScalarProperty Name="HousingTotalId" ColumnName="HousingTotalId" />
+          <ScalarProperty Name="RentoutMoney" ColumnName="RentoutMoney" />
+          <ScalarProperty Name="RentoutTime" ColumnName="RentoutTime" />
+          <ScalarProperty Name="RentoutNature" ColumnName="RentoutNature" />
+          <ScalarProperty Name="RentoutArea" ColumnName="RentoutArea" />
+          <ScalarProperty Name="RentoutAddress" ColumnName="RentoutAddress" />
+          <ScalarProperty Name="YearTable" ColumnName="YearTable" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DT_HousingSell">
+      <EntityTypeMapping TypeName="db_gblzModel.DT_HousingSell">
+        <MappingFragment StoreEntitySet="DT_HousingSell">
+          <ScalarProperty Name="HousingTotalId" ColumnName="HousingTotalId" />
+          <ScalarProperty Name="SellHouseMoney" ColumnName="SellHouseMoney" />
+          <ScalarProperty Name="SellHouseTime" ColumnName="SellHouseTime" />
+          <ScalarProperty Name="SellHouseNature" ColumnName="SellHouseNature" />
+          <ScalarProperty Name="SellHouseArea" ColumnName="SellHouseArea" />
+          <ScalarProperty Name="SellHouseAddress" ColumnName="SellHouseAddress" />
+          <ScalarProperty Name="YearTable" ColumnName="YearTable" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DT_HousingTotal">
+      <EntityTypeMapping TypeName="db_gblzModel.DT_HousingTotal">
+        <MappingFragment StoreEntitySet="DT_HousingTotal">
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+          <ScalarProperty Name="FillTime" ColumnName="FillTime" />
+          <ScalarProperty Name="Other" ColumnName="Other" />
+          <ScalarProperty Name="PartnerPost" ColumnName="PartnerPost" />
+          <ScalarProperty Name="PartnerUnit" ColumnName="PartnerUnit" />
+          <ScalarProperty Name="PartnerName" ColumnName="PartnerName" />
+          <ScalarProperty Name="YearTable" ColumnName="YearTable" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DT_RewardPunishTotal">
+      <EntityTypeMapping TypeName="db_gblzModel.DT_RewardPunishTotal">
+        <MappingFragment StoreEntitySet="DT_RewardPunishTotal">
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+          <ScalarProperty Name="FillTime" ColumnName="FillTime" />
+          <ScalarProperty Name="CheckAdvice" ColumnName="CheckAdvice" />
+          <ScalarProperty Name="YearTable" ColumnName="YearTable" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DT_Family">
+      <EntityTypeMapping TypeName="db_gblzModel.DT_Family">
+        <MappingFragment StoreEntitySet="DT_Family">
+          <ScalarProperty Name="FamilyTotalId" ColumnName="FamilyTotalId" />
+          <ScalarProperty Name="Post" ColumnName="Post" />
+          <ScalarProperty Name="WorkUnit" ColumnName="WorkUnit" />
+          <ScalarProperty Name="Outlook" ColumnName="Outlook" />
+          <ScalarProperty Name="Relation" ColumnName="Relation" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="YearTable" ColumnName="YearTable" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DT_GoAbroadSettler">
+      <EntityTypeMapping TypeName="db_gblzModel.DT_GoAbroadSettler">
+        <MappingFragment StoreEntitySet="DT_GoAbroadSettler">
+          <ScalarProperty Name="AbroadTotalId" ColumnName="AbroadTotalId" />
+          <ScalarProperty Name="SettlerWork" ColumnName="SettlerWork" />
+          <ScalarProperty Name="SettleAddress" ColumnName="SettleAddress" />
+          <ScalarProperty Name="SettleTime" ColumnName="SettleTime" />
+          <ScalarProperty Name="SettlerTitle" ColumnName="SettlerTitle" />
+          <ScalarProperty Name="Settler" ColumnName="Settler" />
+          <ScalarProperty Name="YearTable" ColumnName="YearTable" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DT_GoAbroadStudy">
+      <EntityTypeMapping TypeName="db_gblzModel.DT_GoAbroadStudy">
+        <MappingFragment StoreEntitySet="DT_GoAbroadStudy">
+          <ScalarProperty Name="AbroadTotalId" ColumnName="AbroadTotalId" />
+          <ScalarProperty Name="StudyMoney" ColumnName="StudyMoney" />
+          <ScalarProperty Name="StudyAddress" ColumnName="StudyAddress" />
+          <ScalarProperty Name="StudyTime" ColumnName="StudyTime" />
+          <ScalarProperty Name="StudyTitle" ColumnName="StudyTitle" />
+          <ScalarProperty Name="StudyName" ColumnName="StudyName" />
+          <ScalarProperty Name="YearTable" ColumnName="YearTable" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DT_GoAbroadTotal">
+      <EntityTypeMapping TypeName="db_gblzModel.DT_GoAbroadTotal">
+        <MappingFragment StoreEntitySet="DT_GoAbroadTotal">
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="PartnerNational" ColumnName="PartnerNational" />
+          <ScalarProperty Name="MarryPartner" ColumnName="MarryPartner" />
+          <ScalarProperty Name="RegisterTime" ColumnName="RegisterTime" />
+          <ScalarProperty Name="MarryUnit" ColumnName="MarryUnit" />
+          <ScalarProperty Name="MarryName" ColumnName="MarryName" />
+          <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+          <ScalarProperty Name="FillTime" ColumnName="FillTime" />
+          <ScalarProperty Name="HKCertificate" ColumnName="HKCertificate" />
+          <ScalarProperty Name="LandingPaper" ColumnName="LandingPaper" />
+          <ScalarProperty Name="YearTable" ColumnName="YearTable" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DT_Punish">
+      <EntityTypeMapping TypeName="db_gblzModel.DT_Punish">
+        <MappingFragment StoreEntitySet="DT_Punish">
+          <ScalarProperty Name="RewardTotalId" ColumnName="RewardTotalId" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="PunishDpt" ColumnName="PunishDpt" />
+          <ScalarProperty Name="PunishReason" ColumnName="PunishReason" />
+          <ScalarProperty Name="PunishName" ColumnName="PunishName" />
+          <ScalarProperty Name="PunishTime" ColumnName="PunishTime" />
+          <ScalarProperty Name="YearTable" ColumnName="YearTable" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DT_RefuseGift">
+      <EntityTypeMapping TypeName="db_gblzModel.DT_RefuseGift">
+        <MappingFragment StoreEntitySet="DT_RefuseGift">
+          <ScalarProperty Name="RefuseTotalId" ColumnName="RefuseTotalId" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="HandInDpt" ColumnName="HandInDpt" />
+          <ScalarProperty Name="HandInTime" ColumnName="HandInTime" />
+          <ScalarProperty Name="HandInCount" ColumnName="HandInCount" />
+          <ScalarProperty Name="HandInName" ColumnName="HandInName" />
+          <ScalarProperty Name="HandInMoney" ColumnName="HandInMoney" />
+          <ScalarProperty Name="YearTable" ColumnName="YearTable" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DT_Reward">
+      <EntityTypeMapping TypeName="db_gblzModel.DT_Reward">
+        <MappingFragment StoreEntitySet="DT_Reward">
+          <ScalarProperty Name="RewardTotalId" ColumnName="RewardTotalId" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="RewardsDptandName" ColumnName="RewardsDptandName" />
+          <ScalarProperty Name="RewardsTime" ColumnName="RewardsTime" />
+          <ScalarProperty Name="YearTable" ColumnName="YearTable" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

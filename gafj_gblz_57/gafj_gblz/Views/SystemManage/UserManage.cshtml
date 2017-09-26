@@ -1,0 +1,585 @@
+﻿@{
+    ViewBag.Title = "UserManage";
+    Layout = "~/Views/_PartialPage1.cshtml";
+}
+
+ @using PagedList.Mvc;  
+
+<style>
+    .row
+    {
+        margin-top: 50px;
+    }
+</style>
+
+
+@*<div class="row">*@
+
+<div class="col-sm-12">
+    <section class="panel">
+        <header class="panel-heading">用户设置</header>
+        <div class="panel-body">
+            <div class="clearfix">
+                <div class="btn-group">
+                    <a class="btn btn-primary" href="#myModal-1" data-toggle="modal">新增用户 <i class="fa fa-plus"></i></a>
+
+                </div>
+
+                <!--新增用户弹出框开始-->
+                <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal-1" class="modal fade">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+                                <h4 class="modal-title">新增用户</h4>
+                            </div>
+                            <div class="modal-body">
+                                <form class="form-horizontal  " action="#">
+
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">姓名</label>
+                                        <div class="col-md-7">
+                                            <input type="text" class="form-control" id="realname">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">单位</label>
+                                        <div class="col-md-7">
+                                            <select class="form-control" id="workunit">
+                                                @*<option selected="">请选择单位</option>*@
+                                                @{ 
+                                                    foreach (var item in (ViewBag.units as List<Yisaa.DAL.DT_WorkUnit>))
+                                                    {
+                                                    <option value="@item.Id" class="_work">@item.UnitName</option>
+                                                    }}
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">科室</label>
+                                        <div class="col-md-7">
+                                            <select class="form-control" id="dept">
+                                                @*   <option selected="">请选择科室</option>*@
+
+                                                @{   var depts = (ViewBag.depts as List<Yisaa.DAL.DT_WorkUnit>);
+                                                     foreach (var item in (ViewBag.units as List<Yisaa.DAL.DT_WorkUnit>))
+                                                     {
+                                                         foreach (var d in depts.Where(a => a.ParentId == item.Id))
+                                                         {
+                                                    <option value="@d.Id" class="_dept">@d.UnitName</option>
+                                                         }
+                                                     } }
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">科级干部</label>
+                                        <div class="col-md-7" id="iscadre">
+                                            <label class="checkbox-inline">
+                                                <input name="optionsRadios" id="optionsRadios2" value="true" type="radio" checked="checked">
+                                                是
+                                            </label>
+                                            <label class="checkbox-inline">
+                                                <input name="optionsRadios" id="optionsRadios2" value="false" type="radio">
+                                                否
+                                            </label>
+
+
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">手机号码</label>
+                                        <div class="col-md-7">
+                                            <input type="text" class="form-control" id="tel">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">密码</label>
+                                        <div class="col-md-7">
+                                            <input type="text" class="form-control" id="pwd">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">用户权限</label>
+                                        <div class="col-md-7">
+                                            <select class="form-control" id="role">
+                                                @*   <option selected="">请选择权限</option>*@
+
+                                                @{foreach (var r in (ViewBag.rlist as List<Yisaa.DAL.DT_Role>))
+                                                  {
+                                                   
+                                                    <option value="@r.Id">@r.Name</option>
+                                                  }
+                                                        
+                                                }
+
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="control-label col-md-4">
+                                            @*<button class="btn btn-primary" type="submit">确认添加</button>*@
+                                            <button class="btn btn-primary" type="button" id="addbtn">确认添加</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--新增用户弹出框结束-->
+
+
+                <div class="clear"></div>
+            </div>
+            <div class="space15" style="height: 15px;"></div>
+            <section id="no-more-tables">
+                <div class="clear"></div>
+                <table class="table table-bordered table-striped table-condensed cf">
+                    <thead class="cf">
+                        <tr>
+                            <th hidden="hidden">编号</th>
+                            <th>姓名</th>
+                            <th>单位</th>
+                            <th>科室</th>
+                            <th>科级干部</th>
+                            <th>手机号</th>
+                            <th>密码</th>
+                            <th>用户权限</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody id="content">
+                        @{
+                            var units = ViewBag.units as List<Yisaa.DAL.DT_WorkUnit>;
+                            var mydepts = ViewBag.depts as List<Yisaa.DAL.DT_WorkUnit>;
+                            foreach (var item in (ViewBag.allusers as List<Yisaa.DAL.DT_UserLoginRecord>))
+                            {
+                                foreach (var unit in units.Where(a => a.Id == item.WorkUnitId))
+                                {
+                                    foreach (var dept in mydepts.Where(a => a.Id == item.DeptId))
+                                    {                               
+                            <tr>
+                                <td data-title="编号" hidden="hidden">@item.Id</td>
+                                <td data-title="姓名">@item.RealName</td>
+
+                                <td data-title="单位">@unit.UnitName</td>
+                                <td data-title="科室">@dept.UnitName</td>
+
+                                @if (item.IsCadre == true)
+                                {                                                                                                                                         
+                                    <td data-title="科级干部">是</td>
+                                }
+                                else
+                                {
+                                    <td data-title="科级干部">否</td>
+                                }
+                                <td data-title="手机号">@item.Telphone</td>
+                                <td data-title="密码">
+                                    <input type="password" value="@item.Password" style="border:none" readonly=""/></td>
+                                @if (item.RoleId == 1)
+                                {                        
+                                    <td data-title="用户权限">普通用户</td>
+                                }
+                                else if (item.RoleId == 2)
+                                {
+                                    <td data-title="用户权限">审核用户</td>
+                                }
+                                else if (item.RoleId == 3)
+                                {
+                                    <td data-title="用户权限">高级用户</td>
+                                }
+                                else if (item.RoleId == 4)
+                                {
+                                    <td data-title="用户权限">系统管理员</td>
+                                }
+                                else
+                                {
+                                    <td data-title="用户权限"></td>
+                                }
+                                <td data-title="操作">
+
+                                    <a href="#myModal-2" class="upd"><i class="fa fa-edit"></i>修改</a>
+
+                                    @* <a href="/SystemManage/_DelUser?id=@item.Id"><i class="fa fa-trash-o"></i>删除</a>*@
+                                    @if (item.Status != null && item.Status == true)
+                                    {
+                                        <a href="/SystemManage/_ForbiddenStatus?id=@item.Id" class="forbidden"><i class="fa fa-trash-o"></i>禁用</a>   
+                                    }
+                                    else if (item.Status != null && item.Status == false)
+                                    {
+                                        <a href="/SystemManage/_OpenStatus?id=@item.Id" class="open"><i class="fa fa-trash-o"></i>启用</a>   
+                                    }
+
+
+
+                                    <!--修改用户弹出框开始-->
+                                    <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal-2" class="modal fade">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+                                                    <h4 class="modal-title">修改用户</h4>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <form class="form-horizontal" action="#">
+
+                                                        <div class="form-group" hidden="hidden">
+                                                            <label class="control-label col-md-3">编号</label>
+                                                            <div class="col-md-7">
+                                                                <input type="text" class="form-control" id="updnum">
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label class="control-label col-md-3">姓名</label>
+                                                            <div class="col-md-7">
+                                                                <input type="text" class="form-control" id="updname">
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="control-label col-md-3">单位</label>
+                                                            <div class="col-md-7">
+                                                                <select class="form-control" id="updworkunit">
+
+                                                                    @{ 
+                                    foreach (var u in (ViewBag.units as List<Yisaa.DAL.DT_WorkUnit>))
+                                    {
+                                                                        <option value="@u.Id" class="_work">@u.UnitName</option>
+                                    }}
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="control-label col-md-3">科室</label>
+                                                            <div class="col-md-7">
+                                                                <select class="form-control" id="upddept">
+                                                                    @*<option selected="">请选择科室</option>*@
+                                                                    @{   var depts2 = (ViewBag.depts as List<Yisaa.DAL.DT_WorkUnit>);
+                                                                         foreach (var us in (ViewBag.units as List<Yisaa.DAL.DT_WorkUnit>))
+                                                                         {
+                                                                             foreach (var d in depts2.Where(a => a.ParentId == us.Id))
+                                                                             {
+                                                                        <option value="@d.Id" class="_dept">@d.UnitName</option>
+                                                                             }
+                                                                         } }
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="control-label col-md-3">科级干部</label>
+
+                                                            <div class="col-md-7" id="updiscadre">
+                                                                <label class="checkbox-inline">
+                                                                    <input name="optionsRadios2" id="optionsRadios2" value="true" type="radio" checked="checked">
+                                                                    是
+                                                                </label>
+                                                                <label class="checkbox-inline">
+                                                                    <input name="optionsRadios2" id="optionsRadios2" value="false" type="radio">
+                                                                    否
+                                                                </label>
+
+                                                            </div>
+
+
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="control-label col-md-3">手机号码</label>
+                                                            <div class="col-md-7">
+                                                                <input type="text" class="form-control" id="updtel">
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="control-label col-md-3">密码</label>
+                                                            <div class="col-md-7">
+                                                                <input type="text" class="form-control" id="updpwd">
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="control-label col-md-3">用户权限</label>
+                                                            <div class="col-md-7">
+                                                                <select class="form-control" id="updrole">
+                                                                    @* <option selected="">请选择权限</option>*@
+                                                                    @{foreach (var r in (ViewBag.rlist as List<Yisaa.DAL.DT_Role>))
+                                                                      {
+                                                   
+                                                                        <option value="@r.Id">@r.Name</option>
+                                                                      }
+                                                        
+                                                                    }
+                                                                </select>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <div class="control-label col-md-4">
+                                                                @*<button class="btn btn-primary" type="submit">确认添加</button>*@
+                                                                <button class="btn btn-primary" type="button" id="updbtn">确认修改</button>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--修改用户弹出框结束-->
+                                </td>
+                            </tr>   
+                                    }
+                                }
+                            }                          
+                        }
+                    </tbody>
+                </table>
+                <div class="dataTables_paginate paging_bootstrap pagination">
+                    <ul id="pagination1">
+
+                        @{ 
+                            if ((int)ViewBag.allpages <= 3)
+                            {
+                            <li class="#"><button class="page" value="1">← 首页</button> @*<a href="#">← 首页</a>*@</li>
+                        
+                                for (int i = 1; i < ViewBag.allpages + 1; i++)
+                                {
+                            <li><button class="page" value="@i">@i</button></li>
+                                }
+                            <li class="#"><button class="page" value="@ViewBag.allpages">尾页 → </button> </li>
+                            }
+                            else
+                            {
+                            <li class="#"><button class="page" value="1">← 首页</button></li>
+                        
+                                if (ViewBag.cupage >= 2)
+                                {
+                            <li><button class="page" value="@(ViewBag.cupage - 1)">@(ViewBag.cupage - 1)</button></li>
+                                }
+                             <li class="active"><button class="page" value="@ViewBag.cupage">@ViewBag.cupage</button></li>
+                            
+                                if (ViewBag.allpages > 2 && ViewBag.cupage < ViewBag.allpages)
+                                {
+                             <li><button class="page" value="@(ViewBag.cupage + 1)">@(ViewBag.cupage + 1)</button></li>
+                                }
+                        
+                            <li class="#"><button class="page" value="@ViewBag.allpages">尾页 → </button></li>
+                                }
+
+
+                            }
+                       
+
+                        @* <li class="prev disabled"><a href="#">← 首页</a></li>
+                        <li class="active"><a href="#">1</a></li>
+                       <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li class="next"><a href="#">尾页 → </a></li>*@
+                    </ul>
+                     @*Html.PagedListPager(Model, page => Url.Action("UserManage", new { page=page }),new PagedListRenderOptions{ LinkToFirstPageFormat="首页",LinkToPreviousPageFormat = "上一页", LinkToNextPageFormat = "下一页",LinkToLastPageFormat="尾页",MaximumPageNumbersToDisplay=5 })  *@
+               @*@Html.Raw(Model.PagerHtml()) *@
+                     </div>
+            </section>
+        </div>
+    </section>
+</div>
+
+@*</div>*@
+
+<script src="~/Content/js/jquery-1.10.2.min.js"></script>
+
+<script>
+
+
+    $(function () {
+
+        //换页
+        $(".page").click(function () {
+
+            location.href = "/SystemManage/UserManage?rows=10"+"&page=" + $(this).val();
+
+            //rows="+ $("#rows").text()
+        });
+
+        //添加
+        $("#addbtn").click(function () {
+            if (($("#realname").val() == null || $("#realname").val() == "") ||
+                 $("#workunit").val() == null || $("#dept").val() == null ||
+                 $("#iscadre input[name='optionsRadios']:checked").val() == null ||
+                 ($("#tel").val() == null || $("#tel").val() == "") ||
+                ($("#pwd").val() == null || $("#pwd").val() == "") ||
+                $("#role").val() == null) {
+
+                alert("请将信息填写完整~ ~");
+                return;
+            }
+            else if ($("#tel").val().length != 11) {
+                alert("手机号为11位！");
+                return;
+            }
+            else if ($("#pwd").val().length < 6) {
+                alert("密码必须大于等于6位！");
+                return;
+            }
+            //else if($("#role").val()!=null&&($("#role").val()!=1||$("#role").val()!=2||$("#role").val()!=3||$("#role").val()!=4)) 
+            //{
+            //    alert("请选择用户权限~ ~");
+            //    return;
+            //}
+
+
+            $.post("/SystemManage/_AddUser",
+               {
+                   "u.RealName": $("#realname").val(),
+                   "u.WorkUnitId": $("#workunit").val(),
+                   "u.DeptId": $("#dept").val(),
+                   "u.IsCadre": $("#iscadre input[name='optionsRadios']:checked").val(),
+                   "u.Telphone": $("#tel").val(),
+                   "u.Password": $("#pwd").val(),
+                   "u.RoleId": $("#role").val(),
+
+               }, function (data) {
+                   if (data == "1") {
+
+                       alert("添加成功！");
+
+                       location.href = "/SystemManage/UserManage";
+
+                   } else {
+
+                       alert("添加失败，请重试！");
+
+                       location.reload();
+                   }
+               });
+        });
+        //修改弹跳框
+        $(".upd").click(function () {
+
+            $(this).attr("data-toggle", "modal");
+
+            $("#updnum").val($(this).parent().parent().find("td").eq(0).html().trim());
+            $("#updname").val($(this).parent().parent().find("td").eq(1).html().trim());
+            $("#updworkunit").val($(this).parent().parent().find("td").eq(2).html().trim());
+            $("#upddept").val($(this).parent().parent().find("td").eq(3).html().trim());
+
+            $("#updiscadre input[name='optionsRadios2']:checked").val($(this).parent().parent().find("td").eq(4).html().trim() ? true : false);
+
+            $("#updtel").val($(this).parent().parent().find("td").eq(5).html().trim());
+            $("#updpwd").val($(this).parent().parent().find("td").eq(6).find("input").eq(0).val().trim());
+            //$("#updrole").val($(this).parent().parent().find("td").eq(7).html().trim());
+
+
+        });
+
+
+        //确认修改
+        $("#updbtn").click(function () {
+            if (($("#updname").val() == null || $("#updname").val() == "") ||
+                $("#updworkunit").val() == null || $("#upddept").val() == null ||
+                ($("#updtel").val() == null || $("#updtel").val() == "") ||
+               ($("#updpwd").val() == null || $("#updpwd").val() == "") ||
+               $("#updrole").val() == null) {
+
+                alert("请将信息填写完整~ ~");
+                return;
+            }
+            else if ($("#updtel").val().length != 11) {
+                alert("手机号为11位！");
+                return;
+            }
+            else if ($("#updpwd").val().length < 6) {
+                alert("密码必须大于等于6位！");
+                return;
+            }
+            else {
+                $.post("/SystemManage/_UpdUser",
+                    {
+                        "u.Id": $("#updnum").val(),
+                        "u.RealName": $("#updname").val(),
+                        "u.WorkUnitId": $("#updworkunit").val(),
+                        "u.DeptId": $("#upddept").val(),
+                        "u.IsCadre": $("#updiscadre input[name='optionsRadios2']:checked").val(),
+                        "u.Telphone": $("#updtel").val(),
+                        "u.Password": $("#updpwd").val(),
+                        "u.RoleId": $("#updrole").val(),
+                    }, function (data) {
+                        if (data == "1") {
+
+                            alert("修改成功！");
+
+                            location.href = "/SystemManage/UserManage";
+
+                        } else {
+
+                            alert("修改失败，请重试！");
+
+                            location.reload();
+                        }
+                    });
+            }
+        });
+
+    });
+
+
+
+    function GetDate(_page) {
+
+        var _pagerows = $("#page_size").val();
+        //alert(_pagerows);
+        $.ajax({
+            url: '/SystemManage/PageList',
+            type: "get",
+            data: { page: _page, pagerows: _pagerows },
+            success: function (result) {
+                //console.log(result);
+                var jsonss = JSON.parse(result);
+                //alert(11);
+                GetparDate(jsonss);
+                //alert(21);
+                GetAllPage(jsonss.allcount, _page, _pagerows);
+                //alert(31);
+            }
+
+        });
+    }
+    function GetAllPage(allcount, _repage, _pagerows) {
+        var allpage = parseInt(allcount / _pagerows);
+        if (allcount % _pagerows != 0) {
+            allpage++;
+        }
+
+        $.jqPaginator("#pagination1", {
+            totalPages: allpage,
+            visiblePages: 9,
+            currentPage: _repage,
+            onPageChange: function (num, type) {
+                if (type != "init") {
+                    GetDate(num);
+                }
+            }
+        });
+    }
+    function GetparDate(jsonss) {
+        var mtr = "";
+        $.each(jsonss.ulist, function (index, item) {
+            var needtr = $("<tr></tr>");
+            needtr.append("<td hidden='hidden'>" + item.UserId + "</td>");
+            needtr.append("<td>" + item.RealyName + "</td>");
+            needtr.append("<td >" + item.UserTelephone + "</td>");
+            if (item.UserIsTrue == 0) {
+                needtr.append("<td >离职</td>");
+            } else {
+                needtr.append("<td >在职</td>");
+            }
+
+
+            needtr.append("<td><a href='/Staff/SList?userNum=" + item.UserId + "' class='btn mini blue'><i class='icon-share'></i>查看与修改</a></td>");
+            needtr.append("<td><a href='/Staff/DelStaff?id=" + item.UserId + "'><span class='btn mini black'><i class='icon-trash'></i>删除</span></a></td>");
+            mtr += needtr.prop("outerHTML");
+        });
+        $("#content").html(mtr);
+    }
+
+</script>

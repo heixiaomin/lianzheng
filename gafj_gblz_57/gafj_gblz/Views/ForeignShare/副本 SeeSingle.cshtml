@@ -1,0 +1,637 @@
+﻿@{
+    ViewBag.Title = "ShareSingle";
+    Layout = "~/Views/_LayoutPage1.cshtml";
+}
+
+<style>
+    #row1
+    {
+        margin-top: -2px;
+    }
+
+    #row2
+    {
+        margin-top: -2px;
+    }
+</style>
+
+<div class="row" id="row1">
+    <div class="col-md-12">
+        <!--breadcrumbs start -->
+        <ul class="breadcrumb panel">
+            <li><a href="/ForeignShare/Index"><i class="fa fa-home"></i>首页</a></li>
+            
+            <li class="active">廉政档案登记表</li>
+        </ul>
+        <!--breadcrumbs end -->
+    </div>
+</div>
+
+<div class="row" id="row2">
+    <div class="col-sm-12">
+
+        @{  
+             
+            var ulist = ViewBag.ulist as List<Yisaa.DAL.DT_UserLoginRecord>;
+            foreach (var total in (ViewBag.tlist as List<Yisaa.DAL.DT_Total>))
+            {
+                foreach (var ulogin in ulist.Where(a => a.Id == total.UserId))
+                {                  
+            <section class="panel">
+                <input type="text" value="@total.Id" hidden="hidden" id="myid"/>
+                <header class="panel-heading">【@ulogin.RealName】廉政档案登记表
+                     
+                </header>
+                <div class="panel-body">
+                    <div class="alert alert-block alert-danger fade in">
+                        <button type="button" class="close close-sm" data-dismiss="alert"><i class="fa fa-times"></i></button>
+                        <strong>提示：</strong>该档案登记表共享时间2017年6月1日至2017年7月1日，请在有效期内查看该档案信息！
+                    </div>
+                    <table class="table  table-hover general-table">
+                        <thead>
+                            <tr>
+                                <th>序号</th>
+                                <th class="hidden-phone">表单名称</th>
+                                <th width="10%">操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1 </td>
+                                <td class="hidden-phone">
+                                    <a data-toggle="modal" href="#myModal1">科级干部基本情况登记表一</a>
+
+                                </td>
+                                <td>
+
+                                    <a class="btn btn-success btn-xs" data-toggle="modal" href="#myModal1">查看</a>
+
+                                       <!-- Modal -->
+                                    <div class="modal fade" id="myModal1" aria-hidden="true" style="display: none;">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                                    <h4 class="modal-title">科级干部基本情况登记表一</h4>
+                                                </div>
+                                                <div class="modal-body" style="height: 560px; overflow-y: scroll">  
+                                                    <table class="table table-bordered">
+                                                        <tbody>
+                                                            @{
+                                    foreach (var item in (ViewBag.SelInfoById as List<Yisaa.DAL.DT_UserInfo>).Where(a => a.UserId == total.UserId))
+                                    {  
+                                                       
+                                                                <tr>
+                                                                    <td class="t01" width="15%">姓      名</td>
+                                                                    <td width="25%">@item.RealName</td>
+                                                                    <td class="t01" width="15%">性      别</td>
+                                                                    <td>@item.Sex</td>
+                                                                    <td width="130" rowspan="3">
+                                                                        <img src="~/Content/Upload/Images/@item.Photo" width="130" height="170"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="t01">籍      贯</td>
+                                                                    <td>@item.NativePlace</td>
+                                                                    <td class="t01">出生年月</td>
+                                                                    <td>
+                                                                       
+                                                                         @if (item.Birthday == null)
+                                                                         {
+                                                                            @item.Birthday 
+                                                                         }
+                                                                         else
+                                                                         {
+                                                                            @Convert.ToDateTime(item.Birthday).ToString("yyyy-MM-dd")
+                                                                    
+                                                                         }
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="t01">身份证号码</td>
+                                                                    <td colspan="3">@item.IdCardNum</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="t01">政治面貌 </td>
+                                                                    <td>@item.Outlook</td>
+                                                                    <td class="t01">入党时间</td>
+                                                                    <td colspan="2">
+                                                                      
+                                                                         @if (item.PartyTime == null)
+                                                                         {
+                                                                            @item.PartyTime 
+                                                                         }
+                                                                         else
+                                                                         {
+                                                                            @Convert.ToDateTime(item.PartyTime).ToString("yyyy-MM-dd")
+                                                                    
+                                                                         }
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="t01">民族</td>
+                                                                    <td>@item.Nation</td>
+                                                                    <td class="t01">本人编制性质</td>
+                                                                    <td colspan="2">@item.Property</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="t01">参加工作时间 </td>
+                                                                    <td colspan="4">
+                                                                     
+                                                                         @if (item.JobTime == null)
+                                                                         {
+                                                                            @item.JobTime 
+                                                                         }
+                                                                         else
+                                                                         {
+                                                                            @Convert.ToDateTime(item.JobTime).ToString("yyyy-MM-dd")
+                                                                    
+                                                                         }
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="t01">学历</td>
+                                                                    <td colspan="4">@item.Education</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="t01">工作单位</td>
+                                                                    <td colspan="4">@item.WorkUnit</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="t01">现在职务</td>
+                                                                    <td>@item.Post</td>
+                                                                    <td class="t01">职级</td>
+                                                                    <td colspan="2">@item.PostStatus</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="t01">任现职务时间</td>
+                                                                    <td colspan="4">
+                                                                      
+                                                                          @if (item.PostTime == null)
+                                                                          {
+                                                                            @item.PostTime 
+                                                                          }
+                                                                          else
+                                                                          {
+                                                                            @Convert.ToDateTime(item.PostTime).ToString("yyyy-MM-dd")
+                                                                    
+                                                                          }
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="t01">分管工作</td>
+                                                                    <td colspan="4">@item.DoWork</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="t01">家庭住址</td>
+                                                                    <td colspan="4">@item.UserAddress</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="t01" style="height: 200px">
+                                                                        <br>
+                                                                        个<br>
+                                                                        人<br>
+                                                                        简<br>
+                                                                        历</td>
+                                                                    <td colspan="4">
+                                                                        @item.Introduction
+                                                                    </td>
+                                                                </tr>
+                                                        
+                                                    }
+                                                }
+                                                        </tbody>
+
+                                                    </table>
+                                                    <div class="modal-footer">
+                                                        <button data-dismiss="modal" class="btn btn-primary" type="button">关闭</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- modal -->
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2 </td>
+                                <td class="hidden-phone"><a data-toggle="modal" href="#myModal2">科级干部基本情况登记表二</a>
+
+                                </td>
+                                <td>
+                                    <a class="btn btn-success btn-xs" data-toggle="modal" href="#myModal2">查看</a>
+
+
+                                      <!-- 科级干部基本情况登记表二弹出 -->
+                                <div class="modal fade" id="myModal2">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                                <h4 class="modal-title">科级干部基本情况登记表二</h4>
+                                            </div>
+                                             @{ 
+                                     
+                                     foreach (var fa in (ViewBag.falist as List<Yisaa.DAL.DT_FamilyTotal>).Where(a => a.Id == total.FamilyId))
+                                     {
+                                                 
+                                            <div class="modal-body" style="height: 600px; overflow-y: scroll">                                                                                                                                                                                                                                                      
+                                                <table class="table table-bordered">
+                                                    <tr>
+                                                        <td rowspan="9">
+                                                            家<br />
+                                                            庭<br />
+                                                            主<br />                                                                                                                                                                                                                                                           
+                                                            要<br />
+                                                            成<br />
+                                                            员<br />
+                                                            及<br />
+                                                            主<br />
+                                                            要<br />
+                                                            社<br />
+                                                            会<br />                                                                                                                                                                                                                                                                                                                                                                                                                                             
+                                                            关<br />
+                                                            系 
+
+                                                        </td>
+                                                        <td>称 谓 </td>
+                                                        <td>姓 名 </td>
+                                                        <td>政治面貌 </td>
+                                                        <td>工 作 单 位 </td>
+                                                        <td>职 务 </td>
+                                                    </tr>
+                                                   @foreach (var f in (ViewBag.flist as List<Yisaa.DAL.DT_Family>).Where(a => a.UserId == fa.UserId))
+                                                   {                                                    
+                                                        <tr>
+                                                            <td>@f.Relation</td>
+                                                            <td>@f.Name</td>
+                                                            <td>@f.Outlook</td>
+                                                            <td>@f.WorkUnit</td>
+                                                            <td>@f.Post</td>
+                                                        </tr>   
+                                                   }                                           
+                                                    <tr>
+                                                        <td width="57">其他需要说明的情况 </td>
+                                                        <td width="540" colspan="5">
+                                                            @fa.other
+                                 
+                                  <p>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                                <div class="modal-footer">
+                                                    <button data-dismiss="modal" class="btn btn-primary" type="button">关闭</button>
+                                                </div>
+                                            </div>
+                                                    
+                                         
+                                     }
+                                              }
+                                                 </div>
+                                    </div>
+                                </div>
+                                <!-- 科级干部基本情况登记表二弹出 -->
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>3 </td>
+                                <td class="hidden-phone">
+                                    <a data-toggle="modal" href="#myModal5">科级干部从事或参与营业性活动及兼职持股情况报告表</a>
+
+                                </td>
+
+                                <td>
+                                    <a class="btn btn-success btn-xs" data-toggle="modal" href="#myModal5">查看</a>
+
+                                     <!-- 科级干部从事或参与营业性活动及兼职持股情况报告表弹出 -->
+                      <div class="modal fade" id="myModal5">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                              <h4 class="modal-title">科级干部从事或参与营利性活动及兼职持股情况报告表</h4>
+                            </div>
+                            <div class="modal-body">
+                              <table class="table table-bordered">
+                                  @{
+                                      
+                                      var user = (ViewBag.SelInfoById as List<Yisaa.DAL.DT_UserInfo>).Where(a => a.UserId == total.UserId);
+                                      var profitlist = ViewBag.profitlist as List<Yisaa.DAL.DT_ProfitReport>;
+                                      foreach (var u in user)
+                                      {
+                                          foreach (var p in profitlist.Where(a => a.Id == total.ProfitId))
+                                          {
+                                    
+                                <tr >
+                                  <td class="t01" width="15%">姓  名 </td>
+                                  <td  width="15%">@u.RealName</td>
+                                  <td class="t01" width="15%">单 位 </td>
+                                  <td width="20%">@u.WorkUnit</td>
+                                  <td class="t01" width="15%">职 务 </td>
+                                  <td  width="20%">@u.Post</td>
+                                </tr>
+                                <tr >
+                                  <td class="t01" rowspan="5">个人经商办企业情况 </td>
+                                  <td class="t01">企业名称 </td>
+                                  <td colspan="4" >@p.CompanyName</td>
+                                </tr>
+                                <tr >
+                                  <td class="t01">经营范围 </td>
+                                  <td colspan="4" >@p.BusinessScope</td>
+                                </tr>
+                                <tr >
+                                  <td class="t01">注册资金（元） </td>
+                                  <td colspan="4" >@p.RegisterMoney</td>
+                                </tr>
+                                <tr >
+                                  <td class="t01">本人出资比例（百分比） </td>
+                                  <td colspan="4" >@p.InvestmentRate</td>
+                                </tr>
+                                <tr >
+                                  <td class="t01">年利润（元） </td>
+                                  <td colspan="4" >@p.YearProfit</td>
+                                </tr>
+                                <tr >
+                                  <td class="t01" rowspan="4">在企事业单位、社会团体或其他营利性组织中兼职情况 </td>
+                                  <td class="t01">兼职单位名称 </td>
+                                  <td colspan="4" >@p.ParttimeUnit</td>
+                                </tr>
+                                <tr >
+                                  <td class="t01">兼职单位性质 </td>
+                                  <td colspan="4" >@p.ParttimeUnitNature</td>
+                                </tr>
+                                <tr >
+                                  <td class="t01">兼任职务 </td>
+                                  <td colspan="4" >@p.ParttimePost</td>
+                                </tr>
+                                <tr >
+                                  <td class="t01">年取酬（元） </td>
+                                  <td colspan="4" >@p.YearMoney</td>
+                                </tr>
+                                <tr >
+                                  <td class="t01" rowspan="5">投资或入股情况 </td>
+                                  <td class="t01">投资或入股单位 </td>
+                                  <td colspan="4" >@p.InvestUnit</td>
+                                </tr>
+                                <tr >
+                                  <td class="t01">投资或入股单位性质 </td>
+                                  <td colspan="4" >@p.InvestUnitNature</td>
+                                </tr>
+                                <tr >
+                                  <td class="t01">投资或入股方式 </td>
+                                  <td colspan="4" >@p.InvestWay</td>
+                                </tr>
+                                <tr >
+                                  <td class="t01">本人投资或入股金额（元） </td>
+                                  <td colspan="4" >@p.InvestMoney</td>
+                                </tr>
+                                <tr >
+                                  <td class="t01">年收益（元） </td>
+                                  <td colspan="4" >@p.YearIncome</td>
+                                </tr>
+                                <tr >
+                                  <td class="t01">从事或参与其他
+                                    证券投资情况
+                                    （主要指购买股票、
+                                    基金、债券、期货等） </td>
+                                  <td colspan="5" >@p.Other</td>
+                                </tr>
+                                          }
+
+                                      }
+                                }
+
+                              </table>
+                              <div class="modal-footer">
+                                <button data-dismiss="modal" class="btn btn-primary" type="button">关闭</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- 科级干部从事或参与营业性活动及兼职持股情况报告表弹出 -->
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>4 </td>
+                                <td class="hidden-phone">
+                                    <a data-toggle="modal" href="#myModal7">科级干部婚姻变化情况报告表 </a>
+                                </td>
+                                <td>
+                                    <a class="btn btn-success btn-xs" data-toggle="modal" href="#myModal7">查看</a>
+
+                                       <!--科级干部婚姻变化情况报告表弹出 -->
+                      <div class="modal fade" id="myModal7">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                              <h4 class="modal-title">科级干部婚姻变化情况报告表</h4>
+                            </div>
+                            <div class="modal-body">
+                              <table class="table table-bordered">
+                                  @{
+                                     var user2 = (ViewBag.SelInfoById as List<Yisaa.DAL.DT_UserInfo>).Where(a => a.UserId == total.UserId);
+
+                                     var marry = ViewBag.marry as List<Yisaa.DAL.DT_MarryChange>;
+                                     foreach (var u in user2)
+                                     {
+                                         foreach (var m in marry.Where(a => a.Id == total.MarryChangeId))
+                                         {
+                                  <tr >
+                                  <td class="t01" width="12%">姓  名 </td>
+                                  <td width="15%" colspan="3" >@u.RealName</td>
+                                  <td class="t01" width="15%">单 位 </td>
+                                  <td colspan="3" >@u.WorkUnit</td>
+                                  <td class="t01" width="15%">职 务 </td>
+                                  <td width="15%">@u.Post</td>
+                                </tr>
+                                <tr >
+                                  <td class="t01" colspan="4" >本人是否有婚姻变化情况 </td>
+                                  <td colspan="6" >@m.IsMarryChange</td>
+                                </tr>
+                                <tr >
+                                  <td class="t01">原配偶 </td>
+                                  <td class="t01">姓  名 </td>
+                                  <td colspan="3">@m.LastPartner</td>
+                                  <td class="t01" width="15%">婚姻登记<br/>
+                                    时    间 </td>
+                                  <td > 
+                                       @if (m.LastRegisterTime == null)
+                                       {
+                                            @m.LastRegisterTime
+                                       }
+                                       else
+                                       {
+                                            @Convert.ToDateTime(m.LastRegisterTime).ToString("yyyy-MM-dd")
+                                                                    
+                                       }
+                                  </td>
+                                  <td class="t01" width="15%" colspan="2" >婚姻结束<br/>
+                                    时    间 </td>
+                                  <td >
+                                       @if (m.LastEndTime == null)
+                                       {
+                                            @m.LastEndTime
+                                       }
+                                       else
+                                       {
+                                            @Convert.ToDateTime(m.LastEndTime).ToString("yyyy-MM-dd")
+                                                                    
+                                       }
+                                  </td>
+                                </tr>
+                                <tr >
+                                  <td class="t01" rowspan="2" >现配偶</td>
+                                  <td class="t01">姓  名 </td>
+                                  <td colspan="3">@m.NowPartner</td>
+                                  <td class="t01" >政治面貌 </td>
+                                  <td colspan="2" >@m.NowPolitical</td>
+                                  <td class="t01" >婚姻登记<br/>
+                                    时    间 </td>
+                                  <td > @if (m.NowRegisterTime == null)
+                                        {
+                                            @m.NowRegisterTime
+                                        }
+                                        else
+                                        {
+                                            @Convert.ToDateTime(m.NowRegisterTime).ToString("yyyy-MM-dd")
+                                                                    
+                                        }
+
+                                  </td>
+                                </tr>
+                                <tr >
+                                  <td class="t01">单  位 </td>
+                                  <td colspan="6" >@m.NowUnit</td>
+                                  <td class="t01" >职    务 </td>
+                                  <td >@m.NowPost</td>
+                                </tr>
+                                <tr >
+                                  <td class="t01" height="200">其<br/>
+                                    他<br/>
+                                    需<br/>
+                                    说<br/>
+                                    明<br/>
+                                    情<br/>
+                                    况 </td>
+                                  <td colspan="9" >@m.Other</td>
+                                </tr>
+                                         }
+                                     }
+                                }
+                              </table>
+                              <div class="modal-footer">
+                                <button data-dismiss="modal" class="btn btn-primary" type="button">关闭</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!--科级干部婚姻变化情况报告表弹出-->
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>5 </td>
+                                <td class="hidden-phone">
+                                    <a data-toggle="modal" href="#myModal10">科级干部配偶、子女及其配偶受到查处或涉嫌犯罪情况报告表 </a>
+
+                                </td>
+                                <td>
+                                    <a class="btn btn-success btn-xs" data-toggle="modal" href="#myModal10">查看</a>
+
+                                     <!-- 科级干部配偶、子女及其配偶受到查处或涉嫌犯罪情况报告表弹出 -->
+                      <div class="modal fade" id="myModal10">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                              <h4 class="modal-title">科级干部配偶、子女及其配偶受到查处或涉嫌犯罪情况报告表</h4>
+                            </div>
+                            <div class="modal-body">
+                              <table class="table table-bordered">
+                                @{
+                                      var user3 = (ViewBag.SelInfoById as List<Yisaa.DAL.DT_UserInfo>).Where(a => a.UserId == total.UserId);
+
+                                      var crime = ViewBag.crime as List<Yisaa.DAL.DT_CrimeReport>;
+                                      foreach (var u in user3)
+                                      {
+                                          foreach (var c in crime.Where(a => a.Id == total.CrimeId))
+                                          {
+                                   <tr >
+                                  <td class="t01" width="15%" >姓  名 </td>
+                                  <td width="18%">@u.RealName</td>
+                                  <td class="t01"  width="15%" >单  位 </td>
+                                  <td width="22%">@u.WorkUnit</td>
+                                  <td class="t01"  width="15%" >职 务 </td>
+                                  <td width="15%">@u.Post</td>
+                                </tr>
+                                <tr >
+                                  <td class="t01" rowspan="5" >配偶、子女及其配偶受到执纪执法机关查处或涉嫌犯罪情况 </td>
+                                  <td class="t01" >姓  名 </td>
+                                  <td colspan="4" >@c.CrimerName</td>
+                                </tr>
+                                <tr >
+                                  <td class="t01" >与本人关系 </td>
+                                  <td colspan="4" >@c.Relation</td>
+                                </tr>
+                                <tr >
+                                  <td class="t01" >（原）工作 <br />
+                                    单位及职务 </td>
+                                  <td colspan="4" >@c.CrimerUnit</td>
+                                </tr>
+                                <tr >
+                                  <td class="t01" >执纪执法 <br />
+                                    机关 </td>
+                                  <td colspan="4" >@c.LawAgency</td>
+                                </tr>
+                                <tr >
+                                  <td class="t01" height="150">涉案基本 <br />
+                                    情况及处 <br />
+                                    理结果 </td>
+                                  <td colspan="4" >@c.Result</td>
+                                </tr>
+                                <tr >
+                                  <td class="t01" >备  注 </td>
+                                  <td colspan="5" >@c.Remark</td>
+                                </tr>
+                                          }
+                                      }}
+                              </table>
+                              <div class="modal-footer">
+                                <button data-dismiss="modal" class="btn btn-primary" type="button">关闭</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- 科级干部配偶、子女及其配偶受到查处或涉嫌犯罪情况报告表弹出 -->
+                                </td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+
+                    <p class="t_center">
+
+
+                        <button class="btn btn-primary btn-lg" type="button" disabled="disabled" id="handin_checking">已归档~</button>
+
+
+
+                    </p>
+                </div>
+            </section>
+                }
+            }
+        }
+
+    </div>
+</div>
+
+        
+
+
+

@@ -1,0 +1,363 @@
+﻿@{
+    ViewBag.Title = "UpdBaseInfo1";
+    Layout = "~/Views/_LayoutPage1.cshtml";
+}
+
+@*<div class="wrapper">*@
+
+<div class="row">
+    <div class="col-md-12">
+        <!--breadcrumbs start -->
+        <ul class="breadcrumb panel">
+            <li><a href="/EnterFile/Index"><i class="fa fa-home"></i>首页</a></li>
+            <li class="active">科级干部基本情况登记表1</li>
+        </ul>
+        <!--breadcrumbs end -->
+    </div>
+</div>
+<div class="row">
+
+    <div class="col-sm-12">
+        <section class="panel">
+            <header class="panel-heading">
+                科级干部基本情况登记表1
+            </header>
+
+            <div class="panel-body">@*action="/EnterFile/UpdBaseInfo1_http"  enctype="multipart/form-data"*@
+                <form class="form-horizontal" role="form"  id="upload_form" method="post">
+                    @{foreach (var item in (ViewBag.UpdUserinfo as List<Yisaa.DAL.DT_UserInfo>))
+                      {      
+                        <div class="form-group" hidden="hidden">
+                            <label for="inputEmail1" class="col-lg-3 col-sm-2 control-label">序号</label>
+                            <div class="col-lg-4">
+                                <input type="email" class="form-control" id="num" placeholder="" value="@item.Id">
+                                <!--<p class="help-block">Example block-level help text here.</p>-->
+                            </div>
+                        </div>                                       
+                        <div class="form-group">
+                            <label for="inputEmail1" class="col-lg-3 col-sm-2 control-label">姓名</label>
+                            <div class="col-lg-4">
+                                <input type="text" class="form-control" id="name" placeholder="" value="@item.RealName">
+                                <!--<p class="help-block">Example block-level help text here.</p>-->
+                            </div>
+                        </div>
+                   
+                        <div class="form-group">
+                            <label for="input1" class="col-lg-3 col-sm-2 control-label">性别</label>
+                            <div class="col-lg-4">
+                                <input type="" class="form-control" id="sex" placeholder="" value="@item.Sex">
+                                <!--<p class="help-block">Example block-level help text here.</p>-->
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="input1" class="col-lg-3 col-sm-2 control-label">籍贯</label>
+                            <div class="col-lg-4">
+                                <input type="" class="form-control" id="native" placeholder="" value="@item.NativePlace">
+                                <!--<p class="help-block">Example block-level help text here.</p>-->
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputFile2" class="col-lg-3 col-sm-2 control-label">照片</label>
+                            
+                             <div class="col-lg-4">  
+                             @* <img id="img" src="~/Content/Upload/Images/@ViewBag.img" style="width:100px;height:100px"/><br /><br />*@
+                                 <input type="text" class="form-control"  id="img" name="img" value="@item.Photo" disabled="disabled"/><br /> 
+                                   @* value="@item.Photo"*@
+
+                                  <input type="file" id="photo" name="photo" value=""/>
+                        </div>
+                             </div>
+                        <div class="form-group">
+                            <label for="input1" class="col-lg-3 col-sm-2 control-label">出生日期</label>
+                            <div class="col-lg-4">
+                                <input type="text" size="16" class="form-control laydate-icon" id="birthday" value="@if(item.Birthday!=null){@Convert.ToDateTime(item.Birthday).ToString("yyyy-MM-dd")}"""> 
+                               
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="input1" class="col-lg-3 col-sm-2 control-label">身份证号</label>
+                            <div class="col-lg-4">
+                                <input type="" class="form-control" id="idcard" placeholder="" value="@item.IdCardNum">
+                                <!--<p class="help-block">Example block-level help text here.</p>-->
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="input1" class="col-lg-3 col-sm-2 control-label">政治面貌</label>
+                            <div class="col-lg-4">
+                                <input type="" class="form-control" id="outlook" placeholder="" value="@item.Outlook">
+                                <!--<p class="help-block">Example block-level help text here.</p>-->
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="input1" class="col-lg-3 col-sm-2 control-label">入党时间</label>
+                            <div class="col-lg-4">
+                                                 
+                                 <input type="text" value="@if (item.PartyTime != null)
+                                                           {@Convert.ToDateTime(item.PartyTime).ToString("yyyy-MM-dd")}""" size="16" class="form-control laydate-icon" id="partytime">
+ 
+                            </div>  
+                        </div>
+                        <div class="form-group">
+                            <label for="input1" class="col-lg-3 col-sm-2 control-label">民   族</label>
+                            <div class="col-lg-4">
+                                <input type="text" class="form-control" id="nation" placeholder="" value="@item.Nation">
+                                <!--<p class="help-block">Example block-level help text here.</p>-->
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="input1" class="col-lg-3 col-sm-2 control-label">本人编制性质</label>
+                            <div class="col-lg-4">
+                                <input type="text" class="form-control" id="property" placeholder="" value="@item.Property">
+                                <!--<p class="help-block">Example block-level help text here.</p>-->
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="input1" class="col-lg-3 col-sm-2 control-label">参加工作时间</label>
+                            <div class="col-lg-4">
+                                <input type="text" value="@if(item.JobTime!=null){@Convert.ToDateTime(item.JobTime).ToString("yyyy-MM-dd")}""" size="16" class="form-control laydate-icon" id="jobtime">
+                                 
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="input1" class="col-lg-3 col-sm-2 control-label">学历</label>
+                            <div class="col-lg-4">
+                                <input type="text" class="form-control" id="education" placeholder="" value="@item.Education">
+                                <!--<p class="help-block">Example block-level help text here.</p>-->
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="input1" class="col-lg-3 col-sm-2 control-label">工作单位</label>
+                            <div class="col-lg-4">
+                                <input type="text" class="form-control" id="workunit" placeholder="" value="@item.WorkUnit">
+                                <!--<p class="help-block">Example block-level help text here.</p>-->
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="input1" class="col-lg-3 col-sm-2 control-label">现任职务</label>
+                            <div class="col-lg-4">
+                                <input type="text" class="form-control" id="post" placeholder="" value="@item.Post">
+                                <!--<p class="help-block">Example block-level help text here.</p>-->
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="input1" class="col-lg-3 col-sm-2 control-label">职级</label>
+                            <div class="col-lg-4">
+                                <input type="text" class="form-control" id="poststatus" placeholder="" value="@item.PostStatus">
+                                <!--<p class="help-block">Example block-level help text here.</p>-->
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="input1" class="col-lg-3 col-sm-2 control-label">任现职务时间</label>
+                            <div class="col-lg-4">
+                                <input type="text" size="16" class="form-control laydate-icon" id="posttime" value="@if(item.PostTime!=null){@Convert.ToDateTime(item.PostTime).ToString("yyyy-MM-dd")}""">
+
+                                
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="input1" class="col-lg-3 col-sm-2 control-label">分管工作</label>
+                            <div class="col-lg-4">
+                                <input type="" class="form-control" id="dowork" placeholder="" value="@item.DoWork">
+                                <!--<p class="help-block">Example block-level help text here.</p>-->
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="input1" class="col-lg-3 col-sm-2 control-label">家庭住址</label>
+                            <div class="col-lg-4">
+                                <input type="" class="form-control" id="address" placeholder="" value="@item.UserAddress">
+                                <!--<p class="help-block">Example block-level help text here.</p>-->
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="input1" class="col-lg-3 col-sm-2 control-label">个人简历</label>
+                            <div class="col-lg-5">
+                                <textarea rows="6" class="form-control" id="introduction">@item.Introduction</textarea>
+                                <!--<p class="help-block">Example block-level help text here.</p>-->
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-lg-offset-3 col-lg-10">
+                                @if (ViewBag.status == "被退回")
+                                {
+                                    <button type="button" class="btn btn-primary" id="updbtn2">确认修改</button>
+                                }
+                                else
+                                {
+                                    <button type="button" class="btn btn-primary" id="updbtn">确认修改</button>
+                                }
+                                
+                                <button class="btn btn-default" type="button" onclick="window.history.go(-1);">返回</button>
+                            </div>
+                        </div>
+                      }
+                    }
+                </form>
+            </div>
+        </section>
+
+    </div>
+</div>
+@*    </div>*@
+
+
+<script src="~/Content/js/jquery-1.10.2.min.js"></script>
+<script src="~/Content/myjs/ajaxfileupload.js"></script>
+
+
+@*<script src="~/Content/myjs/upload.js"></script>*@
+
+<script src="~/Content/laydate/laydate.js"></script>
+
+
+<script>
+ 
+
+    $(function () {
+
+
+     
+        //修改
+        $("#updbtn").click(function () {
+            //?u.UserId=ViewBag.id
+            var imgurl = $("#photo").val();
+
+            $.ajaxFileUpload
+            (
+            {
+                url: '/EnterFile/UpLoad', //用于文件上传的服务器端请求地址
+                secureuri: false, //是否需要安全协议，一般设置为false
+                fileElementId: 'photo', //文件上传域的ID
+                dataType: 'json', //返回值类型 一般设置为json
+                success: function (data, status)  //服务器成功响应处理函数
+                {
+                    alert("上传成功!");
+                },
+                error: function (data, status, e)//服务器响应失败处理函数
+                {
+                    alert(e);
+                }
+            }
+            );
+
+            alert($("#photo").val());
+
+            $.post("/EnterFile/_UpdBaseInfo1?u.Photo=" + imgurl, {
+
+                "u.RealName": $("#num").val(),
+                "u.RealName": $("#name").val(),
+                "u.Sex": $("#sex").val(),
+                "u.NativePlace": $("#native").val(),
+                "u.Photo":$("#photo").val() == null || $("#photo").val()=="" ? $("#img").val() : $("#photo").val(),//$("#photo").val()
+               
+                "u.Birthday": $("#birthday").val(),
+                "u.IdCardNum": $("#idcard").val(),
+                "u.Outlook": $("#outlook").val(),
+                "u.PartyTime": $("#partytime").val(),
+                "u.Nation": $("#nation").val(),
+                "u.Property": $("#property").val(),
+                "u.JobTime": $("#jobtime").val(),
+                "u.Education": $("#education").val(),
+                "u.WorkUnit": $("#workunit").val(),
+                "u.Post": $("#post").val(),
+                "u.PostStatus": $("#poststatus").val(),
+                "u.PostTime": $("#posttime").val(),
+                "u.DoWork": $("#dowork").val(),
+                "u.UserAddress": $("#address").val(),
+                "u.Introduction": $("#introduction").val()
+            }, function (data) {
+                if (data == "1") {
+                    alert("修改成功！");
+                    location.href = "/EnterFile/Index";
+                }
+                else {
+                    alert("修改失败,请重试！");
+                    location.reload();//刷新
+                }
+            });
+            
+        });
+        //被退回修改
+        $("#updbtn2").click(function () {
+            //?u.UserId=ViewBag.id
+            var imgurl = $("#photo").val();
+
+            $.ajaxFileUpload
+            (
+            {
+                url: '/EnterFile/UpLoad', //用于文件上传的服务器端请求地址
+                secureuri: false, //是否需要安全协议，一般设置为false
+                fileElementId: 'photo', //文件上传域的ID
+                dataType: 'json', //返回值类型 一般设置为json
+                success: function (data, status)  //服务器成功响应处理函数
+                {
+                    alert("上传成功!");
+                },
+                error: function (data, status, e)//服务器响应失败处理函数
+                {
+                    alert(e);
+                }
+            }
+            );
+
+
+            $.post("/EnterFile/_UpdBaseInfoback?u.Photo=" + imgurl, {
+
+                 "u.RealName": $("#num").val(),
+                 "u.RealName": $("#name").val(),
+                 "u.Sex": $("#sex").val(),
+                 "u.NativePlace": $("#native").val(),
+                 "u.Photo": $("#photo").val() == null || $("#photo").val()=="" ? $("#img").val() : $("#photo").val(),
+                 "u.Birthday": $("#birthday").val(),
+                 "u.IdCardNum": $("#idcard").val(),
+                 "u.Outlook": $("#outlook").val(),
+                 "u.PartyTime": $("#partytime").val(),
+                 "u.Nation": $("#nation").val(),
+                 "u.Property": $("#property").val(),
+                 "u.JobTime": $("#jobtime").val(),
+                 "u.Education": $("#education").val(),
+                 "u.WorkUnitId": $("#workunit").val(),
+                 "u.Post": $("#post").val(),
+                 "u.PostStatus": $("#poststatus").val(),
+                 "u.PostTime": $("#posttime").val(),
+                 "u.DoWork": $("#dowork").val(),
+                 "u.UserAddress": $("#address").val(),
+                 "u.Introduction": $("#introduction").val()
+             }, function (data) {
+                 if (data == "1") {
+                     alert("修改成功！");
+                     location.href = "/EnterFile/Index";
+                 }
+                 else {
+                     alert("修改失败,请重试！");
+                     location.reload();//刷新
+                 }
+             });
+
+         });
+
+
+
+         });
+    laydate({
+        elem: '#jobtime',
+        event: 'focus'
+    });
+
+
+    laydate({
+        elem: '#partytime',
+        event: 'focus'
+    });
+    laydate({
+        elem: '#posttime',
+        event: 'focus'
+    });
+    laydate({
+        elem: '#birthday',
+        event: 'focus'
+    });
+
+</script>
+
+

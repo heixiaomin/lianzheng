@@ -1,0 +1,93 @@
+﻿@{
+    ViewBag.Title = "共享档案首页";
+    Layout = "~/Views/_PartialPage4.cshtml";
+}
+            @*_LayoutPage1  _PartialPage2*@
+          <!-- page heading start-->
+  
+    
+                <div class="page-heading" style="margin-left:17px">
+                    <h3>科级干部廉政档案
+                    </h3>
+                    <ul class="breadcrumb">
+                        <li><a href="/ForeignShare/Index">首页</a> </li>
+                        <li class="active">档案共享</li>
+                    </ul>
+                </div>
+        
+                <!-- page heading end-->
+                <div class="directory-info-row">
+                    <div class="row" id="bdbb">
+
+                        @{
+                            var beshared = ViewBag.beshared as List<Yisaa.DAL.DT_BeShared>;
+                            var userlog = ViewBag.allusers as List<Yisaa.DAL.DT_UserLoginRecord>;
+                            var allunits = ViewBag.allunits as List<Yisaa.DAL.DT_WorkUnit>;
+                            var alldepts = ViewBag.alldepts as List<Yisaa.DAL.DT_WorkUnit>;
+                            var userinfolist = ViewBag.userinfolist as List<Yisaa.DAL.DT_UserInfo>;
+                            foreach (var bs in beshared)
+                            {
+                                foreach (var total in (ViewBag.filedlist as List<Yisaa.DAL.DT_Total>).Where(a => a.UserId == bs.BeSharedId))
+                                {
+                                    foreach (var ulogin in userlog.Where(a => a.Id == total.UserId))
+                                    {
+                                        foreach (var unit in allunits.Where(a => a.Id == ulogin.WorkUnitId))
+                                        {
+                                            foreach (var dept in alldepts.Where(a => a.Id == ulogin.DeptId))
+                                            {
+                                                foreach (var user in userinfolist.Where(a => a.UserId == total.UserId))
+                                                {
+                            <div class="col-md-6 col-sm-6">
+                                <div class="panel" style="width:550px">
+                                    <a class="inv_link" href="/ForeignShare/SeeSingle?tid=@total.UserId">
+                                        <div class="panel-body" >
+                                            <h4>@ulogin.RealName<span class="text-muted small"> -@user.Post</span></h4>
+                                            <div class="media">
+                                                <div class="pull-left">
+                                                    
+
+                                                        @{if (user.Photo == null || user.Photo == "")
+                                                      {
+                         
+                                                        <img class="thumb media-object" src="~/Content/images/user.gif" style="width: 103px; height: 103px">
+                                                      }
+                                                       else
+                                                       {
+                                       
+                                                        <img class="thumb media-object" src="~/Content/Upload/Images/@user.Photo" alt="" style="width: 103px; height: 103px">
+                                                       }
+                                                    }
+
+                                                </div>
+                                                <div class="media-body">
+                                                    <address>
+                                                        单位：@unit.UnitName
+                                                        <br>
+                                                        科室：@dept.UnitName<br>
+                                                        <abbr title="Phone">联系电话:</abbr>
+                                                        @ulogin.Telphone
+                                                    </address>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                     
+                                                }
+                                            }
+
+
+                                        }
+
+                                    }
+                                }
+                            }
+                        }
+
+                    </div>
+                </div>
+
+  
+     
+

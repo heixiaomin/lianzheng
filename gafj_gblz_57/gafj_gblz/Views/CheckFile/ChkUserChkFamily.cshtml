@@ -1,0 +1,187 @@
+﻿@{
+    ViewBag.Title = "ChkUserChkFamily";
+    Layout = "~/Views/_PartialPage2.cshtml";
+}
+
+
+<style>
+    #row1
+    {
+        margin-top: -2px;
+    }
+
+    #row2
+    {
+        margin-top: -2px;
+    }
+</style>
+
+
+<div class="row" id="row1">
+    <div class="col-md-12">
+        <!--breadcrumbs start -->
+        <ul class="breadcrumb panel">
+             <li><a href="/Main/Index"><i class="fa fa-home"></i>首页</a></li>
+            <li><a href="/CheckFile/CheckUserIndex">档案审核</a></li>           
+            <li class="active">廉政档案登记表</li>
+        </ul>
+        <!--breadcrumbs end -->
+    </div>
+</div>
+
+
+<div class="row" id="row2">
+    <div class="col-sm-12">
+        @{ 
+             
+            var userinfolist = ViewBag.userinfolist as List<Yisaa.DAL.DT_UserInfo>;
+
+            var ulist = ViewBag.ulist as List<Yisaa.DAL.DT_UserLoginRecord>;
+            foreach (var total in (ViewBag.tlist as List<Yisaa.DAL.DT_Total>))
+            {
+
+                foreach (var user in userinfolist.Where(a => a.Id == total.UserInfoId))
+                {
+                   
+                     foreach (var fa in (ViewBag.falist as List<Yisaa.DAL.DT_FamilyTotal>).Where(a=>a.Id==total.FamilyId))
+                     {
+            <section class="panel">
+                <input type="text" value="@total.Id" hidden="hidden" id="myid"/>
+                <input type="text" value="@total.UserId" hidden="hidden" id="myuserid"/>@total.FamilyId
+                <header class="panel-heading">【@user.RealName】基本情况登记表二</header>
+                <div class="panel-body">
+                   
+                    <table class="table table-bordered">
+                         
+                        <tr>
+                            <td rowspan="9">家<br />
+                                庭<br />
+                                主<br />
+                                要<br />
+                                成<br />
+                                员<br />
+                                及<br />
+                                主<br />
+                                要<br />
+                                社<br />
+                                会<br />
+                                关<br />
+                                系 </td>
+                            <td>称 谓 </td>
+                            <td>姓 名 </td>
+                            <td>政治面貌 </td>
+                            <td>工 作 单 位 </td>
+                            <td>职 务 </td>
+                        </tr>
+
+                        @foreach (var f in (ViewBag.flist as List<Yisaa.DAL.DT_Family>).Where(a => a.UserId == fa.UserId))
+                        {
+                            <tr>
+                                <td>@f.Relation</td>
+                                <td>@f.Name</td>
+                                <td>@f.Outlook</td>
+                                <td>@f.WorkUnit</td>
+                                <td>@f.Post</td>
+                            </tr>   
+                        }
+
+                       
+                        <tr>
+                            <td width="57">其他需要说明的情况</td>
+                            <td width="540" colspan="5">
+                               @fa.other
+
+                                <p>
+                            </td>
+                        </tr>
+                        
+                    </table>
+                    
+                    <table class="table table-striped table-hover table-bordered">
+                        <thead>
+                            <tr>
+                                <th>退回意见<span style="color: red">（审核通过不必填写）</span></th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="">
+                                <td>
+                                    <textarea rows="6" class="form-control" id="backadvice"></textarea></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p class="t_center">
+                        <button class="btn btn-success btn-lg" type="button" id="check_yesbtn">审核通过</button>
+                        <button class="btn btn-danger btn-lg" type="button" id="check_nobtn">审核不通过</button>
+                        <button class="btn btn-default btn-lg" type="button" onclick="window.history.go(-1);">返回</button>
+                    </p>
+                </div>
+            </section>
+                    }
+
+                }
+
+
+            }
+            }
+    </div>
+</div>
+<script src="~/Content/js/jquery-1.10.2.min.js"></script>
+
+
+<script>
+    $(function () {
+
+        //审核通过
+        $("#check_yesbtn").click(function () {
+
+            $.post("/CheckFile/_UpdTotalFamily?id=" + $("#myid").val(),
+              {
+                  "id": $("#myid").val(),
+                  "advice": $("#backadvice").val(),
+
+              },
+              function (data) {
+                  if (data == "1") {
+                      alert("审核通过！");
+
+                      location.href = "/CheckFile/CheckUserCheckOne?tid=" + $("#myuserid").val();
+
+                  } else {
+
+                      alert("审核不通过！");
+                      window.history.go(-1);
+
+                  }
+              });
+
+        });
+        //审核不通过
+        $("#check_nobtn").click(function () {
+
+            if ($("#backadvice").val() == "" || $("#backadvice").val() == null) {
+                alert("请填写不通过原由！");
+                return;
+            } else {
+
+                $.post("/CheckFile/_UpdTotalFamily_No?id=" + $("#myid").val(),
+                  {
+                      "id": $("#myid").val(),
+                      "advice": $("#backadvice").val(),
+
+                  },
+                  function (data) {
+                      if (data == "1") {
+                          alert("审核不通过！");
+                          location.href = "/CheckFile/CheckUserCheckOne?tid=" + $("#myuserid").val();
+
+                      }
+                  });
+            }
+
+        });
+    });
+
+
+</script>

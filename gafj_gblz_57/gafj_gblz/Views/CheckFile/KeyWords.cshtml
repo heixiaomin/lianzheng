@@ -1,0 +1,129 @@
+﻿@{
+    ViewBag.Title = "KeyWords";
+    Layout = "~/Views/_PartialPage1.cshtml";
+}
+
+
+<style>
+    .row
+    {
+        margin-top: 50px;
+    }
+</style>
+
+<div class="col-sm-12">
+    <section class="panel">
+        <header class="panel-heading">用户信息</header>
+        <div class="panel-body">
+            <div class="clearfix">
+               
+                <div class="clear"></div>
+            </div>
+            <div class="space15" style="height: 15px;"></div>
+            <section id="no-more-tables">
+                <div class="clear"></div>
+                <table class="table table-bordered table-striped table-condensed cf">
+                    <thead class="cf">
+                        <tr>
+                            <th hidden="hidden">编号</th>
+                            <th>姓名</th>
+                            <th>单位</th>
+                            <th>科室</th>
+                            <th>手机号</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody id="mycontent">
+                       
+                    </tbody>
+                </table>
+                <div class="dataTables_paginate paging_bootstrap pagination">
+                    <ul>
+                        <li class="prev disabled"><a href="#">← 上一页</a></li>
+                        <li class="active"><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li class="next"><a href="#">下一页 → </a></li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+    </section>
+</div>
+ 
+
+<script src="~/Content/js/jquery-1.10.2.min.js"></script>
+
+@* <script src="~/Content/myjs/search.js"></script>*@
+
+
+<script>
+
+
+    $(function () {
+
+        getData();
+
+        //$("#searchbtn").click(function () {
+   
+        //    getData();
+        //});
+    });
+
+
+    //获取地址栏参数//可以是中文参数
+    function getUrlParam(key) {
+        // 获取参数
+        var url = window.location.search;
+        // 正则筛选地址栏
+        var reg = new RegExp("(^|&)" + key + "=([^&]*)(&|$)");
+        // 匹配目标参数
+        var result = url.substr(1).match(reg);
+        //返回参数值
+        return result ? decodeURIComponent(result[2]) : null;
+    }
+
+
+    function getData() {
+        $.ajax({
+            url: "/CheckFile/Search",
+            type: "get",
+            data: { keywords: getUrlParam("keywords") },
+            success: function (result) {
+                var jsonobj = JSON.parse(result);
+                parsetDate(jsonobj);
+            }
+        });
+    }
+
+    function parsetDate(jsonobj) {
+
+       var str = "";
+        $.each(jsonobj, function (index, item) {
+
+                
+            var needtr = $("<tr></tr>");
+            needtr.append("<td hidden='hidden'>" + item.userid + "</td>");
+            needtr.append("<td>" + item.realname + "</td>");
+             
+            needtr.append("<td>" + item.unitname + "</td>");
+          
+            needtr.append("<td>" + item.unitname + "</td>");
+            needtr.append("<td>" + item.tel + "</td>");
+
+
+            needtr.append("<td><a href=\"/CheckFile/HighUserChkOne?tid="+item.userid+"\" class=\"btn btn-success btn-xs\">查看</a></td>");
+
+
+            str += needtr.prop("outerHTML");
+               
+
+        });
+
+        $("#mycontent").html(str);
+    }
+
+
+
+
+</script>

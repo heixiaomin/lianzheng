@@ -1,0 +1,125 @@
+﻿@{
+    ViewBag.Title = "PrintProfit";
+}
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="~/Content/css/global.css" type="text/css"/>
+<link rel="stylesheet" href="~/Content/css/print.css" type="text/css"/>
+<title>科级干部从事或参与营利性活动打印页面</title>
+</head>
+<body>
+<div class="menu02">
+   <input type="button" value="打印" id="print_btn" onclick="javascript: window.print();"/>
+    <input type="button" value="关闭" onclick="window.history.go(-1);" />
+</div>
+<div class="print_bd lin_h45">
+  <h1 class="font_2 t_center padd_t30 lin_h36" >科级干部从事或参与营利性活动及<br/>
+    兼职持股情况报告表</h1>
+  <div class="font_4"><span class="font_4sm fr">表四－1</span>填表单位（章）：</div>
+
+   
+                       @{ 
+             
+            var userinfolist = ViewBag.userinfolist as List<Yisaa.DAL.DT_UserInfo>;
+            var plist = ViewBag.plist as List<Yisaa.DAL.DT_ProfitReport>;
+            foreach (var total in (ViewBag.tlist as List<Yisaa.DAL.DT_Total>))
+            {
+                foreach (var user in userinfolist.Where(a => a.Id == total.UserInfoId))
+                {
+             
+                    foreach (var p in plist.Where(a => a.Id == total.ProfitId))
+                    {          
+                                    
+  <table class="tab_b01 font_5 lin_h18" >
+    <tr >
+      <td class="t01" width="15%">姓  名 </td>
+      <td  width="20%">@user.RealName</td>
+      <td class="t01" width="15%">单 位 </td>
+      <td>@user.WorkUnit</td>
+      <td class="t01" width="15%">职 务 </td>
+      <td  width="15%">@user.Post</td>
+    </tr>
+    <tr >
+      <td class="t01" rowspan="5">个人经商办<br/>企业情况 </td>
+      <td class="t01">企业名称 </td>
+      <td colspan="4" >@p.CompanyName</td>
+    </tr>
+    <tr >
+      <td class="t01">经营范围 </td>
+      <td colspan="4" >@p.BusinessScope</td>
+    </tr>
+    <tr >
+      <td class="t01">注册资金（元） </td>
+      <td colspan="4" >@p.RegisterMoney</td>
+    </tr>
+    <tr >
+      <td class="t01">本人出资比例<br/>（百分比） </td>
+      <td colspan="4" >@p.InvestmentRate</td>
+    </tr>
+    <tr >
+      <td class="t01">年利润（元） </td>
+      <td colspan="4" >@p.YearProfit</td>
+    </tr>
+    <tr >
+      <td class="t01" rowspan="4">在企事业单<br/>位、社会团<br/>体或其他营<br/>利性组织中<br/>兼职情况 </td>
+      <td class="t01">兼职单位名称 </td>
+      <td colspan="4" >@p.ParttimeUnit</td>
+    </tr>
+    <tr >
+      <td class="t01">兼职单位性质 </td>
+      <td colspan="4" >@p.ParttimeUnitNature</td>
+    </tr>
+    <tr >
+      <td class="t01">兼任职务 </td>
+      <td colspan="4" >@p.ParttimePost</td>
+    </tr>
+    <tr >
+      <td class="t01">年取酬（元） </td>
+      <td colspan="4" >@p.YearMoney</td>
+    </tr>
+    <tr >
+      <td class="t01" rowspan="5">投资或入股<br/>情况 </td>
+      <td class="t01">投资或入股<br/>单位 </td>
+      <td colspan="4" >@p.InvestUnit</td>
+    </tr>
+    <tr >
+      <td class="t01">投资或入股<br/>单位性质 </td>
+      <td colspan="4" >@p.InvestUnitNature</td>
+    </tr>
+    <tr >
+      <td class="t01">投资或入股<br/>方式 </td>
+      <td colspan="4" >@p.InvestWay</td>
+    </tr>
+    <tr >
+      <td class="t01">本人投资或入股<br/>金额（元） </td>
+      <td colspan="4" >@p.InvestMoney</td>
+    </tr>
+    <tr >
+      <td class="t01">年收益（元） </td>
+      <td colspan="4" >@p.YearIncome</td>
+    </tr>
+    <tr >
+      <td class="t01">从事或参与<br/>其他证券投<br/>资情况（主要<br/>指购买股票、<br/>基金、债券、<br/>期货等） </td>
+      <td colspan="5" class="h180">@p.Other
+        
+       
+        
+        &nbsp;
+        &nbsp; </td>
+    </tr>
+  </table>
+         
+         }
+         }
+         }
+         }
+  <div class="font_4">填表人签名：<u>　　　　　　　　　&nbsp;</u><span class="fr font_4">填表时间：<u>　　　　</u>年<u>　　</u>月<u>　　</u>日</span></div>
+  <div class="font_5 lin_h30">说明：1、填写现状；<br/>
+　　　2、投资入股方式指资金入股、技术入股或其他方式。</div>
+</div>
+</body>
+</html>

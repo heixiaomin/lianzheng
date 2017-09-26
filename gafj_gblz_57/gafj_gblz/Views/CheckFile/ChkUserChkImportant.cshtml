@@ -1,0 +1,160 @@
+﻿@{
+    ViewBag.Title = "ChkUserChkImportant";
+    Layout = "~/Views/_PartialPage2.cshtml";
+}
+<style>
+    #row1
+    {
+        margin-top: -2px;
+    }
+
+    #row2
+    {
+        margin-top: -2px;
+    }
+</style>
+
+
+<div class="row" id="row1">
+    <div class="col-md-12">
+        <!--breadcrumbs start -->
+        <ul class="breadcrumb panel">
+            <li><a href="/Main/Index"><i class="fa fa-home"></i>首页</a></li>
+            <li><a href="/CheckFile/CheckUserIndex">档案审核</a></li>           
+            <li class="active">廉政档案登记表</li>
+        </ul>
+        <!--breadcrumbs end -->
+    </div>
+</div>
+
+
+<div class="row" id="row2">
+    <div class="col-sm-12">
+        @{ 
+            var userinfolist = ViewBag.userinfolist as List<Yisaa.DAL.DT_UserInfo>;
+          
+           
+            var important = ViewBag.important as List<Yisaa.DAL.DT_Important>;
+                
+            foreach (var total in (ViewBag.tlist as List<Yisaa.DAL.DT_Total>))
+            {
+              
+                foreach (var user in userinfolist.Where(a => a.Id == total.UserInfoId))
+                {
+
+                    foreach (var i in important.Where(a => a.Id == total.ImportantId))
+                    {     
+      
+            <section class="panel">
+                <input type="text" value="@total.Id" hidden="hidden" id="myid"/>
+                <input type="text" value="@total.UserId" hidden="hidden" id="myuserid"/>
+                <header class="panel-heading">【@user.RealName】其他重大事项报告表</header>
+                <div class="panel-body">
+                       <table class="table table-bordered">
+                                <tr >
+                                  <td class="t01" width="15%" >姓  名 </td>
+                                  <td width="18%">@user.RealName</td>
+                                  <td class="t01" width="15%" >单  位 </td>
+                                  <td width="22%">@user.WorkUnit</td>
+                                  <td class="t01" width="15%" >职 务 </td>
+                                  <td width="15%">@user.Post</td>
+                                </tr>
+                                <tr >
+                                  <td class="t01" height="300">报<br/>
+                                    告<br/>
+                                    事<br/>
+                                    项 </td>
+                                  <td colspan="5" >@i.Report</td>
+                                </tr>
+                                <tr >
+                                  <td class="t01" height="100">备  注 </td>
+                                  <td colspan="5" >@i.Remark</td>
+                                </tr>
+                                         
+                              </table>
+
+                    <table class="table table-striped table-hover table-bordered">
+                        <thead>
+                            <tr>
+                                <th>退回意见<span style="color: red">（审核通过不必填写）</span></th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="">
+                                <td>
+                                    <textarea rows="6" class="form-control" id="backadvice"></textarea></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p class="t_center">
+                        <button class="btn btn-success btn-lg" type="button" id="check_yesbtn">审核通过</button>
+                        <button class="btn btn-danger btn-lg" type="button" id="check_nobtn">审核不通过</button>
+                        <button class="btn btn-default btn-lg" type="button" onclick="window.history.go(-1);">返回</button>
+                    </p>
+                </div>
+            </section>  
+                
+                    }
+                }
+            }
+        }
+    </div>
+</div>
+<script src="~/Content/js/jquery-1.10.2.min.js"></script>
+
+<script>
+    $(function () {
+       
+        //审核通过
+        $("#check_yesbtn").click(function () {
+
+            $.post("/CheckFile/_UpdTotalImportant?id=" + $("#myid").val(),
+              {
+                  "id": $("#myid").val(),   
+                  "advice": $("#backadvice").val(),
+                
+              },
+              function (data) {
+                  if (data=="1") {
+                      alert("审核通过！");
+
+                      location.href = "/CheckFile/CheckUserCheckOne?tid=" + $("#myuserid").val();
+ 
+                  } else {
+
+                      alert("审核不通过！");
+                      window.history.go(-1);
+                     
+                  }
+            });
+
+        });
+        //审核不通过
+        $("#check_nobtn").click(function () {
+
+            if ($("#backadvice").val() == "" || $("#backadvice").val() == null) {
+                alert("请填写不通过原由！");
+                return;
+            } else {
+
+                $.post("/CheckFile/_UpdTotalImportant_No?id=" + $("#myid").val(),
+                  {
+                      "id": $("#myid").val(),
+                      "advice": $("#backadvice").val(),
+
+                  },
+                  function (data) {
+                      if (data == "1") {
+                          alert("审核不通过！");
+                          location.href = "/CheckFile/CheckUserCheckOne?tid=" + $("#myuserid").val();
+
+                      }
+                  });
+
+            }
+        });
+    });
+    
+
+</script>

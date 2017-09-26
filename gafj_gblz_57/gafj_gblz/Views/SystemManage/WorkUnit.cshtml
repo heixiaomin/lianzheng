@@ -1,0 +1,353 @@
+﻿@{
+    ViewBag.Title = "WorkUnit";
+    Layout = "~/Views/_PartialPage1.cshtml";
+}
+
+@*  <div class="row">*@
+
+<div class="col-sm-12">
+    <section class="panel">
+        <header class="panel-heading">
+            单位设置
+            <div class="btn-group fr"><a class="btn btn-primary" href="#myModal-3" data-toggle="modal">添加科室<i class="fa fa-plus"></i></a></div>
+
+            <div class="btn-group fr"><a class="btn btn-primary" href="#myModal-1" data-toggle="modal">添加单位<i class="fa fa-plus"></i></a> &nbsp;&nbsp;</div>
+            <!--新增单位弹出框开始-->
+            <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal-1" class="modal fade">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+                            <h4 class="modal-title">添加单位</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form class="form-horizontal" action="#">
+                                <div class="form-group">
+                                    <label class="control-label col-md-3">单位</label>
+                                    <div class="col-md-7">
+                                        <input type="text" class="form-control" id="addunit">
+                                       
+                                    </div>
+                                </div>
+                               
+                                <div class="form-group">
+                                    <div class="control-label col-md-4">
+                                        <button class="btn btn-primary" type="button" id="addbtn">确认添加</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--新增单位弹出框结束-->
+
+            <!--新增科室弹出框开始-->
+            <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal-3" class="modal fade">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+                            <h4 class="modal-title">添加科室</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form class="form-horizontal" action="#">
+                                <div class="form-group">
+                                    <label class="control-label col-md-3">所属单位</label>
+                                    <div class="col-md-7">
+                                        <select class="form-control" id="editable-select">
+                                            @{ foreach (var item in ViewBag.units as List<Yisaa.DAL.DT_WorkUnit>)
+                                               { 
+                                                <option value="@item.Id" id="belongid">@item.UnitName</option>
+                                               }}
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3">科室</label>
+                                    <div class="col-md-7">
+                                        <input type="text" class="form-control" id="adddept">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="control-label col-md-4">
+                                        <button class="btn btn-primary" type="button" id="adddept_btn">确认添加</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--新增科室弹出框结束-->
+        </header>
+        <div class="panel-body">
+
+            <!--collapse start-->
+            <div class="panel-group font_12" id="accordion">
+
+                @{
+                    var depts = (ViewBag.depts as List<Yisaa.DAL.DT_WorkUnit>);
+                    foreach (var item in (ViewBag.units as List<Yisaa.DAL.DT_WorkUnit>))
+                    {                                      
+                    <div class="panel">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" hidden="hidden">
+                                    <em class="icon_open"></em>@item.Id
+                                </a>
+                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                                    <em class="icon_open"></em>@item.UnitName
+                                </a>
+                                <div class="fr">
+                                    <a href="#myModal-2" class="upd"><i class="fa fa-edit"></i>修改</a>
+                                    <a href="/SystemManage/_DelUnit?id=@item.Id"><i class="fa fa-trash-o"></i>删除</a>
+                                </div>
+                                <!--修改单位弹出框开始-->
+                                <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal-2" class="modal fade">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+                                                <h4 class="modal-title">修改单位分类</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form class="form-horizontal  " action="#">
+                                                    <div class="form-group" hidden="hidden">
+                                                        <label class="control-label col-md-3">序号</label>
+                                                        <div class="col-md-7">
+                                                            <input type="text" class="form-control" id="updid">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-3">单位</label>
+                                                        <div class="col-md-7">
+                                                            <input type="text" class="form-control" id="updunit">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="control-label col-md-4">
+                                                            <button class="btn btn-primary" type="button" id="updbtn">确认修改</button>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--修改单位弹出框结束-->
+
+                            </h4>
+                        </div>
+                        <div id="collapseOne" class="panel-collapse collapse in">
+
+
+                            <div class="panel-body">
+                                <table class="display table table-bordered table-striped dataTable">
+                                    <thead>
+                                        <tr>
+                                            <th hidden="hidden">序号</th>
+                                            <th>科室</th>
+                                            <th width="24.5%">操作</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        @foreach (var d in depts.Where(a => a.ParentId == item.Id))
+                                        { 
+                                            <tr>
+                                                <td hidden="hidden">@d.Id</td>                                               
+                                                <td>@d.UnitName</td>
+                                                <td>
+                                                    <a href="#myModal-4" class="upd_dept"><i class="fa fa-edit"></i>修改</a>
+                                                    <a href="/SystemManage/_DelDept?id=@d.Id"><i class="fa fa-trash-o"></i>删除</a>
+                                                      <!--修改科室弹出框开始-->
+                                            <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal-4" class="modal fade">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+                                                            <h4 class="modal-title">修改科室</h4>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <form class="form-horizontal" action="#">
+                                                                <div class="form-group" hidden="hidden">
+                                                                    <label class="control-label col-md-3">序号</label>
+                                                                    <div class="col-md-7">
+                                                                        <input type="text" class="form-control" id="upd_id">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-md-3">科室</label>
+                                                                    <div class="col-md-7">
+                                                                        <input type="text" class="form-control" id="upd_dept">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <div class="control-label col-md-4">
+                                                                        <button class="btn btn-primary" type="button" id="upddept_btn">确认修改</button>
+                                                                    </div>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--修改科室弹出框结束-->
+                                                </td>
+                                            </tr>                                         
+                                        }
+                                    </tbody>
+
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+                    }
+                    
+                }
+
+            </div>
+            <!--collapse end-->
+        </div>
+    </section>
+</div>
+@* </div>*@
+
+<script src="~/Content/js/jquery-1.10.2.min.js"></script>
+
+<script>
+
+    $(function () {
+        //添加单位
+        $("#addbtn").click(function () {
+            if ($("#addunit").val().trim() == "" || $("#addunit").val().trim() == null) {
+                alert("请填写单位！");
+                return;
+            }
+            $.post("/SystemManage/_AddUnit",
+              {
+                  "w.UnitName": $("#addunit").val().trim(),
+
+              }, function (data) {
+                  if (data == "1") {
+
+                      alert("添加成功！");
+
+                      location.href = "/SystemManage/WorkUnit";
+
+                  } else {
+
+                      alert("添加失败,请重试！");
+
+                      location.reload();
+                  }
+              });
+
+        });
+        //修改单位弹跳框
+        $(".upd").click(function () {
+
+            $(this).attr("data-toggle", "modal");
+
+            $("#updid").val($(this).parent().parent().find("a").eq(0).text().trim());
+            $("#updunit").val($(this).parent().parent().find("a").eq(1).text().trim());
+
+
+        });
+        //修改单位
+        $("#updbtn").click(function () {
+
+            $.post("/SystemManage/_UpdUnit",
+              {
+                  "w.Id": $("#updid").val().trim(),
+                  "w.UnitName": $("#updunit").val().trim(),
+
+              }, function (data) {
+                  if (data == "1") {
+
+                      alert("修改成功！");
+
+                      location.href = "/SystemManage/WorkUnit";
+
+                  } else {
+
+                      alert("修改失败,请重试！");
+
+                      location.reload();
+                  }
+              });
+
+        });
+
+        //添加科室
+        $("#adddept_btn").click(function () {
+
+            if ($("#adddept").val().trim() == "" || $("#adddept").val().trim() == null) {
+                alert("请填写科室！");
+                return;
+            }
+            $.post("/SystemManage/_AddDept",
+              {
+                  "w.UnitName": $("#adddept").val().trim(),
+                  "w.ParentId": $("#editable-select").val().trim(),
+
+              }, function (data) {
+                  if (data == "1") {
+
+                      alert("添加成功！");
+
+                      location.href = "/SystemManage/WorkUnit";
+
+                  } else {
+
+                      alert("添加失败,请重试！");
+
+                      location.reload();
+                  }
+              });
+
+        });
+
+        //修改科室弹跳框
+        $(".upd_dept").click(function () {
+
+            $(this).attr("data-toggle", "modal");
+
+            $("#upd_id").val($(this).parent().parent().find("td").eq(0).text().trim());        
+            $("#upd_dept").val($(this).parent().parent().find("td").eq(1).text().trim());
+        });
+
+        //修改科室
+        $("#upddept_btn").click(function () {
+
+           
+            $.post("/SystemManage/_UpdDept",
+              {
+                  "w.Id": $("#upd_id").val().trim(),
+                  "w.UnitName": $("#upd_dept").val().trim(),
+
+              }, function (data) {
+                  if (data == "1") {
+
+                      alert("修改成功！");
+
+                      location.href = "/SystemManage/WorkUnit";
+
+                  } else {
+
+                      alert("修改失败,请重试！");
+
+                      location.reload();
+                  }
+              });
+
+        });
+
+
+
+    });
+
+</script>
+

@@ -1,0 +1,101 @@
+﻿@{
+    ViewBag.Title = "PrintWeddingDie";
+}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="~/Content/css/global.css" type="text/css"/>
+<link rel="stylesheet" href="~/Content/css/print.css" type="text/css"/>
+<title>科级干部参与操办本人及近亲属婚丧喜庆打印页面</title>
+</head>
+<body>
+<div class="menu02">
+    <input type="button" value="打印" id="print_btn" onclick="javascript: window.print();"/>
+    <input type="button" value="关闭" onclick="window.history.go(-1);" />
+</div>
+<div class="print_bd lin_h45">
+  <h1 class="font_2 t_center padd_t30 lin_h36">科级干部参与操办本人及近亲属婚丧喜庆<br/>
+    事宜情况报告表</h1>
+  <div class="font_4"><span class="font_4sm fr">表四－4</span></div>
+
+      @{              
+            var userinfolist = ViewBag.userinfolist as List<Yisaa.DAL.DT_UserInfo>;
+            var weddingdie = ViewBag.weddingdie as List<Yisaa.DAL.DT_WeddingandDie>;
+            foreach (var total in (ViewBag.tlist as List<Yisaa.DAL.DT_Total>))
+            {
+                foreach (var user in userinfolist.Where(a => a.Id == total.UserInfoId))
+                {
+
+                    foreach (var p in weddingdie.Where(a => a.Id == total.WeddingandDieId))
+                    {        
+  <table class="tab_b01 font_4sm lin_h24 tb_h40" >
+    <tr >
+      <td class="t01" width="15%">姓  名 </td>
+      <td width="15%">@user.RealName</td>
+      <td class="t01" width="15%">单  位 </td>
+      <td width="20%">@user.WorkUnit</td>
+      <td class="t01" width="15%">职 务 </td>
+      <td width="20%">@user.Post</td>
+    </tr>
+    <tr >
+      <td class="t01" rowspan="10" >
+        本人参 <br />
+        与操办 <br />
+        本人及 <br />
+        近亲属 <br />
+        婚丧喜 <br />
+        庆事宜 </td>
+      <td class="t01">操办事项 </td>
+      <td colspan="4" >@p.Arrange</td>
+    </tr>
+    <tr >
+      <td class="t01" >办理时间 </td>
+      <td colspan="4" >@p.ManageTime</td>
+    </tr>
+    <tr >
+      <td class="t01" >办理地点 </td>
+      <td colspan="4" >@p.ManageAddress</td>
+    </tr>
+    <tr >
+      <td class="t01" >参加对象 </td>
+      <td colspan="4" >@p.PartyObject</td>
+    </tr>
+    <tr >
+      <td class="t01" >参加人数 </td>
+      <td colspan="4" >@p.PartyNum</td>
+    </tr>
+    <tr >
+      <td class="t01" >收受礼金金额 </td>
+      <td colspan="4" >@p.AcceptingMoney（元） </td>
+    </tr>
+    <tr >
+      <td class="t01" rowspan="2" >收受礼品数量 <br />
+        及价值 </td>
+      <td colspan="4" >@p.AcceptingCount（件） </td>
+    </tr>
+    <tr >
+      <td colspan="4" >@p.AcceptingValue （元） </td>
+    </tr>
+    <tr class="h120">
+      <td class="t01" >所受礼金礼品处理情况 </td>
+      <td colspan="4" >@p.HandleStatus</td>
+    </tr>
+    <tr class="h120">
+      <td class="t01" >组织意见 </td>
+      <td colspan="4"><div class="br_date"> （章） <br />
+          年   月   日 </div></td>
+    </tr>
+  </table>
+           }
+         }
+            }
+         }
+
+  <div class="font_4">填表人签名：<u>　　　　　　　　　&nbsp;</u><span class="fr font_4">填表时间：<u>　　　　</u>年<u>　　</u>月<u>　　</u>日</span></div>
+  <div class="font_5 lin_h30">说明：1、近亲属包括父母、岳父母、配偶、子女及其配偶、兄弟姐妹等。<br/>
+　　　2、填写2013年1月后发生的情况。</div>
+</div>
+</body>
+</html>

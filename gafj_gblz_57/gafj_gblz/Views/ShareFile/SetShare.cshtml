@@ -1,0 +1,448 @@
+﻿@{
+    ViewBag.Title = "SetShare";
+    Layout = "~/Views/_PartialPage1.cshtml";
+}
+
+<style>
+    .col-lg-4
+    {
+        width: 650px;
+    }
+</style>
+
+
+<div class="col-sm-12">
+    <section class="panel">
+        <header class="panel-heading">设置共享人</header>
+        <div class="panel-body">
+            <form class="form-horizontal" role="form" action="#">
+                <input type="text" id="sels"/>  @* hidden="hidden"*@
+                <input type="text" id="sels2"/> 
+                <div class="form-group">
+                    <label for="inputEmail1" class="col-lg-3 col-sm-2 control-label">系统内共享人</label>
+                    <div class="col-lg-4" id="menu">
+                        <select id="sel_menu2" multiple="multiple" class="form-control">
+                            @{
+                                var allunits = ViewBag.allunits as List<Yisaa.DAL.DT_WorkUnit>;
+                                var allusers = ViewBag.allusers as List<Yisaa.DAL.DT_UserLoginRecord>;
+                                foreach (var unit in allunits)
+                                {
+                                <optgroup label="@unit.UnitName">
+                                    @foreach (var user in allusers.Where(a => a.WorkUnitId == unit.Id))
+                                    {
+                                        
+                                        <option class="myname" value="@user.Id">@user.RealName</option>
+                                    }
+                                </optgroup>
+                                }                                
+                            }
+                        </select>
+                        <!--<p class="help-block">Example block-level help text here.</p>-->
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="input1" class="col-lg-3 col-sm-2 control-label">系统外共享人</label>
+                    <div class="col-lg-4">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th hidden="hidden">序号</th>
+                                    <th>姓名</th>
+                                    <th>手机号</th>
+                                    <th>密码</th>
+                                    <th>操作</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @{foreach (var foreign in (ViewBag.foreigns as List<Yisaa.DAL.DT_UserLoginRecord>))
+                                  {                         
+                                    <tr class="">
+                                        <td hidden="hidden" id="myid" class="fid">-@foreign.Id</td>
+                                        <td class="rname">@foreign.RealName</td>
+                                        <td>@foreign.Telphone</td>
+                                        <td>
+                                            <input type="password" value="@foreign.Password" style="border:none" readonly=""/></td>
+                                        <td>
+                                            <a href="#myModal2" data-toggle="modal" class="upd"><i class="fa fa-edit"></i>修改</a>
+                                            <a href="/ShareFile/_DelUser?id=@foreign.Id"><i class="fa fa-trash-o"></i>删除</a>
+                                        </td>
+                                    </tr>
+                                  }                                                                       
+                                }
+                            </tbody>
+                        </table>
+                        <a href="#myModal" data-toggle="modal" class="btn btn-success">添加共享人 </a>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="input1" class="col-lg-2 col-sm-2 control-label"></label>
+                    <div class="col-lg-5">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="input1" class="col-lg-3 col-sm-2 control-label">共享年份</label>
+                    <div class="col-lg-4">
+                        <div class="input-group input-large custom-date-range" data-date="13/07/2013" data-date-format="mm/dd/yyyy">
+                            <select class="form-control m-bot15" id="shareyear">
+                               
+
+                                @{ var years = ViewBag.years as List<Yisaa.DAL.DT_Total>;
+                                   foreach (var f in years)
+                                   {
+                                        
+                                    <option value="@f.YearTable">@f.YearTable</option>
+                                        
+
+                                   }
+                                }
+                            </select>
+                        </div>
+                        <!--<p class="help-block">Example block-level help text here.</p>-->
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="input1" class="col-lg-3 col-sm-2 control-label">共享时间段</label>
+                    <div class="col-lg-4">
+                        <div class="input-group input-large custom-date-range" data-date="13/07/2013" data-date-format="mm/dd/yyyy">
+                            <input type="text" class="form-control laydate-icon" name="from" id="begintime">
+                            <span class="input-group-addon">To</span>
+                            <input type="text" class="form-control laydate-icon" name="to" id="endtime">
+                        </div>
+                        <!--<p class="help-block">Example block-level help text here.</p>-->
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="inputEmail1" class="col-lg-2 col-sm-2 control-label"></label>
+                    <div class="col-lg-7">
+                        <div class="b-tags">
+                            被共享人
+                            <ul id="demo">
+                                @{
+                                    var users = ViewBag.allusers as List<Yisaa.DAL.DT_UserLoginRecord>;
+                                    var beshared = ViewBag.beshared as List<Yisaa.DAL.DT_BeShared>;
+                                    foreach (var sh in beshared)
+                                    {
+                                        foreach (var u in users.Where(a => a.Id == sh.BeSharedId))
+                                        {
+                                    <li class="b"><span>×</span>@u.RealName<input type="text" class="be" value="@u.Id" hidden="hidden"/></li>
+                                        }
+
+                                    }}
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-lg-offset-3 col-lg-10">
+                        <button type="button" class="btn btn-primary btn-lg" id="sharebtn">确认共享</button>
+                        <button class="btn btn-default btn-lg" type="button" id="backbtn">返回</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+</div>
+
+<!-- 添加档案外共享人弹出框 -->
+<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content" style="height: 316px">
+            <div class="modal-header">
+                <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+                <h4 class="modal-title">添加档案外共享人</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" role="form">
+                    <div class="form-group">
+                        <label for="inputEmail1" class="col-lg-2 col-sm-2 control-label">姓名</label>
+                        <div class="col-lg-10">
+                            <select class="form-control" id="editable-select">
+
+                               @* <option>王某某</option>*@
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword1" class="col-lg-2 col-sm-2 control-label">手机号</label>
+                        <div class="col-lg-10">
+                            <input type="text" class="form-control" id="telphone" placeholder="手机号">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword1" class="col-lg-2 col-sm-2 control-label">密码</label>
+                        <div class="col-lg-10">
+                            <input type="text" class="form-control" id="pwd" placeholder="密码">
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success" id="savebtn">保存</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    </div>
+                </form>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 添加档案外共享人弹出框 -->
+<!-- 修改档案外共享人弹出框 -->
+<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal2" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content" style="height: 316px">
+            <div class="modal-header">
+                <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+                <h4 class="modal-title">修改档案外共享人</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" role="form">
+                    <div class="form-group" hidden="hidden">
+                        <label for="inputPassword1" class="col-lg-2 col-sm-2 control-label"></label>
+                        <div class="col-lg-10">
+                            <input type="text" class="form-control" id="updnum" placeholder="序号">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                         
+                        <label for="inputPassword1" class="col-lg-2 col-sm-2 control-label">姓名</label>
+                        <div class="col-lg-10">
+                            <input type="text" class="form-control" id="updname" placeholder="姓名">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword1" class="col-lg-2 col-sm-2 control-label">手机号</label>
+                        <div class="col-lg-10">
+                            <input type="text" class="form-control" id="updtel" placeholder="手机号">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword1" class="col-lg-2 col-sm-2 control-label">密码</label>
+                        <div class="col-lg-10">
+                            <input type="text" class="form-control" id="updpwd" placeholder="密码">
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success" id="updbtn">确认修改</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    </div>
+                </form>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 修改档案外共享人弹出框 -->
+<script src="~/Content/js/jquery-1.10.2.min.js"></script>
+<script src="~/Content/js/select2.full.js"></script>
+<script src="~/Content/js/select2.js"></script>
+<script src="~/Content/js/jquery-editable-select.js"></script>
+<script src="~/Content/laydate/laydate.js"></script>
+
+
+<script>
+    $(function () {
+
+        //确认共享
+        $("#sharebtn").click(function () {
+
+            //系统内
+            var sels3 = $("#sel_menu2").val() == null ? "" : $("#sel_menu2").val();
+            //alert(sels3);           
+
+            //系统外
+            var sel4 = $(".fid").text().split("-");
+           // alert(sel4);
+
+            //系统外2  去除字符串第一个逗号
+            var sel5 = ($(".fid").text().split("-")).toString().substr(1);
+            alert(sel5);
+
+            
+            //系统内和系统外共享人
+            var sels = sels3 + sel4; //$("#sels").val(($("#sel_menu2").val()==null?"":$("#sel_menu2").val())+$(".fid").text().split("-"));
+            alert(sels);
+
+
+            //被共享人
+            var sels2 = $("#sels2").val($("#demo li input").each(function () { $(this).val(); }).val());
+            //alert(sels2.val());
+
+
+            //var sels2 = $("#sels2").val($(".be").val());
+            //sels2 = $(".be").val();
+           
+
+             if (($("#sel_menu2").val() == null || $("#sel_menu2").val() == "") && ($(".rname").text() == null || $(".rname").text() == "")) {
+                alert("请添加共享人~ ~");
+            }
+            else if (($("#begintime").val() == null || $("#begintime").val() == "") || ($("#endtime").val() == null || $("#endtime").val() == "")) {
+                alert("请填写共享时间段！");
+                return;
+    
+            }
+            else {
+                $.post("/ShareFile/_AddShareRecord",
+           {
+               "userids": ($("#sel_menu2").val() == null || $("#sel_menu2").val() == "")?sel5:sels,  //($(".rname").text() == null || $(".rname").text() == "") ? sels3 : sels, //$("#sels").val(),  
+               "year": $("#shareyear").val(),
+               "begintime": $("#begintime").val(),
+               "endtime": $("#endtime").val(),
+               "sharedids": $("#sels2").val(),
+           }, function (data) {
+
+               if (data == "1") {
+
+                   alert("共享成功！");
+
+                   //location.href = "/ShareFile/SetShare";
+
+               } else {
+
+                   alert("共享失败，请重试！");
+
+                   location.reload();
+               }
+
+           });
+            }
+        });
+
+        //添加
+        $("#savebtn").click(function () {
+
+            if (($("#editable-select").val() == null || $("#editable-select").val() == "") ||
+                ($("#telphone").val() == null || $("#telphone").val() == "") ||
+                ($("#pwd").val() == null || $("#pwd").val() == "")) {
+                alert("请将信息填写完整~ ~");
+                return;
+            }
+            else if ($("#telphone").val().length != 11) {
+                alert("手机号码为11位~ ~");
+                return;
+            }
+            else if ($("#pwd").val().length < 6) {
+                alert("密码要大于等于6位~ ~");
+                return;
+            }
+            else {
+                $.post("/ShareFile/_AddUser",
+             {
+                 "u.RealName": $("#editable-select").val().trim(),
+                 "u.Telphone": $("#telphone").val().trim(),
+                 "u.Password": $("#pwd").val().trim(),
+             }, function (data) {
+                 if (data == "1") {
+
+                     alert("添加成功！");
+
+                     location.href = "/ShareFile/SetShare";
+
+                 } else {
+
+                     alert("添加失败，请重试！");
+
+                     location.reload();
+                 }
+             });
+            }
+        });
+
+        //修改弹跳框
+        $(".upd").click(function () {
+
+            //var sels2 = $("#sels2").val($("#demo li input").each(function () { $(this).val(); }).val());
+            //alert(sels2.val());           
+
+            $("#updnum").val($(this).parent().parent().find("td").eq(0).html().trim());
+            $("#updname").val($(this).parent().parent().find("td").eq(1).html().trim());
+            $("#updtel").val($(this).parent().parent().find("td").eq(2).html().trim());
+            $("#updpwd").val($(this).parent().parent().find("td").eq(3).find("input").eq(0).val().trim());
+
+        });
+
+        //修改
+        $("#updbtn").click(function () {
+            if (($("#updname").val() == null || $("#updname").val() == "") ||
+                ($("#updtel").val() == null || $("#updtel").val() == "") ||
+                ($("#updpwd").val() == null || $("#updpwd").val() == "")) {
+                alert("请将信息填写完整~ ~");
+                return;
+            }
+            else if ($("#updtel").val().length != 11) {
+                alert("手机号码为11位~ ~");
+                return;
+            }
+            else if ($("#updpwd").val().length < 6) {
+                alert("密码要大于等于6位~ ~");
+                return;
+            }
+
+            $.post("/ShareFile/_UpdUser",
+               {
+                   "u.Id": $("#updnum").val().trim(),
+                   "u.RealName": $("#updname").val().trim(),
+                   "u.Telphone": $("#updtel").val().trim(),
+                   "u.Password": $("#updpwd").val().trim(),
+               }, function (data) {
+                   if (data == "1") {
+
+                       alert("修改成功！");
+
+                       location.href = "/ShareFile/SetShare";
+
+                   } else {
+
+                       alert("修改失败，请重试！");
+
+                       location.reload();
+                   }
+               });
+
+
+        });
+
+        $("#backbtn").click(function(){
+
+            location.href = "/ShareFile/ShareIndex";
+        
+        });
+        
+
+        
+
+    });
+
+
+    laydate({
+        elem: '#begintime',
+        event: 'focus'
+    });
+    laydate({
+        elem: '#endtime',
+        event: 'focus'
+    });
+
+
+    $("#sel_menu2").select2({
+        tags: true,
+        maximumSelectionLength: 10 //最多能够选择的个数
+    });
+    $('#editable-select').editableSelect({
+        effects: 'slide'
+    });
+
+    $(document).ready(function () {
+        $('#demo li span').click(function () {
+            this.parentNode.remove();
+
+        });
+
+    });
+</script>

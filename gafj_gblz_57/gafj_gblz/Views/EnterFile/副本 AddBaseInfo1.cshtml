@@ -1,0 +1,379 @@
+﻿@{
+    ViewBag.Title = "AddBaseInfo1";
+    Layout = "~/Views/_LayoutPage1.cshtml";
+}
+
+
+@*<div class="wrapper">*@
+
+<div class="row">
+    <div class="col-md-12">
+        <!--breadcrumbs start -->
+        <ul class="breadcrumb panel">
+            <li><a href="/EnterFile/Index"><i class="fa fa-home"></i>首页</a></li>
+            <li class="active">科级干部基本情况登记表1</li>
+        </ul>
+        <!--breadcrumbs end -->
+    </div>
+</div>
+<div class="row">
+
+    <div class="col-sm-12">
+        <section class="panel">
+            <header class="panel-heading">
+                【@Session["realname"]】基本情况登记表1
+            </header>
+
+            <div class="panel-body"> @*AjaxUpload  *@   @*enctype="multipart/form-data"*@  @*/EnterFile/AddBaseInfo1*@
+                <form class="form-horizontal" id="upload_form" role="form" action="/EnterFile/AddBaseInfo1" method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="inputEmail1" class="col-lg-3 col-sm-2 control-label">姓名</label>
+                        <div class="col-lg-4">
+                            <input type="text" class="form-control" id="name" placeholder="" name="realname">
+                            <!--<p class="help-block">Example block-level help text here.</p>-->
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="input1" class="col-lg-3 col-sm-2 control-label">性别</label>
+                        <div class="col-lg-4">
+                            <input type="" class="form-control" id="sex" placeholder="" name="sex">
+                            <!--<p class="help-block">Example block-level help text here.</p>-->
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="input1" class="col-lg-3 col-sm-2 control-label">籍贯</label>
+                        <div class="col-lg-4">
+                            <input type="" class="form-control" id="native" placeholder="" name="native">
+                            <!--<p class="help-block">Example block-level help text here.</p>-->
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputFile2" class="col-lg-3 col-sm-2 control-label">照片</label>
+                         <div class="col-lg-4">
+                            <input type="text" class="form-control" id="Path" placeholder="" name="Path" value="@ViewBag.path" disabled="disabled"><br />
+                             <span><input type="file" name="files[]" id="demo-fileInput-4" style="float:left;" multiple> <input type="submit" class="help-block" value="上传" style="float:right;" onclick="myupload()"/></span>
+
+                            <!--<p class="help-block">Example block-level help text here.</p>-->
+                        </div>
+                        <div class="col-lg-4">
+                            @*<input type="file"id="FileUpload1" name="FileUpload1" onchange="ExcelUpload('FileUpload1',this);" />*@
+                               @* <input type="file" name="files[]" id="demo-fileInput-4" multiple><br />
+                                <input type="submit" class="btn-custom green" value="上传" onclick="myupload()">                          *@
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="input1" class="col-lg-3 col-sm-2 control-label">出生日期</label> 
+                        <div class="col-lg-4"> 
+                            <input type="text" value="" size="16" class="form-control laydate-icon" id="birthday" onClick = "WdatePicker()">
+                        
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="input1" class="col-lg-3 col-sm-2 control-label">身份证号</label>
+                        <div class="col-lg-4">
+                            <input type="" class="form-control" id="idcard" placeholder="">
+                            <!--<p class="help-block">Example block-level help text here.</p>-->
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="input1" class="col-lg-3 col-sm-2 control-label">政治面貌</label>
+                        <div class="col-lg-4">
+                            <input type="" class="form-control" id="outlook" placeholder="">
+                            <!--<p class="help-block">Example block-level help text here.</p>-->
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="input1" class="col-lg-3 col-sm-2 control-label">入党时间</label>
+                        <div class="col-lg-4">
+                            <input type="text" value=" " size="16" class="form-control laydate-icon" id="partytime">
+
+                           
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="input1" class="col-lg-3 col-sm-2 control-label">民   族</label>
+                        <div class="col-lg-4">
+                            <input type="" class="form-control" id="nation" placeholder="">
+                            <!--<p class="help-block">Example block-level help text here.</p>-->
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="input1" class="col-lg-3 col-sm-2 control-label">本人编制性质</label>
+                        <div class="col-lg-4">
+                            <input type="" class="form-control" id="property" placeholder="">
+                            <!--<p class="help-block">Example block-level help text here.</p>-->
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="input1" class="col-lg-3 col-sm-2 control-label">参加工作时间</label>
+                        <div class="col-lg-4">
+                            <input type="text" value="" size="16" class="form-control laydate-icon" id="jobtime">
+                          
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="input1" class="col-lg-3 col-sm-2 control-label">学历</label>
+                        <div class="col-lg-4">
+                            <input type="" class="form-control" id="education" placeholder="">
+                            <!--<p class="help-block">Example block-level help text here.</p>-->
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="input1" class="col-lg-3 col-sm-2 control-label">工作单位</label>
+                        <div class="col-lg-4">
+                            <input type="" class="form-control" id="workunit" placeholder="">
+                            <!--<p class="help-block">Example block-level help text here.</p>-->
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="input1" class="col-lg-3 col-sm-2 control-label">现任职务</label>
+                        <div class="col-lg-4">
+                            <input type="" class="form-control" id="post" placeholder="">
+                            <!--<p class="help-block">Example block-level help text here.</p>-->
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="input1" class="col-lg-3 col-sm-2 control-label">职级</label>
+                        <div class="col-lg-4">
+                            <input type="" class="form-control" id="poststatus" placeholder="">
+                            <!--<p class="help-block">Example block-level help text here.</p>-->
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="input1" class="col-lg-3 col-sm-2 control-label">任现职务时间</label>
+                        <div class="col-lg-4">
+                            <input type="text" value="" size="16" class="form-control laydate-icon" id="posttime">
+ 
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="input1" class="col-lg-3 col-sm-2 control-label">分管工作</label>
+                        <div class="col-lg-4">
+                            <input type="" class="form-control" id="dowork" placeholder="">
+                            <!--<p class="help-block">Example block-level help text here.</p>-->
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="input1" class="col-lg-3 col-sm-2 control-label">家庭住址</label>
+                        <div class="col-lg-4">
+                            <input type="" class="form-control" id="address" placeholder="">
+                            <!--<p class="help-block">Example block-level help text here.</p>-->
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="input1" class="col-lg-3 col-sm-2 control-label">个人简历</label>
+                        <div class="col-lg-5">
+                            <textarea rows="6" class="form-control" id="introduction"></textarea>
+                            <!--<p class="help-block">Example block-level help text here.</p>-->
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-lg-offset-3 col-lg-10">
+                            @*<button type="submit" class="btn btn-primary" id="savebtn">保存</button>*@
+                             <button type="button" class="btn btn-primary" id="savebtn">保存</button>
+                            <button class="btn btn-default" type="button" onclick="window.history.go(-1);">返回</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+    </div>
+</div>
+
+@*</div>*@
+
+
+<script src="~/Content/js/jquery-1.10.2.min.js"></script>
+
+<script src="~/Content/myjs/datepicker/WdatePicker.js"></script>
+<script src="~/Content/myjs/datepicker/calendar.js"></script>
+
+@*<script src="~/Content/myjs/upload.js"></script>*@
+
+
+<script src="~/Content/laydate/laydate.js"></script>
+
+
+
+<script>
+
+    $(function () {
+
+        function myupload() {
+
+            //alert($("#demo-fileInput-4").val());
+            if ($("#demo-fileInput-4").val() == "" || $("#demo-fileInput-4").val() == null)
+            {
+                alert("照片不能为空！");
+                return;
+            }
+
+        }
+         
+        //保存
+        $("#savebtn").click(function () {
+
+         
+           // alert($("#Path").val());
+
+            if ($("#name").val() == null || $("#name").val() == "") {
+                alert("请填写姓名！");
+
+                return;
+            }
+            else if ($("#sex").val() == null || $("#sex").val() == "") {
+                alert("请填写性别！");
+
+                return;
+            }
+            else if ($("#native").val() == null || $("#native").val() == "") {
+                alert("请填写籍贯！");
+
+                return;
+            }
+            else if ($("#Path").val() == null || $("#Path").val() == "") {
+                alert("请上传照片！");
+
+                return;
+            }
+            //else if ($("#birthday").val() == null || $("#birthday").val() == "") {
+            //    alert("请填写生日！");
+
+            //    return;
+            //}
+
+            //else if ($("#idcard").val() == null || $("#idcard").val() == "") {
+            //    alert("请填写身份证号码！");
+
+            //    return;
+            //}
+            //else if ($("#outlook").val() == null || $("#outlook").val() == "") {
+            //    alert("请填写政治面貌！");
+
+            //    return;
+            //}
+            //else if ($("#partytime").val() == null || $("#partytime").val() == "") {
+            //    alert("请填写入党时间！");
+
+            //    return;
+            //}
+            //else if ($("#nation").val() == null || $("#nation").val() == "") {
+            //    alert("请填写民族！");
+
+            //    return;
+            //}
+            //else if ($("#property").val() == null || $("#property").val() == "") {
+            //    alert("请填写本人编制性质！");
+
+            //    return;
+            //}
+            //else if ($("#jobtime").val() == null || $("#jobtime").val() == "") {
+            //    alert("请填写参加工作时间！");
+
+            //    return;
+            //}
+            //else if ($("#education").val() == null || $("#education").val() == "") {
+            //    alert("请填写学历！");
+
+            //    return;
+            //}
+            //else if ($("#workunit").val() == null || $("#workunit").val() == "") {
+            //    alert("请填写工作单位！");
+
+            //    return;
+            //}
+            //else if ($("#post").val() == null || $("#post").val() == "") {
+            //    alert("请填写现任职务！");
+
+            //    return;
+            //}
+            //else if ($("#poststatus").val() == null || $("#poststatus").val() == "") {
+            //    alert("请填写职级！");
+
+            //    return;
+            //}
+            //else if ($("#posttime").val() == null || $("#posttime").val() == "") {
+            //    alert("请填写任现职务时间！");
+
+            //    return;
+            //} else if ($("#dowork").val() == null || $("#dowork").val() == "") {
+            //    alert("请填写分管工作！");
+
+            //    return;
+            //}
+            //else if ($("#address").val() == null || $("#address").val() == "") {
+            //    alert("请填写家庭住址！");
+
+            //    return;
+            //}
+            //else if ($("#introduction").val() == null || $("#introduction").val() == "") {
+            //    alert("请填写个人简历！");
+
+            //    return;
+            //}
+            else
+            {
+                $.post("/EnterFile/_AddBaseInfo1", {
+
+                    "u.RealName": $("#name").val(),
+                    "u.Sex": $("#sex").val(),
+                    "u.NativePlace": $("#native").val(),
+                    "u.Photo": $("#Path").val(),
+                    "u.Birthday": $("#birthday").val(),
+                    "u.IdCardNum": $("#idcard").val(),
+                    "u.Outlook": $("#outlook").val(),
+                    "u.PartyTime": $("#partytime").val(),
+                    "u.Nation": $("#nation").val(),
+                    "u.Property": $("#property").val(),
+                    "u.JobTime": $("#jobtime").val(),
+                    "u.Education": $("#education").val(),
+                    "u.WorkUnit": $("#workunit").val(),
+                    "u.Post": $("#post").val(),
+                    "u.PostStatus": $("#poststatus").val(),
+                    "u.PostTime": $("#posttime").val(),
+                    "u.DoWork": $("#dowork").val(),
+                    "u.UserAddress": $("#address").val(),
+                    "u.Introduction": $("#introduction").val()
+                }, function (data) {
+
+                    if (data == "1") {
+                        alert("保存成功！");
+                        location.href = "/EnterFile/Index";
+                    }
+                    else {
+                        alert("保存失败,请重试！");
+                        location.reload();//刷新
+                    }
+                });
+
+            }
+
+          
+        });
+
+    });
+
+    laydate({
+        elem: '#jobtime',
+        event: 'focus'
+    });
+
+
+    laydate({
+        elem: '#partytime',
+        event: 'focus'
+    });
+    laydate({
+        elem: '#posttime',
+        event: 'focus'
+    });
+
+    //laydate({
+    //    elem: '#birthday',
+    //    event: 'focus'
+    //});
+</script>
+

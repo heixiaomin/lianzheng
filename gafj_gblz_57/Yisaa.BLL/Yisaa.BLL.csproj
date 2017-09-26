@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D1B166E9-A3E9-49C9-93F0-A1A6387EEE8B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Yisaa.BLL</RootNamespace>
+    <AssemblyName>Yisaa.BLL</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AbroadBLL.cs" />
+    <Compile Include="AdmonishTalkBLL.cs" />
+    <Compile Include="ApplyLetterBLL.cs" />
+    <Compile Include="BuildTimeBLL.cs" />
+    <Compile Include="CrimeBLL.cs" />
+    <Compile Include="HouseBLL.cs" />
+    <Compile Include="ImportantBLL.cs" />
+    <Compile Include="IncorruptTalkBLL.cs" />
+    <Compile Include="IndustryChangeBLL.cs" />
+    <Compile Include="LetterCheckBLL.cs" />
+    <Compile Include="RefuseGiftBLL.cs" />
+    <Compile Include="ResponsibilityBLL.cs" />
+    <Compile Include="RewardPublishBLL.cs" />
+    <Compile Include="ShareBLL.cs" />
+    <Compile Include="TotalBLL.cs" />
+    <Compile Include="MarryChangeBLL.cs" />
+    <Compile Include="MD5Manager.cs" />
+    <Compile Include="ProfitReportBLL.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RoleBLL.cs" />
+    <Compile Include="UserBLL.cs" />
+    <Compile Include="UserManageBLL.cs" />
+    <Compile Include="WeddingDieBLL.cs" />
+    <Compile Include="WorkUnitBLL.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Yisaa.DAL\Yisaa.DAL.csproj">
+      <Project>{4ad744e1-e57e-4c76-aac5-f77b591d72a3}</Project>
+      <Name>Yisaa.DAL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

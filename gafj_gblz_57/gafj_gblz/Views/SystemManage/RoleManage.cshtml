@@ -1,0 +1,223 @@
+﻿@{
+    ViewBag.Title = "RoleManage";
+    Layout = "~/Views/_PartialPage1.cshtml";
+ }
+
+<div class="col-sm-12">
+    <section class="panel">
+        <header class="panel-heading">角色管理</header>
+        <div class="panel-body">
+            <div class="clearfix">
+                <div class="btn-group"><a class="btn btn-primary" href="#myModal-1" data-toggle="modal">新增角色<i class="fa fa-plus"></i></a></div>
+
+                <!--新增用户弹出框开始-->
+                <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal-1" class="modal fade">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+                                <h4 class="modal-title">新增角色</h4>
+                            </div>
+                            <div class="modal-body">
+                                <form class="form-horizontal  " action="#">
+
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">角色名称</label>
+                                        <div class="col-md-7">
+                                            <input type="text" class="form-control" id="rolename">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">备注</label>
+                                        <div class="col-md-7">
+                                            <input type="text" class="form-control" id="remark">
+                                        </div>
+                                    </div>
+                              
+
+                                    <div class="form-group">
+                                        <div class="control-label col-md-4">                                          
+                                            <button class="btn btn-primary" type="button" id="addbtn">确认添加</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--新增用户弹出框结束-->
+                <div class="clear"></div>
+            </div>
+            <div class="space15" style="height: 15px;"></div>
+            <section id="no-more-tables">
+                <div class="clear"></div>
+                <table class="table table-bordered table-striped table-condensed cf">
+                    <thead class="cf">
+                        <tr>
+                            <th>编号</th>
+                            <th>角色名</th>
+                            <th>备注</th>                                                                                  
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{foreach (var item in (ViewBag.rlist as List<Yisaa.DAL.DT_Role>))
+                          {                      
+                            <tr>
+                                <td data-title="编号">@item.Id</td>
+                                <td data-title="角色名">@item.Name</td>
+                               
+                                <td data-title="备注">@item.Remark</td>
+              
+                                 <td data-title="操作">
+                                     <a href="#myModal-2" class="upd" data-toggle="modal"><i class="fa fa-edit"></i>修改</a>
+                                   
+                                      <a href="/SystemManage/_DelRole?id=@item.Id"><i class="fa fa-trash-o"></i>删除</a>
+                                                                         
+                                      <!--修改用户弹出框开始-->
+                                    <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal-2" class="modal fade">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+                                                    <h4 class="modal-title">修改角色</h4>
+                                                </div>
+                                               <div class="modal-body">
+                                <form class="form-horizontal  " action="#">
+                                     <div class="form-group" hidden="hidden">
+                                        <label class="control-label col-md-3">编号</label>
+                                        <div class="col-md-7">
+                                            <input type="text" class="form-control" id="num">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">角色名称</label>
+                                        <div class="col-md-7">
+                                            <input type="text" class="form-control" id="updrole">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">备注</label>
+                                        <div class="col-md-7">
+                                            <input type="text" class="form-control" id="updremark">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="control-label col-md-4">                                          
+                                            <button class="btn btn-primary" type="button" id="updbtn">确认修改</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--修改用户弹出框结束-->
+                                </td>
+                            </tr>   
+                          }                          
+                        }
+                    </tbody>
+                </table>
+                @*<div class="dataTables_paginate paging_bootstrap pagination">
+                    <ul>
+                        <li class="prev disabled"><a href="#">← 上一页</a></li>
+                        <li class="active"><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>  
+                        <li><a href="#">3</a></li>
+                        <li class="next"><a href="#">下一页 → </a></li>
+                    </ul>
+                </div>*@
+ 
+
+            </section>
+        </div>
+    </section>
+</div>
+<script src="~/Content/js/jquery-1.10.2.min.js"></script>
+ 
+
+<script>
+
+    $(function () {
+        //添加
+        $("#addbtn").click(function () {
+
+            if ($("#rolename").val() == null || $("#rolename").val() == "") {
+                alert("请填写角色！");
+
+                return;
+            }
+            else {
+                $.post("/SystemManage/_AddRole", {
+
+                    
+                    "r.Name": $("#rolename").val(),
+                    "r.Remark": $("#remark").val(),
+
+                }, function (data) {
+
+                    if (data == "1") {
+                        alert("添加成功！");
+                        location.href = "/SystemManage/RoleManage";
+                    }
+                    else {
+                        alert("添加失败,请重试！");
+                        location.reload();//刷新
+                    }
+                });
+
+            }
+           
+        
+        });
+
+        //修改弹跳框
+        $(".upd").click(function () {
+
+           // $(this).attr("data-toggle", "modal");
+
+            $("#num").val($(this).parent().parent().find("td").eq(0).html().trim());
+            $("#updrole").val($(this).parent().parent().find("td").eq(1).html().trim());
+            $("#updremark").val($(this).parent().parent().find("td").eq(2).html().trim());
+
+
+        });
+
+
+        //修改
+        $("#updbtn").click(function () {
+
+            if ($("#updrole").val() == null || $("#updrole").val() == "") {
+                alert("请填写角色！");
+
+                return;
+            }
+            else {
+                $.post("/SystemManage/_UpdRole", {
+
+                    "r.Id": $("#num").val(),
+                    "r.Name": $("#updrole").val(),
+                    "r.Remark": $("#updremark").val(),
+
+                }, function (data) {
+
+                    if (data == "1") {
+                        alert("修改成功！");
+                        location.href = "/SystemManage/RoleManage";
+                    }
+                    else {
+                        alert("修改失败,请重试！");
+                        location.reload();//刷新
+                    }
+                });
+
+
+            }
+
+          
+        });
+
+    });
+</script>
+

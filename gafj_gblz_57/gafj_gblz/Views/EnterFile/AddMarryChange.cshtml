@@ -1,0 +1,189 @@
+﻿@{
+    ViewBag.Title = "AddMarryChange";
+    Layout = "~/Views/_LayoutPage1.cshtml";
+}
+
+@*<div class="wrapper">*@
+
+    <div class="row">
+        <div class="col-md-12">
+            <!--breadcrumbs start -->
+            <ul class="breadcrumb panel">
+                <li><a href="/EnterFile/Index"><i class="fa fa-home"></i>首页</a></li>
+                <li class="active">科级干部婚姻变化情况报告表</li>
+            </ul>
+            <!--breadcrumbs end -->
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <section class="panel">
+                <header class="panel-heading">
+                 【@Session["realname"]】婚姻变化情况报告表
+                </header>
+                <div class="panel-body">
+                    <div class="alert alert-block alert-danger fade in">
+                        <button type="button" class="close close-sm" data-dismiss="alert"><i class="fa fa-times"></i></button>
+                        <strong>说明：</strong>填写2000年1月以后发生变化的情况。
+                    </div>
+                    <form class="form-horizontal" role="form" action="index.html">
+
+                        <div class="form-group">
+                            <label for="inputEmail1" class="col-lg-3 col-sm-2 control-label">本人是否有婚姻变化情况</label>
+                            <div class="col-lg-4">
+                                <input type="" class="form-control" id="ischange" placeholder="">
+                                <!--<p class="help-block">Example block-level help text here.</p>-->
+                            </div>
+                        </div>
+                        <hr>
+                        <h5 style="background: #eff2f7; font-weight: bold; color: #65cea7; line-height: 30px; padding-left: 20px; border-radius: 4px;">原配偶</h5>
+                        <div class="form-group">
+                            <label for="input1" class="col-lg-3 col-sm-2 control-label">姓名</label>
+                            <div class="col-lg-4">
+                                <input type="" class="form-control" id="lastname" placeholder="">
+                                <!--<p class="help-block">Example block-level help text here.</p>-->
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="input1" class="col-lg-3 col-sm-2 control-label">婚姻登记时间</label>
+                            <div class="col-lg-4">
+                                <input type="" class="form-control laydate-icon" id="lastregtime" placeholder="">
+                                <!--<p class="help-block">Example block-level help text here.</p>-->
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="input1" class="col-lg-3 col-sm-2 control-label">婚姻结束时间</label>
+                            <div class="col-lg-4">
+                                <input type="" class="form-control laydate-icon" id="lastendtime" placeholder="">
+                                <!--<p class="help-block">Example block-level help text here.</p>-->
+                            </div>
+
+                        </div>
+                        <hr>
+                        <h5 style="background: #eff2f7; font-weight: bold; color: #65cea7; line-height: 30px; padding-left: 20px; border-radius: 4px;">现配偶</h5>
+                        <div class="form-group">
+                            <label for="input1" class="col-lg-3 col-sm-2 control-label">姓名</label>
+                            <div class="col-lg-4">
+                                <input type="" class="form-control" id="nowname" placeholder="">
+                                <!--<p class="help-block">Example block-level help text here.</p>-->
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="input1" class="col-lg-3 col-sm-2 control-label">政治面貌</label>
+                            <div class="col-lg-4">
+                                <input type="" class="form-control" id="nowpolitical" placeholder="">
+                                <!--<p class="help-block">Example block-level help text here.</p>-->
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="input1" class="col-lg-3 col-sm-2 control-label">婚姻登记时间</label>
+                            <div class="col-lg-4">
+                                <input type="" class="form-control laydate-icon" id="nowregtime" placeholder="">
+                                <!--<p class="help-block">Example block-level help text here.</p>-->
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="input1" class="col-lg-3 col-sm-2 control-label">单位</label>
+                            <div class="col-lg-4">
+                                <input type="" class="form-control" id="nowunit" placeholder="">
+                                <!--<p class="help-block">Example block-level help text here.</p>-->
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="input1" class="col-lg-3 col-sm-2 control-label">职务</label>
+                            <div class="col-lg-4">
+                                <input type="" class="form-control" id="nowpost" placeholder="">
+                                <!--<p class="help-block">Example block-level help text here.</p>-->
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="input1" class="col-lg-3 col-sm-2 control-label">其他需要说明情况</label>
+                            <div class="col-lg-4">
+                                <textarea rows="6" class="form-control" id="other"></textarea>
+                                <!--<p class="help-block">Example block-level help text here.</p>-->
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-lg-offset-3 col-lg-10">
+                                <button type="button" class="btn btn-primary" id="savebtn">保存</button>
+                                <button class="btn btn-default" type="button" onclick="window.history.go(-1);">返回</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </div>
+    </div>
+
+@*</div>*@
+
+<script src="~/Content/js/jquery-1.10.2.min.js"></script>
+<script src="~/Content/laydate/laydate.js"></script>
+
+
+<script>
+
+    $(function () {
+        //保存
+        $("#savebtn").click(function () {
+
+            //if (($("#ischange").val() == "" || $("#ischange").val() == null) || ($("#lastname").val()==""|| $("#lastname").val()==null)||
+            //    ($("#lastregtime").val() == "" || $("#lastregtime").val() == null) || ($("#lastendtime").val() == "" || $("#lastendtime").val()==null)||
+            //    ($("#nowname").val() == "" || $("#nowname").val() == null) || ($("#nowpolitical").val() == "" || $("#nowpolitical").val()==null)||
+            //    ($("#nowregtime").val() == "" || $("#nowregtime").val() == null) || ($("#nowunit").val() == "" || $("#nowunit").val()==null)||
+            //    ($("#nowpost").val()==""||$("#nowpost").val()==null) 
+            //    )
+            //{
+            //    alert("请将信息填写完整！");
+            //    return;
+            //}
+            //else
+            //{
+                $.post("/EnterFile/_AddMarry", {
+
+                    "m.IsMarryChange": $("#ischange").val(),
+                    "m.LastPartner": $("#lastname").val(),
+                    "m.LastRegisterTime": $("#lastregtime").val(),
+                    "m.LastEndTime": $("#lastendtime").val(),
+                    "m.NowPartner": $("#nowname").val(),
+                    "m.NowPolitical": $("#nowpolitical").val(),
+                    "m.NowRegisterTime": $("#nowregtime").val(),
+                    "m.NowUnit": $("#nowunit").val(),
+                    "m.NowPost": $("#nowpost").val(),
+                    "m.Other": $("#other").val(),
+
+                }, function (data) {
+
+                    if (data == "1") {
+                        alert("保存成功！");
+                        location.href = "/EnterFile/Index";
+                    }
+                    else {
+                        alert("保存失败,请重试！");
+                        location.reload();//刷新
+                    }
+                });
+
+           // }
+          
+        });
+    });
+
+
+    laydate({
+        elem: '#lastregtime',
+        event: 'focus'
+    });
+
+
+    laydate({
+        elem: '#lastendtime',
+        event: 'focus'
+    });
+    laydate({
+        elem: '#nowregtime',
+        event: 'focus'
+    });
+
+</script>
+

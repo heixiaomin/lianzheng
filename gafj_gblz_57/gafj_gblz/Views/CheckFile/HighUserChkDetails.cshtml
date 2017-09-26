@@ -1,0 +1,220 @@
+﻿@{
+    ViewBag.Title = "HighUserChkDetails";
+    Layout = "~/Views/_PartialPage2.cshtml";
+}
+
+
+
+<style>
+    #row1
+    {
+        margin-top: -2px;
+    }
+
+    #row2
+    {
+        margin-top: -2px;
+    }
+</style>
+
+
+<div class="row" id="row1">
+    <div class="col-md-12">
+        <!--breadcrumbs start -->
+        <ul class="breadcrumb panel">
+            <li><a href="/Main/Index"><i class="fa fa-home"></i>首页</a></li>
+            <li><a href="/CheckFile/Index">档案审核</a></li>
+            <li class="active">廉政档案登记表</li>
+        </ul>
+        <!--breadcrumbs end -->
+    </div>
+</div>
+
+
+<div class="row" id="row2">
+    <div class="col-sm-12">
+        @{ 
+            //var userinfolist = ViewBag.userinfolist as List<Yisaa.DAL.DT_UserInfo>;
+            var uilist = ViewBag.uilist as List<Yisaa.DAL.DT_UserInfo>;
+            foreach (var total in (ViewBag.tlist as List<Yisaa.DAL.DT_Total>))
+            {
+                                                       //a=>a.UserId==total.UserId
+                foreach (var user in uilist.Where(a => a.Id == total.UserInfoId))
+                            {     
+        <section class="panel">         
+            <input type="text" value="@total.Id" hidden="hidden" id="myid"/>
+            <input type="text" value="@total.UserId" hidden="hidden" id="myuserid"/>
+            <header class="panel-heading">【@user.RealName】廉政档案登记表一</header>
+            <div class="panel-body">
+                <table class="table table-bordered">
+                    <tbody>                                               
+                            <tr>
+                                <td class="t01" width="15%">姓      名</td>
+                                <td width="25%">@user.RealName</td>
+                                <td class="t01" width="15%">性      别</td>
+                                <td>@user.Sex</td>
+                                <td width="130" rowspan="3">
+                                     @{if (user.Photo == null || user.Photo == "")
+                                     {
+                           
+                                       <img src="~/Content/images/user.gif" width="130" height="170">
+                                     }
+                                     else
+                                     {
+                                       <img src="~/Content/Upload/Images/@user.Photo" width="130" height="170"> 
+                                     }
+                                        }
+                                     
+                            </tr>
+                            <tr>
+                                <td class="t01">籍      贯</td>
+                                <td>@user.NativePlace</td>
+                                <td class="t01">出生年月</td>
+                                <td>@user.Birthday </td>
+                            </tr>
+                            <tr>
+                                <td class="t01">身份证号码</td>
+                                <td colspan="3">@user.IdCardNum</td>
+                            </tr>
+                            <tr>
+                                <td class="t01">政治面貌 </td>
+                                <td>@user.Outlook</td>
+                                <td class="t01">入党时间</td>
+                                <td colspan="2">@user.PartyTime</td>
+                            </tr>
+                            <tr>
+                                <td class="t01">民族</td>
+                                <td>@user.Nation</td>
+                                <td class="t01">本人编制性质</td>
+                                <td colspan="2">@user.Property</td>
+                            </tr>
+                            <tr>
+                                <td class="t01">参加工作时间 </td>
+                                <td colspan="4">@user.JobTime </td>
+                            </tr>
+                            <tr>
+                                <td class="t01">学历</td>
+                                <td colspan="4">@user.Education</td>
+                            </tr>
+                            <tr>
+                                <td class="t01">工作单位</td>
+                                <td colspan="4">@user.WorkUnit</td>
+                            </tr>
+                            <tr>
+                                <td class="t01">现在职务</td>
+                                <td>@user.Post</td>
+                                <td class="t01">职级</td>
+                                <td colspan="2">@user.PostStatus</td>
+                            </tr>
+                            <tr>
+                                <td class="t01">任现职务时间</td>
+                                <td colspan="4">@user.PostTime</td>
+                            </tr>
+                            <tr>
+                                <td class="t01">分管工作</td>
+                                <td colspan="4">@user.DoWork</td>
+                            </tr>
+                            <tr>
+                                <td class="t01">家庭住址</td>
+                                <td colspan="4">@user.UserAddress</td>
+                            </tr>
+                            <tr>
+                                <td class="t01" style="height: 200px">
+                                    <br>
+                                    个<br>
+                                    人<br>
+                                    简<br>
+                                    历</td>
+                                <td colspan="4">
+                                    @user.Introduction
+                                </td>
+                            </tr>
+                                                        
+                       
+                    </tbody>
+
+                </table>
+
+                <table class="table table-striped table-hover table-bordered">
+                    <thead>
+                        <tr>
+                            <th>退回意见<span style="color: red">（审核通过不必填写）</span></th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="">
+                            <td>
+                                <textarea rows="6" class="form-control" id="backadvice"></textarea></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p class="t_center">
+                    <button class="btn btn-success btn-lg" type="button" id="check_yesbtn">审核通过</button>
+                    <button class="btn btn-danger btn-lg" type="button"  id="check_nobtn">审核不通过</button>
+                    <button class="btn btn-default btn-lg" type="button" onclick="window.history.go(-1);">返回</button>
+                </p>
+            </div>
+        </section>      
+        }
+       }
+        }
+    </div>
+</div>
+<script src="~/Content/js/jquery-1.10.2.min.js"></script>
+
+
+<script>
+    $(function () {
+       
+        $("#check_yesbtn").click(function () {
+
+            $.post("/CheckFile/_UpdTotal_High?id=" + $("#myid").val(),
+              {
+                  "id": $("#myid").val(),   
+                  "advice": $("#backadvice").val(),
+                
+              },
+              function (data) {
+                  if (data=="1") {
+                      alert("审核通过！");
+
+                      location.href = "/CheckFile/HighUserChkOne?tid=" + $("#myuserid").val();
+
+                  } else {
+
+                      alert("审核不通过！");
+                      window.history.go(-1);
+                     
+                  }
+            });
+
+        });
+
+        $("#check_nobtn").click(function () {
+            if ($("#backadvice").val() == "" || $("#backadvice").val() == null) {
+                alert("请填写不通过原由！");
+                return;
+            } else {
+
+                $.post("/CheckFile/_UpdTotal_No_High?id=" + $("#myid").val(),
+                  {
+                      "id": $("#myid").val(),
+                      "advice": $("#backadvice").val(),
+
+                  },
+                  function (data) {
+                      if (data == "1") {
+                          alert("审核不通过！");
+                          location.href = "/CheckFile/HighUserChkOne?tid=" + $("#myuserid").val();
+                          //window.history.go(-1);
+
+                          // location.reload();
+                      }
+                  });
+            }
+        });
+    });
+    
+
+</script>

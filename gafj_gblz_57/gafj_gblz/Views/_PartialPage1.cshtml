@@ -1,0 +1,49 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "./_LayoutPage1.cshtml";
+}
+
+
+<style>
+    .row
+    {
+        margin-top: 50px;
+    }
+</style>
+ 
+     <!-- header section start-->
+      <div class="header-section">
+        <!--toggle button start-->
+        <!--<a class="toggle-btn"><i class="fa fa-bars"></i></a>-->
+        <!--toggle button end-->
+        <!--search start-->
+        <form class="searchform" action="#" method="post">
+          <input type="text" class="form-control" name="keyword" placeholder="姓名、单位、科室关键词..." id="keyword">
+          <button style="margin:7px 0 0 10px" class="btn btn-primary" type="button" id="searchbtn">搜索</button>
+        </form>
+        <!--search end-->
+        
+      </div>
+      <!-- header section end-->
+
+<div class="row">
+     @RenderBody()
+   </div>
+    
+<script src="~/Content/js/jquery-1.10.2.min.js"></script>
+  
+
+<script>
+    $(function () {
+       
+        $("#searchbtn").click(function () {
+
+            location.href = "/CheckFile/KeyWords?keywords=" + $("#keyword").val();
+
+
+        });
+
+    });
+     
+</script>

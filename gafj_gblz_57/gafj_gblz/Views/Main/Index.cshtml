@@ -1,0 +1,209 @@
+﻿@{
+    ViewBag.Title = "Index";
+                        //Layout = "~/Views/_LayoutPage1.cshtml";
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="keywords" content="admin, dashboard, bootstrap, template, flat, modern, theme, responsive, fluid, retina, backend, html5, css, css3">
+    <meta name="description" content="">
+    <meta name="author" content="ThemeBucket">
+    <link rel="shortcut icon" href="/Main/Index" type="~/Content/image/png">
+    <title>杭州经济技术开发区管委会干部廉政档案系统</title>
+    <!--pickers css-->
+    <link rel="stylesheet" type="text/css" href="~/Content/js/bootstrap-datepicker/css/datepicker-custom.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/js/bootstrap-timepicker/css/timepicker.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/js/bootstrap-colorpicker/css/colorpicker.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/js/bootstrap-daterangepicker/daterangepicker-bs3.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/js/bootstrap-datetimepicker/css/datetimepicker-custom.css" />
+    <!--data table-->
+    <link rel="stylesheet" href="~/Content/js/data-tables/DT_bootstrap.css" />
+    <!--common-->
+    <link href="~/Content/css/style.css" rel="stylesheet">
+    <link href="~/Content/css/layout.css" rel="stylesheet">
+    <link href="~/Content/css/style-responsive.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+  <script src="js/html5shiv.js"></script>
+  <script src="js/respond.min.js"></script>
+  <![endif]-->
+</head>
+<body class="sticky-header">
+    <div class="top">
+        <div class="ny_logo"><a href="/Main/Index"><span>杭州经济技术开发区管委会干部廉政档案系统</span></a></div>
+        <div class="nav_right">
+            <div class="hd_show">
+                <span class="hd_pic">
+                     @{if (ViewBag.img==null||ViewBag.img=="")
+                     {
+                           
+                       <img src="~/Content/images/user.gif" style="width: 40px; height: 40px" />
+                     }
+                     else
+                     {
+                           <img src="~/Content/Upload/Images/@ViewBag.img" style="height:40px;width:40px"/> 
+                     }
+                        }
+
+                </span>@ViewBag.username
+            </div>
+            <div class="icon">
+                <i class="i_link fa fa-cog"></i>
+                <dl class="cd_list">
+                    <dd><a href="/SystemManage/UpdatePwd"><i class="fa fa-caret-right"></i>修改密码</a></dd>
+
+                </dl>
+            </div>
+            <div class="icon"><a href="/Home/LogOut"><i class="i_link fa fa-power-off"></i></a></div>
+        </div>
+    </div>
+
+    <section>
+        <!-- main content start-->
+        <div class="main-content2" style="min-height: 754px">
+            <div class="wrapper" style="width: 80%; margin: 5% auto 0 auto;">
+                <div class="page-heading">
+                    <h3>快捷操作
+                    </h3>
+                    <ul class="breadcrumb">
+                        <li>
+                            <a href="/Main/Index">首页</a>
+                        </li>
+                        <li class="active">快捷操作</li>
+                    </ul>
+                </div>
+                <div class="row state-overview">
+                    @{if (ViewBag.iscadre == true)
+                      {
+                        <div class="col-md-6 col-xs-12 col-sm-6">
+                            <a href="/EnterFile/Index">
+                                <div class="panel purple">
+                                    <div class="symbol"><i class="fa fa-file"></i></div>
+                                    <div class="state-value">
+                                        <div class="value">我的档案</div>
+                                        <div class="title">录入自己的廉政档案</div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                          
+                      }
+                      else
+                      {
+                        <div class="col-md-6 col-xs-12 col-sm-6" hidden="hidden">
+                            <a href="#">
+                                <div class="panel purple">
+                                    <div class="symbol"><i class="fa fa-file"></i></div>
+                                    <div class="state-value">
+                                        <div class="value">我的档案</div>
+                                        <div class="title">录入自己的廉政档案</div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                      }                    
+                    }
+                     @{if (ViewBag.role==2)
+                          {
+                             <div class="col-md-6 col-xs-12 col-sm-6">
+                            <a href="/CheckFile/CheckUserIndex">
+                                <div class="panel red">
+                                    <div class="symbol"><i class="fa fa-check-square-o"></i></div>
+                                    <div class="state-value">
+                                        <div class="value">审核档案</div>
+                                        <div class="title">审核单位或领导干部廉政档案</div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                          }}
+
+                    @{if (ViewBag.role == 3 || ViewBag.role == 4)
+                      { 
+                        
+                          <div class="col-md-6 col-xs-12 col-sm-6">
+                            <a href="/CheckFile/Index">
+                                <div class="panel red">
+                                    <div class="symbol"><i class="fa fa-check-square-o"></i></div>
+                                    <div class="state-value">
+                                        <div class="value">审核档案</div>
+                                        <div class="title">审核单位或领导干部廉政档案</div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        
+                    }
+                     
+                    }
+                     
+                </div>
+
+
+                @{if (ViewBag.role == 3 || ViewBag.role == 4)
+                  { 
+                    <div class="row state-overview">
+                        <div class="col-md-6 col-xs-12 col-sm-6">
+                            <a href="/ShareFile/ShareIndex">
+                                <div class="panel blue">
+                                    <div class="symbol"><i class="fa fa-eye"></i></div>
+                                    <div class="state-value">
+                                        <div class="value">共享档案</div>
+                                        <div class="title">单位或领导干部的廉政档案共享</div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-md-6 col-xs-12 col-sm-6">
+                            <a href="/SystemManage/UserManage">
+                                <div class="panel green">
+                                    <div class="symbol"><i class="fa fa-users"></i></div>
+                                    <div class="state-value">
+                                        <div class="value">系统管理</div>
+                                        <div class="title">添加、删除、修改人员基本资料</div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                  }}
+            </div>
+
+        </div>
+
+        <!-- main content end-->
+    </section>
+    <!--footer section start-->
+    <footer class="">
+         <center>科级干部廉政档案管理：机关党委231室   系统开发：易沙软件  客服电话：86871130</center>
+
+    </footer>
+    <!--footer section end-->
+    <!-- Placed js at the end of the document so the pages load faster -->
+    <script src="~/Content/js/jquery-1.10.2.min.js"></script>
+    <script src="~/Content/js/jquery-ui-1.9.2.custom.min.js"></script>
+    <script src="~/Content/js/jquery-migrate-1.2.1.min.js"></script>
+    <script src="~/Content/js/bootstrap.min.js"></script>
+    <script src="~/Content/js/modernizr.min.js"></script>
+    <script src="~/Content/js/jquery.nicescroll.js"></script>
+    <!--data table-->
+    <script type="text/javascript" src="~/Content/js/data-tables/jquery.dataTables.js"></script>
+    <script type="text/javascript" src="~/Content/js/data-tables/DT_bootstrap.js"></script>
+    <!--common scripts for all pages-->
+    <script src="~/Content/js/scripts.js"></script>
+    <!--script for editable table-->
+    <script src="~/Content/js/editable-table.js"></script>
+    <!-- END JAVASCRIPTS -->
+    <script>
+        jQuery(document).ready(function () {
+            EditableTable.init();
+        });
+    </script>
+</body>
+</html>
+

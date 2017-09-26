@@ -1,0 +1,84 @@
+﻿@{
+    ViewBag.Title = "ShareRecord";
+    Layout = "~/Views/_PartialPage1.cshtml";
+}
+
+
+<div class="col-sm-12">
+    <section class="panel">
+        <header class="panel-heading">共享记录<a class="fr btn btn-primary btn-sm" href="/ShareFile/ShareIndex">新增共享</a></header>
+        <div class="panel-body">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th width="5%">序号</th>
+                        <th>被共享人</th>
+                        <th width="8%">共享年份</th>
+                        <th width="15%">共享时间段</th>
+                        <th width="25%">共享人</th>
+                        <th width="8%">创建时间</th>
+                        <th width="15%">操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                        var beshareids = ViewBag.beshareids;
+                        var oneshare = ViewBag.oneshare as Yisaa.DAL.DT_Share;
+                        var shares = ViewBag.shares as List<Yisaa.DAL.DT_Share>;
+
+                        var beshared = ViewBag.beshared as List<Yisaa.DAL.DT_BeShared>;
+                        var selroles = ViewBag.selroles as List<Yisaa.DAL.DT_UserLoginRecord>;
+                        var inners = ViewBag.inners as List<Yisaa.DAL.DT_UserLoginRecord>;
+                        var slist = ViewBag.slist as List<Yisaa.DAL.DT_Share>;
+
+
+                        foreach (var share in slist.Where(a => a.ShareBeginTime == ViewBag.times2))
+                        {
+ 
+                        <tr>
+                            <td>@share.Id</td>
+                            <td>
+                                @foreach (var share2 in slist.Where(a => a.ShareId == share.ShareId))
+                                {
+                                    var st = ",";
+
+                                    foreach (var inner in inners.Where(a => a.Id == share2.BeSharedId))
+                                    {
+
+                                    @inner.RealName;
+                                    @st;
+
+                                    }
+
+                                }
+
+                            </td>
+                            <td>@share.SharedYear</td>
+                            <td>@Convert.ToDateTime(share.ShareBeginTime).ToString("yyyy-MM-dd") 至  @Convert.ToDateTime(share.ShareEndTime).ToString("yyyy-MM-dd")</td>
+                            <td>@foreach (var share2 in slist.Where(a => a.BeSharedId == share.BeSharedId))
+                                {
+                                    var st = "，";
+                                    foreach (var r in selroles.Where(a => a.Id == share2.ShareId))
+                                    {
+                                @r.RealName @st;
+                                    }
+
+                                }
+
+                            </td>
+                            <td>@share.CreateTime</td>
+                            <td>
+                                <a href="/ShareFile/UpdShareRecord?id=@share.Id"><i class="fa fa-edit"></i>修改</a>
+                                <a href="#"><i class="fa fa-trash-o"></i>删除</a>
+
+                            </td>
+                        </tr>
+ 
+                        }
+                    }
+
+                </tbody>
+            </table>
+        </div>
+    </section>
+</div>

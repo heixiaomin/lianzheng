@@ -1,0 +1,27 @@
+/*------------------------------------------
+Template Name: AdminEx Dashboard
+Author: ThemeBucket
+-------------------------------------------*/
+
+/*¿ò¼Ü*/
+
+.top{ background:#2a80c9;height:60px; position:fixed; width:100%; z-index:999;}
+.top .ny_logo{ float:left; margin:7px 10px;}
+.top .ny_logo a{ display:block; background:url(../images/ny_logo.png) no-repeat; width:484px; height:45px;}
+.top .ny_logo a span{ display:none;}
+.top .nav_right{ float:right;text-align:right;}
+.top .nav_right .icon{ vertical-align:middle; display:inline-block;*display:inline;*zoom:1; font-size:30px; color:#fff;width:68px; border-left:1px solid #1b72bc; text-align:center; line-height:60px; height:60px; position:relative; cursor:pointer}
+.top .nav_right .icon .i_link{ line-height:60px; color:#fff; font-size:30px;}
+.top .nav_right .icon:hover{ background:#3ea8fc;}
+.top .nav_right .icon .cd_list{ display:none;}
+.top .nav_right .icon:hover .cd_list{ display:block;}
+.hd_show{display:inline-block;*display:inline;*zoom:1; padding:0 20px; margin-right:10px; color:#fff; font-weight:bold; font-size:16px;}
+.top .hd_show .hd_pic{ display:inline-block;width:40px; height:40px; vertical-align:middle; margin-right:10px;}
+.top .hd_show .hd_pic img{ width:40px; border-radius:60px;}
+
+.nav_right .cd_list{ top:60px; right:0; background:#3ea8fc; filter:alpha(opacity=80);-moz-opacity:0.8;-khtml-opacity: 0.8;opacity: 0.8;position:absolute; z-index:999; width:120px;}
+.nav_right .cd_list dd a{ text-align:left; font-size:12px; line-height:34px; display:block; padding:0 10px; color:#fff;}
+.nav_right .cd_list dd i{ margin-right:5px;}
+
+.t_center{ text-align:center;}
+.table-bordered .t01{ font-weight:bold; text-align:center;}

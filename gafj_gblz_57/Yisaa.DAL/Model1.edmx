@@ -1,0 +1,2393 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="db_gblzModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="db_gblzModelStoreContainer">
+          <EntitySet Name="DT_AdmonishingTalk" EntityType="db_gblzModel.Store.DT_AdmonishingTalk" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="DT_ApplyByLetter" EntityType="db_gblzModel.Store.DT_ApplyByLetter" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="DT_BeShared" EntityType="db_gblzModel.Store.DT_BeShared" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="DT_BuildTime" EntityType="db_gblzModel.Store.DT_BuildTime" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="DT_CrimeReport" EntityType="db_gblzModel.Store.DT_CrimeReport" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="DT_Family" EntityType="db_gblzModel.Store.DT_Family" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="DT_FamilyTotal" EntityType="db_gblzModel.Store.DT_FamilyTotal" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="DT_GoAbroadCompany" EntityType="db_gblzModel.Store.DT_GoAbroadCompany" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="DT_GoAbroadSettler" EntityType="db_gblzModel.Store.DT_GoAbroadSettler" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="DT_GoAbroadStudy" EntityType="db_gblzModel.Store.DT_GoAbroadStudy" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="DT_GoAbroadTotal" EntityType="db_gblzModel.Store.DT_GoAbroadTotal" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="DT_HousingBuild" EntityType="db_gblzModel.Store.DT_HousingBuild" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="DT_HousingBuy" EntityType="db_gblzModel.Store.DT_HousingBuy" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="DT_HousingHouse" EntityType="db_gblzModel.Store.DT_HousingHouse" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="DT_HousingRentout" EntityType="db_gblzModel.Store.DT_HousingRentout" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="DT_HousingSell" EntityType="db_gblzModel.Store.DT_HousingSell" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="DT_HousingTotal" EntityType="db_gblzModel.Store.DT_HousingTotal" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="DT_Important" EntityType="db_gblzModel.Store.DT_Important" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="DT_IncorruptTalk" EntityType="db_gblzModel.Store.DT_IncorruptTalk" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="DT_IndustryChanges" EntityType="db_gblzModel.Store.DT_IndustryChanges" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="DT_MarryChange" EntityType="db_gblzModel.Store.DT_MarryChange" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="DT_PetitionLetter" EntityType="db_gblzModel.Store.DT_PetitionLetter" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="DT_ProfitReport" EntityType="db_gblzModel.Store.DT_ProfitReport" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="DT_Punish" EntityType="db_gblzModel.Store.DT_Punish" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="DT_RefuseGift" EntityType="db_gblzModel.Store.DT_RefuseGift" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="DT_RefuseGiftTotal" EntityType="db_gblzModel.Store.DT_RefuseGiftTotal" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="DT_Responsibility" EntityType="db_gblzModel.Store.DT_Responsibility" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="DT_Reward" EntityType="db_gblzModel.Store.DT_Reward" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="DT_RewardPunishTotal" EntityType="db_gblzModel.Store.DT_RewardPunishTotal" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="DT_Role" EntityType="db_gblzModel.Store.DT_Role" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="DT_Share" EntityType="db_gblzModel.Store.DT_Share" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="DT_SharePeople" EntityType="db_gblzModel.Store.DT_SharePeople" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="DT_Total" EntityType="db_gblzModel.Store.DT_Total" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="DT_UnitDeptChange" EntityType="db_gblzModel.Store.DT_UnitDeptChange" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="DT_UserInfo" EntityType="db_gblzModel.Store.DT_UserInfo" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="DT_UserLoginRecord" EntityType="db_gblzModel.Store.DT_UserLoginRecord" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="DT_WeddingandDie" EntityType="db_gblzModel.Store.DT_WeddingandDie" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="DT_WorkUnit" EntityType="db_gblzModel.Store.DT_WorkUnit" store:Type="Tables" Schema="dbo" />
+        </EntityContainer>
+        <EntityType Name="DT_AdmonishingTalk">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="YearTable" Type="int" />
+          <Property Name="BeLordTalk" Type="nvarchar" MaxLength="50" />
+          <Property Name="BePost" Type="nvarchar" MaxLength="50" />
+          <Property Name="BeUnit" Type="nvarchar" MaxLength="50" />
+          <Property Name="TalkReason" Type="nvarchar" MaxLength="255" />
+          <Property Name="LordTalk" Type="nvarchar" MaxLength="50" />
+          <Property Name="Post" Type="nvarchar" MaxLength="50" />
+          <Property Name="TalkTime" Type="nvarchar" MaxLength="50" />
+          <Property Name="TalkAddress" Type="nvarchar" MaxLength="50" />
+          <Property Name="Content" Type="nvarchar" MaxLength="255" />
+          <Property Name="ObjectAdvice" Type="nvarchar" MaxLength="100" />
+          <Property Name="LordTalkAdvice" Type="nvarchar" MaxLength="100" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="100" />
+          <Property Name="FillTime" Type="datetime" />
+          <Property Name="UpdateTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="DT_ApplyByLetter">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="YearTable" Type="int" />
+          <Property Name="ApplyTime" Type="nvarchar" MaxLength="50" />
+          <Property Name="Reason" Type="nvarchar" MaxLength="255" />
+          <Property Name="Answer" Type="nvarchar" MaxLength="255" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="100" />
+          <Property Name="FillTime" Type="datetime" />
+          <Property Name="UpdateTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="DT_BeShared">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="BeSharedId" Type="int" />
+        </EntityType>
+        <EntityType Name="DT_BuildTime">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="BuildStartTime" Type="datetime" />
+          <Property Name="BuildEndTime" Type="datetime" />
+          <Property Name="AddTime" Type="datetime" />
+          <Property Name="UpdateTime" Type="datetime" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="DT_CrimeReport">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="YearTable" Type="int" />
+          <Property Name="CrimerName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Relation" Type="nvarchar" MaxLength="50" />
+          <Property Name="CrimerUnit" Type="nvarchar" MaxLength="100" />
+          <Property Name="CrimerPost" Type="nvarchar" MaxLength="50" />
+          <Property Name="LawAgency" Type="nvarchar" MaxLength="50" />
+          <Property Name="Result" Type="nvarchar" MaxLength="100" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="100" />
+          <Property Name="FillTime" Type="datetime" />
+          <Property Name="UpdateTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="DT_Family">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="YearTable" Type="int" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Relation" Type="nvarchar" MaxLength="50" />
+          <Property Name="Outlook" Type="nvarchar" MaxLength="50" />
+          <Property Name="WorkUnit" Type="nvarchar" MaxLength="100" />
+          <Property Name="Post" Type="nvarchar" MaxLength="50" />
+          <Property Name="FamilyTotalId" Type="int" />
+        </EntityType>
+        <EntityType Name="DT_FamilyTotal">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="YearTable" Type="int" />
+          <Property Name="other" Type="text" />
+          <Property Name="FillTime" Type="datetime" />
+          <Property Name="UpdateTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="DT_GoAbroadCompany">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="YearTable" Type="int" />
+          <Property Name="BuildCompanyName" Type="nvarchar" MaxLength="50" />
+          <Property Name="BuildCompanyTitle" Type="nvarchar" MaxLength="50" />
+          <Property Name="BuildCompanyAddress" Type="nvarchar" MaxLength="100" />
+          <Property Name="CompanyName" Type="nvarchar" MaxLength="50" />
+          <Property Name="AbroadTotalId" Type="int" />
+        </EntityType>
+        <EntityType Name="DT_GoAbroadSettler">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="YearTable" Type="int" />
+          <Property Name="Settler" Type="nvarchar" MaxLength="50" />
+          <Property Name="SettlerTitle" Type="nvarchar" MaxLength="50" />
+          <Property Name="SettleTime" Type="nvarchar" MaxLength="50" />
+          <Property Name="SettleAddress" Type="nvarchar" MaxLength="100" />
+          <Property Name="SettlerWork" Type="nvarchar" MaxLength="50" />
+          <Property Name="AbroadTotalId" Type="int" />
+        </EntityType>
+        <EntityType Name="DT_GoAbroadStudy">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="YearTable" Type="int" />
+          <Property Name="StudyName" Type="nvarchar" MaxLength="50" />
+          <Property Name="StudyTitle" Type="nvarchar" MaxLength="50" />
+          <Property Name="StudyTime" Type="nvarchar" MaxLength="50" />
+          <Property Name="StudyAddress" Type="nvarchar" MaxLength="100" />
+          <Property Name="StudyMoney" Type="nvarchar" MaxLength="80" />
+          <Property Name="AbroadTotalId" Type="int" />
+        </EntityType>
+        <EntityType Name="DT_GoAbroadTotal">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="YearTable" Type="int" />
+          <Property Name="LandingPaper" Type="nvarchar" MaxLength="100" />
+          <Property Name="HKCertificate" Type="nvarchar" MaxLength="100" />
+          <Property Name="FillTime" Type="datetime" />
+          <Property Name="UpdateTime" Type="datetime" />
+          <Property Name="MarryName" Type="nvarchar" MaxLength="50" />
+          <Property Name="MarryUnit" Type="nvarchar" MaxLength="100" />
+          <Property Name="RegisterTime" Type="nvarchar" MaxLength="50" />
+          <Property Name="MarryPartner" Type="nvarchar" MaxLength="50" />
+          <Property Name="PartnerNational" Type="nvarchar" MaxLength="50" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="DT_HousingBuild">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="YearTable" Type="int" />
+          <Property Name="BuildHousesAddress" Type="nvarchar" MaxLength="100" />
+          <Property Name="BuildHousesArea" Type="nvarchar" MaxLength="80" />
+          <Property Name="BuildHousesUnit" Type="nvarchar" MaxLength="50" />
+          <Property Name="BuildHousesTotal" Type="nvarchar" MaxLength="80" />
+          <Property Name="Payment" Type="nvarchar" MaxLength="80" />
+          <Property Name="HousingTotalId" Type="int" />
+        </EntityType>
+        <EntityType Name="DT_HousingBuy">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="YearTable" Type="int" />
+          <Property Name="BuyHouseAddress" Type="nvarchar" MaxLength="100" />
+          <Property Name="BuyHouseArea" Type="nvarchar" MaxLength="80" />
+          <Property Name="BuyHouseMoney" Type="nvarchar" MaxLength="80" />
+          <Property Name="BuyHouseIncome" Type="nvarchar" MaxLength="50" />
+          <Property Name="BuyHouseTime" Type="datetime" />
+          <Property Name="HousingTotalId" Type="int" />
+        </EntityType>
+        <EntityType Name="DT_HousingHouse">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="YearTable" Type="int" />
+          <Property Name="HouseAddress" Type="nvarchar" MaxLength="100" />
+          <Property Name="Area" Type="nvarchar" MaxLength="80" />
+          <Property Name="HouseNature" Type="nvarchar" MaxLength="50" />
+          <Property Name="HouseFrom" Type="nvarchar" MaxLength="50" />
+          <Property Name="PropertyOwner" Type="nvarchar" MaxLength="50" />
+          <Property Name="HousingTotalId" Type="int" />
+        </EntityType>
+        <EntityType Name="DT_HousingRentout">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="YearTable" Type="int" />
+          <Property Name="RentoutAddress" Type="nvarchar" MaxLength="100" />
+          <Property Name="RentoutArea" Type="nvarchar" MaxLength="80" />
+          <Property Name="RentoutNature" Type="nvarchar" MaxLength="50" />
+          <Property Name="RentoutTime" Type="datetime" />
+          <Property Name="RentoutMoney" Type="nvarchar" MaxLength="80" />
+          <Property Name="HousingTotalId" Type="int" />
+        </EntityType>
+        <EntityType Name="DT_HousingSell">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="YearTable" Type="int" />
+          <Property Name="SellHouseAddress" Type="nvarchar" MaxLength="100" />
+          <Property Name="SellHouseArea" Type="nvarchar" MaxLength="80" />
+          <Property Name="SellHouseNature" Type="nvarchar" MaxLength="50" />
+          <Property Name="SellHouseTime" Type="datetime" />
+          <Property Name="SellHouseMoney" Type="nvarchar" MaxLength="80" />
+          <Property Name="HousingTotalId" Type="int" />
+        </EntityType>
+        <EntityType Name="DT_HousingTotal">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="YearTable" Type="int" />
+          <Property Name="PartnerName" Type="nvarchar" MaxLength="50" />
+          <Property Name="PartnerUnit" Type="nvarchar" MaxLength="50" />
+          <Property Name="PartnerPost" Type="nvarchar" MaxLength="50" />
+          <Property Name="Other" Type="nvarchar" MaxLength="100" />
+          <Property Name="FillTime" Type="datetime" />
+          <Property Name="UpdateTime" Type="datetime" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="DT_Important">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="YearTable" Type="int" />
+          <Property Name="Report" Type="nvarchar" MaxLength="255" />
+          <Property Name="CheckIn" Type="nvarchar" MaxLength="100" />
+          <Property Name="CheckInTime" Type="datetime" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="255" />
+          <Property Name="FillTime" Type="datetime" />
+          <Property Name="UpdateTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="DT_IncorruptTalk">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="YearTable" Type="int" />
+          <Property Name="TalkReason" Type="nvarchar" MaxLength="255" />
+          <Property Name="TalkTime" Type="nvarchar" MaxLength="50" />
+          <Property Name="TalkAddress" Type="nvarchar" MaxLength="50" />
+          <Property Name="LordTalk" Type="nvarchar" MaxLength="50" />
+          <Property Name="RecordPerson" Type="nvarchar" MaxLength="50" />
+          <Property Name="Content" Type="nvarchar" MaxLength="255" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="100" />
+          <Property Name="FillTime" Type="datetime" />
+          <Property Name="UpdateTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="DT_IndustryChanges">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="YearTable" Type="int" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Relation" Type="nvarchar" MaxLength="50" />
+          <Property Name="ChangeTime" Type="nvarchar" MaxLength="50" />
+          <Property Name="LastUnit" Type="nvarchar" MaxLength="100" />
+          <Property Name="LastPost" Type="nvarchar" MaxLength="50" />
+          <Property Name="NowUnit" Type="nvarchar" MaxLength="100" />
+          <Property Name="NowPost" Type="nvarchar" MaxLength="50" />
+          <Property Name="Reason" Type="nvarchar" MaxLength="100" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="100" />
+          <Property Name="FillTime" Type="datetime" />
+          <Property Name="UpdateTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="DT_MarryChange">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="YearTable" Type="int" />
+          <Property Name="IsMarryChange" Type="nvarchar" MaxLength="5" />
+          <Property Name="LastPartner" Type="nvarchar" MaxLength="50" />
+          <Property Name="LastRegisterTime" Type="datetime" />
+          <Property Name="LastEndTime" Type="datetime" />
+          <Property Name="NowPartner" Type="nvarchar" MaxLength="50" />
+          <Property Name="NowPolitical" Type="nvarchar" MaxLength="50" />
+          <Property Name="NowUnit" Type="nvarchar" MaxLength="50" />
+          <Property Name="NowPost" Type="nvarchar" MaxLength="50" />
+          <Property Name="NowRegisterTime" Type="datetime" />
+          <Property Name="Other" Type="nvarchar" MaxLength="255" />
+          <Property Name="FillTime" Type="datetime" />
+          <Property Name="UpdateTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="DT_PetitionLetter">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="YearTable" Type="int" />
+          <Property Name="RecordNum" Type="nvarchar" MaxLength="50" />
+          <Property Name="LetterTime" Type="nvarchar" MaxLength="50" />
+          <Property Name="FromUnit" Type="nvarchar" MaxLength="50" />
+          <Property Name="ByManName" Type="nvarchar" MaxLength="50" />
+          <Property Name="ByManPost" Type="nvarchar" MaxLength="50" />
+          <Property Name="ByManUnit" Type="nvarchar" MaxLength="50" />
+          <Property Name="ManName" Type="nvarchar" MaxLength="50" />
+          <Property Name="ManTel" Type="nvarchar" MaxLength="50" />
+          <Property Name="ManUnit" Type="nvarchar" MaxLength="50" />
+          <Property Name="ManPost" Type="nvarchar" MaxLength="50" />
+          <Property Name="Content" Type="nvarchar" MaxLength="255" />
+          <Property Name="SurveyResult" Type="nvarchar" MaxLength="255" />
+          <Property Name="HandleResult" Type="nvarchar" MaxLength="255" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="255" />
+          <Property Name="FillTime" Type="datetime" />
+          <Property Name="UpdateTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="DT_ProfitReport">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="YearTable" Type="int" />
+          <Property Name="CompanyName" Type="nvarchar" MaxLength="50" />
+          <Property Name="BusinessScope" Type="nvarchar" MaxLength="100" />
+          <Property Name="RegisterMoney" Type="nvarchar" MaxLength="80" />
+          <Property Name="InvestmentRate" Type="nvarchar" MaxLength="80" />
+          <Property Name="YearProfit" Type="nvarchar" MaxLength="80" />
+          <Property Name="ParttimeUnit" Type="nvarchar" MaxLength="50" />
+          <Property Name="ParttimeUnitNature" Type="nvarchar" MaxLength="50" />
+          <Property Name="ParttimePost" Type="nvarchar" MaxLength="50" />
+          <Property Name="YearMoney" Type="nvarchar" MaxLength="80" />
+          <Property Name="InvestUnit" Type="nvarchar" MaxLength="50" />
+          <Property Name="InvestUnitNature" Type="nvarchar" MaxLength="50" />
+          <Property Name="InvestWay" Type="nvarchar" MaxLength="50" />
+          <Property Name="InvestMoney" Type="nvarchar" MaxLength="80" />
+          <Property Name="YearIncome" Type="nvarchar" MaxLength="80" />
+          <Property Name="Other" Type="nvarchar" MaxLength="255" />
+          <Property Name="FillTime" Type="datetime" />
+          <Property Name="UpdateTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="DT_Punish">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="YearTable" Type="int" />
+          <Property Name="PunishTime" Type="nvarchar" MaxLength="50" />
+          <Property Name="PunishName" Type="nvarchar" MaxLength="50" />
+          <Property Name="PunishReason" Type="nvarchar" MaxLength="255" />
+          <Property Name="PunishDpt" Type="nvarchar" MaxLength="50" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="255" />
+          <Property Name="RewardTotalId" Type="int" />
+        </EntityType>
+        <EntityType Name="DT_RefuseGift">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="YearTable" Type="int" />
+          <Property Name="HandInMoney" Type="nvarchar" MaxLength="80" />
+          <Property Name="HandInName" Type="nvarchar" MaxLength="50" />
+          <Property Name="HandInCount" Type="int" />
+          <Property Name="HandInTime" Type="nvarchar" MaxLength="50" />
+          <Property Name="HandInDpt" Type="nvarchar" MaxLength="50" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="255" />
+          <Property Name="RefuseTotalId" Type="int" />
+        </EntityType>
+        <EntityType Name="DT_RefuseGiftTotal">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="YearTable" Type="int" />
+          <Property Name="CheckAdvice" Type="nvarchar" MaxLength="255" />
+          <Property Name="FillTime" Type="datetime" />
+          <Property Name="UpdateTime" Type="datetime" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="DT_Responsibility">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="YearTable" Type="int" />
+          <Property Name="Nature" Type="nvarchar" MaxLength="50" />
+          <Property Name="ResTime" Type="nvarchar" MaxLength="50" />
+          <Property Name="HandleOffice" Type="nvarchar" MaxLength="50" />
+          <Property Name="Fact" Type="nvarchar" MaxLength="100" />
+          <Property Name="HandleStatus" Type="nvarchar" MaxLength="255" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="100" />
+          <Property Name="FillTime" Type="datetime" />
+          <Property Name="UpdateTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="DT_Reward">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="YearTable" Type="int" />
+          <Property Name="RewardsTime" Type="nvarchar" MaxLength="50" />
+          <Property Name="RewardsDptandName" Type="nvarchar" MaxLength="60" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="255" />
+          <Property Name="RewardTotalId" Type="int" />
+        </EntityType>
+        <EntityType Name="DT_RewardPunishTotal">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="YearTable" Type="int" />
+          <Property Name="CheckAdvice" Type="nvarchar" MaxLength="255" />
+          <Property Name="FillTime" Type="datetime" />
+          <Property Name="UpdateTime" Type="datetime" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="DT_Role">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="DT_Share">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="BeSharedPeople" Type="nvarchar" MaxLength="50" />
+          <Property Name="SharedYear" Type="int" />
+          <Property Name="ShareBeginTime" Type="datetime" />
+          <Property Name="ShareEndTime" Type="datetime" />
+          <Property Name="SharePeople" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreateTime" Type="datetime" />
+          <Property Name="BeSharedId" Type="int" />
+          <Property Name="ShareId" Type="int" />
+        </EntityType>
+        <EntityType Name="DT_SharePeople">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ShareId" Type="int" />
+          <Property Name="TotalId" Type="int" />
+        </EntityType>
+        <EntityType Name="DT_Total">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="YearTable" Type="int" />
+          <Property Name="AddTime" Type="datetime" />
+          <Property Name="UpdTime" Type="datetime" />
+          <Property Name="Status" Type="nvarchar" MaxLength="15" />
+          <Property Name="CheckStatus" Type="nvarchar" MaxLength="15" />
+          <Property Name="FileStatus" Type="nvarchar" MaxLength="15" />
+          <Property Name="BackTime" Type="datetime" />
+          <Property Name="ChkSubmitTime" Type="datetime" />
+          <Property Name="HighBackTime" Type="datetime" />
+          <Property Name="HighFileTime" Type="datetime" />
+          <Property Name="UserInfoId" Type="int" />
+          <Property Name="FamilyId" Type="int" />
+          <Property Name="RewardId" Type="int" />
+          <Property Name="RefuseGiftId" Type="int" />
+          <Property Name="ProfitId" Type="int" />
+          <Property Name="HousingId" Type="int" />
+          <Property Name="MarryChangeId" Type="int" />
+          <Property Name="WeddingandDieId" Type="int" />
+          <Property Name="GoAbroadId" Type="int" />
+          <Property Name="CrimeId" Type="int" />
+          <Property Name="IndustryChangesId" Type="int" />
+          <Property Name="ImportantId" Type="int" />
+          <Property Name="ResponsibilityId" Type="int" />
+          <Property Name="PetitionLetterId" Type="int" />
+          <Property Name="AdmonishingTalkId" Type="int" />
+          <Property Name="IncorruptTalkId" Type="int" />
+          <Property Name="ApplyByLetterId" Type="int" />
+          <Property Name="UserInfoAdvice1" Type="nvarchar" MaxLength="100" />
+          <Property Name="FamilyAdvice1" Type="nvarchar" MaxLength="100" />
+          <Property Name="RewardAdvice1" Type="nvarchar" MaxLength="100" />
+          <Property Name="RefuseAdvice1" Type="nvarchar" MaxLength="100" />
+          <Property Name="ProfitAdvice1" Type="nvarchar" MaxLength="100" />
+          <Property Name="HousingAdvice1" Type="nvarchar" MaxLength="100" />
+          <Property Name="MarryChgAdvice1" Type="nvarchar" MaxLength="100" />
+          <Property Name="WeddDieAdvice1" Type="nvarchar" MaxLength="100" />
+          <Property Name="AbroadAdvice1" Type="nvarchar" MaxLength="100" />
+          <Property Name="CrimeAdvice1" Type="nvarchar" MaxLength="100" />
+          <Property Name="IndustryAdvice1" Type="nvarchar" MaxLength="100" />
+          <Property Name="ImportantAdvice1" Type="nvarchar" MaxLength="100" />
+          <Property Name="ResponsAdvice1" Type="nvarchar" MaxLength="100" />
+          <Property Name="LetterAdvice1" Type="nvarchar" MaxLength="100" />
+          <Property Name="AdmTalkAdvice1" Type="nvarchar" MaxLength="100" />
+          <Property Name="IncTalkAdvice1" Type="nvarchar" MaxLength="100" />
+          <Property Name="ApplyAdvice1" Type="nvarchar" MaxLength="100" />
+          <Property Name="UserInfoAdvice2" Type="nvarchar" MaxLength="100" />
+          <Property Name="FamilyAdvice2" Type="nvarchar" MaxLength="100" />
+          <Property Name="RewardAdvice2" Type="nvarchar" MaxLength="100" />
+          <Property Name="RefuseAdvice2" Type="nvarchar" MaxLength="50" />
+          <Property Name="ProfitAdvice2" Type="nvarchar" MaxLength="100" />
+          <Property Name="HousingAdvice2" Type="nvarchar" MaxLength="100" />
+          <Property Name="MarryChgAdvice2" Type="nvarchar" MaxLength="100" />
+          <Property Name="WeddDieAdvice2" Type="nvarchar" MaxLength="100" />
+          <Property Name="AbroadAdvice2" Type="nvarchar" MaxLength="100" />
+          <Property Name="CrimeAdvice2" Type="nvarchar" MaxLength="100" />
+          <Property Name="IndustryAdvice2" Type="nvarchar" MaxLength="100" />
+          <Property Name="ImportantAdvice2" Type="nvarchar" MaxLength="100" />
+          <Property Name="ResponsAdvice2" Type="nvarchar" MaxLength="100" />
+          <Property Name="LetterAdvice2" Type="nvarchar" MaxLength="100" />
+          <Property Name="AdmTalkAdvice2" Type="nvarchar" MaxLength="100" />
+          <Property Name="IncTalkAdvice2" Type="nvarchar" MaxLength="100" />
+          <Property Name="ApplyAdvice2" Type="nvarchar" MaxLength="100" />
+          <Property Name="UserInfoTime1" Type="datetime" />
+          <Property Name="FamilyTime1" Type="datetime" />
+          <Property Name="RewardTime1" Type="datetime" />
+          <Property Name="RefuseTime1" Type="datetime" />
+          <Property Name="ProfitTime1" Type="datetime" />
+          <Property Name="HousingTime1" Type="datetime" />
+          <Property Name="MarryChgTime1" Type="datetime" />
+          <Property Name="WeddDieTime1" Type="datetime" />
+          <Property Name="AbroadTime1" Type="datetime" />
+          <Property Name="CrimeTime1" Type="datetime" />
+          <Property Name="IndustryTime1" Type="datetime" />
+          <Property Name="ImportantTime1" Type="datetime" />
+          <Property Name="ResponsTime1" Type="datetime" />
+          <Property Name="LetterTime1" Type="datetime" />
+          <Property Name="AdmTalkTime1" Type="datetime" />
+          <Property Name="IncTalkTime1" Type="datetime" />
+          <Property Name="ApplyTime1" Type="datetime" />
+          <Property Name="UserInfoTime2" Type="datetime" />
+          <Property Name="FamilyTime2" Type="datetime" />
+          <Property Name="RewardTime2" Type="datetime" />
+          <Property Name="RefuseTime2" Type="datetime" />
+          <Property Name="ProfitTime2" Type="datetime" />
+          <Property Name="HousingTime2" Type="datetime" />
+          <Property Name="MarryChgTime2" Type="datetime" />
+          <Property Name="WeddDieTime2" Type="datetime" />
+          <Property Name="AbroadTime2" Type="datetime" />
+          <Property Name="CrimeTime2" Type="datetime" />
+          <Property Name="IndustryTime2" Type="datetime" />
+          <Property Name="ImportantTime2" Type="datetime" />
+          <Property Name="ResponsTime2" Type="datetime" />
+          <Property Name="LetterTime2" Type="datetime" />
+          <Property Name="AdmTalkTime2" Type="datetime" />
+          <Property Name="IncTalkTime2" Type="datetime" />
+          <Property Name="ApplyTime2" Type="datetime" />
+          <Property Name="UserInfoPeople1" Type="nvarchar" MaxLength="50" />
+          <Property Name="FamilyPeople1" Type="nvarchar" MaxLength="50" />
+          <Property Name="RewardPeople1" Type="nvarchar" MaxLength="50" />
+          <Property Name="RefusePeople1" Type="nvarchar" MaxLength="50" />
+          <Property Name="ProfitPeople1" Type="nvarchar" MaxLength="50" />
+          <Property Name="HousingPeople1" Type="nvarchar" MaxLength="50" />
+          <Property Name="MarryChgPeople1" Type="nvarchar" MaxLength="50" />
+          <Property Name="WeddDiePeople1" Type="nvarchar" MaxLength="50" />
+          <Property Name="AbroadPeople1" Type="nvarchar" MaxLength="50" />
+          <Property Name="CrimePeople1" Type="nvarchar" MaxLength="50" />
+          <Property Name="IndustryPeople1" Type="nvarchar" MaxLength="50" />
+          <Property Name="ImportantPeople1" Type="nvarchar" MaxLength="50" />
+          <Property Name="ResponsPeople1" Type="nvarchar" MaxLength="50" />
+          <Property Name="LetterPeople1" Type="nvarchar" MaxLength="50" />
+          <Property Name="AdmTalkPeople1" Type="nvarchar" MaxLength="50" />
+          <Property Name="IncTalkPeople1" Type="nvarchar" MaxLength="50" />
+          <Property Name="ApplyPeople1" Type="nvarchar" MaxLength="50" />
+          <Property Name="UserInfoPeople2" Type="nvarchar" MaxLength="50" />
+          <Property Name="FamilyPeople2" Type="nvarchar" MaxLength="50" />
+          <Property Name="RewardPeople2" Type="nvarchar" MaxLength="50" />
+          <Property Name="RefusePeople2" Type="nvarchar" MaxLength="50" />
+          <Property Name="ProfitPeople2" Type="nvarchar" MaxLength="50" />
+          <Property Name="HousingPeople2" Type="nvarchar" MaxLength="50" />
+          <Property Name="MarryChgPeople2" Type="nvarchar" MaxLength="50" />
+          <Property Name="WeddDiePeople2" Type="nvarchar" MaxLength="50" />
+          <Property Name="AbroadPeople2" Type="nvarchar" MaxLength="50" />
+          <Property Name="CrimePeople2" Type="nvarchar" MaxLength="50" />
+          <Property Name="IndustryPeople2" Type="nvarchar" MaxLength="50" />
+          <Property Name="ImportantPeople2" Type="nvarchar" MaxLength="50" />
+          <Property Name="ResponsPeople2" Type="nvarchar" MaxLength="50" />
+          <Property Name="LetterPeople2" Type="nvarchar" MaxLength="50" />
+          <Property Name="AdmTalkPeople2" Type="nvarchar" MaxLength="50" />
+          <Property Name="IncTalkPeople2" Type="nvarchar" MaxLength="50" />
+          <Property Name="ApplyPeople2" Type="nvarchar" MaxLength="50" />
+          <Property Name="UserInfoStatus1" Type="int" />
+          <Property Name="FamilyStatus1" Type="int" />
+          <Property Name="RewardStatus1" Type="int" />
+          <Property Name="RefuseStatus1" Type="int" />
+          <Property Name="ProfitStatus1" Type="int" />
+          <Property Name="HousingStatus1" Type="int" />
+          <Property Name="MarryChgStatus1" Type="int" />
+          <Property Name="WeddDieStatus1" Type="int" />
+          <Property Name="AbroadStatus1" Type="int" />
+          <Property Name="CrimeStatus1" Type="int" />
+          <Property Name="IndustryStatus1" Type="int" />
+          <Property Name="ImportantStatus1" Type="int" />
+          <Property Name="ResponsStatus1" Type="int" />
+          <Property Name="LetterStatus1" Type="int" />
+          <Property Name="AdmTalkStatus1" Type="int" />
+          <Property Name="IncTalkStatus1" Type="int" />
+          <Property Name="ApplyStatus1" Type="int" />
+          <Property Name="UserInfoStatus2" Type="int" />
+          <Property Name="FamilyStatus2" Type="int" />
+          <Property Name="RewardStatus2" Type="int" />
+          <Property Name="RefuseStatus2" Type="int" />
+          <Property Name="ProfitStatus2" Type="int" />
+          <Property Name="HousingStatus2" Type="int" />
+          <Property Name="MarryChgStatus2" Type="int" />
+          <Property Name="WeddDieStatus2" Type="int" />
+          <Property Name="AbroadStatus2" Type="int" />
+          <Property Name="CrimeStatus2" Type="int" />
+          <Property Name="IndustryStatus2" Type="int" />
+          <Property Name="ImportantStatus2" Type="int" />
+          <Property Name="ResponsStatus2" Type="int" />
+          <Property Name="LetterStatus2" Type="int" />
+          <Property Name="AdmTalkStatus2" Type="int" />
+          <Property Name="IncTalkStatus2" Type="int" />
+          <Property Name="ApplyStatus2" Type="int" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="DT_UnitDeptChange">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="UnitName" Type="nvarchar" MaxLength="50" />
+          <Property Name="DeptName" Type="nvarchar" MaxLength="50" />
+          <Property Name="AddTime" Type="datetime" />
+          <Property Name="Remarks" Type="nvarchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="DT_UserInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="YearTable" Type="int" />
+          <Property Name="Photo" Type="nvarchar" MaxLength="200" />
+          <Property Name="RealName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Sex" Type="nvarchar" MaxLength="20" />
+          <Property Name="NativePlace" Type="nvarchar" MaxLength="255" />
+          <Property Name="Birthday" Type="datetime" />
+          <Property Name="IdCardNum" Type="nvarchar" MaxLength="50" />
+          <Property Name="Outlook" Type="nvarchar" MaxLength="50" />
+          <Property Name="PartyTime" Type="datetime" />
+          <Property Name="Nation" Type="nvarchar" MaxLength="50" />
+          <Property Name="Property" Type="nvarchar" MaxLength="50" />
+          <Property Name="JobTime" Type="datetime" />
+          <Property Name="Education" Type="nvarchar" MaxLength="50" />
+          <Property Name="WorkUnit" Type="nvarchar" MaxLength="50" />
+          <Property Name="Post" Type="nvarchar" MaxLength="50" />
+          <Property Name="PostStatus" Type="nvarchar" MaxLength="50" />
+          <Property Name="PostTime" Type="datetime" />
+          <Property Name="DoWork" Type="nvarchar" MaxLength="50" />
+          <Property Name="UserAddress" Type="nvarchar" MaxLength="255" />
+          <Property Name="Introduction" Type="text" />
+          <Property Name="FillTime" Type="datetime" />
+          <Property Name="UpdateTime" Type="datetime" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="DT_UserLoginRecord">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Telphone" Type="nvarchar" MaxLength="20" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" />
+          <Property Name="LoginTime" Type="datetime" />
+          <Property Name="LoginIp" Type="varchar" MaxLength="20" />
+          <Property Name="LoginNum" Type="int" />
+          <Property Name="Remark" Type="varchar" MaxLength="40" />
+          <Property Name="RoleId" Type="int" />
+          <Property Name="IsInner" Type="bit" />
+          <Property Name="IsCadre" Type="bit" />
+          <Property Name="WorkUnitId" Type="int" />
+          <Property Name="DeptId" Type="int" />
+          <Property Name="Effectivedate" Type="datetime" />
+          <Property Name="Status" Type="bit" />
+          <Property Name="RealName" Type="nvarchar" MaxLength="50" />
+          <Property Name="WorkUnit" Type="nvarchar" MaxLength="50" />
+          <Property Name="Department" Type="nvarchar" MaxLength="50" />
+          <Property Name="Upost" Type="nvarchar" MaxLength="50" />
+          <Property Name="FillStatus" Type="nvarchar" MaxLength="50" />
+          <Property Name="ShareStatus" Type="nvarchar" MaxLength="50" />
+          <Property Name="AddTime" Type="datetime" />
+          <Property Name="UpdateTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="DT_WeddingandDie">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="YearTable" Type="int" />
+          <Property Name="Arrange" Type="nvarchar" MaxLength="200" />
+          <Property Name="ManageTime" Type="nvarchar" MaxLength="50" />
+          <Property Name="ManageAddress" Type="nvarchar" MaxLength="50" />
+          <Property Name="PartyObject" Type="nvarchar" MaxLength="50" />
+          <Property Name="PartyNum" Type="nvarchar" MaxLength="50" />
+          <Property Name="AcceptingMoney" Type="nvarchar" MaxLength="80" />
+          <Property Name="AcceptingCount" Type="nvarchar" MaxLength="50" />
+          <Property Name="AcceptingValue" Type="nvarchar" MaxLength="80" />
+          <Property Name="HandleStatus" Type="nvarchar" MaxLength="200" />
+          <Property Name="Adivce" Type="nvarchar" MaxLength="200" />
+          <Property Name="AdivceTime" Type="datetime" />
+          <Property Name="FillTime" Type="datetime" />
+          <Property Name="UpdateTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="DT_WorkUnit">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UnitName" Type="nvarchar" MaxLength="50" />
+          <Property Name="ParentId" Type="int" />
+          <Property Name="CreateUnit" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreateDept" Type="nvarchar" MaxLength="50" />
+          <Property Name="AddUnitTime" Type="datetime" />
+          <Property Name="AddDeptTime" Type="datetime" />
+          <Property Name="UpdUnitTime" Type="datetime" />
+          <Property Name="UpdDeptTime" Type="datetime" />
+          <Property Name="Remarks" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="db_gblzModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="db_gblzEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="DT_BeShared" EntityType="db_gblzModel.DT_BeShared" />
+          <EntitySet Name="DT_BuildTime" EntityType="db_gblzModel.DT_BuildTime" />
+          <EntitySet Name="DT_Role" EntityType="db_gblzModel.DT_Role" />
+          <EntitySet Name="DT_Share" EntityType="db_gblzModel.DT_Share" />
+          <EntitySet Name="DT_SharePeople" EntityType="db_gblzModel.DT_SharePeople" />
+          <EntitySet Name="DT_Total" EntityType="db_gblzModel.DT_Total" />
+          <EntitySet Name="DT_UnitDeptChange" EntityType="db_gblzModel.DT_UnitDeptChange" />
+          <EntitySet Name="DT_UserLoginRecord" EntityType="db_gblzModel.DT_UserLoginRecord" />
+          <EntitySet Name="DT_WorkUnit" EntityType="db_gblzModel.DT_WorkUnit" />
+          <EntitySet Name="DT_RefuseGiftTotal" EntityType="db_gblzModel.DT_RefuseGiftTotal" />
+          <EntitySet Name="DT_UserInfo" EntityType="db_gblzModel.DT_UserInfo" />
+          <EntitySet Name="DT_AdmonishingTalk" EntityType="db_gblzModel.DT_AdmonishingTalk" />
+          <EntitySet Name="DT_ApplyByLetter" EntityType="db_gblzModel.DT_ApplyByLetter" />
+          <EntitySet Name="DT_CrimeReport" EntityType="db_gblzModel.DT_CrimeReport" />
+          <EntitySet Name="DT_FamilyTotal" EntityType="db_gblzModel.DT_FamilyTotal" />
+          <EntitySet Name="DT_Important" EntityType="db_gblzModel.DT_Important" />
+          <EntitySet Name="DT_IncorruptTalk" EntityType="db_gblzModel.DT_IncorruptTalk" />
+          <EntitySet Name="DT_IndustryChanges" EntityType="db_gblzModel.DT_IndustryChanges" />
+          <EntitySet Name="DT_MarryChange" EntityType="db_gblzModel.DT_MarryChange" />
+          <EntitySet Name="DT_PetitionLetter" EntityType="db_gblzModel.DT_PetitionLetter" />
+          <EntitySet Name="DT_ProfitReport" EntityType="db_gblzModel.DT_ProfitReport" />
+          <EntitySet Name="DT_Responsibility" EntityType="db_gblzModel.DT_Responsibility" />
+          <EntitySet Name="DT_WeddingandDie" EntityType="db_gblzModel.DT_WeddingandDie" />
+          <EntitySet Name="DT_GoAbroadCompany" EntityType="db_gblzModel.DT_GoAbroadCompany" />
+          <EntitySet Name="DT_HousingBuild" EntityType="db_gblzModel.DT_HousingBuild" />
+          <EntitySet Name="DT_HousingBuy" EntityType="db_gblzModel.DT_HousingBuy" />
+          <EntitySet Name="DT_HousingHouse" EntityType="db_gblzModel.DT_HousingHouse" />
+          <EntitySet Name="DT_HousingRentout" EntityType="db_gblzModel.DT_HousingRentout" />
+          <EntitySet Name="DT_HousingSell" EntityType="db_gblzModel.DT_HousingSell" />
+          <EntitySet Name="DT_HousingTotal" EntityType="db_gblzModel.DT_HousingTotal" />
+          <EntitySet Name="DT_RewardPunishTotal" EntityType="db_gblzModel.DT_RewardPunishTotal" />
+          <EntitySet Name="DT_Family" EntityType="db_gblzModel.DT_Family" />
+          <EntitySet Name="DT_GoAbroadSettler" EntityType="db_gblzModel.DT_GoAbroadSettler" />
+          <EntitySet Name="DT_GoAbroadStudy" EntityType="db_gblzModel.DT_GoAbroadStudy" />
+          <EntitySet Name="DT_GoAbroadTotal" EntityType="db_gblzModel.DT_GoAbroadTotal" />
+          <EntitySet Name="DT_Punish" EntityType="db_gblzModel.DT_Punish" />
+          <EntitySet Name="DT_RefuseGift" EntityType="db_gblzModel.DT_RefuseGift" />
+          <EntitySet Name="DT_Reward" EntityType="db_gblzModel.DT_Reward" />
+        </EntityContainer>
+        <EntityType Name="DT_BeShared">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="BeSharedId" />
+        </EntityType>
+        <EntityType Name="DT_BuildTime">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="DateTime" Name="BuildStartTime" Precision="3" />
+          <Property Type="DateTime" Name="BuildEndTime" Precision="3" />
+          <Property Type="DateTime" Name="AddTime" Precision="3" />
+          <Property Type="DateTime" Name="UpdateTime" Precision="3" />
+          <Property Type="String" Name="Remark" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="DT_Role">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Remark" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="DT_Share">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="BeSharedPeople" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="SharedYear" />
+          <Property Type="DateTime" Name="ShareBeginTime" Precision="3" />
+          <Property Type="DateTime" Name="ShareEndTime" Precision="3" />
+          <Property Type="String" Name="SharePeople" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="CreateTime" Precision="3" />
+          <Property Type="Int32" Name="BeSharedId" />
+          <Property Type="Int32" Name="ShareId" />
+        </EntityType>
+        <EntityType Name="DT_SharePeople">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="ShareId" />
+          <Property Type="Int32" Name="TotalId" />
+        </EntityType>
+        <EntityType Name="DT_Total">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="UserId" />
+          <Property Type="Int32" Name="YearTable" />
+          <Property Type="DateTime" Name="AddTime" Precision="3" />
+          <Property Type="DateTime" Name="UpdTime" Precision="3" />
+          <Property Type="String" Name="Status" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CheckStatus" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="FileStatus" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="BackTime" Precision="3" />
+          <Property Type="DateTime" Name="ChkSubmitTime" Precision="3" />
+          <Property Type="DateTime" Name="HighBackTime" Precision="3" />
+          <Property Type="DateTime" Name="HighFileTime" Precision="3" />
+          <Property Type="Int32" Name="UserInfoId" />
+          <Property Type="Int32" Name="FamilyId" />
+          <Property Type="Int32" Name="RewardId" />
+          <Property Type="Int32" Name="RefuseGiftId" />
+          <Property Type="Int32" Name="ProfitId" />
+          <Property Type="Int32" Name="HousingId" />
+          <Property Type="Int32" Name="MarryChangeId" />
+          <Property Type="Int32" Name="WeddingandDieId" />
+          <Property Type="Int32" Name="GoAbroadId" />
+          <Property Type="Int32" Name="CrimeId" />
+          <Property Type="Int32" Name="IndustryChangesId" />
+          <Property Type="Int32" Name="ImportantId" />
+          <Property Type="Int32" Name="ResponsibilityId" />
+          <Property Type="Int32" Name="PetitionLetterId" />
+          <Property Type="Int32" Name="AdmonishingTalkId" />
+          <Property Type="Int32" Name="IncorruptTalkId" />
+          <Property Type="Int32" Name="ApplyByLetterId" />
+          <Property Type="String" Name="UserInfoAdvice1" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="FamilyAdvice1" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="RewardAdvice1" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="RefuseAdvice1" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ProfitAdvice1" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="HousingAdvice1" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="MarryChgAdvice1" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="WeddDieAdvice1" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="AbroadAdvice1" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CrimeAdvice1" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="IndustryAdvice1" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ImportantAdvice1" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ResponsAdvice1" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="LetterAdvice1" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="AdmTalkAdvice1" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="IncTalkAdvice1" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ApplyAdvice1" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="UserInfoAdvice2" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="FamilyAdvice2" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="RewardAdvice2" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="RefuseAdvice2" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ProfitAdvice2" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="HousingAdvice2" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="MarryChgAdvice2" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="WeddDieAdvice2" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="AbroadAdvice2" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CrimeAdvice2" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="IndustryAdvice2" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ImportantAdvice2" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ResponsAdvice2" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="LetterAdvice2" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="AdmTalkAdvice2" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="IncTalkAdvice2" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ApplyAdvice2" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="UserInfoTime1" Precision="3" />
+          <Property Type="DateTime" Name="FamilyTime1" Precision="3" />
+          <Property Type="DateTime" Name="RewardTime1" Precision="3" />
+          <Property Type="DateTime" Name="RefuseTime1" Precision="3" />
+          <Property Type="DateTime" Name="ProfitTime1" Precision="3" />
+          <Property Type="DateTime" Name="HousingTime1" Precision="3" />
+          <Property Type="DateTime" Name="MarryChgTime1" Precision="3" />
+          <Property Type="DateTime" Name="WeddDieTime1" Precision="3" />
+          <Property Type="DateTime" Name="AbroadTime1" Precision="3" />
+          <Property Type="DateTime" Name="CrimeTime1" Precision="3" />
+          <Property Type="DateTime" Name="IndustryTime1" Precision="3" />
+          <Property Type="DateTime" Name="ImportantTime1" Precision="3" />
+          <Property Type="DateTime" Name="ResponsTime1" Precision="3" />
+          <Property Type="DateTime" Name="LetterTime1" Precision="3" />
+          <Property Type="DateTime" Name="AdmTalkTime1" Precision="3" />
+          <Property Type="DateTime" Name="IncTalkTime1" Precision="3" />
+          <Property Type="DateTime" Name="ApplyTime1" Precision="3" />
+          <Property Type="DateTime" Name="UserInfoTime2" Precision="3" />
+          <Property Type="DateTime" Name="FamilyTime2" Precision="3" />
+          <Property Type="DateTime" Name="RewardTime2" Precision="3" />
+          <Property Type="DateTime" Name="RefuseTime2" Precision="3" />
+          <Property Type="DateTime" Name="ProfitTime2" Precision="3" />
+          <Property Type="DateTime" Name="HousingTime2" Precision="3" />
+          <Property Type="DateTime" Name="MarryChgTime2" Precision="3" />
+          <Property Type="DateTime" Name="WeddDieTime2" Precision="3" />
+          <Property Type="DateTime" Name="AbroadTime2" Precision="3" />
+          <Property Type="DateTime" Name="CrimeTime2" Precision="3" />
+          <Property Type="DateTime" Name="IndustryTime2" Precision="3" />
+          <Property Type="DateTime" Name="ImportantTime2" Precision="3" />
+          <Property Type="DateTime" Name="ResponsTime2" Precision="3" />
+          <Property Type="DateTime" Name="LetterTime2" Precision="3" />
+          <Property Type="DateTime" Name="AdmTalkTime2" Precision="3" />
+          <Property Type="DateTime" Name="IncTalkTime2" Precision="3" />
+          <Property Type="DateTime" Name="ApplyTime2" Precision="3" />
+          <Property Type="String" Name="UserInfoPeople1" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="FamilyPeople1" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="RewardPeople1" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="RefusePeople1" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ProfitPeople1" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="HousingPeople1" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="MarryChgPeople1" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="WeddDiePeople1" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="AbroadPeople1" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CrimePeople1" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="IndustryPeople1" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ImportantPeople1" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ResponsPeople1" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="LetterPeople1" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="AdmTalkPeople1" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="IncTalkPeople1" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ApplyPeople1" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="UserInfoPeople2" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="FamilyPeople2" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="RewardPeople2" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="RefusePeople2" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ProfitPeople2" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="HousingPeople2" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="MarryChgPeople2" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="WeddDiePeople2" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="AbroadPeople2" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CrimePeople2" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="IndustryPeople2" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ImportantPeople2" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ResponsPeople2" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="LetterPeople2" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="AdmTalkPeople2" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="IncTalkPeople2" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ApplyPeople2" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="UserInfoStatus1" />
+          <Property Type="Int32" Name="FamilyStatus1" />
+          <Property Type="Int32" Name="RewardStatus1" />
+          <Property Type="Int32" Name="RefuseStatus1" />
+          <Property Type="Int32" Name="ProfitStatus1" />
+          <Property Type="Int32" Name="HousingStatus1" />
+          <Property Type="Int32" Name="MarryChgStatus1" />
+          <Property Type="Int32" Name="WeddDieStatus1" />
+          <Property Type="Int32" Name="AbroadStatus1" />
+          <Property Type="Int32" Name="CrimeStatus1" />
+          <Property Type="Int32" Name="IndustryStatus1" />
+          <Property Type="Int32" Name="ImportantStatus1" />
+          <Property Type="Int32" Name="ResponsStatus1" />
+          <Property Type="Int32" Name="LetterStatus1" />
+          <Property Type="Int32" Name="AdmTalkStatus1" />
+          <Property Type="Int32" Name="IncTalkStatus1" />
+          <Property Type="Int32" Name="ApplyStatus1" />
+          <Property Type="Int32" Name="UserInfoStatus2" />
+          <Property Type="Int32" Name="FamilyStatus2" />
+          <Property Type="Int32" Name="RewardStatus2" />
+          <Property Type="Int32" Name="RefuseStatus2" />
+          <Property Type="Int32" Name="ProfitStatus2" />
+          <Property Type="Int32" Name="HousingStatus2" />
+          <Property Type="Int32" Name="MarryChgStatus2" />
+          <Property Type="Int32" Name="WeddDieStatus2" />
+          <Property Type="Int32" Name="AbroadStatus2" />
+          <Property Type="Int32" Name="CrimeStatus2" />
+          <Property Type="Int32" Name="IndustryStatus2" />
+          <Property Type="Int32" Name="ImportantStatus2" />
+          <Property Type="Int32" Name="ResponsStatus2" />
+          <Property Type="Int32" Name="LetterStatus2" />
+          <Property Type="Int32" Name="AdmTalkStatus2" />
+          <Property Type="Int32" Name="IncTalkStatus2" />
+          <Property Type="Int32" Name="ApplyStatus2" />
+          <Property Type="String" Name="Remark" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="DT_UnitDeptChange">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="UserId" />
+          <Property Type="String" Name="UnitName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="DeptName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="AddTime" Precision="3" />
+          <Property Type="String" Name="Remarks" MaxLength="150" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="DT_UserLoginRecord">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Telphone" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Password" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="LoginTime" Precision="3" />
+          <Property Type="String" Name="LoginIp" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="LoginNum" />
+          <Property Type="String" Name="Remark" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="RoleId" />
+          <Property Type="Boolean" Name="IsInner" />
+          <Property Type="Boolean" Name="IsCadre" />
+          <Property Type="Int32" Name="WorkUnitId" />
+          <Property Type="Int32" Name="DeptId" />
+          <Property Type="DateTime" Name="Effectivedate" Precision="3" />
+          <Property Type="Boolean" Name="Status" />
+          <Property Type="String" Name="RealName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="WorkUnit" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Department" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Upost" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="FillStatus" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ShareStatus" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="AddTime" Precision="3" />
+          <Property Type="DateTime" Name="UpdateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="DT_WorkUnit">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="UnitName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="ParentId" />
+          <Property Type="String" Name="CreateUnit" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CreateDept" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="AddUnitTime" Precision="3" />
+          <Property Type="DateTime" Name="AddDeptTime" Precision="3" />
+          <Property Type="DateTime" Name="UpdUnitTime" Precision="3" />
+          <Property Type="DateTime" Name="UpdDeptTime" Precision="3" />
+          <Property Type="String" Name="Remarks" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="DT_RefuseGiftTotal">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="UserId" />
+          <Property Type="String" Name="CheckAdvice" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="FillTime" Precision="3" />
+          <Property Type="DateTime" Name="UpdateTime" Precision="3" />
+          <Property Type="String" Name="Remark" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="YearTable" />
+        </EntityType>
+        <EntityType Name="DT_UserInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="UserId" />
+          <Property Type="Int32" Name="YearTable" />
+          <Property Type="String" Name="Photo" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="RealName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Sex" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="NativePlace" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Birthday" Precision="3" />
+          <Property Type="String" Name="IdCardNum" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Outlook" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="PartyTime" Precision="3" />
+          <Property Type="String" Name="Nation" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Property" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="JobTime" Precision="3" />
+          <Property Type="String" Name="Education" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="WorkUnit" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Post" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="PostStatus" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="PostTime" Precision="3" />
+          <Property Type="String" Name="DoWork" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="UserAddress" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Introduction" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="FillTime" Precision="3" />
+          <Property Type="DateTime" Name="UpdateTime" Precision="3" />
+          <Property Type="String" Name="Remark" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="DT_AdmonishingTalk">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="UserId" />
+          <Property Type="Int32" Name="YearTable" />
+          <Property Type="String" Name="BeLordTalk" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="BePost" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="BeUnit" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="TalkReason" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="LordTalk" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Post" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="TalkTime" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="TalkAddress" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Content" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ObjectAdvice" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="LordTalkAdvice" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Remark" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="FillTime" Precision="3" />
+          <Property Type="DateTime" Name="UpdateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="DT_ApplyByLetter">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="UserId" />
+          <Property Type="Int32" Name="YearTable" />
+          <Property Type="String" Name="ApplyTime" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Reason" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Answer" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Remark" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="FillTime" Precision="3" />
+          <Property Type="DateTime" Name="UpdateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="DT_CrimeReport">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="UserId" />
+          <Property Type="Int32" Name="YearTable" />
+          <Property Type="String" Name="CrimerName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Relation" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CrimerUnit" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CrimerPost" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="LawAgency" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Result" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Remark" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="FillTime" Precision="3" />
+          <Property Type="DateTime" Name="UpdateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="DT_FamilyTotal">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="UserId" />
+          <Property Type="Int32" Name="YearTable" />
+          <Property Type="String" Name="other" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="FillTime" Precision="3" />
+          <Property Type="DateTime" Name="UpdateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="DT_Important">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="UserId" />
+          <Property Type="Int32" Name="YearTable" />
+          <Property Type="String" Name="Report" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CheckIn" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="CheckInTime" Precision="3" />
+          <Property Type="String" Name="Remark" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="FillTime" Precision="3" />
+          <Property Type="DateTime" Name="UpdateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="DT_IncorruptTalk">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="UserId" />
+          <Property Type="Int32" Name="YearTable" />
+          <Property Type="String" Name="TalkReason" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="TalkTime" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="TalkAddress" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="LordTalk" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="RecordPerson" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Content" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Remark" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="FillTime" Precision="3" />
+          <Property Type="DateTime" Name="UpdateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="DT_IndustryChanges">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="UserId" />
+          <Property Type="Int32" Name="YearTable" />
+          <Property Type="String" Name="Name" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Relation" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ChangeTime" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="LastUnit" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="LastPost" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="NowUnit" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="NowPost" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Reason" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Remark" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="FillTime" Precision="3" />
+          <Property Type="DateTime" Name="UpdateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="DT_MarryChange">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="UserId" />
+          <Property Type="Int32" Name="YearTable" />
+          <Property Type="String" Name="IsMarryChange" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="LastPartner" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="LastRegisterTime" Precision="3" />
+          <Property Type="DateTime" Name="LastEndTime" Precision="3" />
+          <Property Type="String" Name="NowPartner" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="NowPolitical" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="NowUnit" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="NowPost" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="NowRegisterTime" Precision="3" />
+          <Property Type="String" Name="Other" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="FillTime" Precision="3" />
+          <Property Type="DateTime" Name="UpdateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="DT_PetitionLetter">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="UserId" />
+          <Property Type="Int32" Name="YearTable" />
+          <Property Type="String" Name="RecordNum" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="LetterTime" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="FromUnit" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ByManName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ByManPost" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ByManUnit" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ManName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ManTel" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ManUnit" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ManPost" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Content" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="SurveyResult" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="HandleResult" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Remark" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="FillTime" Precision="3" />
+          <Property Type="DateTime" Name="UpdateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="DT_ProfitReport">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="UserId" />
+          <Property Type="Int32" Name="YearTable" />
+          <Property Type="String" Name="CompanyName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="BusinessScope" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="RegisterMoney" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="InvestmentRate" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="YearProfit" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ParttimeUnit" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ParttimeUnitNature" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ParttimePost" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="YearMoney" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="InvestUnit" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="InvestUnitNature" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="InvestWay" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="InvestMoney" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="YearIncome" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Other" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="FillTime" Precision="3" />
+          <Property Type="DateTime" Name="UpdateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="DT_Responsibility">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="UserId" />
+          <Property Type="Int32" Name="YearTable" />
+          <Property Type="String" Name="Nature" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ResTime" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="HandleOffice" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Fact" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="HandleStatus" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Remark" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="FillTime" Precision="3" />
+          <Property Type="DateTime" Name="UpdateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="DT_WeddingandDie">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="UserId" />
+          <Property Type="Int32" Name="YearTable" />
+          <Property Type="String" Name="Arrange" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ManageTime" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ManageAddress" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="PartyObject" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="PartyNum" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="AcceptingMoney" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="AcceptingCount" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="AcceptingValue" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="HandleStatus" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Adivce" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="AdivceTime" Precision="3" />
+          <Property Type="DateTime" Name="FillTime" Precision="3" />
+          <Property Type="DateTime" Name="UpdateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="DT_GoAbroadCompany">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="UserId" />
+          <Property Type="Int32" Name="YearTable" />
+          <Property Type="String" Name="BuildCompanyName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="BuildCompanyTitle" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="BuildCompanyAddress" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CompanyName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="AbroadTotalId" />
+        </EntityType>
+        <EntityType Name="DT_HousingBuild">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="UserId" />
+          <Property Type="Int32" Name="YearTable" />
+          <Property Type="String" Name="BuildHousesAddress" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="BuildHousesArea" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="BuildHousesUnit" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="BuildHousesTotal" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Payment" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="HousingTotalId" />
+        </EntityType>
+        <EntityType Name="DT_HousingBuy">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="UserId" />
+          <Property Type="Int32" Name="YearTable" />
+          <Property Type="String" Name="BuyHouseAddress" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="BuyHouseArea" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="BuyHouseMoney" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="BuyHouseIncome" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="BuyHouseTime" Precision="3" />
+          <Property Type="Int32" Name="HousingTotalId" />
+        </EntityType>
+        <EntityType Name="DT_HousingHouse">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="UserId" />
+          <Property Type="Int32" Name="YearTable" />
+          <Property Type="String" Name="HouseAddress" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Area" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="HouseNature" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="HouseFrom" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="PropertyOwner" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="HousingTotalId" />
+        </EntityType>
+        <EntityType Name="DT_HousingRentout">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="UserId" />
+          <Property Type="Int32" Name="YearTable" />
+          <Property Type="String" Name="RentoutAddress" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="RentoutArea" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="RentoutNature" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="RentoutTime" Precision="3" />
+          <Property Type="String" Name="RentoutMoney" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="HousingTotalId" />
+        </EntityType>
+        <EntityType Name="DT_HousingSell">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="UserId" />
+          <Property Type="Int32" Name="YearTable" />
+          <Property Type="String" Name="SellHouseAddress" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="SellHouseArea" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="SellHouseNature" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="SellHouseTime" Precision="3" />
+          <Property Type="String" Name="SellHouseMoney" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="HousingTotalId" />
+        </EntityType>
+        <EntityType Name="DT_HousingTotal">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="UserId" />
+          <Property Type="Int32" Name="YearTable" />
+          <Property Type="String" Name="PartnerName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="PartnerUnit" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="PartnerPost" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Other" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="FillTime" Precision="3" />
+          <Property Type="DateTime" Name="UpdateTime" Precision="3" />
+          <Property Type="String" Name="Remark" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="DT_RewardPunishTotal">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="UserId" />
+          <Property Type="Int32" Name="YearTable" />
+          <Property Type="String" Name="CheckAdvice" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="FillTime" Precision="3" />
+          <Property Type="DateTime" Name="UpdateTime" Precision="3" />
+          <Property Type="String" Name="Remark" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="DT_Family">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="UserId" />
+          <Property Type="Int32" Name="YearTable" />
+          <Property Type="String" Name="Name" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Relation" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Outlook" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="WorkUnit" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Post" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="FamilyTotalId" />
+        </EntityType>
+        <EntityType Name="DT_GoAbroadSettler">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="UserId" />
+          <Property Type="Int32" Name="YearTable" />
+          <Property Type="String" Name="Settler" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="SettlerTitle" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="SettleTime" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="SettleAddress" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="SettlerWork" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="AbroadTotalId" />
+        </EntityType>
+        <EntityType Name="DT_GoAbroadStudy">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="UserId" />
+          <Property Type="Int32" Name="YearTable" />
+          <Property Type="String" Name="StudyName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="StudyTitle" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="StudyTime" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="StudyAddress" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="StudyMoney" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="AbroadTotalId" />
+        </EntityType>
+        <EntityType Name="DT_GoAbroadTotal">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="UserId" />
+          <Property Type="Int32" Name="YearTable" />
+          <Property Type="String" Name="LandingPaper" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="HKCertificate" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="FillTime" Precision="3" />
+          <Property Type="DateTime" Name="UpdateTime" Precision="3" />
+          <Property Type="String" Name="MarryName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="MarryUnit" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="RegisterTime" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="MarryPartner" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="PartnerNational" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Remark" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="DT_Punish">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="UserId" />
+          <Property Type="Int32" Name="YearTable" />
+          <Property Type="String" Name="PunishTime" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="PunishName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="PunishReason" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="PunishDpt" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Remark" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="RewardTotalId" />
+        </EntityType>
+        <EntityType Name="DT_RefuseGift">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="UserId" />
+          <Property Type="Int32" Name="YearTable" />
+          <Property Type="String" Name="HandInMoney" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="HandInName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="HandInCount" />
+          <Property Type="String" Name="HandInTime" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="HandInDpt" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Remark" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="RefuseTotalId" />
+        </EntityType>
+        <EntityType Name="DT_Reward">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="UserId" />
+          <Property Type="Int32" Name="YearTable" />
+          <Property Type="String" Name="RewardsTime" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="RewardsDptandName" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Remark" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="RewardTotalId" />
+        </EntityType>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="db_gblzModelStoreContainer" CdmEntityContainer="db_gblzEntities">
+          <EntitySetMapping Name="DT_BeShared">
+            <EntityTypeMapping TypeName="db_gblzModel.DT_BeShared">
+              <MappingFragment StoreEntitySet="DT_BeShared">
+                <ScalarProperty Name="BeSharedId" ColumnName="BeSharedId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DT_BuildTime">
+            <EntityTypeMapping TypeName="db_gblzModel.DT_BuildTime">
+              <MappingFragment StoreEntitySet="DT_BuildTime">
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="AddTime" ColumnName="AddTime" />
+                <ScalarProperty Name="BuildEndTime" ColumnName="BuildEndTime" />
+                <ScalarProperty Name="BuildStartTime" ColumnName="BuildStartTime" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DT_Role">
+            <EntityTypeMapping TypeName="db_gblzModel.DT_Role">
+              <MappingFragment StoreEntitySet="DT_Role">
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DT_Share">
+            <EntityTypeMapping TypeName="db_gblzModel.DT_Share">
+              <MappingFragment StoreEntitySet="DT_Share">
+                <ScalarProperty Name="ShareId" ColumnName="ShareId" />
+                <ScalarProperty Name="BeSharedId" ColumnName="BeSharedId" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="SharePeople" ColumnName="SharePeople" />
+                <ScalarProperty Name="ShareEndTime" ColumnName="ShareEndTime" />
+                <ScalarProperty Name="ShareBeginTime" ColumnName="ShareBeginTime" />
+                <ScalarProperty Name="SharedYear" ColumnName="SharedYear" />
+                <ScalarProperty Name="BeSharedPeople" ColumnName="BeSharedPeople" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DT_SharePeople">
+            <EntityTypeMapping TypeName="db_gblzModel.DT_SharePeople">
+              <MappingFragment StoreEntitySet="DT_SharePeople">
+                <ScalarProperty Name="TotalId" ColumnName="TotalId" />
+                <ScalarProperty Name="ShareId" ColumnName="ShareId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DT_Total">
+            <EntityTypeMapping TypeName="db_gblzModel.DT_Total">
+              <MappingFragment StoreEntitySet="DT_Total">
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="ApplyStatus2" ColumnName="ApplyStatus2" />
+                <ScalarProperty Name="IncTalkStatus2" ColumnName="IncTalkStatus2" />
+                <ScalarProperty Name="AdmTalkStatus2" ColumnName="AdmTalkStatus2" />
+                <ScalarProperty Name="LetterStatus2" ColumnName="LetterStatus2" />
+                <ScalarProperty Name="ResponsStatus2" ColumnName="ResponsStatus2" />
+                <ScalarProperty Name="ImportantStatus2" ColumnName="ImportantStatus2" />
+                <ScalarProperty Name="IndustryStatus2" ColumnName="IndustryStatus2" />
+                <ScalarProperty Name="CrimeStatus2" ColumnName="CrimeStatus2" />
+                <ScalarProperty Name="AbroadStatus2" ColumnName="AbroadStatus2" />
+                <ScalarProperty Name="WeddDieStatus2" ColumnName="WeddDieStatus2" />
+                <ScalarProperty Name="MarryChgStatus2" ColumnName="MarryChgStatus2" />
+                <ScalarProperty Name="HousingStatus2" ColumnName="HousingStatus2" />
+                <ScalarProperty Name="ProfitStatus2" ColumnName="ProfitStatus2" />
+                <ScalarProperty Name="RefuseStatus2" ColumnName="RefuseStatus2" />
+                <ScalarProperty Name="RewardStatus2" ColumnName="RewardStatus2" />
+                <ScalarProperty Name="FamilyStatus2" ColumnName="FamilyStatus2" />
+                <ScalarProperty Name="UserInfoStatus2" ColumnName="UserInfoStatus2" />
+                <ScalarProperty Name="ApplyStatus1" ColumnName="ApplyStatus1" />
+                <ScalarProperty Name="IncTalkStatus1" ColumnName="IncTalkStatus1" />
+                <ScalarProperty Name="AdmTalkStatus1" ColumnName="AdmTalkStatus1" />
+                <ScalarProperty Name="LetterStatus1" ColumnName="LetterStatus1" />
+                <ScalarProperty Name="ResponsStatus1" ColumnName="ResponsStatus1" />
+                <ScalarProperty Name="ImportantStatus1" ColumnName="ImportantStatus1" />
+                <ScalarProperty Name="IndustryStatus1" ColumnName="IndustryStatus1" />
+                <ScalarProperty Name="CrimeStatus1" ColumnName="CrimeStatus1" />
+                <ScalarProperty Name="AbroadStatus1" ColumnName="AbroadStatus1" />
+                <ScalarProperty Name="WeddDieStatus1" ColumnName="WeddDieStatus1" />
+                <ScalarProperty Name="MarryChgStatus1" ColumnName="MarryChgStatus1" />
+                <ScalarProperty Name="HousingStatus1" ColumnName="HousingStatus1" />
+                <ScalarProperty Name="ProfitStatus1" ColumnName="ProfitStatus1" />
+                <ScalarProperty Name="RefuseStatus1" ColumnName="RefuseStatus1" />
+                <ScalarProperty Name="RewardStatus1" ColumnName="RewardStatus1" />
+                <ScalarProperty Name="FamilyStatus1" ColumnName="FamilyStatus1" />
+                <ScalarProperty Name="UserInfoStatus1" ColumnName="UserInfoStatus1" />
+                <ScalarProperty Name="ApplyPeople2" ColumnName="ApplyPeople2" />
+                <ScalarProperty Name="IncTalkPeople2" ColumnName="IncTalkPeople2" />
+                <ScalarProperty Name="AdmTalkPeople2" ColumnName="AdmTalkPeople2" />
+                <ScalarProperty Name="LetterPeople2" ColumnName="LetterPeople2" />
+                <ScalarProperty Name="ResponsPeople2" ColumnName="ResponsPeople2" />
+                <ScalarProperty Name="ImportantPeople2" ColumnName="ImportantPeople2" />
+                <ScalarProperty Name="IndustryPeople2" ColumnName="IndustryPeople2" />
+                <ScalarProperty Name="CrimePeople2" ColumnName="CrimePeople2" />
+                <ScalarProperty Name="AbroadPeople2" ColumnName="AbroadPeople2" />
+                <ScalarProperty Name="WeddDiePeople2" ColumnName="WeddDiePeople2" />
+                <ScalarProperty Name="MarryChgPeople2" ColumnName="MarryChgPeople2" />
+                <ScalarProperty Name="HousingPeople2" ColumnName="HousingPeople2" />
+                <ScalarProperty Name="ProfitPeople2" ColumnName="ProfitPeople2" />
+                <ScalarProperty Name="RefusePeople2" ColumnName="RefusePeople2" />
+                <ScalarProperty Name="RewardPeople2" ColumnName="RewardPeople2" />
+                <ScalarProperty Name="FamilyPeople2" ColumnName="FamilyPeople2" />
+                <ScalarProperty Name="UserInfoPeople2" ColumnName="UserInfoPeople2" />
+                <ScalarProperty Name="ApplyPeople1" ColumnName="ApplyPeople1" />
+                <ScalarProperty Name="IncTalkPeople1" ColumnName="IncTalkPeople1" />
+                <ScalarProperty Name="AdmTalkPeople1" ColumnName="AdmTalkPeople1" />
+                <ScalarProperty Name="LetterPeople1" ColumnName="LetterPeople1" />
+                <ScalarProperty Name="ResponsPeople1" ColumnName="ResponsPeople1" />
+                <ScalarProperty Name="ImportantPeople1" ColumnName="ImportantPeople1" />
+                <ScalarProperty Name="IndustryPeople1" ColumnName="IndustryPeople1" />
+                <ScalarProperty Name="CrimePeople1" ColumnName="CrimePeople1" />
+                <ScalarProperty Name="AbroadPeople1" ColumnName="AbroadPeople1" />
+                <ScalarProperty Name="WeddDiePeople1" ColumnName="WeddDiePeople1" />
+                <ScalarProperty Name="MarryChgPeople1" ColumnName="MarryChgPeople1" />
+                <ScalarProperty Name="HousingPeople1" ColumnName="HousingPeople1" />
+                <ScalarProperty Name="ProfitPeople1" ColumnName="ProfitPeople1" />
+                <ScalarProperty Name="RefusePeople1" ColumnName="RefusePeople1" />
+                <ScalarProperty Name="RewardPeople1" ColumnName="RewardPeople1" />
+                <ScalarProperty Name="FamilyPeople1" ColumnName="FamilyPeople1" />
+                <ScalarProperty Name="UserInfoPeople1" ColumnName="UserInfoPeople1" />
+                <ScalarProperty Name="ApplyTime2" ColumnName="ApplyTime2" />
+                <ScalarProperty Name="IncTalkTime2" ColumnName="IncTalkTime2" />
+                <ScalarProperty Name="AdmTalkTime2" ColumnName="AdmTalkTime2" />
+                <ScalarProperty Name="LetterTime2" ColumnName="LetterTime2" />
+                <ScalarProperty Name="ResponsTime2" ColumnName="ResponsTime2" />
+                <ScalarProperty Name="ImportantTime2" ColumnName="ImportantTime2" />
+                <ScalarProperty Name="IndustryTime2" ColumnName="IndustryTime2" />
+                <ScalarProperty Name="CrimeTime2" ColumnName="CrimeTime2" />
+                <ScalarProperty Name="AbroadTime2" ColumnName="AbroadTime2" />
+                <ScalarProperty Name="WeddDieTime2" ColumnName="WeddDieTime2" />
+                <ScalarProperty Name="MarryChgTime2" ColumnName="MarryChgTime2" />
+                <ScalarProperty Name="HousingTime2" ColumnName="HousingTime2" />
+                <ScalarProperty Name="ProfitTime2" ColumnName="ProfitTime2" />
+                <ScalarProperty Name="RefuseTime2" ColumnName="RefuseTime2" />
+                <ScalarProperty Name="RewardTime2" ColumnName="RewardTime2" />
+                <ScalarProperty Name="FamilyTime2" ColumnName="FamilyTime2" />
+                <ScalarProperty Name="UserInfoTime2" ColumnName="UserInfoTime2" />
+                <ScalarProperty Name="ApplyTime1" ColumnName="ApplyTime1" />
+                <ScalarProperty Name="IncTalkTime1" ColumnName="IncTalkTime1" />
+                <ScalarProperty Name="AdmTalkTime1" ColumnName="AdmTalkTime1" />
+                <ScalarProperty Name="LetterTime1" ColumnName="LetterTime1" />
+                <ScalarProperty Name="ResponsTime1" ColumnName="ResponsTime1" />
+                <ScalarProperty Name="ImportantTime1" ColumnName="ImportantTime1" />
+                <ScalarProperty Name="IndustryTime1" ColumnName="IndustryTime1" />
+                <ScalarProperty Name="CrimeTime1" ColumnName="CrimeTime1" />
+                <ScalarProperty Name="AbroadTime1" ColumnName="AbroadTime1" />
+                <ScalarProperty Name="WeddDieTime1" ColumnName="WeddDieTime1" />
+                <ScalarProperty Name="MarryChgTime1" ColumnName="MarryChgTime1" />
+                <ScalarProperty Name="HousingTime1" ColumnName="HousingTime1" />
+                <ScalarProperty Name="ProfitTime1" ColumnName="ProfitTime1" />
+                <ScalarProperty Name="RefuseTime1" ColumnName="RefuseTime1" />
+                <ScalarProperty Name="RewardTime1" ColumnName="RewardTime1" />
+                <ScalarProperty Name="FamilyTime1" ColumnName="FamilyTime1" />
+                <ScalarProperty Name="UserInfoTime1" ColumnName="UserInfoTime1" />
+                <ScalarProperty Name="ApplyAdvice2" ColumnName="ApplyAdvice2" />
+                <ScalarProperty Name="IncTalkAdvice2" ColumnName="IncTalkAdvice2" />
+                <ScalarProperty Name="AdmTalkAdvice2" ColumnName="AdmTalkAdvice2" />
+                <ScalarProperty Name="LetterAdvice2" ColumnName="LetterAdvice2" />
+                <ScalarProperty Name="ResponsAdvice2" ColumnName="ResponsAdvice2" />
+                <ScalarProperty Name="ImportantAdvice2" ColumnName="ImportantAdvice2" />
+                <ScalarProperty Name="IndustryAdvice2" ColumnName="IndustryAdvice2" />
+                <ScalarProperty Name="CrimeAdvice2" ColumnName="CrimeAdvice2" />
+                <ScalarProperty Name="AbroadAdvice2" ColumnName="AbroadAdvice2" />
+                <ScalarProperty Name="WeddDieAdvice2" ColumnName="WeddDieAdvice2" />
+                <ScalarProperty Name="MarryChgAdvice2" ColumnName="MarryChgAdvice2" />
+                <ScalarProperty Name="HousingAdvice2" ColumnName="HousingAdvice2" />
+                <ScalarProperty Name="ProfitAdvice2" ColumnName="ProfitAdvice2" />
+                <ScalarProperty Name="RefuseAdvice2" ColumnName="RefuseAdvice2" />
+                <ScalarProperty Name="RewardAdvice2" ColumnName="RewardAdvice2" />
+                <ScalarProperty Name="FamilyAdvice2" ColumnName="FamilyAdvice2" />
+                <ScalarProperty Name="UserInfoAdvice2" ColumnName="UserInfoAdvice2" />
+                <ScalarProperty Name="ApplyAdvice1" ColumnName="ApplyAdvice1" />
+                <ScalarProperty Name="IncTalkAdvice1" ColumnName="IncTalkAdvice1" />
+                <ScalarProperty Name="AdmTalkAdvice1" ColumnName="AdmTalkAdvice1" />
+                <ScalarProperty Name="LetterAdvice1" ColumnName="LetterAdvice1" />
+                <ScalarProperty Name="ResponsAdvice1" ColumnName="ResponsAdvice1" />
+                <ScalarProperty Name="ImportantAdvice1" ColumnName="ImportantAdvice1" />
+                <ScalarProperty Name="IndustryAdvice1" ColumnName="IndustryAdvice1" />
+                <ScalarProperty Name="CrimeAdvice1" ColumnName="CrimeAdvice1" />
+                <ScalarProperty Name="AbroadAdvice1" ColumnName="AbroadAdvice1" />
+                <ScalarProperty Name="WeddDieAdvice1" ColumnName="WeddDieAdvice1" />
+                <ScalarProperty Name="MarryChgAdvice1" ColumnName="MarryChgAdvice1" />
+                <ScalarProperty Name="HousingAdvice1" ColumnName="HousingAdvice1" />
+                <ScalarProperty Name="ProfitAdvice1" ColumnName="ProfitAdvice1" />
+                <ScalarProperty Name="RefuseAdvice1" ColumnName="RefuseAdvice1" />
+                <ScalarProperty Name="RewardAdvice1" ColumnName="RewardAdvice1" />
+                <ScalarProperty Name="FamilyAdvice1" ColumnName="FamilyAdvice1" />
+                <ScalarProperty Name="UserInfoAdvice1" ColumnName="UserInfoAdvice1" />
+                <ScalarProperty Name="ApplyByLetterId" ColumnName="ApplyByLetterId" />
+                <ScalarProperty Name="IncorruptTalkId" ColumnName="IncorruptTalkId" />
+                <ScalarProperty Name="AdmonishingTalkId" ColumnName="AdmonishingTalkId" />
+                <ScalarProperty Name="PetitionLetterId" ColumnName="PetitionLetterId" />
+                <ScalarProperty Name="ResponsibilityId" ColumnName="ResponsibilityId" />
+                <ScalarProperty Name="ImportantId" ColumnName="ImportantId" />
+                <ScalarProperty Name="IndustryChangesId" ColumnName="IndustryChangesId" />
+                <ScalarProperty Name="CrimeId" ColumnName="CrimeId" />
+                <ScalarProperty Name="GoAbroadId" ColumnName="GoAbroadId" />
+                <ScalarProperty Name="WeddingandDieId" ColumnName="WeddingandDieId" />
+                <ScalarProperty Name="MarryChangeId" ColumnName="MarryChangeId" />
+                <ScalarProperty Name="HousingId" ColumnName="HousingId" />
+                <ScalarProperty Name="ProfitId" ColumnName="ProfitId" />
+                <ScalarProperty Name="RefuseGiftId" ColumnName="RefuseGiftId" />
+                <ScalarProperty Name="RewardId" ColumnName="RewardId" />
+                <ScalarProperty Name="FamilyId" ColumnName="FamilyId" />
+                <ScalarProperty Name="UserInfoId" ColumnName="UserInfoId" />
+                <ScalarProperty Name="HighFileTime" ColumnName="HighFileTime" />
+                <ScalarProperty Name="HighBackTime" ColumnName="HighBackTime" />
+                <ScalarProperty Name="ChkSubmitTime" ColumnName="ChkSubmitTime" />
+                <ScalarProperty Name="BackTime" ColumnName="BackTime" />
+                <ScalarProperty Name="FileStatus" ColumnName="FileStatus" />
+                <ScalarProperty Name="CheckStatus" ColumnName="CheckStatus" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="UpdTime" ColumnName="UpdTime" />
+                <ScalarProperty Name="AddTime" ColumnName="AddTime" />
+                <ScalarProperty Name="YearTable" ColumnName="YearTable" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DT_UnitDeptChange">
+            <EntityTypeMapping TypeName="db_gblzModel.DT_UnitDeptChange">
+              <MappingFragment StoreEntitySet="DT_UnitDeptChange">
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="AddTime" ColumnName="AddTime" />
+                <ScalarProperty Name="DeptName" ColumnName="DeptName" />
+                <ScalarProperty Name="UnitName" ColumnName="UnitName" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DT_UserLoginRecord">
+            <EntityTypeMapping TypeName="db_gblzModel.DT_UserLoginRecord">
+              <MappingFragment StoreEntitySet="DT_UserLoginRecord">
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="AddTime" ColumnName="AddTime" />
+                <ScalarProperty Name="ShareStatus" ColumnName="ShareStatus" />
+                <ScalarProperty Name="FillStatus" ColumnName="FillStatus" />
+                <ScalarProperty Name="Upost" ColumnName="Upost" />
+                <ScalarProperty Name="Department" ColumnName="Department" />
+                <ScalarProperty Name="WorkUnit" ColumnName="WorkUnit" />
+                <ScalarProperty Name="RealName" ColumnName="RealName" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Effectivedate" ColumnName="Effectivedate" />
+                <ScalarProperty Name="DeptId" ColumnName="DeptId" />
+                <ScalarProperty Name="WorkUnitId" ColumnName="WorkUnitId" />
+                <ScalarProperty Name="IsCadre" ColumnName="IsCadre" />
+                <ScalarProperty Name="IsInner" ColumnName="IsInner" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="LoginNum" ColumnName="LoginNum" />
+                <ScalarProperty Name="LoginIp" ColumnName="LoginIp" />
+                <ScalarProperty Name="LoginTime" ColumnName="LoginTime" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Telphone" ColumnName="Telphone" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DT_WorkUnit">
+            <EntityTypeMapping TypeName="db_gblzModel.DT_WorkUnit">
+              <MappingFragment StoreEntitySet="DT_WorkUnit">
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="UpdDeptTime" ColumnName="UpdDeptTime" />
+                <ScalarProperty Name="UpdUnitTime" ColumnName="UpdUnitTime" />
+                <ScalarProperty Name="AddDeptTime" ColumnName="AddDeptTime" />
+                <ScalarProperty Name="AddUnitTime" ColumnName="AddUnitTime" />
+                <ScalarProperty Name="CreateDept" ColumnName="CreateDept" />
+                <ScalarProperty Name="CreateUnit" ColumnName="CreateUnit" />
+                <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+                <ScalarProperty Name="UnitName" ColumnName="UnitName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DT_RefuseGiftTotal">
+            <EntityTypeMapping TypeName="db_gblzModel.DT_RefuseGiftTotal">
+              <MappingFragment StoreEntitySet="DT_RefuseGiftTotal">
+                <ScalarProperty Name="YearTable" ColumnName="YearTable" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="FillTime" ColumnName="FillTime" />
+                <ScalarProperty Name="CheckAdvice" ColumnName="CheckAdvice" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DT_UserInfo">
+            <EntityTypeMapping TypeName="db_gblzModel.DT_UserInfo">
+              <MappingFragment StoreEntitySet="DT_UserInfo">
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="FillTime" ColumnName="FillTime" />
+                <ScalarProperty Name="Introduction" ColumnName="Introduction" />
+                <ScalarProperty Name="UserAddress" ColumnName="UserAddress" />
+                <ScalarProperty Name="DoWork" ColumnName="DoWork" />
+                <ScalarProperty Name="PostTime" ColumnName="PostTime" />
+                <ScalarProperty Name="PostStatus" ColumnName="PostStatus" />
+                <ScalarProperty Name="Post" ColumnName="Post" />
+                <ScalarProperty Name="WorkUnit" ColumnName="WorkUnit" />
+                <ScalarProperty Name="Education" ColumnName="Education" />
+                <ScalarProperty Name="JobTime" ColumnName="JobTime" />
+                <ScalarProperty Name="Property" ColumnName="Property" />
+                <ScalarProperty Name="Nation" ColumnName="Nation" />
+                <ScalarProperty Name="PartyTime" ColumnName="PartyTime" />
+                <ScalarProperty Name="Outlook" ColumnName="Outlook" />
+                <ScalarProperty Name="IdCardNum" ColumnName="IdCardNum" />
+                <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+                <ScalarProperty Name="NativePlace" ColumnName="NativePlace" />
+                <ScalarProperty Name="Sex" ColumnName="Sex" />
+                <ScalarProperty Name="RealName" ColumnName="RealName" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
+                <ScalarProperty Name="YearTable" ColumnName="YearTable" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DT_AdmonishingTalk">
+            <EntityTypeMapping TypeName="db_gblzModel.DT_AdmonishingTalk">
+              <MappingFragment StoreEntitySet="DT_AdmonishingTalk">
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="FillTime" ColumnName="FillTime" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="LordTalkAdvice" ColumnName="LordTalkAdvice" />
+                <ScalarProperty Name="ObjectAdvice" ColumnName="ObjectAdvice" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="TalkAddress" ColumnName="TalkAddress" />
+                <ScalarProperty Name="TalkTime" ColumnName="TalkTime" />
+                <ScalarProperty Name="Post" ColumnName="Post" />
+                <ScalarProperty Name="LordTalk" ColumnName="LordTalk" />
+                <ScalarProperty Name="TalkReason" ColumnName="TalkReason" />
+                <ScalarProperty Name="BeUnit" ColumnName="BeUnit" />
+                <ScalarProperty Name="BePost" ColumnName="BePost" />
+                <ScalarProperty Name="BeLordTalk" ColumnName="BeLordTalk" />
+                <ScalarProperty Name="YearTable" ColumnName="YearTable" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DT_ApplyByLetter">
+            <EntityTypeMapping TypeName="db_gblzModel.DT_ApplyByLetter">
+              <MappingFragment StoreEntitySet="DT_ApplyByLetter">
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="FillTime" ColumnName="FillTime" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="Answer" ColumnName="Answer" />
+                <ScalarProperty Name="Reason" ColumnName="Reason" />
+                <ScalarProperty Name="ApplyTime" ColumnName="ApplyTime" />
+                <ScalarProperty Name="YearTable" ColumnName="YearTable" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DT_CrimeReport">
+            <EntityTypeMapping TypeName="db_gblzModel.DT_CrimeReport">
+              <MappingFragment StoreEntitySet="DT_CrimeReport">
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="FillTime" ColumnName="FillTime" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="Result" ColumnName="Result" />
+                <ScalarProperty Name="LawAgency" ColumnName="LawAgency" />
+                <ScalarProperty Name="CrimerPost" ColumnName="CrimerPost" />
+                <ScalarProperty Name="CrimerUnit" ColumnName="CrimerUnit" />
+                <ScalarProperty Name="Relation" ColumnName="Relation" />
+                <ScalarProperty Name="CrimerName" ColumnName="CrimerName" />
+                <ScalarProperty Name="YearTable" ColumnName="YearTable" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DT_FamilyTotal">
+            <EntityTypeMapping TypeName="db_gblzModel.DT_FamilyTotal">
+              <MappingFragment StoreEntitySet="DT_FamilyTotal">
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="FillTime" ColumnName="FillTime" />
+                <ScalarProperty Name="other" ColumnName="other" />
+                <ScalarProperty Name="YearTable" ColumnName="YearTable" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DT_Important">
+            <EntityTypeMapping TypeName="db_gblzModel.DT_Important">
+              <MappingFragment StoreEntitySet="DT_Important">
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="FillTime" ColumnName="FillTime" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="CheckInTime" ColumnName="CheckInTime" />
+                <ScalarProperty Name="CheckIn" ColumnName="CheckIn" />
+                <ScalarProperty Name="Report" ColumnName="Report" />
+                <ScalarProperty Name="YearTable" ColumnName="YearTable" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DT_IncorruptTalk">
+            <EntityTypeMapping TypeName="db_gblzModel.DT_IncorruptTalk">
+              <MappingFragment StoreEntitySet="DT_IncorruptTalk">
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="FillTime" ColumnName="FillTime" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="RecordPerson" ColumnName="RecordPerson" />
+                <ScalarProperty Name="LordTalk" ColumnName="LordTalk" />
+                <ScalarProperty Name="TalkAddress" ColumnName="TalkAddress" />
+                <ScalarProperty Name="TalkTime" ColumnName="TalkTime" />
+                <ScalarProperty Name="TalkReason" ColumnName="TalkReason" />
+                <ScalarProperty Name="YearTable" ColumnName="YearTable" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DT_IndustryChanges">
+            <EntityTypeMapping TypeName="db_gblzModel.DT_IndustryChanges">
+              <MappingFragment StoreEntitySet="DT_IndustryChanges">
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="FillTime" ColumnName="FillTime" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="Reason" ColumnName="Reason" />
+                <ScalarProperty Name="NowPost" ColumnName="NowPost" />
+                <ScalarProperty Name="NowUnit" ColumnName="NowUnit" />
+                <ScalarProperty Name="LastPost" ColumnName="LastPost" />
+                <ScalarProperty Name="LastUnit" ColumnName="LastUnit" />
+                <ScalarProperty Name="ChangeTime" ColumnName="ChangeTime" />
+                <ScalarProperty Name="Relation" ColumnName="Relation" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="YearTable" ColumnName="YearTable" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DT_MarryChange">
+            <EntityTypeMapping TypeName="db_gblzModel.DT_MarryChange">
+              <MappingFragment StoreEntitySet="DT_MarryChange">
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="FillTime" ColumnName="FillTime" />
+                <ScalarProperty Name="Other" ColumnName="Other" />
+                <ScalarProperty Name="NowRegisterTime" ColumnName="NowRegisterTime" />
+                <ScalarProperty Name="NowPost" ColumnName="NowPost" />
+                <ScalarProperty Name="NowUnit" ColumnName="NowUnit" />
+                <ScalarProperty Name="NowPolitical" ColumnName="NowPolitical" />
+                <ScalarProperty Name="NowPartner" ColumnName="NowPartner" />
+                <ScalarProperty Name="LastEndTime" ColumnName="LastEndTime" />
+                <ScalarProperty Name="LastRegisterTime" ColumnName="LastRegisterTime" />
+                <ScalarProperty Name="LastPartner" ColumnName="LastPartner" />
+                <ScalarProperty Name="IsMarryChange" ColumnName="IsMarryChange" />
+                <ScalarProperty Name="YearTable" ColumnName="YearTable" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DT_PetitionLetter">
+            <EntityTypeMapping TypeName="db_gblzModel.DT_PetitionLetter">
+              <MappingFragment StoreEntitySet="DT_PetitionLetter">
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="FillTime" ColumnName="FillTime" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="HandleResult" ColumnName="HandleResult" />
+                <ScalarProperty Name="SurveyResult" ColumnName="SurveyResult" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="ManPost" ColumnName="ManPost" />
+                <ScalarProperty Name="ManUnit" ColumnName="ManUnit" />
+                <ScalarProperty Name="ManTel" ColumnName="ManTel" />
+                <ScalarProperty Name="ManName" ColumnName="ManName" />
+                <ScalarProperty Name="ByManUnit" ColumnName="ByManUnit" />
+                <ScalarProperty Name="ByManPost" ColumnName="ByManPost" />
+                <ScalarProperty Name="ByManName" ColumnName="ByManName" />
+                <ScalarProperty Name="FromUnit" ColumnName="FromUnit" />
+                <ScalarProperty Name="LetterTime" ColumnName="LetterTime" />
+                <ScalarProperty Name="RecordNum" ColumnName="RecordNum" />
+                <ScalarProperty Name="YearTable" ColumnName="YearTable" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DT_ProfitReport">
+            <EntityTypeMapping TypeName="db_gblzModel.DT_ProfitReport">
+              <MappingFragment StoreEntitySet="DT_ProfitReport">
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="FillTime" ColumnName="FillTime" />
+                <ScalarProperty Name="Other" ColumnName="Other" />
+                <ScalarProperty Name="YearIncome" ColumnName="YearIncome" />
+                <ScalarProperty Name="InvestMoney" ColumnName="InvestMoney" />
+                <ScalarProperty Name="InvestWay" ColumnName="InvestWay" />
+                <ScalarProperty Name="InvestUnitNature" ColumnName="InvestUnitNature" />
+                <ScalarProperty Name="InvestUnit" ColumnName="InvestUnit" />
+                <ScalarProperty Name="YearMoney" ColumnName="YearMoney" />
+                <ScalarProperty Name="ParttimePost" ColumnName="ParttimePost" />
+                <ScalarProperty Name="ParttimeUnitNature" ColumnName="ParttimeUnitNature" />
+                <ScalarProperty Name="ParttimeUnit" ColumnName="ParttimeUnit" />
+                <ScalarProperty Name="YearProfit" ColumnName="YearProfit" />
+                <ScalarProperty Name="InvestmentRate" ColumnName="InvestmentRate" />
+                <ScalarProperty Name="RegisterMoney" ColumnName="RegisterMoney" />
+                <ScalarProperty Name="BusinessScope" ColumnName="BusinessScope" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="YearTable" ColumnName="YearTable" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DT_Responsibility">
+            <EntityTypeMapping TypeName="db_gblzModel.DT_Responsibility">
+              <MappingFragment StoreEntitySet="DT_Responsibility">
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="FillTime" ColumnName="FillTime" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="HandleStatus" ColumnName="HandleStatus" />
+                <ScalarProperty Name="Fact" ColumnName="Fact" />
+                <ScalarProperty Name="HandleOffice" ColumnName="HandleOffice" />
+                <ScalarProperty Name="ResTime" ColumnName="ResTime" />
+                <ScalarProperty Name="Nature" ColumnName="Nature" />
+                <ScalarProperty Name="YearTable" ColumnName="YearTable" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DT_WeddingandDie">
+            <EntityTypeMapping TypeName="db_gblzModel.DT_WeddingandDie">
+              <MappingFragment StoreEntitySet="DT_WeddingandDie">
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="FillTime" ColumnName="FillTime" />
+                <ScalarProperty Name="AdivceTime" ColumnName="AdivceTime" />
+                <ScalarProperty Name="Adivce" ColumnName="Adivce" />
+                <ScalarProperty Name="HandleStatus" ColumnName="HandleStatus" />
+                <ScalarProperty Name="AcceptingValue" ColumnName="AcceptingValue" />
+                <ScalarProperty Name="AcceptingCount" ColumnName="AcceptingCount" />
+                <ScalarProperty Name="AcceptingMoney" ColumnName="AcceptingMoney" />
+                <ScalarProperty Name="PartyNum" ColumnName="PartyNum" />
+                <ScalarProperty Name="PartyObject" ColumnName="PartyObject" />
+                <ScalarProperty Name="ManageAddress" ColumnName="ManageAddress" />
+                <ScalarProperty Name="ManageTime" ColumnName="ManageTime" />
+                <ScalarProperty Name="Arrange" ColumnName="Arrange" />
+                <ScalarProperty Name="YearTable" ColumnName="YearTable" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DT_GoAbroadCompany">
+            <EntityTypeMapping TypeName="db_gblzModel.DT_GoAbroadCompany">
+              <MappingFragment StoreEntitySet="DT_GoAbroadCompany">
+                <ScalarProperty Name="AbroadTotalId" ColumnName="AbroadTotalId" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="BuildCompanyAddress" ColumnName="BuildCompanyAddress" />
+                <ScalarProperty Name="BuildCompanyTitle" ColumnName="BuildCompanyTitle" />
+                <ScalarProperty Name="BuildCompanyName" ColumnName="BuildCompanyName" />
+                <ScalarProperty Name="YearTable" ColumnName="YearTable" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DT_HousingBuild">
+            <EntityTypeMapping TypeName="db_gblzModel.DT_HousingBuild">
+              <MappingFragment StoreEntitySet="DT_HousingBuild">
+                <ScalarProperty Name="HousingTotalId" ColumnName="HousingTotalId" />
+                <ScalarProperty Name="Payment" ColumnName="Payment" />
+                <ScalarProperty Name="BuildHousesTotal" ColumnName="BuildHousesTotal" />
+                <ScalarProperty Name="BuildHousesUnit" ColumnName="BuildHousesUnit" />
+                <ScalarProperty Name="BuildHousesArea" ColumnName="BuildHousesArea" />
+                <ScalarProperty Name="BuildHousesAddress" ColumnName="BuildHousesAddress" />
+                <ScalarProperty Name="YearTable" ColumnName="YearTable" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DT_HousingBuy">
+            <EntityTypeMapping TypeName="db_gblzModel.DT_HousingBuy">
+              <MappingFragment StoreEntitySet="DT_HousingBuy">
+                <ScalarProperty Name="HousingTotalId" ColumnName="HousingTotalId" />
+                <ScalarProperty Name="BuyHouseTime" ColumnName="BuyHouseTime" />
+                <ScalarProperty Name="BuyHouseIncome" ColumnName="BuyHouseIncome" />
+                <ScalarProperty Name="BuyHouseMoney" ColumnName="BuyHouseMoney" />
+                <ScalarProperty Name="BuyHouseArea" ColumnName="BuyHouseArea" />
+                <ScalarProperty Name="BuyHouseAddress" ColumnName="BuyHouseAddress" />
+                <ScalarProperty Name="YearTable" ColumnName="YearTable" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DT_HousingHouse">
+            <EntityTypeMapping TypeName="db_gblzModel.DT_HousingHouse">
+              <MappingFragment StoreEntitySet="DT_HousingHouse">
+                <ScalarProperty Name="HousingTotalId" ColumnName="HousingTotalId" />
+                <ScalarProperty Name="PropertyOwner" ColumnName="PropertyOwner" />
+                <ScalarProperty Name="HouseFrom" ColumnName="HouseFrom" />
+                <ScalarProperty Name="HouseNature" ColumnName="HouseNature" />
+                <ScalarProperty Name="Area" ColumnName="Area" />
+                <ScalarProperty Name="HouseAddress" ColumnName="HouseAddress" />
+                <ScalarProperty Name="YearTable" ColumnName="YearTable" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DT_HousingRentout">
+            <EntityTypeMapping TypeName="db_gblzModel.DT_HousingRentout">
+              <MappingFragment StoreEntitySet="DT_HousingRentout">
+                <ScalarProperty Name="HousingTotalId" ColumnName="HousingTotalId" />
+                <ScalarProperty Name="RentoutMoney" ColumnName="RentoutMoney" />
+                <ScalarProperty Name="RentoutTime" ColumnName="RentoutTime" />
+                <ScalarProperty Name="RentoutNature" ColumnName="RentoutNature" />
+                <ScalarProperty Name="RentoutArea" ColumnName="RentoutArea" />
+                <ScalarProperty Name="RentoutAddress" ColumnName="RentoutAddress" />
+                <ScalarProperty Name="YearTable" ColumnName="YearTable" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DT_HousingSell">
+            <EntityTypeMapping TypeName="db_gblzModel.DT_HousingSell">
+              <MappingFragment StoreEntitySet="DT_HousingSell">
+                <ScalarProperty Name="HousingTotalId" ColumnName="HousingTotalId" />
+                <ScalarProperty Name="SellHouseMoney" ColumnName="SellHouseMoney" />
+                <ScalarProperty Name="SellHouseTime" ColumnName="SellHouseTime" />
+                <ScalarProperty Name="SellHouseNature" ColumnName="SellHouseNature" />
+                <ScalarProperty Name="SellHouseArea" ColumnName="SellHouseArea" />
+                <ScalarProperty Name="SellHouseAddress" ColumnName="SellHouseAddress" />
+                <ScalarProperty Name="YearTable" ColumnName="YearTable" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DT_HousingTotal">
+            <EntityTypeMapping TypeName="db_gblzModel.DT_HousingTotal">
+              <MappingFragment StoreEntitySet="DT_HousingTotal">
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="FillTime" ColumnName="FillTime" />
+                <ScalarProperty Name="Other" ColumnName="Other" />
+                <ScalarProperty Name="PartnerPost" ColumnName="PartnerPost" />
+                <ScalarProperty Name="PartnerUnit" ColumnName="PartnerUnit" />
+                <ScalarProperty Name="PartnerName" ColumnName="PartnerName" />
+                <ScalarProperty Name="YearTable" ColumnName="YearTable" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DT_RewardPunishTotal">
+            <EntityTypeMapping TypeName="db_gblzModel.DT_RewardPunishTotal">
+              <MappingFragment StoreEntitySet="DT_RewardPunishTotal">
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="FillTime" ColumnName="FillTime" />
+                <ScalarProperty Name="CheckAdvice" ColumnName="CheckAdvice" />
+                <ScalarProperty Name="YearTable" ColumnName="YearTable" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DT_Family">
+            <EntityTypeMapping TypeName="db_gblzModel.DT_Family">
+              <MappingFragment StoreEntitySet="DT_Family">
+                <ScalarProperty Name="FamilyTotalId" ColumnName="FamilyTotalId" />
+                <ScalarProperty Name="Post" ColumnName="Post" />
+                <ScalarProperty Name="WorkUnit" ColumnName="WorkUnit" />
+                <ScalarProperty Name="Outlook" ColumnName="Outlook" />
+                <ScalarProperty Name="Relation" ColumnName="Relation" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="YearTable" ColumnName="YearTable" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DT_GoAbroadSettler">
+            <EntityTypeMapping TypeName="db_gblzModel.DT_GoAbroadSettler">
+              <MappingFragment StoreEntitySet="DT_GoAbroadSettler">
+                <ScalarProperty Name="AbroadTotalId" ColumnName="AbroadTotalId" />
+                <ScalarProperty Name="SettlerWork" ColumnName="SettlerWork" />
+                <ScalarProperty Name="SettleAddress" ColumnName="SettleAddress" />
+                <ScalarProperty Name="SettleTime" ColumnName="SettleTime" />
+                <ScalarProperty Name="SettlerTitle" ColumnName="SettlerTitle" />
+                <ScalarProperty Name="Settler" ColumnName="Settler" />
+                <ScalarProperty Name="YearTable" ColumnName="YearTable" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DT_GoAbroadStudy">
+            <EntityTypeMapping TypeName="db_gblzModel.DT_GoAbroadStudy">
+              <MappingFragment StoreEntitySet="DT_GoAbroadStudy">
+                <ScalarProperty Name="AbroadTotalId" ColumnName="AbroadTotalId" />
+                <ScalarProperty Name="StudyMoney" ColumnName="StudyMoney" />
+                <ScalarProperty Name="StudyAddress" ColumnName="StudyAddress" />
+                <ScalarProperty Name="StudyTime" ColumnName="StudyTime" />
+                <ScalarProperty Name="StudyTitle" ColumnName="StudyTitle" />
+                <ScalarProperty Name="StudyName" ColumnName="StudyName" />
+                <ScalarProperty Name="YearTable" ColumnName="YearTable" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DT_GoAbroadTotal">
+            <EntityTypeMapping TypeName="db_gblzModel.DT_GoAbroadTotal">
+              <MappingFragment StoreEntitySet="DT_GoAbroadTotal">
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="PartnerNational" ColumnName="PartnerNational" />
+                <ScalarProperty Name="MarryPartner" ColumnName="MarryPartner" />
+                <ScalarProperty Name="RegisterTime" ColumnName="RegisterTime" />
+                <ScalarProperty Name="MarryUnit" ColumnName="MarryUnit" />
+                <ScalarProperty Name="MarryName" ColumnName="MarryName" />
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="FillTime" ColumnName="FillTime" />
+                <ScalarProperty Name="HKCertificate" ColumnName="HKCertificate" />
+                <ScalarProperty Name="LandingPaper" ColumnName="LandingPaper" />
+                <ScalarProperty Name="YearTable" ColumnName="YearTable" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DT_Punish">
+            <EntityTypeMapping TypeName="db_gblzModel.DT_Punish">
+              <MappingFragment StoreEntitySet="DT_Punish">
+                <ScalarProperty Name="RewardTotalId" ColumnName="RewardTotalId" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="PunishDpt" ColumnName="PunishDpt" />
+                <ScalarProperty Name="PunishReason" ColumnName="PunishReason" />
+                <ScalarProperty Name="PunishName" ColumnName="PunishName" />
+                <ScalarProperty Name="PunishTime" ColumnName="PunishTime" />
+                <ScalarProperty Name="YearTable" ColumnName="YearTable" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DT_RefuseGift">
+            <EntityTypeMapping TypeName="db_gblzModel.DT_RefuseGift">
+              <MappingFragment StoreEntitySet="DT_RefuseGift">
+                <ScalarProperty Name="RefuseTotalId" ColumnName="RefuseTotalId" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="HandInDpt" ColumnName="HandInDpt" />
+                <ScalarProperty Name="HandInTime" ColumnName="HandInTime" />
+                <ScalarProperty Name="HandInCount" ColumnName="HandInCount" />
+                <ScalarProperty Name="HandInName" ColumnName="HandInName" />
+                <ScalarProperty Name="HandInMoney" ColumnName="HandInMoney" />
+                <ScalarProperty Name="YearTable" ColumnName="YearTable" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DT_Reward">
+            <EntityTypeMapping TypeName="db_gblzModel.DT_Reward">
+              <MappingFragment StoreEntitySet="DT_Reward">
+                <ScalarProperty Name="RewardTotalId" ColumnName="RewardTotalId" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="RewardsDptandName" ColumnName="RewardsDptandName" />
+                <ScalarProperty Name="RewardsTime" ColumnName="RewardsTime" />
+                <ScalarProperty Name="YearTable" ColumnName="YearTable" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
